@@ -15,5 +15,8 @@
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "spotify-web-api-node": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
