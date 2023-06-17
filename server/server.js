@@ -36,7 +36,6 @@ app.post("/refresh", (req, res) => {
 })
 
 app.post("/login", (req, res) => {
-  console.log('login HIT')
   const code = req.body.code
   const spotifyApi = new SpotifyWebApi({
     redirectUri: process.env.REDIRECT_URI,
@@ -47,7 +46,7 @@ app.post("/login", (req, res) => {
   spotifyApi
     .authorizationCodeGrant(code)
     .then(data => {
-      console.log('login data', data.body)
+      // console.log('login data', data.body)
       res.json({
         accessToken: data.body.access_token,
         refreshToken: data.body.refresh_token,
