@@ -59,13 +59,37 @@ app.post("/login", (req, res) => {
     })
 })
 
+app.post("/queue", (req, res) => {
+  const uri = req.body.uri
+  const spotifyApi = new SpotifyWebApi({
+    redirectUri: process.env.REDIRECT_URI,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+  })
+
+  // spotifyApi.setAccessToken('BQC5ncr0AhHIsB_5qkHZNrvOY9IzkM81x57oJs8vmmYaX8lG04…i3nCXXh-AQ0s7cr9CNgTX810rYDk_jZMy_u8DtY6k9EB_Me7q')
+
+  spotifyApi
+    .addToQueue(uri)
+    .then(data => {
+      console.log('track added')
+    })
+    .catch(err => {
+      console.log('addToQueue error', err)
+      res.sendStatus(400)
+    })
+})
+
+
+
+
 // Serve static files from the 'build' directory
 // app.use(express.static(path.resolve(__dirname, '..', 'client', 'build')));
 
 // Catch all route for serving the client application
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'client', 'public', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, '..', 'client', 'public', 'index.html'));
+// });
 
 // Your other routes and server configuration
 
