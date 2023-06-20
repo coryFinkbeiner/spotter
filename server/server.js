@@ -60,24 +60,27 @@ app.post("/login", (req, res) => {
 })
 
 app.post("/queue", (req, res) => {
-  const uri = req.body.uri
-  const spotifyApi = new SpotifyWebApi({
-    redirectUri: process.env.REDIRECT_URI,
-    clientId: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-  })
+  // const uri = req.body.uri
+  // const token = req.body.token
+  // const spotifyApi = new SpotifyWebApi({
+  //   redirectUri: process.env.REDIRECT_URI,
+  //   clientId: process.env.CLIENT_ID,
+  //   clientSecret: process.env.CLIENT_SECRET,
+  // })
 
-  // spotifyApi.setAccessToken('BQC5ncr0AhHIsB_5qkHZNrvOY9IzkM81x57oJs8vmmYaX8lG04…i3nCXXh-AQ0s7cr9CNgTX810rYDk_jZMy_u8DtY6k9EB_Me7q')
+  console.log('req body queue', req.body)
 
-  spotifyApi
-    .addToQueue(uri)
-    .then(data => {
-      console.log('track added')
-    })
-    .catch(err => {
-      console.log('addToQueue error', err)
-      res.sendStatus(400)
-    })
+  // spotifyApi.setAccessToken(token)
+
+  // spotifyApi
+  //   .addToQueue(uri)
+  //     .then(data => {
+  //       console.log('track added')
+  //     })
+  //     .catch(err => {
+  //       console.log('addToQueue error', err)
+  //       res.sendStatus(400)
+  //     })
 })
 
 
