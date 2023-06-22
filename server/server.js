@@ -59,30 +59,6 @@ app.post("/login", (req, res) => {
     })
 })
 
-app.post("/queue", (req, res) => {
-  // const uri = req.body.uri
-  // const token = req.body.token
-  // const spotifyApi = new SpotifyWebApi({
-  //   redirectUri: process.env.REDIRECT_URI,
-  //   clientId: process.env.CLIENT_ID,
-  //   clientSecret: process.env.CLIENT_SECRET,
-  // })
-
-  console.log('req body queue', req.body)
-
-  // spotifyApi.setAccessToken(token)
-
-  // spotifyApi
-  //   .addToQueue(uri)
-  //     .then(data => {
-  //       console.log('track added')
-  //     })
-  //     .catch(err => {
-  //       console.log('addToQueue error', err)
-  //       res.sendStatus(400)
-  //     })
-})
-
 
 
 
