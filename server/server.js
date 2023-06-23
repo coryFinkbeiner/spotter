@@ -46,7 +46,7 @@ app.post("/login", (req, res) => {
   spotifyApi
     .authorizationCodeGrant(code)
     .then(data => {
-      // console.log('login data', data.body)
+      console.log('login data', data.body)
       res.json({
         accessToken: data.body.access_token,
         refreshToken: data.body.refresh_token,
