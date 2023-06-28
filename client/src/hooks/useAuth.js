@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useDataContext } from './useDataContext'
 
-const useAuth = (code) => {
+
+
+const useAuth = () => {
+
+  const { code } = useDataContext()
+
+
   const [accessToken, setAccessToken] = useState();
   const [refreshToken, setRefreshToken] = useState();
   const [expiresIn, setExpiresIn] = useState();
 
   useEffect(() => {
     axios
-      .post("/login", {
+      .post("http://localhost:3002/login", {
         code,
       })
       .then((res) => {
@@ -17,8 +24,9 @@ const useAuth = (code) => {
         setExpiresIn(res.data.expiresIn);
         window.history.pushState({}, null, "/");
       })
-      .catch(() => {
-        window.location = "/";
+      .catch((err) => {
+        console.log('login err', err)
+        // window.location = "/";
       });
   }, [code]);
 
@@ -26,7 +34,7 @@ const useAuth = (code) => {
     if (!refreshToken || !expiresIn) return;
     const interval = setInterval(() => {
       axios
-        .post("/refresh", {
+        .post("http://localhost:3002/refresh", {
           refreshToken,
         })
         .then((res) => {

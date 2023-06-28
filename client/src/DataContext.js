@@ -1,14 +1,13 @@
-import { createContext, useReducer, useContext } from 'react';
+import { createContext, useReducer } from 'react';
 
-const DataContext = createContext();
+export const DataContext = createContext();
 
-function dataReducer(state, action) {
+export const dataReducer = (state, action) => {
   switch (action.type) {
-    case 'increment': {
-      return { data: state.data + 1 };
-    }
-    case 'decrement': {
-      return { data: state.data - 1 };
+    case 'SET_CODE': {
+      return {
+        code: action.payload
+      };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
@@ -16,27 +15,19 @@ function dataReducer(state, action) {
   }
 }
 
-function DataProvider({ children }) {
+export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, {
-    data: 0
+    code: null,
+    myQueue: [
+      "spotify:track:4iV5W9uYEdYUVa79Axb7Rh"
+    ]
   });
   // NOTE: you *might* need to memoize this value
   // Learn more in http://kcd.im/optimize-context
-  const value = { state, dispatch };
 
   return (
-    <DataContext.Provider value={{state, dispatch}}>
+    <DataContext.Provider value={{...state, dispatch }}>
       {children}
     </DataContext.Provider>
   );
 }
-
-function useData() {
-  const context = useContext(DataContext);
-  if (context === undefined) {
-    throw new Error('useData must be used within a DataProvider');
-  }
-  return context;
-}
-
-export { DataProvider };
