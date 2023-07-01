@@ -12,7 +12,7 @@ const spotifyApi = new SpotifyWebApi({
 function MyQueue() {
   const accessToken = useAuth()
   const { myQueue } = useDataContext()
-  console.log('0', myQueue)
+  console.log(Array.isArray(myQueue));
 
   useEffect(() => {
     if (!accessToken) return
@@ -21,27 +21,28 @@ function MyQueue() {
 
   useEffect(() => {
 
-
-
     const url = 'https://api.spotify.com/v1/me/player/queue'
-    const uri = 'spotify:track:4iV5W9uYEdYUVa79Axb7Rh';
+    // const uri = myQueue.pop()
 
-    axios.post(url, null, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      },
-      params: {
-        uri: uri
-      }
-    })
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.log('Error:', error);
-      });
+    // console.log({uri}, {myQueue})
 
-  }, [accessToken]);
+    // axios.post(url, null, {
+    //   headers: {
+    //     Authorization: `Bearer ${accessToken}`
+    //   },
+    //   params: {
+    //     uri: uri
+    //   }
+    // })
+    //   .then(response => {
+    //     console.log(response.data);
+    //   })
+    //   .catch(error => {
+    //     console.log('Error:', error);
+    //   });
+
+  }, [accessToken]); // should i add myQueue as a dependency?
+
 
   return (
     <div>MyQueue</div>
