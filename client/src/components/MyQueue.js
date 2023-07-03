@@ -37,22 +37,26 @@ async function addToQueue(url, accessToken, uri) {
 
 function MyQueue() {
   const accessToken = useAuth()
-  const { myQueue } = useDataContext()
+  const { myQueue, poppedTrack, dispatch } = useDataContext()
   const [trackTime, setTrackTime] = useState(null);
+  console.log('myQueue from top', myQueue)
+  console.log({poppedTrack})
 
   useEffect(() => {
     if (!accessToken) return
     spotifyApi.setAccessToken(accessToken)
-
   }, [accessToken])
 
 
   const addToPlaybackQueueWithDelay = async () => {
+
+    dispatch({ type: 'POP_QUEUE' });
+
     // if (myQueue.length === 0) {
     //   console.log('QUEUE EMPTY')
     //   return
     // }
-
+    // console.log({myQueue})
     // const uri = myQueue.pop();
     const response = await addToQueue('https://api.spotify.com/v1/me/player/queue', accessToken, "spotify:track:3kep7ZWLCMAsSDhEOI6eeu");
     // const trackDurationMs = response.duration_ms;
@@ -80,7 +84,7 @@ function MyQueue() {
   return (
     <div>
       MyQueue
-      <p>Track Time: {trackTime} ms</p>
+      <p>popped track {poppedTrack}</p>
       <button onClick={() => addToPlaybackQueueWithDelay()}>Start Playback</button>
     </div>
   )

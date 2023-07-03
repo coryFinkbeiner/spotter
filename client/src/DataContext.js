@@ -4,11 +4,17 @@ export const DataContext = createContext();
 
 export const dataReducer = (state, action) => {
   switch (action.type) {
-    case 'SET_CODE': {
+    case 'SET_CODE':
       return {
         code: action.payload
-      };
-    }
+      }
+    case 'POP_QUEUE':
+      // const poppedTrack = state.myQueue.pop();
+      return {
+        ...state,
+        // myQueue: [...state.myQueue],
+        poppedTrack: "spotify:track:3kep7ZWLCMAsSDhEOI6eeu",
+      }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
