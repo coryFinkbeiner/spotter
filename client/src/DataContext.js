@@ -19,9 +19,9 @@ export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, {
     code: null,
     myQueue: [
-      "spotify:track:4iV5W9uYEdYUVa79Axb7Rh",
-      "spotify:track:4iV5W9uYEdYUVa79Axb7Rh",
-      "spotify:track:3kep7ZWLCMAsSDhEOI6eeu"
+      "spotify:track:3kep7ZWLCMAsSDhEOI6eeu",
+      "spotify:track:0VrBoQvHLNq9PBPJxQrNNf",
+      "spotify:track:5ER4CebTR7M7JEV9XE5quI"
     ]
   });
   // NOTE: you *might* need to memoize this value

@@ -5,6 +5,9 @@ import { useDataContext } from '../hooks/useDataContext'
 
 import axios from 'axios'
 
+
+
+
 const spotifyApi = new SpotifyWebApi({
   clientId: "b5fd7277f6654b3e881be98a94afd5fc",
 })
@@ -24,7 +27,7 @@ async function addToQueue(url, accessToken, uri) {
         },
       }
     );
-    console.log(response.data);
+    console.log('response data for queue add', response.data);
   } catch (error) {
     console.log('Error:', error);
   }
