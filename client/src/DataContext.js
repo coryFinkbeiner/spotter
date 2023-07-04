@@ -10,10 +10,14 @@ export const dataReducer = (state, action) => {
         code: action.payload
       }
     case 'POP_QUEUE':
-
+      const newQueue = [...state.myQueue];
+      const poppedTrack = newQueue.pop();
+      console.log('POP_QUEUE state.myQueue',state.myQueue)
+      console.log('poppedTrack in POP_QUEUE', poppedTrack)
       return {
         ...state,
-        poppedTrack: "test the pop",
+        myQueue: newQueue,
+        poppedTrack: poppedTrack,
       }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
