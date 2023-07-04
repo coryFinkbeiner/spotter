@@ -35,6 +35,7 @@ function MyQueue() {
   useEffect(() => {
     if (!accessToken) return
     spotifyApi.setAccessToken(accessToken)
+    dispatch({ type: 'SET_ACCESS_TOKEN', payload: accessToken })
   }, [accessToken])
 
   useEffect(() => {
@@ -50,6 +51,7 @@ function MyQueue() {
 
   return (
     <div>MyQueue
+      <div>access token {accessToken}</div>
       <button
         onClick={() => dispatch({ type: 'POP_QUEUE' })}
       >Pop Queue</button>

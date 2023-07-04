@@ -9,6 +9,11 @@ export const dataReducer = (state, action) => {
         ...state,
         code: action.payload
       }
+    case 'SET_ACCESS_TOKEN':
+      return {
+        ...state,
+        accessToken: action.payload
+      }
     case 'POP_QUEUE':
       const newQueue = [...state.myQueue];
       const poppedTrack = newQueue.pop();
@@ -26,6 +31,7 @@ export const dataReducer = (state, action) => {
 export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, {
     code: null,
+    accessToken: null,
     myQueue: [
       "spotify:track:3kep7ZWLCMAsSDhEOI6eeu",
       "spotify:track:0VrBoQvHLNq9PBPJxQrNNf",
