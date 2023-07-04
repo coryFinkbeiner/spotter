@@ -23,7 +23,7 @@ export const dataReducer = (state, action) => {
 
 export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, {
-    code: 'empty',
+    code: null,
     myQueue: [
       "spotify:track:3kep7ZWLCMAsSDhEOI6eeu",
       "spotify:track:0VrBoQvHLNq9PBPJxQrNNf",

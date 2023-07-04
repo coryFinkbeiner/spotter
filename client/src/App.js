@@ -7,16 +7,18 @@ import React, { useEffect, useState } from 'react'
 
 function App() {
 
-  const code = new URLSearchParams(window.location.search).get("code")
 
 
-  const { dispatch } = useDataContext()
+  const newCode = new URLSearchParams(window.location.search).get("code")
+
+
+  const { code, dispatch } = useDataContext()
 
   useEffect(() => {
 
-    dispatch({type: 'SET_CODE' , payload: code })
+    if (newCode) dispatch({type: 'SET_CODE' , payload: newCode })
 
-  }, [code, dispatch])
+  }, [])
 
   return code ? <Dashboard /> : <Login />
 }
