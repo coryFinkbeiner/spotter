@@ -22,11 +22,6 @@ function Search() {
         },
       });
       setResults(response.data)
-      // Handle the search results
-      // console.log('search res', response.data.tracks.items); // You can access the search results in response.data
-      // Dispatch an action to update your state with the search results
-      // For example:
-      // dispatch({ type: 'SET_SEARCH_RESULTS', results: response.data.tracks.items });
     } catch (error) {
       console.log('Search Error:', error);
     }
@@ -39,7 +34,6 @@ function Search() {
   return (
     <div>
       <div>------------------SEARCH--------------------</div>
-      {/* <div>access token {accessToken}</div> */}
       <input type="text" value={query} onChange={handleChange} />
       <button onClick={handleSearch}>Search</button>
       <ul>
@@ -61,6 +55,3 @@ function Search() {
 }
 
 export default Search
-
-
-// start with just searching songs

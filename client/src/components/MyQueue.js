@@ -29,7 +29,7 @@ async function addToQueue(url, accessToken, uri) {
 
 function MyQueue() {
   const accessToken = useAuth()
-  const { myQueue, poppedTrack, dispatch } = useDataContext()
+  const { myQueue, dispatch } = useDataContext()
 
   useEffect(() => {
     if (!accessToken) return
@@ -37,24 +37,8 @@ function MyQueue() {
     dispatch({ type: 'SET_ACCESS_TOKEN', payload: accessToken })
   }, [accessToken])
 
-  // useEffect(() => {
-  //   const addTrackToQueue = async () => {
-  //     // const uri = myQueue.pop();
-  //     await addToQueue('https://api.spotify.com/v1/me/player/queue', accessToken, "spotify:track:3kep7ZWLCMAsSDhEOI6eeu");
-
-  //   };
-
-  //   addTrackToQueue();
-
-  // }, [accessToken, myQueue]);
-
   return (
     <div>----------------MyQueue---------------------
-      {/* <div>access token {accessToken}</div> */}
-      {/* <button
-        onClick={() => dispatch({ type: 'POP_QUEUE' })}
-      >Pop Queue</button> */}
-      {/* <p>popped track: {poppedTrack}</p> */}
       {<ul>
         {myQueue?.map((track, index) => (
           <li key={index}>{track.name} - {track.artists[0].name}</li>
