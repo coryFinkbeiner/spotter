@@ -61,20 +61,19 @@ function Search() {
       <div>access token {accessToken}</div>
       <input type="text" value={query} onChange={handleChange} />
       <button onClick={handleSearch}>Search</button>
-      {/* <ul>
-        {results && (
-          results.tracks.items.map((track) => {
-          console.log({track})
+      <ul>
+        {results?.tracks.items.map((track) => {
+          // console.log({track})
 
-          // return (
-          //   <li key={track.id}>
-          //     <p>{track.name}</p>
-          //     <p>Artist: {track.artists[0].name}</p>
-          //   </li>
-          // );
-        }))}
+            return (
+              <li key={track.id}>
+                <div>{track.name} - {track.artists[0].name}</div>
+              </li>
+            );
+          })
+        }
 
-      </ul> */}
+      </ul>
     </div>
   )
 }
