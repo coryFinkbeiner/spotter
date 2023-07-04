@@ -24,7 +24,7 @@ export const dataReducer = (state, action) => {
       }
     case 'ADD_TO_QUEUE':
       const newQueue2 = [...state.myQueue];
-      newQueue.push(action.payload)
+      newQueue2.push(action.payload)
       return {
         ...state,
         myQueue: newQueue2

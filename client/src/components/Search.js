@@ -13,7 +13,7 @@ function Search() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState({})
 
-  const { accessToken } = useDataContext()
+  const { accessToken, dispatch } = useDataContext()
 
   // useEffect(() => {
   //   if (!accessToken) return
@@ -67,7 +67,7 @@ function Search() {
           return (
             <li
               key={track.id}
-              onClick={() => console.log('HEYYY')}
+              onClick={() => dispatch({ type: 'ADD_TO_QUEUE', payload: track.name})}
             >
               <div>{track.name} - {track.artists[0].name}</div>
             </li>
