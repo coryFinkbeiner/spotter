@@ -2,16 +2,11 @@ import React, { useState, useEffect }  from 'react'
 import useAuth from "../hooks/useAuth";
 import SpotifyWebApi from "spotify-web-api-node"
 import { useDataContext } from '../hooks/useDataContext'
-
 import axios from 'axios'
-
-
-
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "b5fd7277f6654b3e881be98a94afd5fc",
 })
-
 
 async function addToQueue(url, accessToken, uri) {
   try {
@@ -27,17 +22,17 @@ async function addToQueue(url, accessToken, uri) {
         },
       }
     );
-    console.log('response data for queue add', response.data);
   } catch (error) {
     console.log('Error:', error);
   }
 }
 
-
-
 function MyQueue() {
   const accessToken = useAuth()
-  const { myQueue } = useDataContext()
+  const { myQueue, poppedTrack, dispatch } = useDataContext()
+
+
+  console.log('from MyQueue', {myQueue}, {poppedTrack})
 
   useEffect(() => {
     if (!accessToken) return
@@ -48,41 +43,30 @@ function MyQueue() {
     const addTrackToQueue = async () => {
       // const uri = myQueue.pop();
       await addToQueue('https://api.spotify.com/v1/me/player/queue', accessToken, "spotify:track:3kep7ZWLCMAsSDhEOI6eeu");
+
     };
 
     addTrackToQueue();
+
   }, [accessToken, myQueue]);
 
-
   return (
-    <div>MyQueue</div>
+    <div>MyQueue
+      <button
+        onClick={() => dispatch({ type: 'POP_QUEUE' })}
+      >Pop Queue</button>
+      <p>popped track: {poppedTrack}</p>
+      {myQueue ? (
+        <ul>
+          {myQueue.map((track, index) => (
+            <li key={index}>{track}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>Queue is empty.</p>
+    )}
+    </div>
   )
 }
 
 export default MyQueue
-
-
-
-// useEffect(() => {
-
-//   const url = 'https://api.spotify.com/v1/me/player/queue'
-//   // const uri = myQueue.pop()
-
-//   // console.log({uri}, {myQueue})
-
-//   // axios.post(url, null, {
-//   //   headers: {
-//   //     Authorization: `Bearer ${accessToken}`
-//   //   },
-//   //   params: {
-//   //     uri: uri
-//   //   }
-//   // })
-//   //   .then(response => {
-//   //     console.log(response.data);
-//   //   })
-//   //   .catch(error => {
-//   //     console.log('Error:', error);
-//   //   });
-
-// }, [accessToken]); // should i add myQueue as a dependency?

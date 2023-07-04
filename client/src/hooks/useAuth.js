@@ -41,7 +41,8 @@ const useAuth = () => {
           setAccessToken(res.data.accessToken);
           setExpiresIn(res.data.expiresIn);
         })
-        .catch(() => {
+        .catch((err) => {
+          console.log('refresh error', err)
           window.location = "/";
         });
     }, (expiresIn - 60) * 1000);
