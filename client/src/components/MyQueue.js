@@ -51,11 +51,11 @@ function MyQueue() {
 
   return (
     <div>MyQueue
-      <div>access token {accessToken}</div>
+      {/* <div>access token {accessToken}</div> */}
       <button
         onClick={() => dispatch({ type: 'POP_QUEUE' })}
       >Pop Queue</button>
-      <p>popped track: {poppedTrack}</p>
+      {/* <p>popped track: {poppedTrack}</p> */}
       {myQueue ? (
         <ul>
           {myQueue.map((track, index) => (

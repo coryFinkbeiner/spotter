@@ -22,6 +22,13 @@ export const dataReducer = (state, action) => {
         myQueue: newQueue,
         poppedTrack: poppedTrack,
       }
+    case 'ADD_TO_QUEUE':
+      const newQueue2 = [...state.myQueue];
+      newQueue.push(action.payload)
+      return {
+        ...state,
+        myQueue: newQueue2
+      }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }

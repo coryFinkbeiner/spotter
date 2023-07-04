@@ -11,7 +11,7 @@ import { useDataContext } from '../hooks/useDataContext'
 function Search() {
   // const accessToken = useAuth()
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState({})
 
   const { accessToken } = useDataContext()
 
@@ -62,17 +62,17 @@ function Search() {
       <input type="text" value={query} onChange={handleChange} />
       <button onClick={handleSearch}>Search</button>
       <ul>
-        {results?.tracks.items.map((track) => {
-          // console.log({track})
+        {results?.tracks?.items.map((track) => {
 
-            return (
-              <li key={track.id}>
-                <div>{track.name} - {track.artists[0].name}</div>
-              </li>
-            );
-          })
-        }
-
+          return (
+            <li
+              key={track.id}
+              onClick={() => console.log('HEYYY')}
+            >
+              <div>{track.name} - {track.artists[0].name}</div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   )
