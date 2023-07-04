@@ -31,40 +31,36 @@ function MyQueue() {
   const accessToken = useAuth()
   const { myQueue, poppedTrack, dispatch } = useDataContext()
 
-
   useEffect(() => {
     if (!accessToken) return
     spotifyApi.setAccessToken(accessToken)
     dispatch({ type: 'SET_ACCESS_TOKEN', payload: accessToken })
   }, [accessToken])
 
-  useEffect(() => {
-    const addTrackToQueue = async () => {
-      // const uri = myQueue.pop();
-      await addToQueue('https://api.spotify.com/v1/me/player/queue', accessToken, "spotify:track:3kep7ZWLCMAsSDhEOI6eeu");
+  // useEffect(() => {
+  //   const addTrackToQueue = async () => {
+  //     // const uri = myQueue.pop();
+  //     await addToQueue('https://api.spotify.com/v1/me/player/queue', accessToken, "spotify:track:3kep7ZWLCMAsSDhEOI6eeu");
 
-    };
+  //   };
 
-    addTrackToQueue();
+  //   addTrackToQueue();
 
-  }, [accessToken, myQueue]);
+  // }, [accessToken, myQueue]);
 
   return (
-    <div>MyQueue
+    <div>----------------MyQueue---------------------
       {/* <div>access token {accessToken}</div> */}
       {/* <button
         onClick={() => dispatch({ type: 'POP_QUEUE' })}
       >Pop Queue</button> */}
       {/* <p>popped track: {poppedTrack}</p> */}
-      {/* {myQueue ? (
-        <ul>
-          {myQueue.map((track, index) => (
-            <li key={index}>{track}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>Queue is empty.</p>
-    )} */}
+      {<ul>
+        {myQueue?.map((track, index) => (
+          <li key={index}>{track.name} - {track.artists[0].name}</li>
+        ))}
+      </ul>}
+    <div>-------------------------------------------</div>
     </div>
   )
 }
