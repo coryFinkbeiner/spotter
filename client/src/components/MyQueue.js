@@ -52,11 +52,11 @@ function MyQueue() {
   return (
     <div>MyQueue
       {/* <div>access token {accessToken}</div> */}
-      <button
+      {/* <button
         onClick={() => dispatch({ type: 'POP_QUEUE' })}
-      >Pop Queue</button>
+      >Pop Queue</button> */}
       {/* <p>popped track: {poppedTrack}</p> */}
-      {myQueue ? (
+      {/* {myQueue ? (
         <ul>
           {myQueue.map((track, index) => (
             <li key={index}>{track}</li>
@@ -64,7 +64,7 @@ function MyQueue() {
         </ul>
       ) : (
         <p>Queue is empty.</p>
-    )}
+    )} */}
     </div>
   )
 }

@@ -39,12 +39,8 @@ export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, {
     code: null,
     accessToken: null,
-    myQueue: [
-      "spotify:track:3kep7ZWLCMAsSDhEOI6eeu",
-      "spotify:track:0VrBoQvHLNq9PBPJxQrNNf",
-      "spotify:track:5ER4CebTR7M7JEV9XE5quI"
-    ],
-    poppedTrack: "spotify:track:3kep7ZWLCMAsSDhEOI6eeu"
+    myQueue: [],
+    poppedTrack: {}
   });
   // NOTE: you *might* need to memoize this value
   // Learn more in http://kcd.im/optimize-context

@@ -67,7 +67,7 @@ function Search() {
           return (
             <li
               key={track.id}
-              onClick={() => dispatch({ type: 'ADD_TO_QUEUE', payload: track.name})}
+              onClick={() => dispatch({ type: 'ADD_TO_QUEUE', payload: track})}
             >
               <div>{track.name} - {track.artists[0].name}</div>
             </li>
