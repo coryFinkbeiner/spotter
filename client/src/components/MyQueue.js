@@ -32,8 +32,6 @@ function MyQueue() {
   const { myQueue, poppedTrack, dispatch } = useDataContext()
 
 
-  console.log('from MyQueue', {myQueue}, {poppedTrack})
-
   useEffect(() => {
     if (!accessToken) return
     spotifyApi.setAccessToken(accessToken)

@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+
+.dashboard {
+  display:flex;
+  flex-direction: row;
+  background-color: black;
+  height: 100vh;
+}

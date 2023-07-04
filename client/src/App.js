@@ -17,3 +17,7 @@ function App() {
 }
 
 export default App;
+
+
+// you could let people set YEAR bombs too...
+  // The artist and year filters can be used while searching albums, artists and tracks. You can filter on a single year or a range (e.g. 1955-1960).
