@@ -25,7 +25,7 @@ const useAuth = () => {
         window.history.pushState({}, null, "/");
       })
       .catch((err) => {
-        console.log('login err', err)
+        // console.log('login err', err)
         // window.location = "/";
       });
   }, [code]);
