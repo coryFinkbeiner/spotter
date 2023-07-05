@@ -20,7 +20,7 @@ const queueLooper = () => {
 }
 
 
-async function addToQueue(uri, accessToken) {
+async function QueuePOST(uri, accessToken) {
   try {
     const response = await axios.post(
       'https://api.spotify.com/v1/me/player/queue',
@@ -34,6 +34,7 @@ async function addToQueue(uri, accessToken) {
         },
       }
     );
+    console.log('Added to queue')
   } catch (error) {
     console.log('Error:', error);
   }
@@ -49,14 +50,19 @@ function MyQueue() {
     dispatch({ type: 'SET_ACCESS_TOKEN', payload: accessToken })
   }, [accessToken])
 
+  useEffect(() => {
+    if (poppedTrack) {
+      console.log('uri', poppedTrack.uri);
+      QueuePOST(poppedTrack.uri, accessToken);
+    }
+  }, [poppedTrack]);
+
   return (
     <div>----------------MyQueue--------------------
       <button
         onClick={() => {
           dispatch({ type: 'POP_QUEUE' })
-          console.log('uri', poppedTrack.uri)
-          addToQueue(poppedTrack.uri, accessToken)}
-        }
+        }}
       >
         Add To Spotify Queue
       </button>
