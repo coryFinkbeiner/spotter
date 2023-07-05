@@ -8,10 +8,22 @@ const spotifyApi = new SpotifyWebApi({
   clientId: "b5fd7277f6654b3e881be98a94afd5fc",
 })
 
-async function addToQueue(url, accessToken, uri) {
+
+const queueLooper = () => {
+
+  // POP_QUEUE
+
+
+
+
+
+}
+
+
+async function addToQueue(uri, accessToken) {
   try {
     const response = await axios.post(
-      url,
+      'https://api.spotify.com/v1/me/player/queue',
       null,
       {
         headers: {
@@ -29,7 +41,7 @@ async function addToQueue(url, accessToken, uri) {
 
 function MyQueue() {
   const accessToken = useAuth()
-  const { myQueue, dispatch } = useDataContext()
+  const { myQueue, poppedTrack, dispatch } = useDataContext()
 
   useEffect(() => {
     if (!accessToken) return
@@ -39,6 +51,15 @@ function MyQueue() {
 
   return (
     <div>----------------MyQueue--------------------
+      <button
+        onClick={() => {
+          dispatch({ type: 'POP_QUEUE' })
+          console.log('uri', poppedTrack.uri)
+          addToQueue(poppedTrack.uri, accessToken)}
+        }
+      >
+        Add To Spotify Queue
+      </button>
       {<ul>
         {myQueue?.map((track, index) => (
           <li key={index}>{track.name} - {track.artists[0].name}</li>
@@ -50,6 +71,21 @@ function MyQueue() {
 }
 
 export default MyQueue
+
+
+// am i going to be compounding the 3 seconds delay?
+  // do i need to set the delay at first, of 3 seconds, but then after that, set the delay to the exact duration of the track?
+
+
+
+
+
+
+
+
+
+
+
 
 
 

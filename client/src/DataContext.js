@@ -16,11 +16,12 @@ export const dataReducer = (state, action) => {
       }
     case 'POP_QUEUE':
       const newQueue = [...state.myQueue];
-      const poppedTrack = newQueue.pop();
+      const pop = newQueue.pop();
+      console.log({pop})
       return {
         ...state,
         myQueue: newQueue,
-        poppedTrack: poppedTrack,
+        poppedTrack: pop,
       }
     case 'ADD_TO_QUEUE':
       const newQueue2 = [...state.myQueue];
