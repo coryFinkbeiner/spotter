@@ -20,7 +20,7 @@ const queueLooper = () => {
 }
 
 
-async function QueuePOST(uri, accessToken) {
+async function queuePOST(uri, accessToken) {
   try {
     const response = await axios.post(
       'https://api.spotify.com/v1/me/player/queue',
@@ -52,8 +52,14 @@ function MyQueue() {
 
   useEffect(() => {
     if (poppedTrack) {
-      console.log('uri', poppedTrack.uri);
-      QueuePOST(poppedTrack.uri, accessToken);
+      // console.log('uri', poppedTrack.uri);
+      queuePOST(poppedTrack.uri, accessToken);
+
+      // so then should i put the setTimeout here?
+      setTimeout(() => {
+        dispatch({ type: 'POP_QUEUE' })
+      }, poppedTrack.duration_ms - 3000);
+
     }
   }, [poppedTrack]);
 
