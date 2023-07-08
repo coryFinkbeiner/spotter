@@ -8,18 +8,6 @@ const spotifyApi = new SpotifyWebApi({
   clientId: "b5fd7277f6654b3e881be98a94afd5fc",
 })
 
-
-const queueLooper = () => {
-
-  // POP_QUEUE
-
-
-
-
-
-}
-
-
 async function queuePOST(uri, accessToken) {
   try {
     const response = await axios.post(
@@ -55,7 +43,6 @@ function MyQueue() {
       // console.log('uri', poppedTrack.uri);
       queuePOST(poppedTrack.uri, accessToken);
 
-      // so then should i put the setTimeout here?
       setTimeout(() => {
         dispatch({ type: 'POP_QUEUE' })
       }, poppedTrack.duration_ms - 3000);
