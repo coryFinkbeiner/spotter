@@ -38,17 +38,17 @@ function MyQueue() {
     dispatch({ type: 'SET_ACCESS_TOKEN', payload: accessToken })
   }, [accessToken])
 
-  useEffect(() => {
-    if (poppedTrack) {
-      // console.log('uri', poppedTrack.uri);
-      queuePOST(poppedTrack.uri, accessToken);
+  // useEffect(() => {
+  //   if (poppedTrack) {
+  //     // console.log('uri', poppedTrack.uri);
+  //     queuePOST(poppedTrack.uri, accessToken);
 
-      setTimeout(() => {
-        dispatch({ type: 'POP_QUEUE' })
-      }, poppedTrack.duration_ms - 3000);
+  //     setTimeout(() => {
+  //       dispatch({ type: 'POP_QUEUE' })
+  //     }, poppedTrack.duration_ms - 3000);
 
-    }
-  }, [poppedTrack]);
+  //   }
+  // }, [poppedTrack]);
 
   return (
     <div>----------------MyQueue--------------------
