@@ -8,6 +8,8 @@ function Sidebar() {
 
   const [radio, setRadio] = useState('albums')
 
+  const [selections, setSelections] = useState([])
+
 
   useEffect(() => {
 
@@ -18,7 +20,7 @@ function Sidebar() {
             Authorization: `Bearer ${accessToken}`,
           }
         });
-        console.log(response.data);
+        console.log(response.data.items);
       } catch (error) {
         console.log('Get My Music Error:', error);
       }
