@@ -57,7 +57,6 @@ function Search() {
   const [query, setQuery] = useState('');
   const [searchType, setSearchType] = useState('track');
   const [results, setResults] = useState({});
-
   const { accessToken, dispatch } = useDataContext();
 
   const handleSearch = async () => {

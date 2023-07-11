@@ -1,6 +1,7 @@
 import React from 'react'
 import MyQueue from './MyQueue'
 import Search from './Search'
+import Sidebar from './Sidebar'
 
 
 function Dashboard() {
@@ -9,6 +10,7 @@ function Dashboard() {
     <div>Dashboard
       <MyQueue />
       <Search />
+      <Sidebar />
     </div>
   )
 }
