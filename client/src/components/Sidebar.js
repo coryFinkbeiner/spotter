@@ -6,7 +6,7 @@ function Sidebar() {
 
   const { accessToken } = useDataContext();
 
-  const [radio, setRadio] = useState('tracks')
+  const [radio, setRadio] = useState('albums')
 
 
   useEffect(() => {
