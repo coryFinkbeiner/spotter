@@ -4,8 +4,29 @@ import { useDataContext } from '../hooks/useDataContext';
 
 function Sidebar() {
 
-  const { accessToken, dispatch } = useDataContext();
+  const { accessToken } = useDataContext();
 
+  const [radio, setRadio] = useState('tracks')
+
+
+  useEffect(() => {
+
+    (async () => {
+      try {
+        const response = await axios.get('https://api.spotify.com/v1/me/' + radio, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          }
+        });
+        console.log(response.data);
+      } catch (error) {
+        console.log('Get My Music Error:', error);
+      }
+    })()
+
+  }, [accessToken])
+
+  // i think this should be in a useEffect, with option as a dependency
 
 
   return (
@@ -17,12 +38,9 @@ function Sidebar() {
 
 export default Sidebar
 
-// bring in accessToken
-
-
 
 // HTML
-// 3 radio buttons: Liked Songs, Albums, Playlists
+// 3 radio buttons: Tracks, Albums, Playlists
 // one dropdown menu with a field next to it that shows the current selection. (recently added, etc.)
 
 // no dispatches here? just GET my music?
