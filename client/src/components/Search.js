@@ -21,7 +21,7 @@ function TrackList({ tracks, dispatch }) {
   );
 }
 
-function ArtistList({ artists }) {
+function ArtistList({ artists, dispatch }) {
   if (!artists || artists.length === 0) {
     return <div>Search Artists</div>;
   }
@@ -29,7 +29,10 @@ function ArtistList({ artists }) {
   return (
     <ul>
       {artists.map((artist) => (
-        <li key={artist.id}>
+        <li
+          key={artist.id}
+          onClick={() => dispatch({ type: 'VIEW_IN_CONSOLE', payload: artist })}
+        >
           <div>{artist.name}</div>
         </li>
       ))}
@@ -37,7 +40,7 @@ function ArtistList({ artists }) {
   );
 }
 
-function AlbumList({ albums }) {
+function AlbumList({ albums, dispatch }) {
   if (!albums || albums.length === 0) {
     return <div>Search Albums</div>;
   }
@@ -45,7 +48,10 @@ function AlbumList({ albums }) {
   return (
     <ul>
       {albums.map((album) => (
-        <li key={album.id}>
+        <li
+          key={album.id}
+          onClick={() => dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })}
+        >
           <div>{album.name}</div>
         </li>
       ))}
@@ -97,7 +103,7 @@ function Search() {
             checked={searchType === 'track'}
             onChange={handleRadioChange}
           />
-          Songs
+          Tracks
         </label>
         <label>
           <input
@@ -127,11 +133,11 @@ function Search() {
       )}
 
       {searchType === 'artist' && (
-        <ArtistList artists={results?.artists?.items} />
+        <ArtistList artists={results?.artists?.items} dispatch={dispatch} />
       )}
 
       {searchType === 'album' && (
-        <AlbumList albums={results?.albums?.items} />
+        <AlbumList albums={results?.albums?.items} dispatch={dispatch} />
       )}
 
       <div>-------------------------------------------</div>

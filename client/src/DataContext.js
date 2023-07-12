@@ -17,7 +17,6 @@ export const dataReducer = (state, action) => {
     case 'POP_QUEUE':
       const newQueue = [...state.myQueue];
       const pop = newQueue.pop();
-      console.log({pop})
       return {
         ...state,
         myQueue: newQueue,
@@ -30,6 +29,11 @@ export const dataReducer = (state, action) => {
         ...state,
         myQueue: newQueue2
       }
+      case 'VIEW_IN_CONSOLE':
+        return {
+          ...state,
+          inView: action.payload
+        }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -42,7 +46,8 @@ export const DataProvider = ({ children }) => {
     accessToken: null,
     myQueue: [],
     poppedTrack: {},
-    consoleView: 'Search'
+    consoleView: 'Search',
+    inView: {} // Artist, Playlist or Album data.item
   });
 
   return (
