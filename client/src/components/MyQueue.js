@@ -39,7 +39,7 @@ function MyQueue() {
   }, [accessToken])
 
   return (
-    <div>----------------MyQueue--------------------
+    <div className='my-queue'>----------------MyQueue--------------------
       <button
         onClick={() => {
           dispatch({ type: 'POP_QUEUE' })

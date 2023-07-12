@@ -12,13 +12,15 @@ function Dashboard() {
   const { consoleViewType } = useDataContext();
 
   return (
-    <div>Dashboard
-      <MyQueue />
-      {consoleViewType === 'Search' && <Search />}
-      {consoleViewType === 'AlbumView' && <AlbumView />}
-      {consoleViewType === 'ArtistView' && <ArtistView />}
-      {consoleViewType === 'PlaylistView' && <PlaylistView />}
+    <div className='dashboard'>Dashboard
       <Sidebar />
+      <div className="console">
+        {consoleViewType === 'Search' && <Search />}
+        {consoleViewType === 'AlbumView' && <AlbumView />}
+        {consoleViewType === 'ArtistView' && <ArtistView />}
+        {consoleViewType === 'PlaylistView' && <PlaylistView />}
+      </div>
+      <MyQueue />
     </div>
   )
 }

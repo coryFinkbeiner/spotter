@@ -104,7 +104,7 @@ function Sidebar() {
   };
 
   return (
-    <div>
+    <div className='sidebar'>
       <div>------------------Sidebar--------------------</div>
 
       <div>
