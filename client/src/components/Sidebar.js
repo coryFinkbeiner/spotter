@@ -24,36 +24,51 @@ function Tracks({ results, dispatch }) {
 
 function Albums({ results, dispatch }) {
 
-  // return <div>Albums not found</div>
+  return <div>Albums not found</div>
 
-  if (!results) {
-    return <div>Albums not found</div>;
-  }
 
-  return (
-    <ul>
-      {results?.items?.map((item) => (
-        <li
-          key={item.album.id}
 
-        >
-          <div>{item.album.name}</div>
-        </li>
-      ))}
-    </ul>
-  );
+  // if (!results) {
+  //   return <div>Albums not found</div>;
+  // }
+
+  // return (
+  //   <ul>
+  //     {results?.items?.map((item) => (
+  //       <li
+  //         key={item.album.id}
+  //         onClick={() => {
+  //           dispatch({ type: 'VIEW_IN_CONSOLE', payload: item.album })
+  //           dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
+  //         }}
+  //       >
+  //         <div>{item.album.name}</div>
+  //       </li>
+  //     ))}
+  //   </ul>
+  // );
+
+
+
+
 }
 
-function Playlists({ results }) {
+function Playlists({ results, dispatch }) {
   if (!results) {
     return <div>Playlists not found</div>;
   }
 
   return (
     <ul>
-      {results?.items?.map((item) => (
-        <li key={item.id}>
-          <div>{item.name}</div>
+      {results?.items?.map((playlist) => (
+        <li
+          key={playlist.id}
+          onClick={() => {
+            dispatch({ type: 'VIEW_IN_CONSOLE', payload: playlist })
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'PlaylistView' })
+          }}
+        >
+          <div>{playlist.name}</div>
         </li>
       ))}
     </ul>
@@ -126,11 +141,11 @@ function Sidebar() {
       )}
 
       {radio === 'albums' && (
-        <Albums results={results} />
+        <Albums results={results} dispatch={dispatch} />
       )}
 
       {radio === 'playlists' && (
-        <Playlists results={results} />
+        <Playlists results={results} dispatch={dispatch} />
       )}
 
       <div>-------------------------------------------</div>
