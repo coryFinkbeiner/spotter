@@ -12,7 +12,7 @@ function Dashboard() {
   const { consoleViewType } = useDataContext();
 
   return (
-    <div className='dashboard'>Dashboard
+    <div className='dashboard'>
       <Sidebar />
       <div className="console">
         {consoleViewType === 'Search' && <Search />}
