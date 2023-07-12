@@ -31,7 +31,10 @@ function ArtistList({ artists, dispatch }) {
       {artists.map((artist) => (
         <li
           key={artist.id}
-          onClick={() => dispatch({ type: 'VIEW_IN_CONSOLE', payload: artist })}
+          onClick={() => {
+            dispatch({ type: 'VIEW_IN_CONSOLE', payload: artist })
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'ArtistView' })
+          }}
         >
           <div>{artist.name}</div>
         </li>
@@ -50,7 +53,10 @@ function AlbumList({ albums, dispatch }) {
       {albums.map((album) => (
         <li
           key={album.id}
-          onClick={() => dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })}
+          onClick={() => {
+            dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
+          }}
         >
           <div>{album.name}</div>
         </li>

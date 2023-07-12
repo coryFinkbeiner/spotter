@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useDataContext } from '../hooks/useDataContext';
 
 
-function Tracks({ results }) {
+function Tracks({ results, dispatch }) {
   if (!results) {
     return <div>Tracks not found</div>;
   }
@@ -11,7 +11,10 @@ function Tracks({ results }) {
   return (
     <ul>
       {results?.items?.map((item) => (
-        <li key={item.track.id}>
+        <li
+          key={item.track.id}
+          onClick={() => dispatch({ type: 'ADD_TO_QUEUE', payload: item.track })}
+        >
           <div>{item.track.name}</div>
         </li>
       ))}
@@ -19,7 +22,7 @@ function Tracks({ results }) {
   );
 }
 
-function Albums({ results }) {
+function Albums({ results, dispatch }) {
 
   // return <div>Albums not found</div>
 
@@ -30,7 +33,10 @@ function Albums({ results }) {
   return (
     <ul>
       {results?.items?.map((item) => (
-        <li key={item.album.id}>
+        <li
+          key={item.album.id}
+
+        >
           <div>{item.album.name}</div>
         </li>
       ))}
@@ -116,7 +122,7 @@ function Sidebar() {
         </label>
       </div>
       {radio === 'tracks' && (
-        <Tracks results={results}  />
+        <Tracks results={results} dispatch={dispatch}  />
       )}
 
       {radio === 'albums' && (

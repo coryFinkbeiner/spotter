@@ -34,6 +34,11 @@ export const dataReducer = (state, action) => {
           ...state,
           inView: action.payload
         }
+      case 'CHANGE_VIEW_TYPE':
+        return {
+          ...state,
+          consoleViewType: action.payload
+        }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -46,7 +51,7 @@ export const DataProvider = ({ children }) => {
     accessToken: null,
     myQueue: [],
     poppedTrack: {},
-    consoleView: 'Search',
+    consoleViewType: 'Search',
     inView: {} // Artist, Playlist or Album data.item
   });
 

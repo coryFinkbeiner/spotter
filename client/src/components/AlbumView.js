@@ -1,8 +1,12 @@
-import React from 'react'
+import { useDataContext } from '../hooks/useDataContext';
+import React, { useState, useEffect } from 'react';
 
 function AlbumView() {
+
+  const { inView } = useDataContext()
+
   return (
-    <div>AlbumView</div>
+    <div>{inView.name}</div>
   )
 }
 

@@ -9,15 +9,15 @@ import ArtistView from './ArtistView'
 
 function Dashboard() {
 
-  const { consoleView } = useDataContext();
+  const { consoleViewType } = useDataContext();
 
   return (
     <div>Dashboard
       <MyQueue />
-      {consoleView === 'Search' && <Search />}
-      {consoleView === 'AlbumView' && <AlbumView />}
-      {consoleView === 'ArtistView' && <ArtistView />}
-      {consoleView === 'PlaylistView' && <PlaylistView />}
+      {consoleViewType === 'Search' && <Search />}
+      {consoleViewType === 'AlbumView' && <AlbumView />}
+      {consoleViewType === 'ArtistView' && <ArtistView />}
+      {consoleViewType === 'PlaylistView' && <PlaylistView />}
       <Sidebar />
     </div>
   )
@@ -25,9 +25,6 @@ function Dashboard() {
 
 export default Dashboard
 
-// Search, Artist Page, Album Page, Playlist Page should conditionally render withing Console element.
-  // Console element may not be a React component, probably won't be...
 
-
-// Artist Page, Album Page and Playlist Page will be triggered by onClicks for Artists, Albums and Playlists
+// when you create the Console element, the search bar should stay at the top, or at least have a way to return to search from xView...
 

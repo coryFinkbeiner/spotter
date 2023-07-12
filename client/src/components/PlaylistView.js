@@ -1,8 +1,12 @@
-import React from 'react'
+import { useDataContext } from '../hooks/useDataContext';
+import React, { useState, useEffect } from 'react';
 
 function PlaylistView() {
+
+  const { inView } = useDataContext()
+
   return (
-    <div>PlaylistView</div>
+    <div>{inView.name}</div>
   )
 }
 
