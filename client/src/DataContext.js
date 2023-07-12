@@ -41,10 +41,9 @@ export const DataProvider = ({ children }) => {
     code: null,
     accessToken: null,
     myQueue: [],
-    poppedTrack: {}
+    poppedTrack: {},
+    consoleView: 'Search'
   });
-  // NOTE: you *might* need to memoize this value
-  // Learn more in http://kcd.im/optimize-context
 
   return (
     <DataContext.Provider value={{...state, dispatch }}>
