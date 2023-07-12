@@ -16,19 +16,24 @@ code {
 .dashboard {
   display: flex;
   height: 100vh;
+  margin: 2px;
+  padding: 2px;
 }
 
 .sidebar {
   background-color: red;
   width: 20%;
+  margin: 2px;
 }
 
 .console {
   background-color: green;
   flex: 1;
+  margin: 2px;
 }
 
 .my-queue {
   background-color: blue;
   width: 30%;
+  margin: 2px;
 }
