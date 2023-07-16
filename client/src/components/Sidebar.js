@@ -204,12 +204,15 @@ function Sidebar() {
 
 
         <div className='s-2-2'>
-          <div
+          <div className='s-2-2-radio'
             onClick={() => setRadio('albums')}
           >
-            Albums
+
+              Albums
+
           </div>
           <div
+            className='s-2-2-radio'
             onClick={() => setRadio('playlists')}
           >
             Playlists
