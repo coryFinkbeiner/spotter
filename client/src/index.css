@@ -73,6 +73,11 @@ code {
   padding: 8px;
 }
 
+.s-2-2 {
+  display:flex;
+  flex: row;
+}
+
 
 
 
