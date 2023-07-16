@@ -77,7 +77,7 @@ function Playlists({ results, dispatch }) {
 
 
 function Sidebar() {
-  const [radio, setRadio] = useState('tracks');
+  const [radio, setRadio] = useState('albums');
   const [results, setResults] = useState({});
 
   const { accessToken, dispatch } = useDataContext();
@@ -111,15 +111,6 @@ function Sidebar() {
         <label>
           <input
             type="radio"
-            value="tracks"
-            checked={radio === 'tracks'}
-            onChange={handleRadioChange}
-          />
-          Tracks
-        </label>
-        <label>
-          <input
-            type="radio"
             value="albums"
             checked={radio === 'albums'}
             onChange={handleRadioChange}
@@ -136,9 +127,6 @@ function Sidebar() {
           Playlists
         </label>
       </div>
-      {radio === 'tracks' && (
-        <Tracks results={results} dispatch={dispatch}  />
-      )}
 
       {radio === 'albums' && (
         <Albums results={results} dispatch={dispatch} />
@@ -156,5 +144,61 @@ function Sidebar() {
 export default Sidebar;
 
 
+// REFACTOR
+// Erase Tracks, only Playlists and Albums
 
-// See Search for clickabilities... same clickability, but miniature version.
+
+//@ focus on spacing first and functionality first, then style to be like spotify.
+
+// Home button
+  // placeholder link for now, will open in console
+
+// Search button
+  // opens Search in console
+
+// Your Library title
+// Songs, Albums, Playlist radios
+// (No dropdown for sort-by, or micro-search for withing playlists and such in this iteration)
+
+// renders
+  // Albums
+    // onClick: open Album in console
+    // Album img
+    // "Album"
+    // Name
+  // Playlists
+    // onClick: open Playlist in console
+    //* (how to handle folders)
+    //* (how to handle Liked Songs
+        // it has different structure than playlists)
+    // Name
+    // Creator of playlist
+// Infinite Scroll
+
+
+
+// SMALL
+
+  // Track
+    // Album image
+    // Name
+    // Plus icon (add to end of queue)
+        // ???
+
+// i am realizing now that Spotify does not have any tracks in the sidebar.
+
+// but since my
+
+
+
+
+// * in Spotify, the X in the Your Library radios will render all playlists and albums by last touched, i think you could say
+
+//* MyQueue and Sidebar Track, Playlist and Album objects will be the same, miniaturized versions...
+//* i still need to figure out the versions which will be present in Playlist and Album console components...
+
+
+
+//* See Search for clickabilities... same clickability, but miniature version.
+
+//XXX A spy could be the counter to bombs. you could have a Track, Album and Artist spy... it fires when you use it, and if you guess the right Track, Album or Artist of the track in any opponent's mine spot, you will destroy their mine and steal their spot.
