@@ -30,3 +30,5 @@ export default Dashboard
 
 // when you create the Console element, the search bar should stay at the top, or at least have a way to return to search from xView...
 
+
+// i might want to create a Home button to render in Console as well, but idk what it would be.

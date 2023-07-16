@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+
 
 .dashboard {
   display: flex;
@@ -21,19 +26,203 @@ code {
 }
 
 .sidebar {
-  background-color: red;
-  width: 20%;
+  background-color: white;
+  width: 25%;
   margin: 2px;
+  padding: 2px;
+  /* overflow:hidden; */
 }
 
 .console {
   background-color: green;
   flex: 1;
   margin: 2px;
+  padding: 2px;
 }
 
 .my-queue {
   background-color: blue;
-  width: 30%;
+  width: 25%;
   margin: 2px;
+  padding: 2px;
+}
+
+
+
+
+.sidebar-container {
+  /* background-color: #3b82f6; */
+  color: #6b7280;
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+  border-right: 1px solid #111827;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  height: 100vh;
+  max-width: 12rem;
+  display: none;
+  padding-bottom: 9rem;
+}
+
+@media (min-width: 640px) {
+  .sidebar-container {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sidebar-container {
+    max-width: 15rem;
+  }
+}
+
+
+
+/* -------- Copied from Spotify ------  */
+
+/* Sidebar Container */
+.BdcvqBAid96FaHAmPYw_ {
+  background-color: rgb(0, 0, 0);
+  border-bottom-color: rgb(179, 179, 179);
+  border-bottom-style: none;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-width: 1;
+  border-left-color: rgb(179, 179, 179);
+  border-right-color: rgb(179, 179, 179);
+  border-top-color: rgb(179, 179, 179);
+  box-sizing: border-box;
+  color: rgb(179, 179, 179);
+  display: flex;
+  flex-direction: column;
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic Pro", Meiryo, "MS Gothic", sans-serif;
+  grid-column-end: left-sidebar;
+  grid-column-start: left-sidebar;
+  grid-row-end: left-sidebar;
+  grid-row-start: left-sidebar;
+  line-height: 25.6px;
+  min-height: 0;
+  position: relative;
+  text-transform: none;
+  vertical-align: baseline;
+  width: 280px;
+  z-index: 4;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Nested within .BdcvqBAid96FaHAmPYw_ <nav> element */
+.sqKERfoKl4KwrtHqcKOd {
+  border-bottom-color: rgb(179, 179, 179);
+  border-bottom-style: none;
+  border-bottom-width: 0;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border-left-color: rgb(179, 179, 179);
+  border-left-style: none;
+  border-left-width: 0;
+  border-right-color: rgb(179, 179, 179);
+  border-right-style: none;
+  border-right-width: 0;
+  border-top-color: rgb(179, 179, 179);
+  border-top-style: none;
+  border-top-width: 0;
+  box-sizing: border-box;
+  color: rgb(179, 179, 179);
+  column-gap: 8px;
+  display: flex;
+  flex-direction: column;
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic Pro", Meiryo, "MS Gothic", sans-serif;
+  height: 486.812px;
+  line-height: 25.6px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  min-height: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  row-gap: 8px;
+  text-transform: none;
+  vertical-align: baseline;
+  width: 280px;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* Nested within .sqKERfoKl4KwrtHqcKOd */
+.EZFyDnuQnx5hw78phLqP {
+  background-color: rgb(18, 18, 18);
+  border-bottom-color: rgb(179, 179, 179);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-style: none;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border-left-color: rgb(179, 179, 179);
+  border-left-style: none;
+  border-left-width: 0;
+  border-right-color: rgb(179, 179, 179);
+  border-right-style: none;
+  border-right-width: 0;
+  border-top-color: rgb(179, 179, 179);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-top-style: none;
+  border-top-width: 0;
+  box-sizing: border-box;
+  color: rgb(179, 179, 179);
+  cursor: default;
+  display: block;
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic Pro", Meiryo, "MS Gothic", sans-serif;
+  line-height: 25.6px;
+  vertical-align: baseline;
+  width: 280px;
+}
+
+/* Nested within .EZFyDnuQnx5hw78phLqP */
+.EZFyDnuQnx5hw78phLqP .hjb8tUL3rpUa0ez4ZtAj {
+  background-color: rgb(18, 18, 18);
+  border-bottom-color: rgb(179, 179, 179);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-style: none;
+  border-bottom-width: 0;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  border-image-slice: 100%;
+  border-image-source: none;
+  border-image-width: 1;
+  border-left-color: rgb(179, 179, 179);
+  border-left-style: none;
+  border-left-width: 0;
+  border-right-color: rgb(179, 179, 179);
+  border-right-style: none;
+  border-right-width: 0;
+  border-top-color: rgb(179, 179, 179);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-top-style: none;
+  border-top-width: 0;
+  box-sizing: border-box;
+  color: rgb(179, 179, 179);
+  cursor: default;
+  display: flex;
+  flex-basis: 0%;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic Pro", Meiryo, "MS Gothic", sans-serif;
+  line-height: 25.6px;
 }

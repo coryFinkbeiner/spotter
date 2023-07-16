@@ -60,18 +60,6 @@ app.post("/login", (req, res) => {
 })
 
 
-
-
-// Serve static files from the 'build' directory
-// app.use(express.static(path.resolve(__dirname, '..', 'client', 'build')));
-
-// Catch all route for serving the client application
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, '..', 'client', 'public', 'index.html'));
-// });
-
-// Your other routes and server configuration
-
 app.listen(3002, () => {
   console.log('Server is running on port 3002');
 });

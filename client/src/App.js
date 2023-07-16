@@ -4,7 +4,6 @@ import './App.css';
 import { useDataContext } from './hooks/useDataContext'
 import React, { useEffect} from 'react'
 
-
 function App() {
   const newCode = new URLSearchParams(window.location.search).get("code")
   const { code, dispatch } = useDataContext()

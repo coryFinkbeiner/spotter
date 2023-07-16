@@ -12,5 +12,3 @@ root.render(
     </DataProvider>
   </React.StrictMode>
 );
-
-// code,
