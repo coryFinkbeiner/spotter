@@ -78,13 +78,15 @@ code {
   flex: row;
   justify-content: left;
   height: 29px;
+  margin-bottom: 15px;
+  padding-left: 6px;
 }
 
 .s-2-2-radio {
   color: rgba(255, 255, 255);
   margin-bottom: 8px;
-  margin-left: 16px;
-  margin-right: 16px;
+  margin-left: 4px;
+  margin-right: 8px;
   text-align: center;
   vertical-align: middle;
   border-radius: 32px;
@@ -104,6 +106,30 @@ code {
   height: 100%;
 
 }
+
+
+.sidebar-render {
+  /* background-color: blue; */
+  color: black;
+  height:100%;
+  width: 100%
+}
+
+.sidebar-item-container {
+  /* background-color: white; */
+  height: 65px;
+  margin: 1px;
+  display: flex;
+  flex: row;
+  padding: 2px;
+}
+
+
+
+
+
+
+
 
 .console {
   /* background-color: rgb(0, 0, 0); */

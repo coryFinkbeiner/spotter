@@ -50,7 +50,6 @@ const useAuth = () => {
     return () => clearInterval(interval);
   }, [refreshToken, expiresIn]);
 
-  console.log({accessToken})
   return accessToken;
 };
 

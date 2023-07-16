@@ -49,8 +49,6 @@ function Albums({ results, dispatch }) {
   // );
 
 
-
-
 }
 
 function Playlists({ results, dispatch }) {
@@ -58,112 +56,61 @@ function Playlists({ results, dispatch }) {
     return <div>Playlists not found</div>;
   }
 
+
+
   return (
-    <ul>
+    <div className='sidebar-render'>
       {results?.items?.map((playlist) => (
-        <li
+        <div className='sidebar-item-container'
           key={playlist.id}
           onClick={() => {
             dispatch({ type: 'VIEW_IN_CONSOLE', payload: playlist })
             dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'PlaylistView' })
           }}
         >
-          <div>{playlist.name}</div>
-        </li>
+          <img
+            src={playlist.images[0]?.url}
+            style={{
+              borderRadius: '5px',
+              margin: '2px'
+            }}
+          />
+          <div
+            style={{
+              color: 'white',
+              marginLeft: '3px',
+              padding: '2px'
+            }}
+          >
+            <div
+              style={{
+                height: '50%',
+                fontWeight: 'bold',
+              }}
+            >
+              {playlist.name}
+
+            </div>
+            <div
+              style={{
+                height: '50%'
+              }}
+            >
+              {playlist.owner.display_name}
+
+            </div>
+
+          </div>
+
+
+        </div>
       ))}
-    </ul>
-  );
+    </div>
+  )
 }
 
-
-// function Sidebar() {
-//   const [radio, setRadio] = useState('albums');
-//   const [results, setResults] = useState({});
-
-//   const { accessToken, dispatch } = useDataContext();
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const response = await axios.get(`https://api.spotify.com/v1/me/${radio}`, {
-//           headers: {
-//             Authorization: `Bearer ${accessToken}`,
-//           },
-//         });
-//         setResults(response.data);
-//       } catch (error) {
-//         console.log('Search Error:', error);
-//       }
-//     };
-
-//     fetchData();
-//   }, [radio, accessToken]);
-
-//   const handleRadioChange = (event) => {
-//     setRadio(event.target.value);
-//   };
-
-//   return (
-//     <div className='sidebar'>
-//       <div className='sidebar-1'>
-//         <div className='s-1-nav'>
-//           Home
-//         </div>
-//         <div className='s-1-nav'>
-//           Search
-//         </div>
-
-//       </div>
-
-//       <div className='sidebar-2'>
-//         <div className='s-2-1'>
-//           Your Library
-//         </div>
-//         <label>
-//           <input
-//             type="radio"
-//             value="albums"
-//             checked={radio === 'albums'}
-//             onChange={handleRadioChange}
-//           />
-//           Albums
-//         </label>
-//         <label>
-//           <input
-//             type="radio"
-//             value="playlists"
-//             checked={radio === 'playlists'}
-//             onChange={handleRadioChange}
-//           />
-//           Playlists
-//         </label>
-//       </div>
-
-//       {radio === 'albums' && (
-//         <Albums results={results} dispatch={dispatch} />
-//       )}
-
-//       {radio === 'playlists' && (
-//         <Playlists results={results} dispatch={dispatch} />
-//       )}
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
 function Sidebar() {
-  const [radio, setRadio] = useState('albums');
+  const [radio, setRadio] = useState('playlists');
   const [results, setResults] = useState({});
 
   const { accessToken, dispatch } = useDataContext();
@@ -225,7 +172,7 @@ function Sidebar() {
           {radio === 'playlists' && (
             <Playlists results={results} dispatch={dispatch} />
           )}
-      </div>
+        </div>
 
       </div>
 
