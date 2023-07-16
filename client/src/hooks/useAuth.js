@@ -25,7 +25,7 @@ const useAuth = () => {
         window.history.pushState({}, null, "/");
       })
       .catch((err) => {
-        // console.log('login err', err)
+        console.log('login err', err)
         // window.location = "/";
       });
   }, [code]);
@@ -50,6 +50,7 @@ const useAuth = () => {
     return () => clearInterval(interval);
   }, [refreshToken, expiresIn]);
 
+  console.log({accessToken})
   return accessToken;
 };
 

@@ -207,9 +207,7 @@ function Sidebar() {
           <div className='s-2-2-radio'
             onClick={() => setRadio('albums')}
           >
-
-              Albums
-
+            Albums
           </div>
           <div
             className='s-2-2-radio'
@@ -219,15 +217,18 @@ function Sidebar() {
           </div>
         </div>
 
+        <div className='s-2-3'>
+          {radio === 'albums' && (
+            <Albums results={results} dispatch={dispatch} />
+          )}
+
+          {radio === 'playlists' && (
+            <Playlists results={results} dispatch={dispatch} />
+          )}
       </div>
 
-      {radio === 'albums' && (
-        <Albums results={results} dispatch={dispatch} />
-      )}
+      </div>
 
-      {radio === 'playlists' && (
-        <Playlists results={results} dispatch={dispatch} />
-      )}
     </div>
   );
 }

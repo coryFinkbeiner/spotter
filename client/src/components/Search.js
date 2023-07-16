@@ -98,7 +98,7 @@ function Search() {
 
   return (
     <div>
-      <div>------------------SEARCH--------------------</div>
+      <div>{accessToken}</div>
       <input type="text" value={query} onChange={handleChange} />
       <div>
         <label>
