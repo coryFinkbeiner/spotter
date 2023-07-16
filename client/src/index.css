@@ -25,11 +25,9 @@ code {
 }
 
 .sidebar {
-  /* background-color: black; */
   width: 20%;
   margin: 6px;
   padding: 2px;
-  /* overflow:hidden; */
 }
 
 .sidebar-1 {
@@ -37,53 +35,16 @@ code {
   margin: 2px;
   padding: 2px;
   border-radius: 8px;
-
   color: rgb(179, 179, 179);
   padding-bottom: 8px;
   padding-inline-start: 12px;
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 8px;
-
-  border-color: rgb(179, 179, 179);
-
-
-  background-color: rgb(18, 18, 18);
+  border-color: rgb(179, 179, 179);background-color: rgb(18, 18, 18);
 }
-/* background-color rgb(18, 18, 18)
-border-bottom-left-radius 8px
-border-bottom-right-radius 8px
-border-top-left-radius 8px
-border-top-right-radius 8px
-box-sizing border-box */
-
-
-
-
-.sidebar-2 {
-  background-color: rgb(18, 18, 18);
-  height: 85%;
-  margin: 2px;
-  padding: 2px;
-
-  border-radius: 8px;
-
-  color: rgb(179, 179, 179);
-  padding-bottom: 8px;
-  padding-inline-start: 12px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 8px;
-}
-
-
-
 .s-1-nav {
-  /* background-color: grey; */
   height: 50%;
-  /* margin: 2px; */
-  /* padding: 2px; */
-
   padding-bottom: 4px;
   padding-left: 12px;
   padding-right: 12px;
@@ -91,18 +52,26 @@ box-sizing border-box */
   line-height: 25.6px;
 
   vertical-align: baseline;
+}
 
+.sidebar-2 {
+  background-color: rgb(18, 18, 18);
+  height: 85%;
+  margin: 2px;
+  margin-top: 8px;
+  border-radius: 8px;
+  color: rgb(179, 179, 179);
+  padding-bottom: 8px;
+  padding-inline-start: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
 }
 .s-2-1 {
-  /* background-color: red; */
   height: 10%;
   margin: 2px;
-  padding: 2px;
+  padding: 8px;
 }
-
-
-
-
 
 
 
@@ -120,6 +89,20 @@ box-sizing border-box */
   margin: 2px;
   padding: 2px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
