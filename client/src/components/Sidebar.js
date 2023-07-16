@@ -138,7 +138,12 @@ function Sidebar() {
         <div className='s-1-nav'>
           Home
         </div>
-        <div className='s-1-nav'>
+        <div className='s-1-nav'
+          onClick={() => {
+            // dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'SearchView' })
+          }}
+        >
           Search
         </div>
 
