@@ -105,9 +105,20 @@ function Sidebar() {
 
   return (
     <div className='sidebar'>
-      <div>------------------Sidebar--------------------</div>
+      <div className='sidebar-1'>
+        <div className='s-1-nav'>
+          Home
+        </div>
+        <div className='s-1-nav'>
+          Search
+        </div>
 
-      <div>
+      </div>
+
+      <div className='sidebar-2'>
+        <div className='s-2-1'>
+          Your Library
+        </div>
         <label>
           <input
             type="radio"
@@ -135,17 +146,19 @@ function Sidebar() {
       {radio === 'playlists' && (
         <Playlists results={results} dispatch={dispatch} />
       )}
-
-      <div>-------------------------------------------</div>
     </div>
   );
 }
 
 export default Sidebar;
 
+// add icons
+// thicken font
+// refactor Albums and Playlists radios
 
-// REFACTOR
-// Erase Tracks, only Playlists and Albums
+
+
+
 
 
 //@ focus on spacing first and functionality first, then style to be like spotify.
