@@ -72,10 +72,15 @@ function MyQueue() {
 export default MyQueue
 
 
+// to skip, maybe you could just start the playback loop again with the next track, and cancel the setTimeout...
+// and for pause, you could cancel the setTimeout, GET the time remaining on the current song, then when you restart, set the timeOut with that duration value.
+
+
+
+
+
 
 // what if MyQueue expanded across Console when you open up advanced options? like the multiple queues idea.
-
-
 
 
 

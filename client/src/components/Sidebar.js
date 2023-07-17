@@ -56,8 +56,6 @@ function Playlists({ results, dispatch }) {
     return <div>Playlists not found</div>;
   }
 
-
-
   return (
     <div className='sidebar-render'>
       {results?.items?.map((playlist) => (
@@ -97,12 +95,8 @@ function Playlists({ results, dispatch }) {
               }}
             >
               {playlist.owner.display_name}
-
             </div>
-
           </div>
-
-
         </div>
       ))}
     </div>

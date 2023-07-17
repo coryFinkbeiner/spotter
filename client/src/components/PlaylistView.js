@@ -6,7 +6,16 @@ function PlaylistView() {
   const { inView } = useDataContext()
 
   return (
-    <div>{inView.name}</div>
+    <div className='AlbumPlaylistView'>
+      <div className='view-top'>
+      <img
+        src={inView.images[0]?.url}
+        style={{
+          margin: '12px'
+        }}
+      />
+      </div>
+    </div>
   )
 }
 

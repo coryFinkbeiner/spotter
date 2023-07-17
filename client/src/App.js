@@ -18,5 +18,14 @@ function App() {
 export default App;
 
 
+// you could have a bottom bar that has the next *five songs listed, like a sportscenter ticker. you could drag songs directly there.
+// maybe you could also swipe left (and right) to see the full playlist.
+// this would only make sense if you had the multiple queue idea in place, because otherwise it feels redundant to have two persistent views of the upcoming tracks.
+
+
+// i think i would rather have the right click idea, to save on space. but you could also add advanced options with [...]
+
+
+
 // you could let people set YEAR bombs too...
   // The artist and year filters can be used while searching albums, artists and tracks. You can filter on a single year or a range (e.g. 1955-1960).

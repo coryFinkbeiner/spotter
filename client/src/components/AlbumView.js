@@ -6,11 +6,19 @@ function AlbumView() {
   const { inView } = useDataContext()
 
   return (
-    <div>{inView.name}</div>
+    <div className='AlbumPlaylistView'>
+      <div>
+
+      </div>
+    </div>
   )
 }
 
 export default AlbumView
+
+
+// top gradient transitions to black
+
 
 
 
