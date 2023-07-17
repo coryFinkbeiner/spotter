@@ -12,22 +12,18 @@ function PlaylistView() {
           src={inView.images[0]?.url}
 
         />
+
         <div className='view-top-info'>
           <div>
-            Playlist
+            {inView.owner.display_name} &middot;  {inView.tracks.total} songs, duration
           </div>
           <div>
-            0AC
+            {inView.name}
           </div>
-          <div
-            style={{
+          <div>
+            {inView.type.charAt(0).toUpperCase() + inView.type.slice(1)}
+          </div>
 
-              marginLeft: '3px',
-              padding: '2px'
-            }}
-          >
-            Bodhi - 16 songs, 1hr 10min
-          </div>
         </div>
       </div>
     </div>
@@ -36,4 +32,13 @@ function PlaylistView() {
 
 export default PlaylistView
 
+// not includeing Data added
+
+
 // black background for now, instead of fancy gradient
+
+// looks like i might have to do a little math to get the duration, doesn't seem like it's available
+
+
+// inView.primary_color may be the attribute i was looking for for the gradient
+
