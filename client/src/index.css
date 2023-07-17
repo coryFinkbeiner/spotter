@@ -37,14 +37,27 @@ code {
 }
 
 .view-top {
-  /* background-color: green; */
+  background-color: green;
   height: 230px;
   margin: 2px;
   padding: 4px;
   display:flex;
   flex: row;
+  color: white;
 }
 
+.view-top-img {
+  margin: 12px;
+}
+
+
+.view-top-info {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 12px;
+  margin-left: 9px;
+  padding: 2px;
+}
 
 
 
