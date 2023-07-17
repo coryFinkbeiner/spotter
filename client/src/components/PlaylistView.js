@@ -7,12 +7,11 @@ function PlaylistView() {
 
   return (
     <div className='AlbumPlaylistView'>
+
       <div className='view-top'>
         <img className='view-top-img'
           src={inView.images[0]?.url}
-
         />
-
         <div className='view-top-info'>
           <div>
             {inView.owner.display_name} &middot;  {inView.tracks.total} songs, duration
@@ -23,9 +22,18 @@ function PlaylistView() {
           <div>
             {inView.type.charAt(0).toUpperCase() + inView.type.slice(1)}
           </div>
-
         </div>
       </div>
+
+      <div className='View-render-container'>
+        <div className='View-render-keys'>
+          # Title Album Clock
+        </div>
+        <div className='View-render-area'>
+        </div>
+
+      </div>
+
     </div>
   )
 }

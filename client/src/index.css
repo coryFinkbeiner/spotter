@@ -33,7 +33,7 @@ code {
 
   border-radius: 8px;
 
-  background-color: red;
+  background-color: grey;
 }
 
 .view-top {
@@ -68,6 +68,19 @@ code {
 }
 
 .view-top-info-author {
+
+}
+
+
+.View-render-container {
+  background-color: orange;
+  margin: 2px;
+  padding: 4px;
+  height: 69%;
+
+}
+
+.View-render-keys {
 
 }
 
