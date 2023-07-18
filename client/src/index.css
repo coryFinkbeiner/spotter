@@ -61,30 +61,27 @@ code {
 
 
 
-.song-table {
-  width: 100%;
-}
-
-.song-table thead th {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.song-table tbody tr {
+.song-list {
   display: flex;
+  flex-direction: column;
 }
 
-.song-table tbody td {
-  flex: 1;
+.song-row {
+  display: flex;
+  align-items: center;
   padding: 8px;
   border-bottom: 1px solid #ddd;
 }
 
-.clock {
+.song-number,
+.song-title,
+.song-album {
+  flex: 1;
+}
+
+.song-clock {
   font-family: "Arial", sans-serif;
 }
-
 
 
 

@@ -85,6 +85,10 @@ function PlaylistView() {
 
 export default PlaylistView
 
+
+// i think MVP is to just make the calls here, use the uri in the playlist response to grab the tracks.
+
+
 // not includeing Data added
 
 
