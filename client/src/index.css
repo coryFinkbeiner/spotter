@@ -59,6 +59,47 @@ code {
   padding: 2px;
 }
 
+
+
+.song-table {
+  width: 100%;
+}
+
+.song-table thead th {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.song-table tbody tr {
+  display: flex;
+}
+
+.song-table tbody td {
+  flex: 1;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.clock {
+  font-family: "Arial", sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .view-top-info-type {
 
 }

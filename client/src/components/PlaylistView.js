@@ -25,6 +25,51 @@ function PlaylistView() {
         </div>
       </div>
 
+
+
+    <table className='song-table'>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Album</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {[1, 2, 3].map(() => (
+
+
+          <tr
+            key='test'>
+            <td>#</td>
+            <td>title </td>
+            <td>album</td>
+            <td className="clock">&#x23F1;</td>
+          </tr>
+
+
+
+        ))}
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/*
       <div className='View-render-container'>
         <div className='View-render-keys'>
           # Title Album Clock
@@ -32,7 +77,7 @@ function PlaylistView() {
         <div className='View-render-area'>
         </div>
 
-      </div>
+      </div> */}
 
     </div>
   )
