@@ -11,21 +11,21 @@ function PlaylistView() {
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
-    (async () => {
+    const fetchTracks = async () => {
       try {
-        const response = await axios.get('https://api.spotify.com/v1/playlists/5BcK7J67q1dG7AEHp05537/tracks', {
+        const response = await axios.get(`https://api.spotify.com/v1/playlists/${inView.id}/tracks`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-        setTracks(response.data);
+        setTracks(response.data.items);
       } catch (error) {
         console.log('Error fetching tracks:', error);
       }
-    })();
-  }, [tracks, accessToken]);
+    };
 
-
+    fetchTracks();
+  }, [accessToken, inView]);
 
   return (
     <div className='AlbumPlaylistView'>
@@ -48,58 +48,17 @@ function PlaylistView() {
       </div>
 
 
-
-    <table className='song-table'>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Title</th>
-          <th>Album</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {[1, 2, 3].map(() => (
-
-
-          <tr
-            key='test'>
-            <td>#</td>
-            <td>title </td>
-            <td>album</td>
-            <td className="clock">&#x23F1;</td>
-          </tr>
-
-
-
+      <div className="song-list">
+        {tracks?.map((track, index) => (
+          <div key={index} className="song-row">
+            <div className="song-number">{index + 1}</div>
+            <div className="song-title">{track.track.name}</div>
+            <div className="song-album">{track.track.album.name}</div>
+            <div className="song-clock">&#x23F1;</div>
+          </div>
         ))}
-      </tbody>
-    </table>
+      </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/*
-      <div className='View-render-container'>
-        <div className='View-render-keys'>
-          # Title Album Clock
-        </div>
-        <div className='View-render-area'>
-        </div>
-
-      </div> */}
 
     </div>
   )
