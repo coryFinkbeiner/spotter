@@ -1,9 +1,31 @@
 import { useDataContext } from '../hooks/useDataContext';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function PlaylistView() {
 
   const { inView } = useDataContext()
+
+  const { accessToken, dispatch } = useDataContext();
+
+  const [tracks, setTracks] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get('https://api.spotify.com/v1/playlists/5BcK7J67q1dG7AEHp05537/tracks', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        setTracks(response.data);
+      } catch (error) {
+        console.log('Error fetching tracks:', error);
+      }
+    })();
+  }, [tracks, accessToken]);
+
+
 
   return (
     <div className='AlbumPlaylistView'>
@@ -84,6 +106,8 @@ function PlaylistView() {
 }
 
 export default PlaylistView
+
+// href: "https://api.spotify.com/v1/playlists/5BcK7J67q1dG7AEHp05537/tracks"
 
 
 // i think MVP is to just make the calls here, use the uri in the playlist response to grab the tracks.
