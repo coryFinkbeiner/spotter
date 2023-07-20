@@ -47,7 +47,6 @@ function PlaylistView() {
         </div>
       </div>
 
-
       <div className="song-list">
         {tracks?.map((track, index) => (
           <div key={index} className="song-row">
@@ -58,7 +57,6 @@ function PlaylistView() {
           </div>
         ))}
       </div>
-
 
     </div>
   )
