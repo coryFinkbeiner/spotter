@@ -3,52 +3,24 @@ import axios from 'axios';
 import { useDataContext } from '../hooks/useDataContext';
 
 
-// function Tracks({ results, dispatch }) {
-//   if (!results) {
-//     return <div>Tracks not found</div>;
-//   }
-
-//   return (
-//     <ul>
-//       {results?.items?.map((item) => (
-//         <li
-//           key={item.track.id}
-//           onClick={() => dispatch({ type: 'ADD_TO_QUEUE', payload: item.track })}
-//         >
-//           <div>{item.track.name}</div>
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// }
-
 function Albums({ results, dispatch }) {
 
-  return <div>Albums not found</div>
+  // return <div>Albums not found</div>
 
+  if (!results) {
+    return <div>Albums not found</div>;
+  }
 
-
-  // if (!results) {
-  //   return <div>Albums not found</div>;
-  // }
-
-  // return (
-  //   <ul>
-  //     {results?.items?.map((item) => (
-  //       <li
-  //         key={item.album.id}
-  //         onClick={() => {
-  //           dispatch({ type: 'VIEW_IN_CONSOLE', payload: item.album })
-  //           dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
-  //         }}
-  //       >
-  //         <div>{item.album.name}</div>
-  //       </li>
-  //     ))}
-  //   </ul>
-  // );
-
-
+  return (
+    <div>
+      {results?.items?.map((item, i) => {
+        console.log({item})
+        return (
+          <div>{item.added_at}</div>
+        )
+      )}
+    </div>
+  );
 }
 
 function Playlists({ results, dispatch }) {
@@ -178,24 +150,6 @@ function Sidebar() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export default Sidebar;
