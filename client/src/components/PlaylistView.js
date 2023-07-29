@@ -49,10 +49,7 @@ function PlaylistView() {
 
       <div className="song-list">
         {tracks?.map((track, index) => (
-          <div className="song-row"
-            key={index}
-            onClick={() => dispatch({ type: 'ADD_TO_QUEUE', payload: track.track })}
-          >
+          <div key={index} className="song-row">
             <div className="song-number">{index + 1}</div>
             <div className="song-title">{track.track.name}</div>
             <div className="song-album">{track.track.album.name}</div>
@@ -67,16 +64,16 @@ function PlaylistView() {
 
 export default PlaylistView
 
-
-// "song-row" onClick: dispatch ADD_TO_QUE
-
-//* not this iteration:
-  // on-hover add button
+// href: "https://api.spotify.com/v1/playlists/5BcK7J67q1dG7AEHp05537/tracks"
 
 
+// i think MVP is to just make the calls here, use the uri in the playlist response to grab the tracks.
 
 
+// not includeing Data added
 
+
+// black background for now, instead of fancy gradient
 
 // looks like i might have to do a little math to get the duration, doesn't seem like it's available
 
