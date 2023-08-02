@@ -11,16 +11,16 @@ function Albums({ results, dispatch }) {
     return <div>Albums not found</div>;
   }
 
-  return (
-    <div>
-      {results?.items?.map((item, i) => {
-        console.log({item})
-        return (
-          <div>{item.added_at}</div>
-        )
-      )}
-    </div>
-  );
+  // return (
+  //   <div>
+  //     {results?.items?.map((item, i) => {
+  //       console.log({item})
+  //       return (
+  //         <div>{item.added_at}</div>
+  //       )
+  //     )}
+  //   </div>
+  // );
 }
 
 function Playlists({ results, dispatch }) {
