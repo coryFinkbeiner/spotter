@@ -3,13 +3,22 @@ const express = require("express")
 const cors = require("cors")
 const bodyParser = require("body-parser")
 const SpotifyWebApi = require("spotify-web-api-node")
-
 const path = require('path');
-
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
+
+const { Pool } = require("pg");
+
+const pool = new Pool({
+  user: process.env.DB_USER, // Your PostgreSQL username
+  host: process.env.DB_HOST, // Your PostgreSQL host
+  database: process.env.DB_NAME, // Your PostgreSQL database name
+  password: process.env.DB_PASSWORD, // Your PostgreSQL password
+  port: process.env.DB_PORT, // Your PostgreSQL port
+});
 
 
 app.post("/refresh", (req, res) => {
