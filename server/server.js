@@ -56,7 +56,6 @@ app.post("/login", (req, res) => {
   spotifyApi
     .authorizationCodeGrant(code)
     .then(data => {
-      console.log('login data', data.body)
       res.json({
         accessToken: data.body.access_token,
         refreshToken: data.body.refresh_token,
@@ -68,6 +67,21 @@ app.post("/login", (req, res) => {
       res.sendStatus(400)
     })
 })
+
+
+// Add this route at the end of your server.js file
+app.get("/test", async (req, res) => {
+  try {
+    console.log('okasjd;lfkjasdlkfj;lasdkjf')
+    // Use the pool to execute a simple query
+    const result = await pool.query("SELECT NOW()");
+    res.json({ message: "Database connection successful", timestamp: result.rows[0].now });
+  } catch (error) {
+    console.error("Error connecting to the database:", error);
+    res.status(500).json({ error: "Database connection error" });
+  }
+});
+
 
 
 app.listen(3002, () => {
