@@ -9,7 +9,6 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-
 const { Pool } = require("pg");
 
 const pool = new Pool({
