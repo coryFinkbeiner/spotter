@@ -1,4 +1,4 @@
-const pool = require('../server'); // Assuming your server file is named 'server.js'
+const pool = require('./db'); // Assuming your server file is named 'server.js'
 
 const createUser = async (username, email, password) => {
   try {

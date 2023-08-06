@@ -9,17 +9,6 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-const { Pool } = require("pg");
-
-const pool = new Pool({
-  user: process.env.DB_USER, // Your PostgreSQL username
-  host: process.env.DB_HOST, // Your PostgreSQL host
-  database: process.env.DB_NAME, // Your PostgreSQL database name
-  password: process.env.DB_PASSWORD, // Your PostgreSQL password
-  port: process.env.DB_PORT, // Your PostgreSQL port
-});
-
-
 app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken
   const spotifyApi = new SpotifyWebApi({
@@ -67,7 +56,6 @@ app.post("/login", (req, res) => {
     })
 })
 
-
 // Add this route at the end of your server.js file
 app.get("/test", async (req, res) => {
   try {
@@ -80,8 +68,6 @@ app.get("/test", async (req, res) => {
     res.status(500).json({ error: "Database connection error" });
   }
 });
-
-
 
 app.listen(3002, () => {
   console.log('Server is running on port 3002');
