@@ -24,9 +24,6 @@ async function setupDatabase() {
     console.log('Database setup complete!');
   } catch (error) {
     console.error('Error setting up database:', error);
-  } finally {
-    // Close the pool after setting up the database
-    pool.end();
   }
 }
 
