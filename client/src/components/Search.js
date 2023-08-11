@@ -153,11 +153,9 @@ function Search() {
 
 export default Search;
 
+
+
 // onClick for Album and Artist opens up the Album view in the console, which conditionally renders in the Console element instead of Search
-
-
-
-
 
 
 // * onRightClick for ___ opens up advanced options

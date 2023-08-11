@@ -26,11 +26,3 @@ function Dashboard() {
 }
 
 export default Dashboard
-
-
-
-
-
-
-
-//... i might want to create a Home button to render in Console as well, but idk what it would be.
