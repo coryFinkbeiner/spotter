@@ -1,5 +1,53 @@
 import React, { useState } from 'react';
 
+const Register = ({ email, setEmail }) => (
+
+
+
+  <div>
+    <input
+      type="text"
+      placeholder="Username"
+      // Add your username handling logic here
+      required
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      // Add your password handling logic here
+      required
+    />
+    <input
+      type="email"
+      placeholder="Email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      required
+    />
+  </div>
+
+
+
+
+);
+
+const Login = () => (
+  <div>
+    <input
+      type="text"
+      placeholder="Username"
+      // Add your username handling logic here
+      required
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      // Add your password handling logic here
+      required
+    />
+  </div>
+);
+
 const AppLogin = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -26,32 +74,13 @@ const AppLogin = () => {
   return (
     <div>
       <h1>{isNewUser ? 'Register' : 'Login'}</h1>
-      <form onSubmit={handleSubmit}>
-        {isNewUser && (
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        )}
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">{isNewUser ? 'Register' : 'Login'}</button>
-      </form>
+
+      {isNewUser ? (
+        <Register email={email} setEmail={setEmail} />
+      ) : (
+        <Login />
+      )}
+
       <p>
         {isNewUser ? 'Already have an account?' : 'New user?'}
         <button onClick={() => setIsNewUser(!isNewUser)}>

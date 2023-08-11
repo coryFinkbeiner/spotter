@@ -60,13 +60,10 @@ app.post("/login", (req, res) => {
     })
 })
 
-// Add this route at the end of your server.js file
 app.get("/test", async (req, res) => {
   try {
-    console.log('okasjd;lfkjasdlkfj;lasdkjf')
-    // Use the pool to execute a simple query
     const result = await pool.query("SELECT NOW()");
-    res.json({ message: "Database connection successful", timestamp: result.rows[0].now });
+    res.json({ message: "test successful", timestamp: result.rows[0].now });
   } catch (error) {
     console.error("Error connecting to the database:", error);
     res.status(500).json({ error: "Database connection error" });
