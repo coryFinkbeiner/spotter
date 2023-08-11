@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const AppLogin = () => {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isNewUser, setIsNewUser] = useState(false);
 
@@ -10,7 +11,7 @@ const AppLogin = () => {
   };
 
   const handleRegister = () => {
-    console.log('Registering new user with username:', username, 'and password:', password);
+    console.log('Registering new user with username:', username, 'email:', email, 'and password:', password);
   };
 
   const handleSubmit = (e) => {
@@ -26,17 +27,28 @@ const AppLogin = () => {
     <div>
       <h1>{isNewUser ? 'Register' : 'Login'}</h1>
       <form onSubmit={handleSubmit}>
+        {isNewUser && (
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        )}
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          required
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
         <button type="submit">{isNewUser ? 'Register' : 'Login'}</button>
       </form>
