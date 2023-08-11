@@ -1,86 +1,104 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-const Register = ({ email, setEmail }) => (
-
-
-
-  <div>
-    <input
-      type="text"
-      placeholder="Username"
-      // Add your username handling logic here
-      required
-    />
-    <input
-      type="password"
-      placeholder="Password"
-      // Add your password handling logic here
-      required
-    />
-    <input
-      type="email"
-      placeholder="Email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      required
-    />
-  </div>
-
-
-
-
-);
-
-const Login = () => (
-  <div>
-    <input
-      type="text"
-      placeholder="Username"
-      // Add your username handling logic here
-      required
-    />
-    <input
-      type="password"
-      placeholder="Password"
-      // Add your password handling logic here
-      required
-    />
-  </div>
-);
-
-const AppLogin = () => {
+const Login = () => {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isNewUser, setIsNewUser] = useState(false);
 
-  const handleLogin = () => {
-    console.log('Logging in with username:', username, 'and password:', password);
-  };
-
-  const handleRegister = () => {
-    console.log('Registering new user with username:', username, 'email:', email, 'and password:', password);
-  };
-
-  const handleSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (isNewUser) {
-      handleRegister();
-    } else {
-      handleLogin();
+    try {
+      const response = await axios.post('/login', {
+        username,
+        password,
+      });
+      console.log('Login response:', response.data);
+    } catch (error) {
+      console.error('Login error:', error);
     }
   };
 
   return (
     <div>
+      <h1>Login</h1>
+      <form onSubmit={handleLogin}>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
+};
+
+const Register = () => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('/register', {
+        username,
+        email,
+        password,
+      });
+      console.log('Register response:', response.data);
+    } catch (error) {
+      console.error('Register error:', error);
+    }
+  };
+
+  return (
+    <div>
+      <h1>Register</h1>
+      <form onSubmit={handleRegister}>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  );
+};
+
+const AppLogin = () => {
+  const [isNewUser, setIsNewUser] = useState(false);
+
+  return (
+    <div>
       <h1>{isNewUser ? 'Register' : 'Login'}</h1>
-
-      {isNewUser ? (
-        <Register email={email} setEmail={setEmail} />
-      ) : (
-        <Login />
-      )}
-
+      {isNewUser ? <Register /> : <Login />}
       <p>
         {isNewUser ? 'Already have an account?' : 'New user?'}
         <button onClick={() => setIsNewUser(!isNewUser)}>

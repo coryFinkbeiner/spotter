@@ -60,16 +60,6 @@ app.post("/login", (req, res) => {
     })
 })
 
-app.get("/test", async (req, res) => {
-  try {
-    const result = await pool.query("SELECT NOW()");
-    res.json({ message: "test successful", timestamp: result.rows[0].now });
-  } catch (error) {
-    console.error("Error connecting to the database:", error);
-    res.status(500).json({ error: "Database connection error" });
-  }
-});
-
 app.listen(3002, () => {
   console.log('Server is running on port 3002');
 });
