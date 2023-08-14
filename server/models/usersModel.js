@@ -1,4 +1,4 @@
-const pool = require('./db'); // Assuming your server file is named 'server.js'
+const pool = require('./db');
 
 const createUser = async (username, email, password) => {
   try {
@@ -30,10 +30,7 @@ const getUserById = async (id) => {
   }
 };
 
-// Other functions for interacting with the Users table
-
 module.exports = {
   createUser,
   getUserById,
-  // Export other functions here if needed
 };

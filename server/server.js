@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 const usersRoutes = require('./routes/usersRoutes');
 
-app.use('/api', usersRoutes);
+app.use('/users', usersRoutes);
 
 app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken
