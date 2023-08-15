@@ -9,7 +9,9 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-const usersRoutes = require('./routes/usersRoutes');
+const pool = require('./models/db');
+
+// const usersRoutes = require('./routes/usersRoutes');
 
 // app.use('/users', usersRoutes);
 
