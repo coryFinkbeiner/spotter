@@ -8,12 +8,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-
 const pool = require('./models/db');
-
-// const usersRoutes = require('./routes/usersRoutes');
-
-// app.use('/users', usersRoutes);
 
 app.post('/users', async (req, res) => {
   try {
@@ -30,6 +25,25 @@ app.post('/users', async (req, res) => {
   } catch (error) {
     console.error('Error registering user:', error);
     res.status(500).json({ error: 'Error registering user' });
+  }
+});
+
+app.get('/users', async (req, res) => {
+  try {
+    const { username, password } = req.query;
+    const query = `
+      SELECT * FROM users WHERE username = $1 AND password = $2;
+    `;
+    const result = await pool.query(query, [username, password]);
+
+    if (result.rows.length === 1) {
+      res.json(result.rows[0]);
+    } else {
+      res.status(404).json({ error: 'User not found' });
+    }
+  } catch (error) {
+    console.error('Error getting user:', error);
+    res.status(500).json({ error: 'Error getting user' });
   }
 });
 

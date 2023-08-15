@@ -8,9 +8,11 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/login', {
-        username,
-        password,
+      const response = await axios.get('http://localhost:3002/users', {
+        params: {
+          username: username,
+          password: password,
+        }
       });
       console.log('Login response:', response.data);
     } catch (error) {
