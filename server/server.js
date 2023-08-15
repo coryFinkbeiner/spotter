@@ -11,7 +11,26 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 const usersRoutes = require('./routes/usersRoutes');
 
-app.use('/users', usersRoutes);
+// app.use('/users', usersRoutes);
+
+app.post('/users', async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+
+    const query = `
+      INSERT INTO users (username, email, password)
+      VALUES ($1, $2, $3)
+      RETURNING *;
+    `;
+    const result = await pool.query(query, [username, email, password]);
+
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error('Error registering user:', error);
+    res.status(500).json({ error: 'Error registering user' });
+  }
+});
+
 
 app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken

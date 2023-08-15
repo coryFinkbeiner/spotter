@@ -29,16 +29,16 @@ export const dataReducer = (state, action) => {
         ...state,
         myQueue: newQueue2
       }
-      case 'VIEW_IN_CONSOLE':
-        return {
-          ...state,
-          inView: action.payload
-        }
-      case 'CHANGE_VIEW_TYPE':
-        return {
-          ...state,
-          consoleViewType: action.payload
-        }
+    case 'VIEW_IN_CONSOLE':
+      return {
+        ...state,
+        inView: action.payload
+      }
+    case 'CHANGE_VIEW_TYPE':
+      return {
+        ...state,
+        consoleViewType: action.payload
+      }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
