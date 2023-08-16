@@ -15,6 +15,11 @@ const Login = () => {
         }
       });
       console.log('Login response:', response.data);
+
+      window.location.href = '/login'
+
+
+
     } catch (error) {
       console.error('Login error:', error);
     }
@@ -58,9 +63,20 @@ const Register = () => {
         password,
       });
       console.log('Register response:', response.data);
+
+
+
+      window.location.href = '/login'
+      // add the user info to the context
+      // and route the user to the spotify login?
+
+
     } catch (error) {
       console.error('Register error:', error);
     }
+
+
+
   };
 
   return (
