@@ -10,6 +10,12 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 const pool = require('./models/db');
 
+
+
+
+
+
+
 app.post('/users', async (req, res) => {
   try {
     const { username, email, password } = req.body;

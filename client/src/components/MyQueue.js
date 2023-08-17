@@ -48,6 +48,7 @@ function MyQueue() {
       }, poppedTrack.duration_ms - 3000);
 
     }
+
   }, [poppedTrack]);
 
   return (

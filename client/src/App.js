@@ -6,25 +6,25 @@ import React, { useEffect} from 'react'
 
 import AppLogin from './components/AppLogin'
 
-// function App() {
-//   const newCode = new URLSearchParams(window.location.search).get("code")
-//   const { code, dispatch } = useDataContext()
-
-//   useEffect(() => {
-//     if (newCode) dispatch({type: 'SET_CODE' , payload: newCode })
-//   }, [])
-
-//   return code ? <Dashboard /> : <Login />
-// }
-
-
-
-
 function App() {
+  const newCode = new URLSearchParams(window.location.search).get("code")
+  const { code, dispatch } = useDataContext()
 
-  return <AppLogin />
+  useEffect(() => {
+    if (newCode) dispatch({type: 'SET_CODE' , payload: newCode })
+  }, [])
 
+  return code ? <Dashboard /> : <Login />
 }
+
+
+
+
+// function App() {
+
+//   return <AppLogin />
+
+// }
 
 
 
