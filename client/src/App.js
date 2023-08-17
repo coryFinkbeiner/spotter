@@ -3,8 +3,11 @@ import Dashboard from "./components/Dashboard"
 import './App.css';
 import { useDataContext } from './hooks/useDataContext'
 import React, { useEffect} from 'react'
-
 import AppLogin from './components/AppLogin'
+
+
+import { Button, Container } from 'react-bootstrap';
+
 
 function App() {
   const newCode = new URLSearchParams(window.location.search).get("code")
@@ -16,6 +19,19 @@ function App() {
 
   return code ? <Dashboard /> : <Login />
 }
+
+
+
+
+// function App() {
+
+//   return (
+//     <Container>
+//       <Button variant="primary">Click Me</Button>
+//     </Container>
+//   );
+
+// }
 
 
 
