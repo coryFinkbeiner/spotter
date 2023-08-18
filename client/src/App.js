@@ -6,32 +6,48 @@ import React, { useEffect} from 'react'
 import AppLogin from './components/AppLogin'
 
 
-import { Button, Container } from 'react-bootstrap';
-
-
-function App() {
-  const newCode = new URLSearchParams(window.location.search).get("code")
-  const { code, dispatch } = useDataContext()
-
-  useEffect(() => {
-    if (newCode) dispatch({type: 'SET_CODE' , payload: newCode })
-  }, [])
-
-  return code ? <Dashboard /> : <Login />
-}
-
 
 
 
 // function App() {
+//   const newCode = new URLSearchParams(window.location.search).get("code")
+//   const { code, dispatch } = useDataContext()
 
-//   return (
-//     <Container>
-//       <Button variant="primary">Click Me</Button>
-//     </Container>
-//   );
+//   useEffect(() => {
+//     if (newCode) dispatch({type: 'SET_CODE' , payload: newCode })
+//   }, [])
 
+//   return code ? <Dashboard /> : <Login />
 // }
+
+
+
+
+
+import { Container, Row, Col } from 'react-bootstrap';
+
+function App() {
+
+  return (
+    <Container>
+      <Row>
+        <Col xs={3} style={{ backgroundColor: 'lightblue' }}>
+          {/* First Column (24%) */}
+          First Column
+        </Col>
+        <Col xs={4} style={{ backgroundColor: 'lightgreen' }}>
+          {/* Second Column (38%) */}
+          Second Column
+        </Col>
+        <Col xs={4} style={{ backgroundColor: 'lightpink' }}>
+          {/* Third Column (38%) */}
+          Third Column
+        </Col>
+      </Row>
+    </Container>
+  );
+
+}
 
 
 
