@@ -32,17 +32,13 @@ function App() {
   return (
     <Container>
       <Row>
-        <Col xs={3} style={{ backgroundColor: 'lightblue' }}>
-          {/* First Column (24%) */}
-          First Column
+        <Col xs={3} style={{ backgroundColor: 'lightblue', height: '100vh' }}>
+          {/* Left Column (24%) */}
+          Left Column
         </Col>
-        <Col xs={4} style={{ backgroundColor: 'lightgreen' }}>
-          {/* Second Column (38%) */}
-          Second Column
-        </Col>
-        <Col xs={4} style={{ backgroundColor: 'lightpink' }}>
-          {/* Third Column (38%) */}
-          Third Column
+        <Col xs={9} style={{ backgroundColor: 'lightgreen', height: '100vh' }}>
+          {/* Right Column (76%) */}
+          Right Column
         </Col>
       </Row>
     </Container>
