@@ -31,11 +31,11 @@ function App() {
 
   return (
     <div className="d-flex justify-content-center">
-      <div style={{ flex: '0 0 20%', backgroundColor: 'pink' }}>
-        <div>LEFT</div>>
+      <div style={{ flex: '0 0 240px', minWidth: '240px', backgroundColor: 'pink' }}>
+        <div>LEFT</div>
       </div>
-      <div style={{ flex: '0 0 50%', backgroundColor: 'lightblue' }}>
-        <div>RIGHT</div>>
+      <div style={{ flex: '0 0 800px', minWidth: '800px', backgroundColor: 'lightblue' }}>
+        <div>RIGHT</div>
       </div>
     </div>
   );
