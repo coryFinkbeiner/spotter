@@ -19,6 +19,16 @@ code {
   box-sizing: border-box;
 }
 
+@media (min-width: 768px) {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+
+
 
 .console {
   /* background-color: rgb(0, 0, 0); */

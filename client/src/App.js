@@ -30,18 +30,14 @@ import { Container, Row, Col } from 'react-bootstrap';
 function App() {
 
   return (
-    <Container>
-      <Row>
-        <Col xs={3} style={{ backgroundColor: 'lightblue', height: '100vh' }}>
-          {/* Left Column (24%) */}
-          Left Column
-        </Col>
-        <Col xs={9} style={{ backgroundColor: 'lightgreen', height: '100vh' }}>
-          {/* Right Column (76%) */}
-          Right Column
-        </Col>
-      </Row>
-    </Container>
+    <div className="d-flex justify-content-center">
+      <div style={{ flex: '0 0 20%', backgroundColor: 'pink' }}>
+        <div>LEFT</div>>
+      </div>
+      <div style={{ flex: '0 0 50%', backgroundColor: 'lightblue' }}>
+        <div>RIGHT</div>>
+      </div>
+    </div>
   );
 
 }
