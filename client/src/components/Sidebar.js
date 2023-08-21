@@ -101,6 +101,7 @@ function Sidebar() {
   }, [radio, accessToken]);
 
   return (
+
     <div style={{
       flex: '0 0 240px',
       minWidth: '240px',
@@ -110,6 +111,7 @@ function Sidebar() {
 
       backgroundColor: 'pink',
     }}>
+
       <div
         style={{
           height: '15%',
@@ -126,6 +128,23 @@ function Sidebar() {
         }}
       >
       </div>
+
+      <div
+        style={{
+          backgroundColor: 'rgb(18, 18, 18)',
+          height: '85%',
+          margin: '2px',
+          marginTop: '8px',
+          borderRadius: '8px',
+          color: 'rgb(179, 179, 179)',
+          paddingBottom: '8px',
+          paddingLeft: '12px',
+          paddingRight: '12px',
+          paddingTop: '8px',
+        }}
+      >
+      </div>
+
     </div>
   );
 
