@@ -102,6 +102,7 @@ function Sidebar() {
 
   return (
 
+    // Sidebar Container
     <div style={{
       flex: '0 0 240px',
       minWidth: '240px',
@@ -112,6 +113,7 @@ function Sidebar() {
       backgroundColor: 'pink',
     }}>
 
+      {/* Navigation Bar */}
       <div
         style={{
           height: '15%',
@@ -127,8 +129,21 @@ function Sidebar() {
           backgroundColor: 'rgb(18, 18, 18)',
         }}
       >
+        <div className='s-1-nav'>
+          Home
+        </div>
+        <div className='s-1-nav'
+          onClick={() => {
+            // dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'SearchView' })
+          }}
+        >
+          Search
+        </div>
+
       </div>
 
+      {/* Render */}
       <div
         style={{
           backgroundColor: 'rgb(18, 18, 18)',
@@ -143,6 +158,30 @@ function Sidebar() {
           paddingTop: '8px',
         }}
       >
+        <div className='s-2-1'>
+          Your Library
+        </div>
+        <div className='s-2-2'>
+          <div className='s-2-2-radio'
+            onClick={() => setRadio('albums')}
+          >
+            Albums
+          </div>
+          <div
+            className='s-2-2-radio'
+            onClick={() => setRadio('playlists')}
+          >
+            Playlists
+          </div>
+        </div>
+        <div className='s-2-3'>
+          {radio === 'albums' && (
+            <Albums results={results} dispatch={dispatch} />
+          )}
+          {radio === 'playlists' && (
+            <Playlists results={results} dispatch={dispatch} />
+          )}
+        </div>
       </div>
 
     </div>
