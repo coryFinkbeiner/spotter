@@ -11,39 +11,39 @@ import Sidebar from './components/Sidebar'
 
 
 
-// function App() {
-//   const newCode = new URLSearchParams(window.location.search).get("code")
-//   const { code, dispatch } = useDataContext()
-
-//   useEffect(() => {
-//     if (newCode) dispatch({type: 'SET_CODE' , payload: newCode })
-//   }, [])
-
-//   return code ? <Dashboard /> : <Login />
-// }
-
-
-
-
-
-
-import { Container, Row, Col } from 'react-bootstrap';
-
 function App() {
+  const newCode = new URLSearchParams(window.location.search).get("code")
+  const { code, dispatch } = useDataContext()
 
-  return (
-    <div className="d-flex justify-content-center"
-      style={{
-        backgroundColor: 'rgb(0, 0, 0)',
-      }}
-    >
-      <Sidebar />
-      <div style={{ flex: '0 0 540px', minWidth: '540px', backgroundColor: 'lightblue' }}>
-        <div>RIGHT</div>
-      </div>
-    </div>
-  );
+  useEffect(() => {
+    if (newCode) dispatch({type: 'SET_CODE' , payload: newCode })
+  }, [])
+
+  return code ? <Dashboard /> : <Login />
 }
+
+
+
+
+
+
+// import { Container, Row, Col } from 'react-bootstrap';
+
+// function App() {
+
+//   return (
+//     <div className="d-flex justify-content-center"
+//       style={{
+//         backgroundColor: 'rgb(0, 0, 0)',
+//       }}
+//     >
+//       <Sidebar />
+//       <div style={{ flex: '0 0 540px', minWidth: '540px', backgroundColor: 'lightblue' }}>
+//         <div>RIGHT</div>
+//       </div>
+//     </div>
+//   );
+// }
 
 
 

@@ -12,17 +12,17 @@ function Dashboard() {
   const { consoleViewType } = useDataContext();
 
   return (
-    <div className='dashboard'>
+    <div className="d-flex justify-content-center"
+      style={{
+        backgroundColor: 'rgb(0, 0, 0)',
+      }}
+    >
       <Sidebar />
-      <div className="console">
-        {consoleViewType === 'SearchView' && <Search />}
-        {consoleViewType === 'AlbumView' && <AlbumView />}
-        {consoleViewType === 'ArtistView' && <ArtistView />}
-        {consoleViewType === 'PlaylistView' && <PlaylistView />}
+      <div style={{ flex: '0 0 540px', minWidth: '540px', backgroundColor: 'lightblue' }}>
+        <div>RIGHT</div>
       </div>
-      <MyQueue />
     </div>
-  )
+  );
 }
 
 export default Dashboard
