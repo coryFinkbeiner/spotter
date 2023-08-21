@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDataContext } from '../hooks/useDataContext';
 
+import { Container, Row, Col } from 'react-bootstrap';
+
 
 function Albums({ results, dispatch }) {
 
@@ -99,56 +101,35 @@ function Sidebar() {
   }, [radio, accessToken]);
 
   return (
-    <div className='sidebar'>
-      <div className='sidebar-1'>
-        <div className='s-1-nav'>
-          Home
-        </div>
-        <div className='s-1-nav'
-          onClick={() => {
-            // dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
-            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'SearchView' })
-          }}
-        >
-          Search
-        </div>
+    <div style={{
+      flex: '0 0 240px',
+      minWidth: '240px',
+      margin: '6px',
+      padding: '2px',
+      height: '100vh',
 
+      backgroundColor: 'pink',
+    }}>
+      <div
+        style={{
+          height: '15%',
+          margin: '2px',
+          padding: '2px',
+          borderRadius: '8px',
+          color: 'rgb(179, 179, 179)',
+          paddingBottom: '8px',
+          paddingLeft: '12px',
+          paddingRight: '12px',
+          paddingTop: '8px',
+          borderColor: 'rgb(179, 179, 179)',
+          backgroundColor: 'rgb(18, 18, 18)',
+        }}
+      >
       </div>
-
-      <div className='sidebar-2'>
-        <div className='s-2-1'>
-          Your Library
-        </div>
-
-
-        <div className='s-2-2'>
-          <div className='s-2-2-radio'
-            onClick={() => setRadio('albums')}
-          >
-            Albums
-          </div>
-          <div
-            className='s-2-2-radio'
-            onClick={() => setRadio('playlists')}
-          >
-            Playlists
-          </div>
-        </div>
-
-        <div className='s-2-3'>
-          {radio === 'albums' && (
-            <Albums results={results} dispatch={dispatch} />
-          )}
-
-          {radio === 'playlists' && (
-            <Playlists results={results} dispatch={dispatch} />
-          )}
-        </div>
-
-      </div>
-
     </div>
   );
+
+
 }
 
 

@@ -5,6 +5,8 @@ import { useDataContext } from './hooks/useDataContext'
 import React, { useEffect} from 'react'
 import AppLogin from './components/AppLogin'
 
+import Sidebar from './components/Sidebar'
+
 
 
 
@@ -30,10 +32,12 @@ import { Container, Row, Col } from 'react-bootstrap';
 function App() {
 
   return (
-    <div className="d-flex justify-content-center">
-      <div style={{ flex: '0 0 240px', minWidth: '240px', backgroundColor: 'pink' }}>
-        <div>LEFT</div>
-      </div>
+    <div className="d-flex justify-content-center"
+      style={{
+        backgroundColor: 'rgb(0, 0, 0)',
+      }}
+    >
+      <Sidebar />
       <div style={{ flex: '0 0 540px', minWidth: '540px', backgroundColor: 'lightblue' }}>
         <div>RIGHT</div>
       </div>
