@@ -34,12 +34,11 @@ function App() {
       <div style={{ flex: '0 0 240px', minWidth: '240px', backgroundColor: 'pink' }}>
         <div>LEFT</div>
       </div>
-      <div style={{ flex: '0 0 800px', minWidth: '800px', backgroundColor: 'lightblue' }}>
+      <div style={{ flex: '0 0 540px', minWidth: '540px', backgroundColor: 'lightblue' }}>
         <div>RIGHT</div>
       </div>
     </div>
   );
-
 }
 
 
