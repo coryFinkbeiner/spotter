@@ -13,6 +13,8 @@ function Albums({ results, dispatch }) {
     return <div>Albums not found</div>;
   }
 
+  return <div>{results.href}</div>
+
   // return (
   //   <div>
   //     {results?.items?.map((item, i) => {
