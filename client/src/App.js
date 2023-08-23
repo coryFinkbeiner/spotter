@@ -5,15 +5,28 @@ import { useDataContext } from './hooks/useDataContext'
 import React, { useEffect} from 'react'
 import AppLogin from './components/AppLogin'
 import Sidebar from './components/Sidebar'
+import useAuth from "./hooks/useAuth";
+import SpotifyWebApi from "spotify-web-api-node"
 
+const spotifyApi = new SpotifyWebApi({
+  clientId: "b5fd7277f6654b3e881be98a94afd5fc",
+})
 
 function App() {
+  const accessToken = useAuth()
+
   const newCode = new URLSearchParams(window.location.search).get("code")
   const { code, dispatch } = useDataContext()
 
   useEffect(() => {
     if (newCode) dispatch({type: 'SET_CODE' , payload: newCode })
   }, [])
+
+  useEffect(() => {
+    if (!accessToken) return
+    spotifyApi.setAccessToken(accessToken)
+    dispatch({ type: 'SET_ACCESS_TOKEN', payload: accessToken })
+  }, [accessToken])
 
   return code ? <Dashboard /> : <Login />
 }
