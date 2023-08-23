@@ -19,7 +19,10 @@ function Dashboard() {
     >
       <Sidebar />
       <div style={{ flex: '0 0 540px', minWidth: '540px', backgroundColor: 'lightblue' }}>
-        <div>RIGHT</div>
+        {consoleViewType === 'SearchView' && <Search />}
+        {consoleViewType === 'AlbumView' && <AlbumView />}
+        {consoleViewType === 'ArtistView' && <ArtistView />}
+        {consoleViewType === 'PlaylistView' && <PlaylistView />}
       </div>
     </div>
   );
