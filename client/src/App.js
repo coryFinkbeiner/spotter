@@ -4,11 +4,7 @@ import './App.css';
 import { useDataContext } from './hooks/useDataContext'
 import React, { useEffect} from 'react'
 import AppLogin from './components/AppLogin'
-
 import Sidebar from './components/Sidebar'
-
-
-
 
 
 function App() {
