@@ -12,17 +12,26 @@ function Dashboard() {
   const { consoleViewType } = useDataContext();
 
   return (
-    <div className="d-flex justify-content-center"
+    <div
       style={{
         backgroundColor: 'rgb(0, 0, 0)',
-      }}
-    >
-      <Sidebar />
-      <div style={{ flex: '0 0 540px', minWidth: '540px', backgroundColor: 'lightblue' }}>
-        {consoleViewType === 'SearchView' && <Search />}
-        {consoleViewType === 'AlbumView' && <AlbumView />}
-        {consoleViewType === 'ArtistView' && <ArtistView />}
-        {consoleViewType === 'PlaylistView' && <PlaylistView />}
+      }}>
+      <div className="d-flex justify-content-center">
+        <Sidebar />
+        <div style={{ flex: '0 0 540px', minWidth: '540px', backgroundColor: 'lightblue' }}>
+          {consoleViewType === 'SearchView' && <Search />}
+          {consoleViewType === 'AlbumView' && <AlbumView />}
+          {consoleViewType === 'ArtistView' && <ArtistView />}
+          {consoleViewType === 'PlaylistView' && <PlaylistView />}
+        </div>
+      </div>
+      <div
+        style={{
+          backgroundColor: 'green',
+          height: '13vh',
+        }}
+      >
+
       </div>
     </div>
   );

@@ -113,7 +113,7 @@ function Sidebar() {
       minWidth: '240px',
       margin: '6px',
       padding: '2px',
-      height: '100vh',
+      height: '87vh',
 
       backgroundColor: 'pink',
     }}>
