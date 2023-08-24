@@ -27,7 +27,6 @@ export const dataReducer = (state, action) => {
         albumData: action.payload
       };
 
-
     case 'POP_QUEUE':
       const newQueue = [...state.myQueue];
       const pop = newQueue.pop();
