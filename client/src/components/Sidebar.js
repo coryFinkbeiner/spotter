@@ -85,23 +85,23 @@ function Sidebar() {
 
   const { accessToken, dispatch } = useDataContext();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`https://api.spotify.com/v1/me/${radio}`, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-        setResults(response.data);
-        // console.log(response.data)
-      } catch (error) {
-        console.log('Search Error:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(`https://api.spotify.com/v1/me/${radio}`, {
+  //         headers: {
+  //           Authorization: `Bearer ${accessToken}`,
+  //         },
+  //       });
+  //       setResults(response.data);
+  //       // console.log(response.data)
+  //     } catch (error) {
+  //       console.log('Search Error:', error);
+  //     }
+  //   };
 
-    fetchData();
-  }, [radio, accessToken]);
+  //   fetchData();
+  // }, [radio, accessToken]);
 
   return (
 

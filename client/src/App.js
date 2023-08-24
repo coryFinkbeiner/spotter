@@ -8,6 +8,8 @@ import Sidebar from './components/Sidebar'
 import useAuth from "./hooks/useAuth";
 import SpotifyWebApi from "spotify-web-api-node"
 
+import axios from 'axios';
+
 const spotifyApi = new SpotifyWebApi({
   clientId: "b5fd7277f6654b3e881be98a94afd5fc",
 })
@@ -27,6 +29,46 @@ function App() {
     spotifyApi.setAccessToken(accessToken)
     dispatch({ type: 'SET_ACCESS_TOKEN', payload: accessToken })
   }, [accessToken])
+
+
+
+
+  useEffect(() => {
+    const fetchPlaylists = async () => {
+      try {
+        const response = await axios.get(`https://api.spotify.com/v1/me/playlists`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        console.log('playlists response data', response.data);
+      } catch (error) {
+        console.log('Album fetch Error:', error);
+      }
+    };
+
+
+    const fetchAlbums = async () => {
+      try {
+        const response = await axios.get(`https://api.spotify.com/v1/me/albums`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        console.log('albums response data', response.data);
+      } catch (error) {
+        console.log('Playlist fetch Error:', error);
+      }
+    };
+
+
+    fetchPlaylists();
+    fetchAlbums();
+
+  }, [accessToken])
+
+
+
 
   return code ? <Dashboard /> : <Login />
 }
