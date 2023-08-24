@@ -14,6 +14,20 @@ export const dataReducer = (state, action) => {
         ...state,
         accessToken: action.payload
       }
+
+    case 'STORE_PLAYLISTS':
+      return {
+        ...state,
+        playlistData: action.payload
+      };
+
+    case 'STORE_ALBUMS':
+      return {
+        ...state,
+        albumData: action.payload
+      };
+
+
     case 'POP_QUEUE':
       const newQueue = [...state.myQueue];
       const pop = newQueue.pop();
@@ -52,7 +66,9 @@ export const DataProvider = ({ children }) => {
     myQueue: [],
     poppedTrack: {},
     consoleViewType: 'Search',
-    inView: {} // Artist, Playlist or Album data.item
+    inView: {},
+    playlistData: {},
+    albumData: {}
   });
 
   return (
