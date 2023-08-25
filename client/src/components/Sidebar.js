@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDataContext } from '../hooks/useDataContext';
-
-
 import Playlists from './Playlists'
+import Albums from './Albums';
 
 function Sidebar() {
   const [radio, setRadio] = useState('playlists');
@@ -92,7 +91,7 @@ function Sidebar() {
           {radio === 'playlists' && (
             <Playlists results={results} dispatch={dispatch} />
           )} */}
-          <Playlists />
+          <Albums />
         </div>
       </div>
 
