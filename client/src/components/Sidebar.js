@@ -85,13 +85,12 @@ function Sidebar() {
           </div>
         </div>
         <div className='s-2-3'>
-          {/* {radio === 'albums' && (
-            <Albums results={results} dispatch={dispatch} />
+          {radio === 'albums' && (
+            <Albums />
           )}
           {radio === 'playlists' && (
-            <Playlists results={results} dispatch={dispatch} />
-          )} */}
-          <Albums />
+            <Playlists />
+          )}
         </div>
       </div>
 
