@@ -18,6 +18,7 @@ function App() {
   const accessToken = useAuth()
   const { code, dispatch } = useDataContext()
 
+
   const newCode = new URLSearchParams(window.location.search).get("code")
 
   useEffect(() => {
