@@ -3,20 +3,11 @@ import { useDataContext } from '../hooks/useDataContext';
 
 
 function Playlists() {
-
-
   const { playlistData, dispatch } = useDataContext()
-
-
-
-
-
 
   if (!playlistData) {
     return <div>Playlists not found</div>;
   }
-
-  // return <div>{results.href}</div>
 
   return (
     <div className='sidebar-render'>

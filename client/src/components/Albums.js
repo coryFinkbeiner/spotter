@@ -1,8 +1,54 @@
 import React from 'react'
+import { useDataContext } from '../hooks/useDataContext';
 
 function Albums() {
+
+  const { albumData, dispatch } = useDataContext()
+
   return (
-    <div>Albums</div>
+    <div className='sidebar-render'>
+      {albumData?.items?.map((album) => (
+        <div className='sidebar-item-container'
+          key={album.album.id}
+          onClick={() => {
+            dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
+          }}
+        >
+          <img
+            src={album.album.images[0]?.url}
+            style={{
+              borderRadius: '5px',
+              margin: '2px'
+            }}
+          />
+          <div
+            style={{
+              color: 'white',
+              marginLeft: '3px',
+              padding: '2px'
+            }}
+          >
+            <div
+              style={{
+                height: '50%',
+                fontWeight: 'bold',
+              }}
+            >
+              {album.album.name}
+
+            </div>
+            <div
+              style={{
+                height: '50%'
+              }}
+            >
+              {album.album.artists[0].name}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
   )
 }
 
