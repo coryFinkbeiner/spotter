@@ -5,8 +5,6 @@ import { useDataContext } from '../hooks/useDataContext';
 
 import Playlists from './Playlists'
 
-
-
 function Sidebar() {
   const [radio, setRadio] = useState('playlists');
   const [results, setResults] = useState({});
