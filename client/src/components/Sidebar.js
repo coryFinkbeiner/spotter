@@ -41,7 +41,6 @@ function Sidebar() {
         </div>
         <div className='s-1-nav'
           onClick={() => {
-            // dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
             dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'SearchView' })
           }}
           style={{

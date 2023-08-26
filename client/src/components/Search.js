@@ -8,16 +8,21 @@ function TrackList({ tracks, dispatch }) {
   }
 
   return (
-    <ul>
+    <div
+      style={{
+      }}
+    >
       {tracks.map((track) => (
-        <li
+        <div
           key={track.id}
           onClick={() => dispatch({ type: 'ADD_TO_QUEUE', payload: track })}
+          style={{
+          }}
         >
           <div>{track.name} - {track.artists[0].name}</div>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }
 
@@ -97,8 +102,10 @@ function Search() {
   };
 
   return (
-    <div>
-      <div>{accessToken}</div>
+    <div
+      style={{
+      }}
+    >
       <input type="text" value={query} onChange={handleChange} />
       <div>
         <label>
@@ -109,7 +116,7 @@ function Search() {
             checked={searchType === 'track'}
             onChange={handleRadioChange}
           />
-          Tracks
+          Songs
         </label>
         <label>
           <input
@@ -146,7 +153,6 @@ function Search() {
         <AlbumList albums={results?.albums?.items} dispatch={dispatch} />
       )}
 
-      <div>-------------------------------------------</div>
     </div>
   );
 }
