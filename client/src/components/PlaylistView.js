@@ -60,23 +60,66 @@ function PlaylistView() {
           >
             <div
               style={{
+                padding: '15px',
+                color: 'grey',
               }}
             >
               {index + 1}
             </div>
+            <img
+              src={track.track.album.images[2]?.url}
+              style={{
+                height: '38px',
+                borderRadius: '3px',
+                margin: '2px',
+              }}
+          />
             <div
               style={{
-                color: 'white',
+                width: '266px'
               }}
             >
-              {track.track.name}
+              <div
+                style={{
+                  color: 'white',
+                  paddingRight: '15px',
+                  paddingLeft: '15px',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+
+                }}
+              >
+                {track.track.name}
+              </div>
+              <div
+                style={{
+                  color: 'grey',
+                  paddingRight: '15px',
+                  paddingLeft: '15px',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  fontSize: '13px'
+                }}
+              >
+                {track.track.artists[0].name}
+              </div>
             </div>
             <div
-              style={{
-              }}
-            >
-              {track.track.album.name}
-            </div>
+                style={{
+                  color: 'grey',
+                  paddingRight: '15px',
+                  paddingLeft: '15px',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  fontSize: '13px'
+                }}
+              >
+                {track.track.album.name}
+              </div>
+
             <div
               style={{
               }}
@@ -92,20 +135,4 @@ function PlaylistView() {
 }
 
 export default PlaylistView
-
-// href: "https://api.spotify.com/v1/playlists/5BcK7J67q1dG7AEHp05537/tracks"
-
-
-// i think MVP is to just make the calls here, use the uri in the playlist response to grab the tracks.
-
-
-// not includeing Data added
-
-
-// black background for now, instead of fancy gradient
-
-// looks like i might have to do a little math to get the duration, doesn't seem like it's available
-
-
-// inView.primary_color may be the attribute i was looking for for the gradient
 
