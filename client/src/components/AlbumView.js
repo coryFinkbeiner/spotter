@@ -30,7 +30,7 @@ function AlbumView() {
     <div className="song-list"
       style={{
         overflowY: 'auto',
-          maxHeight: '460px'
+        maxHeight: '460px'
       }}
     >
       {inView.album.tracks.items.map((track, index) => (

@@ -33,7 +33,6 @@ function Sidebar() {
           paddingLeft: '12px',
           paddingRight: '12px',
           paddingTop: '8px',
-          borderColor: 'rgb(179, 179, 179)',
           backgroundColor: 'rgb(18, 18, 18)',
         }}
       >
