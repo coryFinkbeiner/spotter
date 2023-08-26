@@ -12,6 +12,8 @@ function Lowbar() {
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center',
+        zIndex: 2,
+        backgroundColor: 'green'
       }}
     >
 
@@ -22,7 +24,6 @@ function Lowbar() {
           fontWeight: 'bold'
         }}
         onClick={() => {
-          // dispatch({ type: 'VIEW_IN_CONSOLE', payload: playlist })
           dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'QueueView' })
         }}
       >

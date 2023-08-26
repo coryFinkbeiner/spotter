@@ -47,10 +47,10 @@ function PlaylistView() {
 
 
 
-      <div className="song-list"
+      <div
         style={{
-          overflowY: 'auto',
-          maxHeight: '460px'
+          overflowY: 'hidden',
+          zIndex: 1
         }}
       >
         {tracks?.map((track, index) => (

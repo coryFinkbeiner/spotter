@@ -90,10 +90,11 @@ function Sidebar() {
             Playlists
           </div>
         </div>
-        <div className='s-2-3'
+        <div
           style={{
             overflowY: 'auto',
-            maxHeight: '460px'
+            zIndex: 1,
+            height: '100%'
           }}
         >
           {radio === 'albums' && (
