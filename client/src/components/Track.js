@@ -1,40 +1,8 @@
-import { useDataContext } from '../hooks/useDataContext';
-import React, { useState, useEffect } from 'react';
+import React from 'react'
 
-function AlbumView() {
-
-  const { inView } = useDataContext()
-
+function Track({ image, trackName, artistName, albumName, duration_ms }) {
   return (
-
-
-    <div className='AlbumPlaylistView'>
-      <div className='view-top'>
-        <img className='view-top-img'
-          src={inView.album.images[0]?.url}
-        />
-        <div className='view-top-info'>
-          <div>
-            {inView.album.artists[0].name} &middot;  {inView.album.total_tracks} songs, 48 min 54 sec
-          </div>
-          {/* <div>
-            {inView.name}
-          </div>
-          <div>
-            {inView.type.charAt(0).toUpperCase() + inView.type.slice(1)}
-          </div> */}
-        </div>
-    </div>
-
-
-    <div className="song-list"
-      style={{
-        overflowY: 'auto',
-          maxHeight: '460px'
-      }}
-    >
-      {inView.album.tracks.items.map((track, index) => (
-        <div
+    <div
           key={index}
           style={{
             display: 'flex',
@@ -51,7 +19,7 @@ function AlbumView() {
             {index + 1}
           </div>
           <img
-            src={inView.album.images[2]?.url}
+            src={image}
             style={{
               height: '38px',
               borderRadius: '3px',
@@ -74,7 +42,7 @@ function AlbumView() {
 
               }}
             >
-              {track.name}
+              {trackName}
             </div>
             <div
               style={{
@@ -87,7 +55,7 @@ function AlbumView() {
                 fontSize: '13px'
               }}
             >
-              {track.artists[0].name}
+              {artistName}
             </div>
           </div>
           <div
@@ -103,7 +71,7 @@ function AlbumView() {
 
             }}
           >
-            {inView.album.name}
+            {albumName}
           </div>
           <div
             style={{
@@ -114,17 +82,7 @@ function AlbumView() {
             3:30
           </div>
         </div>
-      ))}
-    </div>
-
-
-
-    </div>
   )
 }
 
-export default AlbumView
-
-
-
-
+export default Track

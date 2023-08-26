@@ -1,5 +1,5 @@
 import React from 'react'
-import MyQueue from './MyQueue'
+import Queue from './Queue'
 import Search from './Search'
 import Sidebar from './Sidebar'
 import { useDataContext } from '../hooks/useDataContext';
@@ -24,6 +24,7 @@ function Dashboard() {
           {consoleViewType === 'AlbumView' && <AlbumView />}
           {consoleViewType === 'ArtistView' && <ArtistView />}
           {consoleViewType === 'PlaylistView' && <PlaylistView />}
+          {consoleViewType === 'QueueView' && <Queue />}
         </div>
       </div>
       <div
