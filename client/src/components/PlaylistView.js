@@ -3,11 +3,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function PlaylistView() {
-
   const { inView } = useDataContext()
-
   const { accessToken, dispatch } = useDataContext();
-
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
@@ -50,9 +47,8 @@ function PlaylistView() {
       <div className="song-list"
         style={{
           overflowY: 'auto',
-            maxHeight: '460px'
+          maxHeight: '460px'
         }}
-
       >
         {tracks?.map((track, index) => (
           <div
@@ -61,7 +57,6 @@ function PlaylistView() {
               display: 'flex',
               alignItems: 'center',
               padding: '8px',
-              // borderBottom: '1px solid #ddd',  height: '60px',
             }}
           >
             <div

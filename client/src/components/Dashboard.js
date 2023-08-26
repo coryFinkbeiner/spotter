@@ -6,6 +6,7 @@ import { useDataContext } from '../hooks/useDataContext';
 import AlbumView from './AlbumView'
 import PlaylistView from './PlaylistView'
 import ArtistView from './ArtistView'
+import Lowbar from './Lowbar'
 
 function Dashboard() {
 
@@ -32,18 +33,7 @@ function Dashboard() {
           justifyContent: 'center'
         }}
       >
-        <div
-          style={{
-            // backgroundColor: 'red',
-            height: 'full',
-            width: '780px',
-            display: 'flex',
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-          }}
-        >
-          <div style={{ color: 'white', fontWeight: 'bold' }}>QUEUE</div>
-        </div>
+        <Lowbar />
 
       </div>
     </div>
