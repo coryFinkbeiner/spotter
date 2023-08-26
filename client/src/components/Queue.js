@@ -37,6 +37,14 @@ function Queue() {
           height: '100px',
         }}
       >
+        <div
+          style={{
+            margin: '20px 10px 0px 5px',
+            color: 'grey'
+          }}
+        >
+          Now Playing
+        </div>
         <Track
           index={0}
           image={"https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd"}

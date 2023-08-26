@@ -63,18 +63,7 @@ export const DataProvider = ({ children }) => {
     code: null,
     accessToken: null,
     myQueue: [],
-
-
-    poppedTrack: {
-      image: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
-      trackName: 'test',
-      artistName: 'test',
-      albumName: 'test',
-      duration_ms: 1000,
-      uri: "spotify:playlist:2U5jSnNYEG1afQD8D1umrx"
-    },
-
-
+    poppedTrack: {},
     consoleViewType: 'Search',
     inView: {},
     playlistData: {},
