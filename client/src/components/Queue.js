@@ -4,7 +4,7 @@ import { useDataContext } from '../hooks/useDataContext';
 
 function Queue() {
 
-  const { poppedTrack, myQueue } = useDataContext();
+  const { poppedTrack, myQueue, dispatch } = useDataContext();
 
 
 
@@ -76,12 +76,16 @@ function Queue() {
             Next in queue
           </div>
           <div
+            onClick={() => {
+              dispatch({ type: 'CLEAR_QUEUE' })
+            }}
             style={{
               border: '1px solid white',
               borderRadius: '25px',
               color: 'white',
               fontSize: '15px',
-              padding: '2px 12px 2px 12px'
+              padding: '2px 12px 2px 12px',
+              cursor: 'pointer'
             }}
           >
             Clear queue

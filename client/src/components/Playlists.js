@@ -18,6 +18,9 @@ function Playlists() {
             dispatch({ type: 'VIEW_IN_CONSOLE', payload: playlist })
             dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'PlaylistView' })
           }}
+          style={{
+            cursor: 'pointer',
+          }}
         >
           <img
             src={playlist.images[0]?.url}

@@ -42,6 +42,13 @@ export const dataReducer = (state, action) => {
         ...state,
         myQueue: newQueue2
       }
+
+    case 'CLEAR_QUEUE':
+      return {
+        ...state,
+        myQueue: []
+      }
+
     case 'VIEW_IN_CONSOLE':
       return {
         ...state,
