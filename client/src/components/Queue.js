@@ -18,7 +18,8 @@ function Queue() {
         style={{
           color: 'white',
           fontWeight: 'bold',
-          fontSize: '23px'
+          fontSize: '23px',
+          margin: '2px 2px 10px 2px'
         }}
       >
         Queue
