@@ -33,6 +33,9 @@ function Albums() {
               style={{
                 height: '50%',
                 fontWeight: 'bold',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
               }}
             >
               {album.album.name}
@@ -40,7 +43,10 @@ function Albums() {
             </div>
             <div
               style={{
-                height: '50%'
+                height: '50%',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
               }}
             >
               {album.album.artists[0].name}

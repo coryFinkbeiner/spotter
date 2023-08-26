@@ -37,6 +37,9 @@ function Playlists() {
               style={{
                 height: '50%',
                 fontWeight: 'bold',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
               }}
             >
               {playlist.name}
@@ -44,7 +47,10 @@ function Playlists() {
             </div>
             <div
               style={{
-                height: '50%'
+                height: '50%',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
               }}
             >
               {playlist.owner.display_name}
