@@ -104,7 +104,12 @@ function Search() {
   return (
     <div
       style={{
-        backgroundColor: 'rgb(18, 18, 18)',
+        // backgroundColor: 'rgb(18, 18, 18)'
+
+        backgroundColor: 'white',
+
+
+
         margin: '6px',
         padding: '10px, 10px, 10px, 10px',
         height: '100%',
@@ -132,8 +137,9 @@ function Search() {
         >
           <div
             style={{
-              width: '45px'
+              width: '42px'
             }}
+
           >
             M
           </div>
@@ -143,12 +149,14 @@ function Search() {
             onChange={handleChange}
             style={{
               background: 'transparent',
-              width: '250px'
+              width: '266px'
             }}
           />
           <div
             style={{
+              width: '42px'
             }}
+            onClick={handleSearch}
           >
             S
           </div>
@@ -186,7 +194,7 @@ function Search() {
           Albums
         </label>
       </div>
-      <button onClick={handleSearch}>Search</button>
+      <button >Search</button>
 
       {searchType === 'track' && (
         <TrackList tracks={results?.tracks?.items} dispatch={dispatch} />
