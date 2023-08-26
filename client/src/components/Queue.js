@@ -54,7 +54,48 @@ function Queue() {
           duration_ms={1000}
           uri={"spotify:playlist:2U5jSnNYEG1afQD8D1umrx"}
         />
+      </div>
 
+      <div
+        style={{
+        }}
+      >
+
+        <div
+        style={{
+          display: 'flex',
+          margin: '14px 10px 0px 7px',
+        }}
+        >
+
+          <div
+            style={{
+              color: 'grey',
+              marginRight: '280px'
+            }}
+          >
+            Next in queue
+          </div>
+          <div
+            style={{
+              border: '1px solid white',
+              borderRadius: '25px',
+              color: 'white',
+              fontSize: '15px',
+              padding: '2px 12px 2px 12px'
+            }}
+          >
+            Clear queue
+          </div>
+
+
+        </div>
+
+        <div
+        style={{
+        }}
+        >
+        </div>
       </div>
 
 
