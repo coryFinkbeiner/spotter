@@ -127,10 +127,12 @@ function Search() {
             display: 'flex',
             flexDirection: 'row',
             padding: '4px, 4px, 4px, 4px',
+            border: '2px solid white',
           }}
         >
           <div
             style={{
+              width: '45px'
             }}
           >
             M
@@ -141,7 +143,7 @@ function Search() {
             onChange={handleChange}
             style={{
               background: 'transparent',
-
+              width: '250px'
             }}
           />
           <div
@@ -204,43 +206,5 @@ function Search() {
 
 export default Search;
 
-
-
-// onClick for Album and Artist opens up the Album view in the console, which conditionally renders in the Console element instead of Search
-
-
-// * onRightClick for ___ opens up advanced options
-
-  // Track
-    // Play Next
-    // * add to specific place in the queue
-
-  // Album
-    // Add Album to End of Queue
-    // Play Album Next
-    // Thread
-      // * input gap and starting place
-
-  // Artist
-    // not sure, and probably won't be included in first MVP
-
-
-
-// Artist could have
-  // img of artist
-    // onClick opens up Console.Artist
-  // top 5 liked songs or top 5 most popular
-    // with same onClick and onRightClick as Track
-  // top 4 Liked albums or top 4 albums
-      // the album would just be the album art, with the same onClick and onRightClick functionality as the regular Album object
-
-// Album could have
-  // Album art, title, name of Artist
-    // art and title would have Album click functionality
-    // name of Artist would have Artist click functionality
-  // 3-5 liked songs from the album, or first 3 tracks
-    // with song clickability
-
-// there could be a way to expand the Artist and Album objects, not include the extra stuff unless you expand
 
 
