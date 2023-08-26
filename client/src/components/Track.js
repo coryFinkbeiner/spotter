@@ -45,8 +45,7 @@ function Track({
       <img
         src={image}
         style={{
-          height: '38px',
-          borderRadius: '3px',
+          height: '44px',
           margin: '2px',
         }}
       />

@@ -1,7 +1,13 @@
 import React from 'react'
 import Track from './Track'
+import { useDataContext } from '../hooks/useDataContext';
 
 function Queue() {
+
+  const { poppedTrack, myQueue } = useDataContext();
+
+
+
   return (
     <div
       style={{
@@ -27,10 +33,19 @@ function Queue() {
 
       <div
         style={{
-          backgroundColor: 'green',
+          // backgroundColor: 'green',
           height: '100px',
         }}
       >
+        <Track
+          index={0}
+          image={"https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd"}
+          trackName={'test'}
+          artistName={'test'}
+          albumName={'test'}
+          duration_ms={1000}
+          uri={"spotify:playlist:2U5jSnNYEG1afQD8D1umrx"}
+        />
 
       </div>
 
