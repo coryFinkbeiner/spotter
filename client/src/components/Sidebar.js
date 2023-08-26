@@ -19,8 +19,6 @@ function Sidebar() {
       margin: '6px',
       padding: '2px',
       height: '87vh',
-
-      backgroundColor: 'pink',
     }}>
 
       {/* Navigation Bar */}
@@ -53,7 +51,7 @@ function Sidebar() {
 
       </div>
 
-      {/* Render */}
+      {/* Bottom section */}
       <div
         style={{
           backgroundColor: 'rgb(18, 18, 18)',
@@ -84,7 +82,12 @@ function Sidebar() {
             Playlists
           </div>
         </div>
-        <div className='s-2-3'>
+        <div className='s-2-3'
+          style={{
+            overflowY: 'auto',
+            maxHeight: '460px'
+          }}
+        >
           {radio === 'albums' && (
             <Albums />
           )}
