@@ -7,9 +7,25 @@ function AlbumView() {
 
   return (
     <div className='AlbumPlaylistView'>
-      <div>
+      <div className='view-top'>
+        <img className='view-top-img'
+          src={inView.album.images[0]?.url}
+        />
+        <div className='view-top-info'>
+          <div>
+            {inView.album.artists[0].name} &middot;  {inView.album.total_tracks} songs, 48 min 54 sec
+          </div>
+          {/* <div>
+            {inView.name}
+          </div>
+          <div>
+            {inView.type.charAt(0).toUpperCase() + inView.type.slice(1)}
+          </div> */}
+        </div>
+    </div>
 
-      </div>
+
+
     </div>
   )
 }
@@ -17,25 +33,5 @@ function AlbumView() {
 export default AlbumView
 
 
-// top gradient transitions to black
 
 
-
-
-
-// no top bar
-
-// what determines the color? seems like it is based on the album's color scheme. will need to find out, but probably not right now.
-
-// no play button, heart, (...)
-
-// will i include the heart? maybe but not first iteration
-
-// tracks will have a plus symbol, to add to end of queue. in future iteration, hover-over will say 'Add to End of Queue'
-
-// my track versions will be more narrow, equal parts to My Queue
-
-
-
-
-//* all Liked track considerations are pushewd to future
