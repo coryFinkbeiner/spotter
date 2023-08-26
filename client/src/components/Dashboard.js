@@ -18,7 +18,7 @@ function Dashboard() {
       }}>
       <div className="d-flex justify-content-center">
         <Sidebar />
-        <div style={{ flex: '0 0 540px', minWidth: '540px', backgroundColor: 'lightblue' }}>
+        <div style={{ flex: '0 0 540px', minWidth: '540px' }}>
           {consoleViewType === 'SearchView' && <Search />}
           {consoleViewType === 'AlbumView' && <AlbumView />}
           {consoleViewType === 'ArtistView' && <ArtistView />}

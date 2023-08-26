@@ -49,11 +49,40 @@ function PlaylistView() {
 
       <div className="song-list">
         {tracks?.map((track, index) => (
-          <div key={index} className="song-row">
-            <div className="song-number">{index + 1}</div>
-            <div className="song-title">{track.track.name}</div>
-            <div className="song-album">{track.track.album.name}</div>
-            <div className="song-clock">&#x23F1;</div>
+          <div
+            key={index}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              padding: '8px',
+              borderBottom: '1px solid #ddd',height: '60px',
+            }}
+          >
+            <div
+              style={{
+              }}
+            >
+              {index + 1}
+            </div>
+            <div
+              style={{
+                color: 'white',
+              }}
+            >
+              {track.track.name}
+            </div>
+            <div
+              style={{
+              }}
+            >
+              {track.track.album.name}
+            </div>
+            <div
+              style={{
+              }}
+            >
+              &#x23F1;
+            </div>
           </div>
         ))}
       </div>

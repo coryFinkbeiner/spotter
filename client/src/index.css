@@ -36,7 +36,7 @@ code {
   margin: 2px;
   padding: 2px;
 
-  background-color: white;
+  /* background-color: white; */
 }
 
 .AlbumPlaylistView {
@@ -47,17 +47,17 @@ code {
 
   border-radius: 8px;
 
-  background-color: grey;
+  /* background-color: grey; */
 }
 
 .view-top {
-  background-color: green;
+  /* background-color: green; */
   height: 230px;
   margin: 2px;
   padding: 4px;
   display:flex;
   flex: row;
-  color: white;
+  /* color: white; */
 }
 
 .view-top-img {
