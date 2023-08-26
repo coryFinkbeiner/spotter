@@ -47,7 +47,13 @@ function PlaylistView() {
         </div>
       </div>
 
-      <div className="song-list">
+      <div className="song-list"
+        style={{
+          overflowY: 'auto',
+            maxHeight: '460px'
+        }}
+
+      >
         {tracks?.map((track, index) => (
           <div
             key={index}
@@ -55,7 +61,7 @@ function PlaylistView() {
               display: 'flex',
               alignItems: 'center',
               padding: '8px',
-              borderBottom: '1px solid #ddd',height: '60px',
+              // borderBottom: '1px solid #ddd',  height: '60px',
             }}
           >
             <div
@@ -76,7 +82,7 @@ function PlaylistView() {
           />
             <div
               style={{
-                width: '266px'
+                width: '225px'
               }}
             >
               <div
@@ -114,7 +120,9 @@ function PlaylistView() {
                   whiteSpace: 'nowrap',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
-                  fontSize: '13px'
+                  fontSize: '13px',
+                  width: '160px'
+
                 }}
               >
                 {track.track.album.name}
@@ -122,9 +130,11 @@ function PlaylistView() {
 
             <div
               style={{
+                color: 'grey',
+                fontSize: '13px',
               }}
             >
-              &#x23F1;
+              3:30
             </div>
           </div>
         ))}

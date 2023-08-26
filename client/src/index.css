@@ -36,11 +36,9 @@ code {
   margin: 2px;
   padding: 2px;
 
-  /* background-color: white; */
 }
 
 .AlbumPlaylistView {
-  /* background-color: white; */
   margin: 6px;
   padding: 2px;
   height: 100%;
@@ -51,13 +49,11 @@ code {
 }
 
 .view-top {
-  /* background-color: green; */
   height: 230px;
   margin: 2px;
   padding: 4px;
   display:flex;
   flex: row;
-  /* color: white; */
 }
 
 .view-top-img {
@@ -84,7 +80,7 @@ code {
   display: flex;
   align-items: center;
   padding: 8px;
-  border-bottom: 1px solid #ddd;
+  /* border-bottom: 1px solid #ddd; */
 
   height: 60px;
 }
@@ -224,7 +220,6 @@ code {
 }
 
 .sidebar-item-container {
-  /* background-color: white; */
   height: 65px;
   margin: 1px;
   display: flex;
