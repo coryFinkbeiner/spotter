@@ -44,6 +44,9 @@ function Sidebar() {
             // dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
             dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'SearchView' })
           }}
+          style={{
+            cursor: 'pointer',
+          }}
         >
           Search
         </div>
@@ -71,12 +74,18 @@ function Sidebar() {
         <div className='s-2-2'>
           <div className='s-2-2-radio'
             onClick={() => setRadio('albums')}
+            style={{
+              cursor: 'pointer',
+            }}
           >
             Albums
           </div>
           <div
             className='s-2-2-radio'
             onClick={() => setRadio('playlists')}
+            style={{
+              cursor: 'pointer',
+            }}
           >
             Playlists
           </div>

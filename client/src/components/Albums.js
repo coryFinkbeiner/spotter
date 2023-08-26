@@ -10,6 +10,9 @@ function Albums() {
       {albumData?.items?.map((album) => (
         <div className='sidebar-item-container'
           key={album.album.id}
+          style={{
+            cursor: 'pointer',
+          }}
           onClick={() => {
             dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
             dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
