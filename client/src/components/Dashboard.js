@@ -29,8 +29,21 @@ function Dashboard() {
         style={{
           backgroundColor: 'green',
           height: '13vh',
+          display: 'flex',
+          justifyContent: 'center'
         }}
       >
+        <div
+          style={{
+            backgroundColor: 'red',
+            height: 'full',
+            width: '780px',
+            display: 'flex',
+    justifyContent: 'flex-end',
+          }}
+        >
+          <div>BUTTON</div>
+        </div>
 
       </div>
     </div>
