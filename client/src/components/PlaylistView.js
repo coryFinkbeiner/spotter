@@ -1,6 +1,7 @@
 import { useDataContext } from '../hooks/useDataContext';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Track from './Track'
 
 function PlaylistView() {
   const { inView } = useDataContext()
@@ -44,6 +45,8 @@ function PlaylistView() {
         </div>
       </div>
 
+
+
       <div className="song-list"
         style={{
           overflowY: 'auto',
@@ -51,90 +54,17 @@ function PlaylistView() {
         }}
       >
         {tracks?.map((track, index) => (
-          <div
-            key={index}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              padding: '8px',
-            }}
-          >
-            <div
-              style={{
-                padding: '15px',
-                color: 'grey',
-              }}
-            >
-              {index + 1}
-            </div>
-            <img
-              src={track.track.album.images[2]?.url}
-              style={{
-                height: '38px',
-                borderRadius: '3px',
-                margin: '2px',
-              }}
+          <Track
+            index={index}
+            image={track.track.album.images[2]?.url}
+            trackName={track.track.name}
+            artistName={track.track.artists[0].name}
+            albumName={track.track.album.name}
+            duration_ms={1000}
+            uri={track.track.uri}
           />
-            <div
-              style={{
-                width: '225px'
-              }}
-            >
-              <div
-                style={{
-                  color: 'white',
-                  paddingRight: '15px',
-                  paddingLeft: '15px',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-
-                }}
-              >
-                {track.track.name}
-              </div>
-              <div
-                style={{
-                  color: 'grey',
-                  paddingRight: '15px',
-                  paddingLeft: '15px',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  fontSize: '13px'
-                }}
-              >
-                {track.track.artists[0].name}
-              </div>
-            </div>
-            <div
-                style={{
-                  color: 'grey',
-                  paddingRight: '15px',
-                  paddingLeft: '15px',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  fontSize: '13px',
-                  width: '160px'
-
-                }}
-              >
-                {track.track.album.name}
-              </div>
-
-            <div
-              style={{
-                color: 'grey',
-                fontSize: '13px',
-              }}
-            >
-              3:30
-            </div>
-          </div>
         ))}
       </div>
-
     </div>
   )
 }

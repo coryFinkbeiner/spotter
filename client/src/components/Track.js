@@ -32,6 +32,7 @@ function Track({
         display: 'flex',
         alignItems: 'center',
         padding: '8px',
+        cursor: 'pointer'
       }}
     >
       <div

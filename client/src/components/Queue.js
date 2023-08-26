@@ -33,7 +33,6 @@ function Queue() {
 
       <div
         style={{
-          // backgroundColor: 'green',
           height: '100px',
         }}
       >
