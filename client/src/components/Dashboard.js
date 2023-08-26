@@ -27,7 +27,6 @@ function Dashboard() {
       </div>
       <div
         style={{
-          backgroundColor: 'green',
           height: '13vh',
           display: 'flex',
           justifyContent: 'center'
@@ -35,14 +34,15 @@ function Dashboard() {
       >
         <div
           style={{
-            backgroundColor: 'red',
+            // backgroundColor: 'red',
             height: 'full',
             width: '780px',
             display: 'flex',
-    justifyContent: 'flex-end',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
           }}
         >
-          <div>BUTTON</div>
+          <div style={{ color: 'white', fontWeight: 'bold' }}>QUEUE</div>
         </div>
 
       </div>
