@@ -55,6 +55,7 @@ function PlaylistView() {
       >
         {tracks?.map((track, index) => (
           <Track
+            key={index}
             index={index}
             image={track.track.album.images[2]?.url}
             trackName={track.track.name}

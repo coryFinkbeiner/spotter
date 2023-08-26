@@ -97,6 +97,27 @@ function Queue() {
         </div>
       </div>
 
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          overflowY: 'auto',
+          maxHeight: '460px'
+        }}
+      >
+        {myQueue?.map((track, index) => (
+          <Track
+            key={index}
+            index={index}
+            image={track.image}
+            trackName={track.trackName}
+            artistName={track.artistName}
+            albumName={track.albumName}
+            duration_ms={track.duration_ms}
+            uri={track.uri}
+          />
+        ))}
+      </div>
 
     </div>
   )
