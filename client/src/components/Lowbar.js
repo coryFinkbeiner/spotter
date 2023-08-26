@@ -16,8 +16,6 @@ function Lowbar() {
         backgroundColor: 'green'
       }}
     >
-
-
       <div
         style={{
           color: 'white',

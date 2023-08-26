@@ -104,9 +104,54 @@ function Search() {
   return (
     <div
       style={{
+        backgroundColor: 'rgb(18, 18, 18)',
+        margin: '6px',
+        padding: '10px, 10px, 10px, 10px',
+        height: '100%',
+        borderRadius: '8px'
       }}
     >
-      <input type="text" value={query} onChange={handleChange} />
+      <div
+        style={{
+          height: '55px',
+          margin: '4px, 4px, 4px, 4px',
+          padding: '6px'
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: 'pink',
+            borderRadius: '18px',
+            width: '345px',
+            height: '94%',
+            display: 'flex',
+            flexDirection: 'row',
+            padding: '4px, 4px, 4px, 4px',
+          }}
+        >
+          <div
+            style={{
+            }}
+          >
+            M
+          </div>
+          <input
+            type="text"
+            value={query}
+            onChange={handleChange}
+            style={{
+              background: 'transparent',
+
+            }}
+          />
+          <div
+            style={{
+            }}
+          >
+            S
+          </div>
+        </div>
+      </div>
       <div>
         <label>
           <input
