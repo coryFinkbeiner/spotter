@@ -75,27 +75,43 @@ function Search() {
   const [radio, setRadio] = useState('track');
   const [results, setResults] = useState({});
   const { accessToken, dispatch } = useDataContext();
+  const [count, setCount] = useState(0)
 
-  const handleSearch = async () => {
-    try {
-      const response = await axios.get('https://api.spotify.com/v1/search', {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-        params: {
-          q: query,
-          type: radio,
-        },
-      });
-      setResults(response.data);
-    } catch (error) {
-      console.log('Search Error:', error);
-    }
-  };
+
 
   const handleChange = (event) => {
     setQuery(event.target.value);
   };
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://api.spotify.com/v1/search', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+          params: {
+            q: query,
+            type: radio,
+          },
+        });
+        setResults(response.data);
+      } catch (error) {
+        console.log('Search Error:', error);
+      }
+    };
+    fetchData()
+
+
+
+
+
+  }, [count, radio]);
+
+
+
+
 
   return (
 
@@ -161,7 +177,7 @@ function Search() {
               style={{
                 width: '42px'
               }}
-              onClick={handleSearch}
+              onClick={() => setCount(count + 1)}
             >
               S
             </div>
