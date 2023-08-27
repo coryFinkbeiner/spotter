@@ -102,112 +102,115 @@ function Search() {
   };
 
   return (
+
     <div
       style={{
-        // backgroundColor: 'rgb(18, 18, 18)'
-
-        backgroundColor: 'white',
-
-
-
-        margin: '6px',
-        padding: '10px, 10px, 10px, 10px',
+        backgroundColor: 'lightblue',
         height: '100%',
-        borderRadius: '8px'
+        padding: '4px, 4px, 4px, 4px',
+        marginTop: '13px'
       }}
     >
+
+
       <div
         style={{
-          height: '55px',
-          margin: '4px, 4px, 4px, 4px',
-          padding: '6px'
+          // backgroundColor: 'rgb(18, 18, 18)'
+
+          backgroundColor: 'white',
+
+          margin: '6px',
+          padding: '10px, 10px, 10px, 10px',
+          height: '15%',
+          borderRadius: '8px',
         }}
       >
+
+        {/* Search Bar */}
         <div
           style={{
-            backgroundColor: 'pink',
-            borderRadius: '18px',
-            width: '345px',
-            height: '94%',
-            display: 'flex',
-            flexDirection: 'row',
-            padding: '4px, 4px, 4px, 4px',
-            border: '2px solid white',
+            height: '64px',
+            margin: '4px, 4px, 4px, 4px',
+            padding: '6px'
           }}
         >
           <div
             style={{
-              width: '42px'
+              backgroundColor: 'pink',
+              borderRadius: '30px',
+              width: '355px',
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'row',
+              padding: '4px, 4px, 4px, 4px',
+              border: '2px solid white',
             }}
-
           >
-            M
+            <div
+              style={{
+                width: '42px'
+              }}
+
+            >
+              M
+            </div>
+            <input
+              type="text"
+              value={query}
+              onChange={handleChange}
+              style={{
+                background: 'transparent',
+                width: '266px'
+              }}
+            />
+            <div
+              style={{
+                width: '42px'
+              }}
+              onClick={handleSearch}
+            >
+              S
+            </div>
           </div>
-          <input
-            type="text"
-            value={query}
-            onChange={handleChange}
-            style={{
-              background: 'transparent',
-              width: '266px'
-            }}
-          />
+
+          {/* Radio buttons container */}
           <div
             style={{
-              width: '42px'
+              // backgroundColor: 'red',
+              height: '100%',
+              width: '100%',
+              margin: '4px, 4px, 4px, 4px',
+              padding: '7px 4px 4px 4px',
+
+
             }}
-            onClick={handleSearch}
           >
-            S
+            <div
+              style={{
+                backgroundColor: 'grey',
+                height: '76%',
+                width: '60px',
+                padding: '0px 0px 0px, 0px',
+                margin: '0px 0px 7px 0px',
+                borderRadius: '32px',
+                display: 'flex',
+                justifyContent: 'center',
+                textAlign: 'center',
+                fontSize: '14px',
+                alignItems: 'center',
+              }}
+            >
+              Artists
+            </div>
           </div>
+
+
+
         </div>
       </div>
-      <div>
-        <label>
-          <input
-            type="radio"
-            value="track"
-            name="search-type"
-            checked={searchType === 'track'}
-            onChange={handleRadioChange}
-          />
-          Songs
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="artist"
-            name="search-type"
-            checked={searchType === 'artist'}
-            onChange={handleRadioChange}
-          />
-          Artists
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="album"
-            name="search-type"
-            checked={searchType === 'album'}
-            onChange={handleRadioChange}
-          />
-          Albums
-        </label>
-      </div>
-
-      {searchType === 'track' && (
-        <TrackList tracks={results?.tracks?.items} dispatch={dispatch} />
-      )}
-
-      {searchType === 'artist' && (
-        <ArtistList artists={results?.artists?.items} dispatch={dispatch} />
-      )}
-
-      {searchType === 'album' && (
-        <AlbumList albums={results?.albums?.items} dispatch={dispatch} />
-      )}
 
     </div>
+
   );
 }
 
