@@ -9,8 +9,17 @@ function Tracks({ results }) {
   }
 
   return (
-    results?.tracks.items.map((item) => (
-      <div>{item.id}</div>
+    results?.tracks.items.map((item, index) => (
+      <Track
+        key={index}
+        index={index}
+        image={item.album.images[0].url}
+        trackName={item.name}
+        artistName={item.artists[0].name}
+        albumName={item.album.name}
+        duration_ms={item.durations_ms}
+        uri={item.uri}
+      />
     ))
   );
 }
