@@ -72,7 +72,7 @@ function AlbumList({ albums, dispatch }) {
 
 function Search() {
   const [query, setQuery] = useState('');
-  const [searchType, setSearchType] = useState('track');
+  const [radio, setRadio] = useState('track');
   const [results, setResults] = useState({});
   const { accessToken, dispatch } = useDataContext();
 
@@ -84,7 +84,7 @@ function Search() {
         },
         params: {
           q: query,
-          type: searchType,
+          type: radio,
         },
       });
       setResults(response.data);
@@ -196,6 +196,7 @@ function Search() {
                 fontSize: '14px',
                 alignItems: 'center',
               }}
+              onClick={() => setRadio('artist')}
             >
               Artists
             </div>
@@ -214,6 +215,7 @@ function Search() {
                 fontSize: '14px',
                 alignItems: 'center',
               }}
+              onClick={() => setRadio('track')}
             >
               Songs
             </div>
@@ -232,6 +234,7 @@ function Search() {
                 fontSize: '14px',
                 alignItems: 'center',
               }}
+              onClick={() => setRadio('album')}
             >
               Albums
             </div>
