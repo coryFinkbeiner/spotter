@@ -194,7 +194,6 @@ function Search() {
           Albums
         </label>
       </div>
-      <button >Search</button>
 
       {searchType === 'track' && (
         <TrackList tracks={results?.tracks?.items} dispatch={dispatch} />
