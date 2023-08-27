@@ -3,29 +3,30 @@ import axios from 'axios';
 import { useDataContext } from '../hooks/useDataContext';
 import Track from './Track'
 
-// function Tracks({ results }) {
-
-//   useEffect(() => {
-
-//     if (!results.length) {
-//       return <div>No Results</div>
-//     }
-
-//   }, [results])
+function Tracks({ results }) {
 
 
 
-//   return (
-//     <div
-//       style={{
-//       }}
-//     >
-//       {results.tracks.items.map((item) => (
-//         <div>{item.id}</div>
-//       ))}
-//     </div>
-//   );
-// }
+  if (!results.tracks) {
+    return <div>No Results</div>
+  }
+
+
+  return <div>{results.tracks.href}</div>
+
+
+
+  // return (
+  //   <div
+  //     style={{
+  //     }}
+  //   >
+  //     {results.tracks.items.map((item) => (
+  //       <div>{item.id}</div>
+  //     ))}
+  //   </div>
+  // );
+}
 
 function ArtistList({ artists, dispatch }) {
   if (!artists || artists.length === 0) {
@@ -73,7 +74,7 @@ function AlbumList({ albums, dispatch }) {
 
 function Search() {
   const [query, setQuery] = useState('');
-  const [radio, setRadio] = useState('track');
+  const [radio, setRadio] = useState('');
   const [results, setResults] = useState({});
   const { accessToken, dispatch } = useDataContext();
   const [count, setCount] = useState(0)
@@ -96,7 +97,7 @@ function Search() {
       }
     };
     fetchData()
-  }, [count, radio, results, accessToken]);
+  }, [count, radio, accessToken]);
 
 
   const handleChange = (event) => {
@@ -278,13 +279,7 @@ function Search() {
           } */}
 
           {radio === 'track' &&
-            <div
-              style={{
-                backgroundColor: 'white',
-                color: 'black',
-                height: '100px'
-              }}
-            >{results.tracks.href}</div>
+            <Tracks results={results}/>
           }
 
 
