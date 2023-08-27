@@ -179,19 +179,22 @@ function Search() {
               // backgroundColor: 'red',
               height: '100%',
               width: '100%',
-              margin: '4px, 4px, 4px, 4px',
+              margin: '0px 0px 0px 0px',
               padding: '7px 4px 4px 4px',
+              display: 'flex',
+              flex: 'row'
 
 
             }}
           >
+
             <div
               style={{
                 backgroundColor: 'grey',
                 height: '76%',
                 width: '60px',
-                padding: '0px 0px 0px, 0px',
-                margin: '0px 0px 7px 0px',
+                padding: '0px 0px 0px 0px',
+                margin: '0px 8px 7px 0px',
                 borderRadius: '32px',
                 display: 'flex',
                 justifyContent: 'center',
@@ -202,6 +205,44 @@ function Search() {
             >
               Artists
             </div>
+
+            <div
+              style={{
+                backgroundColor: 'grey',
+                height: '76%',
+                width: '60px',
+                padding: '0px 0px 0px, 0px',
+                margin: '0px 8px 7px 0px',
+                borderRadius: '32px',
+                display: 'flex',
+                justifyContent: 'center',
+                textAlign: 'center',
+                fontSize: '14px',
+                alignItems: 'center',
+              }}
+            >
+              Songs
+            </div>
+
+            <div
+              style={{
+                backgroundColor: 'grey',
+                height: '76%',
+                width: '60px',
+                padding: '0px 0px 0px 0px',
+                margin: '0px 0px 7px 0px',
+                borderRadius: '32px',
+                display: 'flex',
+                justifyContent: 'center',
+                textAlign: 'center',
+                fontSize: '14px',
+                alignItems: 'center',
+              }}
+            >
+              Albums
+            </div>
+
+
           </div>
 
 
