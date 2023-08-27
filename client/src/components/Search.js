@@ -97,10 +97,6 @@ function Search() {
     setQuery(event.target.value);
   };
 
-  const handleRadioChange = (event) => {
-    setSearchType(event.target.value);
-  };
-
   return (
 
     <div
@@ -116,9 +112,7 @@ function Search() {
       <div
         style={{
           // backgroundColor: 'rgb(18, 18, 18)'
-
           backgroundColor: 'white',
-
           margin: '6px',
           padding: '10px, 10px, 10px, 10px',
           height: '15%',
@@ -195,7 +189,7 @@ function Search() {
                 width: '60px',
                 padding: '0px 0px 0px 0px',
                 margin: '0px 8px 7px 0px',
-                borderRadius: '32px',
+                borderRadius: '36px',
                 display: 'flex',
                 justifyContent: 'center',
                 textAlign: 'center',
@@ -213,7 +207,7 @@ function Search() {
                 width: '60px',
                 padding: '0px 0px 0px, 0px',
                 margin: '0px 8px 7px 0px',
-                borderRadius: '32px',
+                borderRadius: '36px',
                 display: 'flex',
                 justifyContent: 'center',
                 textAlign: 'center',
@@ -231,7 +225,7 @@ function Search() {
                 width: '60px',
                 padding: '0px 0px 0px 0px',
                 margin: '0px 0px 7px 0px',
-                borderRadius: '32px',
+                borderRadius: '36px',
                 display: 'flex',
                 justifyContent: 'center',
                 textAlign: 'center',
