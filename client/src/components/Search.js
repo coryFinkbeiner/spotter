@@ -1,26 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDataContext } from '../hooks/useDataContext';
+import Track from './Track'
 
-function TrackList({ tracks, dispatch }) {
-  if (!tracks || tracks.length === 0) {
-    return <div>Search Tracks</div>;
-  }
+function Tracks({ results }) {
+
+
 
   return (
     <div
       style={{
       }}
     >
-      {tracks.map((track) => (
-        <div
-          key={track.id}
-          onClick={() => dispatch({ type: 'ADD_TO_QUEUE', payload: track })}
-          style={{
-          }}
-        >
-          <div>{track.name} - {track.artists[0].name}</div>
-        </div>
+      {results.tracks.items.map((item) => (
+        <div>{item.id}</div>
       ))}
     </div>
   );
@@ -77,14 +70,7 @@ function Search() {
   const { accessToken, dispatch } = useDataContext();
   const [count, setCount] = useState(0)
 
-
-
-  const handleChange = (event) => {
-    setQuery(event.target.value);
-  };
-
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const response = await axios.get('https://api.spotify.com/v1/search', {
@@ -102,15 +88,12 @@ function Search() {
       }
     };
     fetchData()
-
-
-
-
-
   }, [count, radio]);
 
 
-
+  const handleChange = (event) => {
+    setQuery(event.target.value);
+  };
 
 
   return (
@@ -124,7 +107,7 @@ function Search() {
       }}
     >
 
-
+      {/* top container */}
       <div
         style={{
           // backgroundColor: 'rgb(18, 18, 18)'
@@ -254,15 +237,39 @@ function Search() {
             >
               Albums
             </div>
-
-
           </div>
+
 
 
 
         </div>
       </div>
 
+      {/* bottom container */}
+      <div
+        style={{
+          backgroundColor: 'pink',
+          height: '100%',
+          padding: '2px 2px 2px 2px',
+          margin: '2px 2px 2px 2px'
+
+        }}
+      >
+        {/* render container */}
+        <div
+          style={{
+            backgroundColor: 'grey',
+            height: '100%',
+          }}
+        >
+          {radio === 'track' &&
+            <Tracks
+              results={results}
+            />
+          }
+
+        </div>
+      </div>
     </div>
 
   );
