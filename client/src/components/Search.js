@@ -4,28 +4,15 @@ import { useDataContext } from '../hooks/useDataContext';
 import Track from './Track'
 
 function Tracks({ results }) {
-
-
-
   if (!results.tracks) {
     return <div>No Results</div>
   }
 
-
-  return <div>{results.tracks.href}</div>
-
-
-
-  // return (
-  //   <div
-  //     style={{
-  //     }}
-  //   >
-  //     {results.tracks.items.map((item) => (
-  //       <div>{item.id}</div>
-  //     ))}
-  //   </div>
-  // );
+  return (
+    results?.tracks.items.map((item) => (
+      <div>{item.id}</div>
+    ))
+  );
 }
 
 function ArtistList({ artists, dispatch }) {
@@ -272,17 +259,9 @@ function Search() {
           }}
         >
 
-          {/* {radio === 'track' &&
-            results?.tracks.items.map((item) => (
-              <div>{item.id}</div>
-            ))
-          } */}
-
           {radio === 'track' &&
             <Tracks results={results}/>
           }
-
-
 
 
 
