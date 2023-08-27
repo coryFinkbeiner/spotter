@@ -3,21 +3,29 @@ import axios from 'axios';
 import { useDataContext } from '../hooks/useDataContext';
 import Track from './Track'
 
-function Tracks({ results }) {
+// function Tracks({ results }) {
+
+//   useEffect(() => {
+
+//     if (!results.length) {
+//       return <div>No Results</div>
+//     }
+
+//   }, [results])
 
 
 
-  return (
-    <div
-      style={{
-      }}
-    >
-      {results.tracks.items.map((item) => (
-        <div>{item.id}</div>
-      ))}
-    </div>
-  );
-}
+//   return (
+//     <div
+//       style={{
+//       }}
+//     >
+//       {results.tracks.items.map((item) => (
+//         <div>{item.id}</div>
+//       ))}
+//     </div>
+//   );
+// }
 
 function ArtistList({ artists, dispatch }) {
   if (!artists || artists.length === 0) {
@@ -88,7 +96,7 @@ function Search() {
       }
     };
     fetchData()
-  }, [count, radio]);
+  }, [count, radio, results, accessToken]);
 
 
   const handleChange = (event) => {
@@ -258,15 +266,30 @@ function Search() {
         {/* render container */}
         <div
           style={{
-            backgroundColor: 'grey',
+            // backgroundColor: 'grey',
             height: '100%',
           }}
         >
+
+          {/* {radio === 'track' &&
+            results?.tracks.items.map((item) => (
+              <div>{item.id}</div>
+            ))
+          } */}
+
           {radio === 'track' &&
-            <Tracks
-              results={results}
-            />
+            <div
+              style={{
+                backgroundColor: 'white',
+                color: 'black',
+                height: '100px'
+              }}
+            >{results.tracks.href}</div>
           }
+
+
+
+
 
         </div>
       </div>
