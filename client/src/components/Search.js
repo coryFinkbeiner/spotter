@@ -43,7 +43,7 @@ function Albums({ results }) {
       {results?.albums.items.map((item, index) => (
         <Album
           index={index}
-          imageURL={item.images[0].url}
+          imageURL={item.images[2].url}
           albumName={item.name}
           artistName={item.artists[0].name}
         />
