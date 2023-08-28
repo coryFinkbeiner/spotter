@@ -24,6 +24,30 @@ function Tracks({ results }) {
   );
 }
 
+function Albums({ results }) {
+  if (!results.albums) {
+    return <div>No Results</div>;
+  }
+
+  return <div>{results.albums.href}</div>
+
+  // return (
+  //   <ul>
+  //     {albums.map((album) => (
+  //       <li
+  //         key={album.id}
+  //         onClick={() => {
+  //           dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
+  //           dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
+  //         }}
+  //       >
+  //         <div>{album.name}</div>
+  //       </li>
+  //     ))}
+  //   </ul>
+  // );
+}
+
 function ArtistList({ artists, dispatch }) {
   if (!artists || artists.length === 0) {
     return <div>Search Artists</div>;
@@ -46,27 +70,7 @@ function ArtistList({ artists, dispatch }) {
   );
 }
 
-function AlbumList({ albums, dispatch }) {
-  if (!albums || albums.length === 0) {
-    return <div>Search Albums</div>;
-  }
 
-  return (
-    <ul>
-      {albums.map((album) => (
-        <li
-          key={album.id}
-          onClick={() => {
-            dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
-            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
-          }}
-        >
-          <div>{album.name}</div>
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 function Search() {
   const [query, setQuery] = useState('');
@@ -270,6 +274,9 @@ function Search() {
 
           {radio === 'track' &&
             <Tracks results={results}/>
+          }
+          {radio === 'album' &&
+            <Albums results={results}/>
           }
 
 
