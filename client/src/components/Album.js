@@ -12,8 +12,8 @@ function Album({
     <div
       style={{
         backgroundColor: 'grey',
-        height: '9px',
-        width: '138px'
+        height: '194px',
+        width: '127px'
       }}
     >
 
