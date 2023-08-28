@@ -21,23 +21,17 @@ function Album({
         borderRadius: '5px',
       }}
     >
-      <div
+
+      <img
+        src={imageURL}
         style={{
-          width: '100%',
           borderRadius: '5px',
+          margin: '2px',
+          width: '100%',
+          padding: '8px 12px 8px 8px',
         }}
-      >
-        <img
-          src={imageURL}
-          style={{
+      />
 
-            margin: '2px',
-            width: '100%',
-            padding: '8px 12px 8px 8px',
-
-          }}
-        />
-      </div>
 
     </div>
   )
