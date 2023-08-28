@@ -41,7 +41,12 @@ function Albums({ results }) {
       }}
     >
       {results?.albums.items.map((item, index) => (
-        <Album />
+        <Album
+          index={index}
+          imageURL={item.images[0].url}
+          albumName={item.name}
+          artistName={item.artists[0].name}
+        />
       ))}
     </div>
   );

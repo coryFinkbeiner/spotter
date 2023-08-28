@@ -3,6 +3,10 @@ import { useDataContext } from '../hooks/useDataContext';
 
 
 function Album({
+  index,
+  imageURL,
+  albumName,
+  artistName,
 
 }) {
 
@@ -14,10 +18,10 @@ function Album({
         backgroundColor: 'grey',
         height: '194px',
         width: '127px',
-        margin: '0px 0px -18px 0px'
+        margin: '0px 0px -21px 0px'
       }}
     >
-
+      jjjj
     </div>
   )
 }
