@@ -35,8 +35,9 @@ function Albums({ results }) {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: '4px',
         height: '100%',
+        alignItems: 'start',
+        rowGap: '0',
       }}
     >
       {results?.albums.items.map((item, index) => (

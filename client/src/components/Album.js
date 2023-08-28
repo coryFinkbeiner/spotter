@@ -13,7 +13,8 @@ function Album({
       style={{
         backgroundColor: 'grey',
         height: '194px',
-        width: '127px'
+        width: '127px',
+        margin: '0px 0px -18px 0px'
       }}
     >
 
