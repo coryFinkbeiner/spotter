@@ -119,7 +119,7 @@ function Search() {
           backgroundColor: 'white',
           margin: '6px',
           padding: '10px, 10px, 10px, 10px',
-          height: '15%',
+          height: '105px',
           borderRadius: '8px',
         }}
       >
