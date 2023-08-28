@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDataContext } from '../hooks/useDataContext';
 import Track from './Track'
+import Album from './Album'
 
 function Tracks({ results }) {
   if (!results.tracks) {
@@ -31,7 +32,7 @@ function Albums({ results }) {
 
   return (
     results?.albums.items.map((item, index) => (
-      <div>{item.id}</div>
+      <Album />
     ))
   );
 

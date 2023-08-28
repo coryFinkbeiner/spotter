@@ -1,8 +1,15 @@
 import React from 'react'
+import { useDataContext } from '../hooks/useDataContext';
 
-function Album() {
+
+function Album({
+
+}) {
+
+  const { dispatch } = useDataContext()
+
   return (
-    <div>Album</div>
+    <div>test</div>
   )
 }
 
