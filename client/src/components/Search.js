@@ -29,7 +29,14 @@ function Albums({ results }) {
     return <div>No Results</div>;
   }
 
-  return <div>{results.albums.href}</div>
+  // return <div>{results.albums.href}</div>
+
+
+  return (
+    results?.albums.items.map((item, index) => (
+      <div>{item.id}</div>
+    ))
+  );
 
   // return (
   //   <ul>
