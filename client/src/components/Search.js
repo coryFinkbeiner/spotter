@@ -29,30 +29,12 @@ function Albums({ results }) {
     return <div>No Results</div>;
   }
 
-  // return <div>{results.albums.href}</div>
-
-
   return (
     results?.albums.items.map((item, index) => (
       <div>{item.id}</div>
     ))
   );
 
-  // return (
-  //   <ul>
-  //     {albums.map((album) => (
-  //       <li
-  //         key={album.id}
-  //         onClick={() => {
-  //           dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
-  //           dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
-  //         }}
-  //       >
-  //         <div>{album.name}</div>
-  //       </li>
-  //     ))}
-  //   </ul>
-  // );
 }
 
 function ArtistList({ artists, dispatch }) {
