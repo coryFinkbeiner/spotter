@@ -9,7 +9,15 @@ function Album({
   const { dispatch } = useDataContext()
 
   return (
-    <div>test</div>
+    <div
+      style={{
+        backgroundColor: 'grey',
+        height: '9px',
+        width: '138px'
+      }}
+    >
+
+    </div>
   )
 }
 

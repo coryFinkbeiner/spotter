@@ -31,9 +31,18 @@ function Albums({ results }) {
   }
 
   return (
-    results?.albums.items.map((item, index) => (
-      <Album />
-    ))
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gap: '4px',
+        height: '100%',
+      }}
+    >
+      {results?.albums.items.map((item, index) => (
+        <Album />
+      ))}
+    </div>
   );
 
 }
