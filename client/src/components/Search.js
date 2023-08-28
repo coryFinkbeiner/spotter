@@ -46,6 +46,7 @@ function Albums({ results }) {
           imageURL={item.images[2].url}
           albumName={item.name}
           artistName={item.artists[0].name}
+          release_date={item.release_date}
         />
       ))}
     </div>

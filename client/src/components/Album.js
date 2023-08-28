@@ -7,6 +7,8 @@ function Album({
   imageURL,
   albumName,
   artistName,
+  release_date,
+
 }) {
 
   const { dispatch } = useDataContext()
@@ -31,7 +33,7 @@ function Album({
           padding: '8px 12px 8px 8px',
         }}
       />
-
+        {release_date}
 
     </div>
   )
