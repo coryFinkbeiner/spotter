@@ -16,10 +16,15 @@ function Album({
 
   return (
     <div
-      // onClick={() => {
-      //   dispatch({ type: 'VIEW_IN_CONSOLE', payload:  item})
-      //   dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
-      // }}1
+      onClick={() => {
+        dispatch({
+          type: 'VIEW_IN_CONSOLE', payload: {
+            test: 'test',
+            hello: 'hello'
+          }
+        })
+        dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
+      }}
       style={{
         backgroundColor: 'grey',
         height: '177px',
