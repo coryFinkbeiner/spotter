@@ -14,7 +14,6 @@ function Lowbar() {
         alignItems: 'center',
         zIndex: 2,
         backgroundColor: 'green',
-        // position: 'absolute',
       }}
     >
       <div

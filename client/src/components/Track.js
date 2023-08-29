@@ -32,8 +32,15 @@ function Track({
         display: 'flex',
         alignItems: 'center',
         padding: '8px',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        borderRadius: '5px',
       }}
+      // onMouseEnter={(e) => {
+      //   e.target.style.backgroundColor = 'rgb(40, 40, 40)';
+      // }}
+      // onMouseLeave={(e) => {
+      //   e.target.style.backgroundColor = 'transparent';
+      // }}
     >
       <div
         style={{

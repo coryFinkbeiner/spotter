@@ -35,7 +35,6 @@ function Dashboard() {
         }}
       >
         <Lowbar />
-
       </div>
     </div>
   );
