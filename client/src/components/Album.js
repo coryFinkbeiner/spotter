@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDataContext } from '../hooks/useDataContext';
+import axios from 'axios'
 
 
 function Album({
@@ -8,22 +9,47 @@ function Album({
   albumName,
   artistName,
   release_date,
-  item
+  item,
+  id
 
 }) {
 
-  const { dispatch } = useDataContext()
+  const { dispatch, accessToken } = useDataContext()
 
   return (
     <div
       onClick={() => {
-        dispatch({
-          type: 'VIEW_IN_CONSOLE', payload: {
-            test: 'test',
-            hello: 'hello'
+
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('https://api.spotify.com/v1/albums/' + id + '/tracks', {
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+              },
+            });
+            dispatch({
+              type: 'VIEW_IN_CONSOLE', payload: {
+                imageURL,
+                albumName,
+                artistName,
+                totalTracks: item.total_tracks,
+                tracks: response.data.items,
+
+              }
+            })
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
+            // console.log(response.data);
+          } catch (error) {
+            console.log('fetch album tracks Error:', error);
           }
-        })
-        dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
+        };
+        fetchData()
+
+
+
+
+
+
       }}
       style={{
         backgroundColor: 'grey',
