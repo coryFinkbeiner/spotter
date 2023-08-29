@@ -17,7 +17,7 @@ function Album({
     <div
       style={{
         backgroundColor: 'grey',
-        height: '180px',
+        height: '177px',
         width: '127px',
         margin: '0px 0px -21px 0px',
         borderRadius: '5px',
@@ -34,6 +34,7 @@ function Album({
           borderRadius: '5px',
           // margin: '2px',
           width: '100%',
+          paddingBottom: '6px',
 
         }}
       />
@@ -41,6 +42,8 @@ function Album({
           style={{
             color: 'white',
             fontWeight: 'bold',
+            fontSize: '15px',
+            paddingBottom: '2px'
           }}
         >
           {albumName}
@@ -49,14 +52,16 @@ function Album({
           style={{
             display: 'flex',
             flexDirection: 'row',
-            color: 'lightgrey'
+            color: 'lightgrey',
+            fontSize: '12px',
           }}
         >
-          <div>
-            {release_date.split('-')[0]}
-          </div>
-          <div>
-            {artistName}
+          <div
+            style={{
+
+            }}
+          >
+            {release_date.split('-')[0] + ' '} &#x2022; {' ' + artistName}
           </div>
         </div>
 
