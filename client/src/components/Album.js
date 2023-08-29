@@ -19,7 +19,7 @@ function Album({
       // onClick={() => {
       //   dispatch({ type: 'VIEW_IN_CONSOLE', payload:  item})
       //   dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
-      // }}
+      // }}1
       style={{
         backgroundColor: 'grey',
         height: '177px',
