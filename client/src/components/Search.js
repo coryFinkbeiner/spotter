@@ -152,7 +152,7 @@ function Search() {
             style={{
               borderRadius: '30px',
               width: '355px',
-              height: '100%',
+              height: '90%',
               display: 'flex',
               flexDirection: 'row',
               padding: '4px, 4px, 4px, 4px',
@@ -214,7 +214,7 @@ function Search() {
             style={{
               height: '100%',
               width: '100%',
-              margin: '0px 0px 0px 0px',
+              margin: '5px 0px 0px 0px',
               padding: '7px 4px 4px 4px',
               display: 'flex',
               flex: 'row'
