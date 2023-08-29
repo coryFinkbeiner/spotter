@@ -5,6 +5,7 @@ import Track from './Track'
 import Album from './Album'
 
 import { SearchIcon } from '@heroicons/react/outline'
+import { XIcon } from '@heroicons/react/outline';
 
 
 
@@ -191,11 +192,20 @@ function Search() {
             />
             <div
               style={{
-                width: '42px'
+                width: '42px',
+                cursor: 'pointer',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
               }}
 
             >
-              X
+              <XIcon
+                style={{
+                  color: 'white',
+                  height: '51%',
+                }}
+              />
             </div>
           </div>
 
