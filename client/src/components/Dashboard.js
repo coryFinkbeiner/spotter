@@ -27,27 +27,21 @@ function Dashboard() {
           {consoleViewType === 'QueueView' && <Queue />}
         </div>
       </div>
+
       <div
         style={{
+          position: 'fixed',
+          bottom: 0,
+          width: '100%',
           height: '13vh',
           display: 'flex',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          backgroundColor: 'grey',
         }}
       >
-        <div
-          style={{
-            position: 'fixed',
-            bottom: 0,
-            width: '100%',
-            height: '13vh',
-            display: 'flex',
-            justifyContent: 'center',
-            backgroundColor: 'grey', // Set desired background color for Lowbar
-          }}
-        >
-          <Lowbar />
-        </div>
+        <Lowbar />
       </div>
+
     </div>
   );
 }
