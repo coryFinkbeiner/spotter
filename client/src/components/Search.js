@@ -162,13 +162,18 @@ function Search() {
             <div
               style={{
                 width: '42px',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+
               }}
               onClick={() => setCount(count + 1)}
             >
               <SearchIcon
                 style={{
-                  color: 'white'
+                  color: 'white',
+                  height: '42%'
                 }}
               />
             </div>
