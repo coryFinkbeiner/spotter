@@ -15,7 +15,7 @@ function Queue() {
         margin: '10px 10px 0px 0px',
         backgroundColor: 'rgb(18, 18, 18)',
         borderRadius: '8px',
-        height: '87vh'
+        height: '90vh'
 
       }}
     >

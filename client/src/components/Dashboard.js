@@ -33,7 +33,7 @@ function Dashboard() {
           position: 'fixed',
           bottom: 0,
           width: '100%',
-          height: '13vh',
+          height: '9vh',
           display: 'flex',
           justifyContent: 'center',
           backgroundColor: 'grey',

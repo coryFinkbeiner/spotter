@@ -8,29 +8,46 @@ function Lowbar() {
     <div
       style={{
         height: 'full',
-        width: '780px',
+        width: '770px',
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center',
         zIndex: 2,
-        // backgroundColor: 'green',
+        backgroundColor: 'green',
+        flexDirection: 'row',
       }}
     >
       <div
         style={{
-          color: 'white',
-          fontWeight: 'bold'
-        }}
-        onClick={() => {
-          dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'QueueView' })
+          backgroundColor: 'red',
+          height: '100%',
+          width: '29%'
         }}
       >
-        QUEUE
       </div>
-
+      <div
+        style={{
+          backgroundColor: 'lightblue',
+          height: '100%',
+          width: '42%'
+        }}
+      >
+      </div>
+      <div
+        style={{
+          backgroundColor: 'pink',
+          height: '100%',
+          width: '29%'
+        }}
+      >
+      </div>
 
     </div>
   )
 }
 
 export default Lowbar
+
+// onClick={() => {
+//   dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'QueueView' })
+// }}
