@@ -24,7 +24,7 @@ function AlbumView() {
     <div
       style={{
         overflowY: 'auto',
-        maxHeight: '460px',
+        maxHeight: 'calc(100vh - 13vh)',
         display: 'flex',
         flexDirection: 'column'
       }}
