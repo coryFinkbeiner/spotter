@@ -22,6 +22,9 @@ function Album({
         margin: '0px 0px -21px 0px',
         borderRadius: '5px',
         padding: '8px 8px 8px 8px',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
       }}
     >
 
