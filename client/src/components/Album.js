@@ -29,7 +29,7 @@ function Album({
             });
             dispatch({
               type: 'VIEW_IN_CONSOLE', payload: {
-                imageURL,
+                imageURL: item.images[0].url,
                 albumName,
                 artistName,
                 totalTracks: item.total_tracks,
