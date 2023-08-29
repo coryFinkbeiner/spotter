@@ -139,7 +139,6 @@ function Search() {
         }}
       >
 
-        {/* Search Bar */}
         <div
           style={{
             height: '64px',
@@ -147,16 +146,17 @@ function Search() {
             padding: '6px'
           }}
         >
+          {/* Search Bar */}
           <div
             style={{
-              backgroundColor: 'pink',
               borderRadius: '30px',
               width: '355px',
               height: '100%',
               display: 'flex',
               flexDirection: 'row',
               padding: '4px, 4px, 4px, 4px',
-              border: '2px solid white',
+              backgroundColor: 'rgb(40, 40, 40)',
+              // border: '2px solid white',
             }}
           >
             <div
@@ -178,7 +178,8 @@ function Search() {
               onChange={handleChange}
               style={{
                 background: 'transparent',
-                width: '266px'
+                width: '266px',
+                border: 'none'
               }}
             />
             <div
