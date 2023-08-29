@@ -179,7 +179,9 @@ function Search() {
               style={{
                 background: 'transparent',
                 width: '266px',
-                border: 'none'
+                border: 'none',
+                color: 'white',
+                outline: 'none',
               }}
             />
             <div
@@ -205,7 +207,7 @@ function Search() {
           >
             <div
               style={{
-                backgroundColor: 'grey',
+                backgroundColor: 'rgb(40, 40, 40)',
                 height: '76%',
                 width: '60px',
                 padding: '0px 0px 0px 0px',
@@ -217,6 +219,7 @@ function Search() {
                 fontSize: '14px',
                 alignItems: 'center',
                 cursor: 'pointer',
+                color: 'white'
               }}
               onClick={() => setRadio('artist')}
             >
@@ -225,7 +228,7 @@ function Search() {
 
             <div
               style={{
-                backgroundColor: 'grey',
+                backgroundColor: 'rgb(40, 40, 40)',
                 height: '76%',
                 width: '60px',
                 padding: '0px 0px 0px, 0px',
@@ -237,6 +240,7 @@ function Search() {
                 fontSize: '14px',
                 alignItems: 'center',
                 cursor: 'pointer',
+                color: 'white'
               }}
               onClick={() => setRadio('track')}
             >
@@ -245,7 +249,7 @@ function Search() {
 
             <div
               style={{
-                backgroundColor: 'grey',
+                backgroundColor: 'rgb(40, 40, 40)',
                 height: '76%',
                 width: '60px',
                 padding: '0px 0px 0px 0px',
@@ -257,6 +261,7 @@ function Search() {
                 fontSize: '14px',
                 alignItems: 'center',
                 cursor: 'pointer',
+                color: 'white'
               }}
               onClick={() => setRadio('album')}
             >
