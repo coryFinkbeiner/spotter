@@ -13,6 +13,3 @@ function ArtistView() {
 
 export default ArtistView
 
-
-//? how will i handle Artist view?
-  // i will probably do this one last, not for this iteration...

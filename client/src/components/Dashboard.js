@@ -34,7 +34,19 @@ function Dashboard() {
           justifyContent: 'center'
         }}
       >
-        <Lowbar />
+        <div
+          style={{
+            position: 'fixed',
+            bottom: 0,
+            width: '100%',
+            height: '13vh',
+            display: 'flex',
+            justifyContent: 'center',
+            backgroundColor: 'grey', // Set desired background color for Lowbar
+          }}
+        >
+          <Lowbar />
+        </div>
       </div>
     </div>
   );

@@ -21,10 +21,12 @@ function AlbumView() {
     </div>
 
 
-    <div className="song-list"
+    <div
       style={{
         overflowY: 'auto',
-        maxHeight: '460px'
+        maxHeight: '460px',
+        display: 'flex',
+        flexDirection: 'column'
       }}
     >
       {inView.tracks?.map((track, index) => (

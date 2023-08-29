@@ -49,8 +49,9 @@ function PlaylistView() {
 
       <div
         style={{
-          overflowY: 'hidden',
-          zIndex: 1
+          overflowY: 'auto',
+          maxHeight: 'calc(100vh - 13vh)'
+          // zIndex: 1,
         }}
       >
         {tracks?.map((track, index) => (
