@@ -47,6 +47,7 @@ function Albums({ results }) {
           albumName={item.name}
           artistName={item.artists[0].name}
           release_date={item.release_date}
+          item={item}
         />
       ))}
     </div>

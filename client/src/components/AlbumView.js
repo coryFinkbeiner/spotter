@@ -12,18 +12,13 @@ function AlbumView() {
     <div className='AlbumPlaylistView'>
       <div className='view-top'>
         <img className='view-top-img'
-          src={inView.album.images[0]?.url}
+          src={inView.images[0]?.url}
         />
         <div className='view-top-info'>
           <div>
-            {inView.album.artists[0].name} &middot;  {inView.album.total_tracks} songs, 48 min 54 sec
+            {inView.artists[0].name} &middot;  {inView.total_tracks} songs, 48 min 54 sec
           </div>
-          {/* <div>
-            {inView.name}
-          </div>
-          <div>
-            {inView.type.charAt(0).toUpperCase() + inView.type.slice(1)}
-          </div> */}
+
         </div>
     </div>
 
@@ -34,14 +29,14 @@ function AlbumView() {
         maxHeight: '460px'
       }}
     >
-      {inView.album.tracks.items?.map((track, index) => (
+      {inView.tracks.items?.map((track, index) => (
         <Track
           key={index}
           index={index}
-          image={inView.album.images[2]?.url}
+          image={inView.images[2]?.url}
           trackName={track.name}
-          artistName={track.artists[0].name}
-          albumName={inView.album.name}
+          // artistName={track.artists[0].name}
+          albumName={inView.name}
           duration_ms={track.duration_ms}
           uri={track.uri}
         />

@@ -14,7 +14,7 @@ function Albums() {
             cursor: 'pointer',
           }}
           onClick={() => {
-            dispatch({ type: 'VIEW_IN_CONSOLE', payload: album })
+            dispatch({ type: 'VIEW_IN_CONSOLE', payload: album.album })
             dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
           }}
         >

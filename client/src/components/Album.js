@@ -8,6 +8,7 @@ function Album({
   albumName,
   artistName,
   release_date,
+  item
 
 }) {
 
@@ -15,6 +16,10 @@ function Album({
 
   return (
     <div
+      // onClick={() => {
+      //   dispatch({ type: 'VIEW_IN_CONSOLE', payload:  item})
+      //   dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
+      // }}
       style={{
         backgroundColor: 'grey',
         height: '177px',
@@ -25,6 +30,7 @@ function Album({
         whiteSpace: 'nowrap',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        cursor: 'pointer',
       }}
     >
 
