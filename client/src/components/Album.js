@@ -34,7 +34,6 @@ function Album({
                 artistName,
                 totalTracks: item.total_tracks,
                 tracks: response.data.items,
-
               }
             })
             dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })

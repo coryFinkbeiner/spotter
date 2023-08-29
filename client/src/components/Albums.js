@@ -14,8 +14,17 @@ function Albums() {
             cursor: 'pointer',
           }}
           onClick={() => {
-            dispatch({ type: 'VIEW_IN_CONSOLE', payload: album.album })
-            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
+            dispatch({
+              type: 'VIEW_IN_CONSOLE',
+              payload: {
+                imageURL: album.album.images[0].url,
+                albumName: album.album.name,
+                artistName: album.album.artists[0].name,
+                totalTracks: album.album.total_tracks,
+                tracks: album.album.tracks.items,
+              }
+            })
+            dispatch({ type:'CHANGE_VIEW_TYPE',payload: 'AlbumView' })
           }}
         >
           <img
