@@ -205,6 +205,7 @@ function Search() {
                   color: 'white',
                   height: '51%',
                 }}
+                onClick={() => setQuery('')}
               />
             </div>
           </div>
@@ -303,7 +304,6 @@ function Search() {
         {/* render container */}
         <div
           style={{
-            // backgroundColor: 'grey',
             height: '100%',
           }}
         >
