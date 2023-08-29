@@ -182,6 +182,12 @@ function Search() {
               type="text"
               value={query}
               onChange={handleChange}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  setCount(count + 1)
+                }
+              }}
+              tabIndex="0"
               style={{
                 background: 'transparent',
                 width: '266px',

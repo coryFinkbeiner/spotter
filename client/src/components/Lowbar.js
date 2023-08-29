@@ -13,7 +13,8 @@ function Lowbar() {
         justifyContent: 'flex-end',
         alignItems: 'center',
         zIndex: 2,
-        backgroundColor: 'green'
+        backgroundColor: 'green',
+        // position: 'absolute',
       }}
     >
       <div
