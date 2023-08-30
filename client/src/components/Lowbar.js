@@ -86,6 +86,12 @@ function Lowbar() {
           width: '29%',
           display: 'flex',
           justifyContent: 'right',
+          color: 'white',
+          paddingRight: '26px',
+          alignSelf: 'center',
+          fontWeight: 'bold',
+          fontSize: '30px',
+          paddingTop: '12px',
         }}
       >
         <HiOutlineQueueList />
