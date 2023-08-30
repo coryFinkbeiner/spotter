@@ -9,7 +9,7 @@ import { SearchIcon, XIcon } from '@heroicons/react/outline'
 
 function Tracks({ results }) {
   if (!results.tracks) {
-    return <div>No Results</div>
+    return <div>Search Songs</div>
   }
 
   return (
@@ -30,7 +30,7 @@ function Tracks({ results }) {
 
 function Albums({ results }) {
   if (!results.albums) {
-    return <div>No Results</div>;
+    return <div>Search Albums</div>;
   }
 
   return (
@@ -59,25 +59,19 @@ function Albums({ results }) {
 
 }
 
-function ArtistList({ artists, dispatch }) {
-  if (!artists || artists.length === 0) {
+function Artists({ results }) {
+  if (!results.artists) {
     return <div>Search Artists</div>;
   }
 
   return (
-    <ul>
-      {artists.map((artist) => (
-        <li
-          key={artist.id}
-          onClick={() => {
-            dispatch({ type: 'VIEW_IN_CONSOLE', payload: artist })
-            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'ArtistView' })
-          }}
-        >
-          <div>{artist.name}</div>
-        </li>
+    <div>
+      {results.artists.items.map((item) => (
+        <div>
+          {item.name}
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }
 
@@ -315,6 +309,9 @@ function Search() {
           }
           {radio === 'album' &&
             <Albums results={results}/>
+          }
+          {radio === 'artist' &&
+            <Artists results={results}/>
           }
 
 
