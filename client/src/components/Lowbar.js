@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDataContext } from '../hooks/useDataContext';
+import { PlayIcon, ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/outline'
 
 function Lowbar() {
   const { dispatch } = useDataContext()
@@ -9,6 +10,7 @@ function Lowbar() {
       style={{
         height: 'full',
         width: '770px',
+        minWidth: '770px',
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center',
@@ -25,14 +27,32 @@ function Lowbar() {
         }}
       >
       </div>
+
+      {/* Center */}
       <div
         style={{
           backgroundColor: 'lightblue',
           height: '100%',
-          width: '42%'
+          width: '42%',
+          display: 'flex',
+          flexDirection: 'row',
+          display: 'flex',
+          justifyContent: 'center'
         }}
       >
+        <div
+          style={{
+            backgroundColor: 'green',
+            height: '60%',
+            width: '100%'
+          }}
+        >
+
+        </div>
+
       </div>
+
+
       <div
         style={{
           backgroundColor: 'pink',

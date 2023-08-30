@@ -4,9 +4,7 @@ import { useDataContext } from '../hooks/useDataContext';
 import Track from './Track'
 import Album from './Album'
 
-import { SearchIcon } from '@heroicons/react/outline'
-import { XIcon } from '@heroicons/react/outline';
-
+import { SearchIcon, XIcon } from '@heroicons/react/outline'
 
 
 function Tracks({ results }) {

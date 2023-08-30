@@ -37,6 +37,7 @@ function Dashboard() {
           display: 'flex',
           justifyContent: 'center',
           backgroundColor: 'grey',
+          paddingBottom: '6px',
         }}
       >
         <Lowbar />
