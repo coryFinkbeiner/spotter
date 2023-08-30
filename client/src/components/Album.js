@@ -16,7 +16,7 @@ function Album({
   const { dispatch, accessToken } = useDataContext()
   const [isHovering, setIsHovering] = useState(false);
   const Container = {
-    backgroundColor: isHovering ? 'grey' : 'rgb(40, 40, 40)',
+    backgroundColor: isHovering ? 'rgb(60, 60, 60)' : 'rgb(40, 40, 40)',
     height: '177px',
     width: '127px',
     margin: '0px 0px -21px 0px',

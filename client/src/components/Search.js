@@ -299,16 +299,7 @@ function Search() {
           margin: '2px 2px 2px 2px'
         }}
       >
-         <div
-          style={{
-            border: '1px solid rgb(40, 40, 40)',
-            width: '100%',
-            height: '2px',
-            backgroundColor: 'transparent',
-            margin: '0px 5px 5px 5px'
 
-          }}
-        ></div>
         {/* render container */}
         <div
           style={{
