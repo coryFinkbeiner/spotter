@@ -36,7 +36,7 @@ function Dashboard() {
           height: '9vh',
           display: 'flex',
           justifyContent: 'center',
-          backgroundColor: 'grey',
+          backgroundColor: 'black',
           paddingBottom: '6px',
         }}
       >

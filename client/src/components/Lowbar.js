@@ -18,13 +18,13 @@ function Lowbar() {
         justifyContent: 'flex-end',
         alignItems: 'center',
         zIndex: 2,
-        backgroundColor: 'green',
+        // backgroundColor: 'green',
         flexDirection: 'row',
       }}
     >
       <div
         style={{
-          backgroundColor: 'red',
+          // backgroundColor: 'red',
           height: '100%',
           width: '29%'
         }}
@@ -34,7 +34,7 @@ function Lowbar() {
       {/* Center */}
       <div
         style={{
-          backgroundColor: 'lightblue',
+          // backgroundColor: 'lightblue',
           height: '100%',
           width: '42%',
           display: 'flex',
@@ -46,12 +46,14 @@ function Lowbar() {
       >
         <div
           style={{
-            backgroundColor: 'green',
+            // backgroundColor: 'green',
             height: '60%',
             width: '100%',
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
+            // paddingTop: '5px'
+            marginTop: '5px'
           }}
         >
           <HiForward
@@ -65,7 +67,7 @@ function Lowbar() {
           <PlayIcon
             style={{
               color: 'white',
-              padding: '0px 19px 0px 19px'
+              padding: '2px 19px 0px 19px',
             }}
           />
           <HiForward
@@ -83,7 +85,7 @@ function Lowbar() {
           dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'QueueView' })
         }}
         style={{
-          backgroundColor: 'pink',
+          // backgroundColor: 'pink',
           height: '100%',
           width: '29%',
           display: 'flex',
