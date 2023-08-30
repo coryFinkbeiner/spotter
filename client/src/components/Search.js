@@ -227,7 +227,7 @@ function Search() {
           >
             <div
               style={{
-                backgroundColor: 'rgb(40, 40, 40)',
+                backgroundColor: radio === 'artist' ? 'white' : 'rgb(40, 40, 40)',
                 height: '76%',
                 width: '60px',
                 padding: '0px 0px 0px 0px',
@@ -239,7 +239,7 @@ function Search() {
                 fontSize: '14px',
                 alignItems: 'center',
                 cursor: 'pointer',
-                color: 'white'
+                color: radio === 'artist' ? 'black' : 'white'
               }}
               onClick={() => setRadio('artist')}
             >
@@ -248,7 +248,7 @@ function Search() {
 
             <div
               style={{
-                backgroundColor: 'rgb(40, 40, 40)',
+                backgroundColor: radio === 'track' ? 'white' : 'rgb(40, 40, 40)',
                 height: '76%',
                 width: '60px',
                 padding: '0px 0px 0px, 0px',
@@ -260,7 +260,7 @@ function Search() {
                 fontSize: '14px',
                 alignItems: 'center',
                 cursor: 'pointer',
-                color: 'white'
+                color: radio === 'track' ? 'black' : 'white'
               }}
               onClick={() => setRadio('track')}
             >
@@ -269,7 +269,7 @@ function Search() {
 
             <div
               style={{
-                backgroundColor: 'rgb(40, 40, 40)',
+                backgroundColor: radio === 'album' ? 'white' : 'rgb(40, 40, 40)',
                 height: '76%',
                 width: '60px',
                 padding: '0px 0px 0px 0px',
@@ -281,7 +281,7 @@ function Search() {
                 fontSize: '14px',
                 alignItems: 'center',
                 cursor: 'pointer',
-                color: 'white'
+                color: radio === 'album' ? 'black' : 'white'
               }}
               onClick={() => setRadio('album')}
             >
