@@ -96,20 +96,6 @@ code {
 }
 
 
-
-.view-top-info-type {
-
-}
-
-.view-top-info-title {
-
-}
-
-.view-top-info-author {
-
-}
-
-
 .View-render-container {
   background-color: orange;
   margin: 2px;
@@ -117,11 +103,6 @@ code {
   height: 69%;
 
 }
-
-.View-render-keys {
-
-}
-
 
 .dashboard {
   display: flex;
