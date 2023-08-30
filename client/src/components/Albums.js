@@ -14,7 +14,8 @@ function Album({ album}) {
         display: 'flex',
         flexDirection: 'row',
         padding: '2px',
-        backgroundColor: isHovering ? 'rgb(40, 40, 40)' : 'transparent',
+        borderRadius: '6px',
+        backgroundColor: isHovering ? 'rgb(45, 45, 45)' : 'transparent',
       }}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
