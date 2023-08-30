@@ -17,9 +17,9 @@ function Album({
   const [isHovering, setIsHovering] = useState(false);
   const Container = {
     backgroundColor: isHovering ? 'rgb(60, 60, 60)' : 'rgb(40, 40, 40)',
-    height: '177px',
+    height: '174px',
     width: '127px',
-    margin: '0px 0px -21px 0px',
+    margin: '0px 0px -18px 0px',
     borderRadius: '5px',
     padding: '8px 8px 8px 8px',
     whiteSpace: 'nowrap',
@@ -65,7 +65,7 @@ function Album({
         style={{
           borderRadius: '5px',
           width: '100%',
-          paddingBottom: '6px',
+          paddingBottom: '9px',
 
         }}
       />
@@ -73,8 +73,8 @@ function Album({
           style={{
             color: 'white',
             fontWeight: 'bold',
-            fontSize: '15px',
-            paddingBottom: '2px'
+            fontSize: '13px',
+            paddingBottom: '3px'
           }}
         >
           {albumName}
@@ -84,7 +84,7 @@ function Album({
             display: 'flex',
             flexDirection: 'row',
             color: 'lightgrey',
-            fontSize: '12px',
+            fontSize: '10px',
           }}
         >
           <div
