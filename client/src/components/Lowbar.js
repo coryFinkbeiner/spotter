@@ -2,7 +2,8 @@ import React from 'react'
 import { useDataContext } from '../hooks/useDataContext';
 import { PlayIcon, ChevronRightIcon, ChevronLeftIcon, QueueListIcon } from '@heroicons/react/solid'
 
-import { HiMenu } from "react-icons/hi";
+import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
+import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 
 function Lowbar() {
   const { dispatch } = useDataContext()
@@ -53,21 +54,25 @@ function Lowbar() {
             justifyContent: 'center',
           }}
         >
-          <ChevronLeftIcon
+          <HiForward
             style={{
               color: 'white',
-
+              transform: 'scaleX(-1)',
+              fontSize: '24px',
+              alignSelf: 'center',
             }}
           />
           <PlayIcon
             style={{
               color: 'white',
-              padding: '0px 12px 0px 12px'
+              padding: '0px 19px 0px 19px'
             }}
           />
-          <ChevronRightIcon
+          <HiForward
             style={{
               color: 'white',
+              fontSize: '24px',
+              alignSelf: 'center',
             }}
           />
         </div>
@@ -78,10 +83,12 @@ function Lowbar() {
         style={{
           backgroundColor: 'pink',
           height: '100%',
-          width: '29%'
+          width: '29%',
+          display: 'flex',
+          justifyContent: 'right',
         }}
       >
-        <HiMenu />
+        <HiOutlineQueueList />
       </div>
 
     </div>
