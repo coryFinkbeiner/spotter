@@ -1,6 +1,8 @@
 import React from 'react'
 import { useDataContext } from '../hooks/useDataContext';
-import { PlayIcon, ChevronRightIcon, ChevronLeftIcon } from '@heroicons/react/solid'
+import { PlayIcon, ChevronRightIcon, ChevronLeftIcon, QueueListIcon } from '@heroicons/react/solid'
+
+import { HiMenu } from "react-icons/hi";
 
 function Lowbar() {
   const { dispatch } = useDataContext()
@@ -38,7 +40,7 @@ function Lowbar() {
           flexDirection: 'row',
           display: 'flex',
           justifyContent: 'center',
-          flexAlign: 'bottom',
+
         }}
       >
         <div
@@ -51,7 +53,6 @@ function Lowbar() {
             justifyContent: 'center',
           }}
         >
-
           <ChevronLeftIcon
             style={{
               color: 'white',
@@ -69,11 +70,7 @@ function Lowbar() {
               color: 'white',
             }}
           />
-
-
-
         </div>
-
       </div>
 
 
@@ -84,6 +81,7 @@ function Lowbar() {
           width: '29%'
         }}
       >
+        <HiMenu />
       </div>
 
     </div>
