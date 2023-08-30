@@ -78,8 +78,10 @@ function Lowbar() {
         </div>
       </div>
 
-
       <div
+        onClick={() => {
+          dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'QueueView' })
+        }}
         style={{
           backgroundColor: 'pink',
           height: '100%',
@@ -92,6 +94,7 @@ function Lowbar() {
           fontWeight: 'bold',
           fontSize: '30px',
           paddingTop: '12px',
+          cursor: 'pointer'
         }}
       >
         <HiOutlineQueueList />
@@ -103,6 +106,3 @@ function Lowbar() {
 
 export default Lowbar
 
-// onClick={() => {
-//   dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'QueueView' })
-// }}

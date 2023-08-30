@@ -13,10 +13,31 @@ function AlbumView() {
         <img className='view-top-img'
           src={inView.imageURL}
         />
-        <div className='view-top-info'>
+        <div
+          style={{
+            margin: '12px',
+            marginLeft: '9px',
+            padding: '2px',
+          }}
+        >
+          <div>
+            Album
+          </div>
+
+          <div
+            style={{
+              fontSize: '40px',
+              fontWeight: 'bold',
+            }}
+          >
+            {inView.albumName}
+          </div>
+
           <div>
             {inView.artistName} &middot;  {inView.total_tracks} songs
           </div>
+
+
         </div>
     </div>
 
