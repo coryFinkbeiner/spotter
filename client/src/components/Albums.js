@@ -22,6 +22,7 @@ function Albums() {
                 artistName: album.album.artists[0].name,
                 totalTracks: album.album.total_tracks,
                 tracks: album.album.tracks.items,
+                year: album.album.release_date.split('-')[0],
               }
             })
             dispatch({ type:'CHANGE_VIEW_TYPE',payload: 'AlbumView' })

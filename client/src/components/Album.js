@@ -34,10 +34,10 @@ function Album({
                 artistName,
                 totalTracks: item.total_tracks,
                 tracks: response.data.items,
+                year: release_date.split('-')[0],
               }
             })
             dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'AlbumView' })
-            // console.log(response.data);
           } catch (error) {
             console.log('fetch album tracks Error:', error);
           }
