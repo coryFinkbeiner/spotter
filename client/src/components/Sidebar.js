@@ -93,7 +93,9 @@ function Sidebar() {
           style={{
             overflowY: 'auto',
             zIndex: 1,
-            height: '100%'
+            height: '100%',
+            scrollbarWidth: 'thin',
+            scrollbarColor: 'transparent transparent',
           }}
         >
           {radio === 'albums' && (
