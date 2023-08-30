@@ -89,6 +89,7 @@ function Search() {
   const [results, setResults] = useState({});
   const { accessToken, dispatch } = useDataContext();
   const [count, setCount] = useState(0)
+  const [focus, setFocus] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -155,8 +156,10 @@ function Search() {
               flexDirection: 'row',
               padding: '4px, 4px, 4px, 4px',
               backgroundColor: 'rgb(40, 40, 40)',
-              // border: '2px solid white',
+              border: focus ? '2px solid white' : 'none',
             }}
+            onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
           >
             <div
               style={{
