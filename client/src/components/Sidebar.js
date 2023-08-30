@@ -75,6 +75,8 @@ function Sidebar() {
             onClick={() => setRadio('albums')}
             style={{
               cursor: 'pointer',
+              backgroundColor: radio === 'albums' ? 'white' : 'rgba(255, 255, 255, 0.07)',
+              color: radio === 'albums' ? 'black' : 'rgba(255, 255, 255)'
             }}
           >
             Albums
@@ -84,6 +86,8 @@ function Sidebar() {
             onClick={() => setRadio('playlists')}
             style={{
               cursor: 'pointer',
+              backgroundColor: radio === 'playlists' ? 'white' : 'rgba(255, 255, 255, 0.07)',
+              color: radio === 'playlists' ? 'black' : 'rgba(255, 255, 255)'
             }}
           >
             Playlists
