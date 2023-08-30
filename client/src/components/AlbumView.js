@@ -18,9 +18,16 @@ function AlbumView() {
             margin: '12px',
             marginLeft: '9px',
             padding: '2px',
+            marginTop: '80px'
+
           }}
         >
-          <div>
+          <div
+            style={{
+              color: 'white',
+              fontSize: '14px',
+            }}
+          >
             Album
           </div>
 
@@ -28,13 +35,26 @@ function AlbumView() {
             style={{
               fontSize: '40px',
               fontWeight: 'bold',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              color: 'white',
+              paddingBottom: '20px',
+              paddingTop: '6px',
             }}
           >
             {inView.albumName}
           </div>
 
-          <div>
-            {inView.artistName} &middot;  {inView.total_tracks} songs
+          <div
+            style={{
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              color: 'white',
+            }}
+          >
+            {inView.artistName} &middot;  {inView.totalTracks} songs
           </div>
 
 
