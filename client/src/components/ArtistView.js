@@ -5,9 +5,8 @@ function ArtistView() {
 
   const { inView } = useDataContext()
 
-
   return (
-    <div>{inView.name}</div>
+    <div>{inView.artistName}</div>
   )
 }
 

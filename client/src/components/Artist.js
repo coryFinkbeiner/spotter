@@ -9,6 +9,7 @@ function Artist({
   id
 }) {
   const [isHovering, setIsHovering] = useState(false);
+  const { dispatch} = useDataContext()
 
   return (
     <div
@@ -26,6 +27,21 @@ function Artist({
       }}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
+
+      onClick={() => {
+        dispatch({
+          type: 'VIEW_IN_CONSOLE', payload: {
+            index,
+            imageURL,
+            artistName,
+            item,
+            id
+          }
+        })
+        dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'ArtistView' })
+      }}
+
+
     >
       <img
         src={imageURL}

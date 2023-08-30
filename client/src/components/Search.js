@@ -79,7 +79,7 @@ function Artists({ results }) {
         <Artist
           key={item.id}
           index={index}
-          imageURL={item.name}
+          imageURL={item.images[0].url}
           artistName={item.name}
           item={item}
           id={item.id}
