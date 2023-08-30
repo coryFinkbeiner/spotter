@@ -19,7 +19,7 @@ function Track({
     padding: '8px',
     cursor: 'pointer',
     borderRadius: '5px',
-    backgroundColor: isHovering ? 'white' : 'transparent'
+    backgroundColor: isHovering ? 'rgb(40, 40, 40)' : 'transparent'
   }
 
 
