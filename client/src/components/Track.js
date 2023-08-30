@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useDataContext } from '../hooks/useDataContext';
 
 function Track({
@@ -10,8 +10,18 @@ function Track({
   duration_ms,
   uri
 }) {
-
   const { dispatch } = useDataContext()
+  const [isHovering, setIsHovering] = useState(false);
+
+  const TrackContainer = {
+    display: 'flex',
+    alignItems: 'center',
+    padding: '8px',
+    cursor: 'pointer',
+    borderRadius: '5px',
+    backgroundColor: isHovering ? 'white' : 'transparent'
+  }
+
 
   return (
     <div
@@ -28,19 +38,9 @@ function Track({
           }
         }
       )}
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        padding: '8px',
-        cursor: 'pointer',
-        borderRadius: '5px',
-      }}
-      // onMouseEnter={(e) => {
-      //   e.target.style.backgroundColor = 'rgb(40, 40, 40)';
-      // }}
-      // onMouseLeave={(e) => {
-      //   e.target.style.backgroundColor = 'transparent';
-      // }}
+      style={TrackContainer}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
       <div
         style={{
