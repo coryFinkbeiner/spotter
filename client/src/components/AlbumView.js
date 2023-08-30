@@ -50,11 +50,15 @@ function AlbumView() {
             style={{
               whiteSpace: 'nowrap',
               overflow: 'hidden',
+              fontSize: '15px',
               textOverflow: 'ellipsis',
               color: 'white',
+              display: 'flex',
+              flexDirection: 'row',
             }}
           >
-            {inView.artistName} &middot; {inView.year} &middot; {inView.totalTracks} songs
+            <div style={{fontWeight: 'bold'}}>{inView.artistName} </div> &nbsp;
+            &middot; {inView.year} &middot; {inView.totalTracks} songs
           </div>
 
 
