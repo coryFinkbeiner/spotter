@@ -1,5 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDataContext } from '../hooks/useDataContext';
+
+function Album({ album}) {
+  const [isHovering, setIsHovering] = useState(false);
+  const { dispatch } = useDataContext();
+
+
+}
 
 
 function Playlists() {

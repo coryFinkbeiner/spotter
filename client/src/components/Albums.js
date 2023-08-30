@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDataContext } from '../hooks/useDataContext';
 
-function Album({ album}) {
+function SideAlbum({ album}) {
   const [isHovering, setIsHovering] = useState(false);
   const { dispatch } = useDataContext();
 
@@ -81,7 +81,7 @@ function Albums() {
   return (
     <div className='sidebar-render'>
       {albumData?.items?.map((album) => (
-        <Album key={album.album.id} album={album} />
+        <SideAlbum key={album.album.id} album={album} />
       ))}
     </div>
   )
