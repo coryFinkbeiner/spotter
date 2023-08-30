@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useDataContext } from '../hooks/useDataContext';
 import Track from './Track'
 import Album from './Album'
+import Artist from './Artist'
 
 import { SearchIcon, XIcon } from '@heroicons/react/outline'
 
@@ -65,11 +66,24 @@ function Artists({ results }) {
   }
 
   return (
-    <div>
-      {results.artists.items.map((item) => (
-        <div>
-          {item.name}
-        </div>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        height: '100%',
+        alignItems: 'start',
+        rowGap: '0',
+      }}
+    >
+      {results.artists.items.map((item, index) => (
+        <Artist
+          key={item.id}
+          index={index}
+          imageURL={item.name}
+          artistName={item.name}
+          item={item}
+          id={item.id}
+        />
       ))}
     </div>
   );
