@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useDataContext } from '../hooks/useDataContext';
 import axios from 'axios'
 
@@ -13,8 +13,20 @@ function Album({
   id
 
 }) {
-
   const { dispatch, accessToken } = useDataContext()
+  const [isHovering, setIsHovering] = useState(false);
+  const Container = {
+    backgroundColor: isHovering ? 'grey' : 'rgb(40, 40, 40)',
+    height: '177px',
+    width: '127px',
+    margin: '0px 0px -21px 0px',
+    borderRadius: '5px',
+    padding: '8px 8px 8px 8px',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    cursor: 'pointer',
+  }
 
   return (
     <div
@@ -43,32 +55,15 @@ function Album({
           }
         };
         fetchData()
-
-
-
-
-
-
       }}
-      style={{
-        backgroundColor: 'grey',
-        height: '177px',
-        width: '127px',
-        margin: '0px 0px -21px 0px',
-        borderRadius: '5px',
-        padding: '8px 8px 8px 8px',
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        cursor: 'pointer',
-      }}
+      style={Container}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
-
       <img
         src={imageURL}
         style={{
           borderRadius: '5px',
-          // margin: '2px',
           width: '100%',
           paddingBottom: '6px',
 
