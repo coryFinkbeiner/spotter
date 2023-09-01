@@ -6,13 +6,7 @@ import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 
 function Lowbar() {
-  const { dispatch, accessToken } = useDataContext()
-
-  // useEffect(() => {
-
-
-
-  // }, [accessToken])
+  const { dispatch, accessToken, player } = useDataContext()
 
 
   return (
@@ -69,6 +63,7 @@ function Lowbar() {
               color: 'white',
               padding: '2px 19px 0px 19px',
             }}
+            // onClick={() => player.togglePlay()}
           />
           <HiForward
             style={{

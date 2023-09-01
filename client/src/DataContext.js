@@ -87,26 +87,6 @@ export const DataProvider = ({ children }) => {
     player: null,
   });
 
-  // useEffect(() => {
-  //   if (state.accessToken && !state.player) {
-  //     window.onSpotifyWebPlaybackSDKReady = () => {
-  //       const player = new Spotify.Player({
-  //         name: 'Web Playback SDK Player',
-  //         getOAuthToken: cb => {
-  //           cb(state.accessToken);
-  //         }
-  //       });
-
-  //       player.connect().then(success => {
-  //         if (success) {
-  //           console.log('Connected to the Spotify player');
-  //           dispatch({ type: 'SET_PLAYER', payload: player });
-  //         }
-  //       });
-  //     };
-  //   }
-  // }, [state.accessToken, state.player]);
-
   return (
     <DataContext.Provider value={{...state, dispatch }}>
       {children}
