@@ -1,5 +1,5 @@
 import { createContext, useReducer } from 'react';
-
+import React, { useState, useEffect }  from 'react'
 export const DataContext = createContext();
 
 export const dataReducer = (state, action) => {
@@ -59,6 +59,15 @@ export const dataReducer = (state, action) => {
         ...state,
         consoleViewType: action.payload
       }
+
+    case 'SET_PLAYER':
+      return {
+        ...state,
+        player: action.payload
+      }
+
+
+
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -71,11 +80,32 @@ export const DataProvider = ({ children }) => {
     accessToken: null,
     myQueue: [],
     poppedTrack: {},
-    consoleViewType: 'Search',
+    consoleViewType: '',
     inView: {},
     playlistData: {},
-    albumData: {}
+    albumData: {},
+    player: null,
   });
+
+  // useEffect(() => {
+  //   if (state.accessToken && !state.player) {
+  //     window.onSpotifyWebPlaybackSDKReady = () => {
+  //       const player = new Spotify.Player({
+  //         name: 'Web Playback SDK Player',
+  //         getOAuthToken: cb => {
+  //           cb(state.accessToken);
+  //         }
+  //       });
+
+  //       player.connect().then(success => {
+  //         if (success) {
+  //           console.log('Connected to the Spotify player');
+  //           dispatch({ type: 'SET_PLAYER', payload: player });
+  //         }
+  //       });
+  //     };
+  //   }
+  // }, [state.accessToken, state.player]);
 
   return (
     <DataContext.Provider value={{...state, dispatch }}>

@@ -6,7 +6,14 @@ import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 
 function Lowbar() {
-  const { dispatch } = useDataContext()
+  const { dispatch, accessToken } = useDataContext()
+
+  // useEffect(() => {
+
+
+
+  // }, [accessToken])
+
 
   return (
     <div
@@ -18,41 +25,34 @@ function Lowbar() {
         justifyContent: 'flex-end',
         alignItems: 'center',
         zIndex: 2,
-        // backgroundColor: 'green',
         flexDirection: 'row',
       }}
     >
       <div
         style={{
-          // backgroundColor: 'red',
           height: '100%',
           width: '29%'
         }}
       >
       </div>
-
       {/* Center */}
       <div
         style={{
-          // backgroundColor: 'lightblue',
           height: '100%',
           width: '42%',
           display: 'flex',
           flexDirection: 'row',
           display: 'flex',
           justifyContent: 'center',
-
         }}
       >
         <div
           style={{
-            // backgroundColor: 'green',
             height: '60%',
             width: '100%',
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
-            // paddingTop: '5px'
             marginTop: '5px'
           }}
         >
@@ -79,13 +79,11 @@ function Lowbar() {
           />
         </div>
       </div>
-
       <div
         onClick={() => {
           dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'QueueView' })
         }}
         style={{
-          // backgroundColor: 'pink',
           height: '100%',
           width: '29%',
           display: 'flex',
@@ -101,10 +99,8 @@ function Lowbar() {
       >
         <HiOutlineQueueList />
       </div>
-
     </div>
   )
 }
 
 export default Lowbar
-
