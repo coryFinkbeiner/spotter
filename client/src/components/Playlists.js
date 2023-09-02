@@ -73,7 +73,7 @@ function Playlists() {
   return (
     <div className='sidebar-render'>
       {playlistData?.items?.map((playlist, index) => (
-        <SidePlaylist playlist={playlist} id={index} />
+        <SidePlaylist key={index} playlist={playlist} id={index} />
       ))}
     </div>
   )

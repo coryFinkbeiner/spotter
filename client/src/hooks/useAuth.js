@@ -26,7 +26,7 @@ const useAuth = () => {
         window.history.pushState({}, null, "/");
       })
       .catch((err) => {
-        console.log('login err', err)
+        // console.log('login err', err)
         // window.location = "/";
       });
   }, [code]);
@@ -43,7 +43,7 @@ const useAuth = () => {
           setExpiresIn(res.data.expiresIn);
         })
         .catch((err) => {
-          console.log('refresh error', err)
+          // console.log('refresh error', err)
           window.location = "/";
         });
     }, (expiresIn - 60) * 1000);

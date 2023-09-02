@@ -63,7 +63,7 @@ function Lowbar() {
               color: 'white',
               padding: '2px 19px 0px 19px',
             }}
-            // onClick={() => player.togglePlay()}
+            onClick={() => player.togglePlay()}
           />
           <HiForward
             style={{
