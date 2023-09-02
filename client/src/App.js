@@ -22,7 +22,7 @@ function App() {
   const newCode = new URLSearchParams(window.location.search).get("code")
 
 
-  usePlayer()
+  // usePlayer()
 
 
   useEffect(() => {

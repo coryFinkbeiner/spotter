@@ -1,12 +1,8 @@
 import React from 'react'
-// import SpotifyWebPlayer from 'sdk.scdn.co/spotify-player.js';
 import { useDataContext } from './useDataContext';
-
 
 function usePlayer() {
   const { accessToken, player, dispatch } = useDataContext()
-
-
 
   if (!player) {
 
@@ -50,11 +46,7 @@ function usePlayer() {
         }
       });
     };
-
-
   }
-
-
 }
 
 export default usePlayer
