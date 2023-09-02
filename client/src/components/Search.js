@@ -113,7 +113,7 @@ function Search() {
         });
         setResults(response.data);
       } catch (error) {
-        console.log('Search Error:', error);
+        // console.log('Search Error:', error);
       }
     };
     fetchData()

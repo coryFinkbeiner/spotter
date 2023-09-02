@@ -8,7 +8,6 @@ import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 function Lowbar() {
   const { dispatch, accessToken, player } = useDataContext()
 
-
   return (
     <div
       style={{
@@ -29,6 +28,7 @@ function Lowbar() {
         }}
       >
       </div>
+
       {/* Center */}
       <div
         style={{
@@ -63,7 +63,7 @@ function Lowbar() {
               color: 'white',
               padding: '2px 19px 0px 19px',
             }}
-            onClick={() => player.togglePlay()}
+            onClick={() =>  player.togglePlay() }
           />
           <HiForward
             style={{
@@ -71,6 +71,7 @@ function Lowbar() {
               fontSize: '24px',
               alignSelf: 'center',
             }}
+            onClick={() => console.log(player.name)}
           />
         </div>
       </div>
