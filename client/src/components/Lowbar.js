@@ -23,7 +23,7 @@ function Lowbar() {
       window.onSpotifyWebPlaybackSDKReady = () => {
         const newPlayer = new window.Spotify.Player({
           name: 'Web Playback SDK',
-          getOAuthToken: cb => { cb(accessToken) },
+          getOAuthToken: cb =>  cb(accessToken),
           volume: 0.5
         });
 
@@ -57,7 +57,7 @@ function Lowbar() {
       };
     }
 
-  }, [])
+  }, [ accessToken, player ])
 
 
 

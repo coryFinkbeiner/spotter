@@ -9,9 +9,6 @@ import useAuth from "./hooks/useAuth";
 import SpotifyWebApi from "spotify-web-api-node"
 import axios from 'axios';
 
-import usePlayer from './hooks/usePlayer'
-
-
 const spotifyApi = new SpotifyWebApi({
   clientId: "b5fd7277f6654b3e881be98a94afd5fc",
 })
@@ -20,10 +17,6 @@ function App() {
   const accessToken = useAuth()
   const { code, dispatch, player } = useDataContext()
   const newCode = new URLSearchParams(window.location.search).get("code")
-
-
-  // usePlayer()
-
 
   useEffect(() => {
     if (newCode) dispatch({type: 'SET_CODE' , payload: newCode })
