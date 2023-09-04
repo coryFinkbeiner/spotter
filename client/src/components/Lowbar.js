@@ -42,6 +42,11 @@ function Lowbar() {
 
   useEffect(() => {
 
+    if (player) {
+      console.log('player exists, return')
+      return
+    }
+
     console.log('useEffect')
 
     if (!document.getElementById('spotify-player-script')) {
@@ -94,7 +99,7 @@ function Lowbar() {
       }
     };
 
-  }, []);
+  }, [accessToken, player]);
 
   return (
     <div
