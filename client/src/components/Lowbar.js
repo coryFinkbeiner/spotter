@@ -29,6 +29,7 @@ function Lowbar() {
       newPlayer.connect().then(success => {
         if (success) {
           console.log('The Web Playback SDK successfully connected to Spotify!');
+          console.log('setPlayer', newPlayer, player)
           setPlayer(newPlayer)
         }
       });

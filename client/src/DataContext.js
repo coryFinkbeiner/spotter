@@ -60,11 +60,11 @@ export const dataReducer = (state, action) => {
         consoleViewType: action.payload
       }
 
-    case 'SET_PLAYER':
-      return {
-        ...state,
-        player: action.payload
-      }
+    // case 'SET_PLAYER':
+    //   return {
+    //     ...state,
+    //     player: action.payload
+    //   }
 
 
 
@@ -84,7 +84,7 @@ export const DataProvider = ({ children }) => {
     inView: {},
     playlistData: {},
     albumData: {},
-    player: null,
+    // player: null,
   });
 
   return (
