@@ -10,6 +10,7 @@ function Lowbar() {
   const [ player, setPlayer ] = useState(null)
 
   const initPlayer = () => {
+    console.log('initPlayer')
     if (window.Spotify) {
       const newPlayer = new window.Spotify.Player({
         name: 'Web Playback SDK',
@@ -29,18 +30,22 @@ function Lowbar() {
         if (success) {
           console.log('The Web Playback SDK successfully connected to Spotify!');
           setPlayer(newPlayer)
-          console.log('player set', player)
         }
       });
+
+    } else {
+      console.log('!window.Spotify')
     }
   }
 
 
-
   useEffect(() => {
 
+    console.log('useEffect')
 
     if (!document.getElementById('spotify-player-script')) {
+
+      console.log('!script')
 
       const script = document.createElement("script");
       script.src = "https://sdk.scdn.co/spotify-player.js";
@@ -48,24 +53,30 @@ function Lowbar() {
       script.id = 'spotify-player-script';
 
       document.body.appendChild(script);
+      console.log('appended:', script)
 
       script.onload = () => {
-
+        console.log('script.onload')
 
         window.onSpotifyWebPlaybackSDKReady = () => {
 
+          console.log('onSpotifyWebPlaybackSDKReady')
+
           if (player) {
+            console.log('onload, player already exists', player)
             return
           }
 
-          initPlayer()
 
+          initPlayer()
+          // console.log('afte')
 
         }
       }
 
     } else {
       if (player) {
+        console.log('script && player')
         return
       }
       initPlayer()
@@ -75,12 +86,14 @@ function Lowbar() {
 
     return () => {
       if (player) {
+        console.log('script && !player')
         player.disconnect();
+        console.log('Player disconnected (maybe)')
         setPlayer(null)
       }
     };
 
-}, [accessToken, player]);
+  }, []);
 
   return (
     <div
