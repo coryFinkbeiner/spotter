@@ -8,6 +8,7 @@ import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 function Lowbar() {
   const { dispatch, accessToken } = useDataContext()
   const [ player, setPlayer ] = useState(null)
+  const [ count, setCount ] = useState(0)
 
   const initPlayer = () => {
     console.log('initPlayer')
@@ -29,10 +30,11 @@ function Lowbar() {
       newPlayer.connect().then(success => {
         if (success) {
           console.log('The Web Playback SDK successfully connected to Spotify!');
-          console.log('setPlayer', newPlayer, player)
           setPlayer(newPlayer)
+
         }
       });
+
 
     } else {
       console.log('!window.Spotify')
@@ -99,7 +101,18 @@ function Lowbar() {
       }
     };
 
-  }, [accessToken, player]);
+  }, [accessToken]);
+
+
+  useEffect(() => {
+    if (player) {
+      return
+    }
+    setCount(count+1)
+
+
+  }, [player])
+
 
   return (
     <div
@@ -131,8 +144,9 @@ function Lowbar() {
           flexDirection: 'row',
           display: 'flex',
           justifyContent: 'center',
+          color: 'white'
         }}
-      >
+      >{player?.name}
         <div
           style={{
             height: '60%',
