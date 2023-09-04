@@ -9,58 +9,78 @@ function Lowbar() {
   const { dispatch, accessToken } = useDataContext()
   const [ player, setPlayer ] = useState(null)
 
+  const initPlayer = () => {
+    if (window.Spotify) {
+      const newPlayer = new window.Spotify.Player({
+        name: 'Web Playback SDK',
+        getOAuthToken: cb => { cb(accessToken) },
+        volume: 0.5
+      });
+
+      newPlayer.addListener('ready', ({ device_id }) => {
+          console.log('Ready with Device ID', device_id);
+      });
+
+      newPlayer.addListener('not_ready', ({ device_id }) => {
+          console.log('Device ID has gone offline', device_id);
+      });
+
+      newPlayer.connect().then(success => {
+        if (success) {
+          console.log('The Web Playback SDK successfully connected to Spotify!');
+          setPlayer(newPlayer)
+          console.log('player set', player)
+        }
+      });
+    }
+  }
+
+
 
   useEffect(() => {
 
-    if (!player) {
+
+    if (!document.getElementById('spotify-player-script')) {
 
       const script = document.createElement("script");
       script.src = "https://sdk.scdn.co/spotify-player.js";
       script.async = true;
+      script.id = 'spotify-player-script';
 
       document.body.appendChild(script);
 
-      window.onSpotifyWebPlaybackSDKReady = () => {
-        const newPlayer = new window.Spotify.Player({
-          name: 'Web Playback SDK',
-          getOAuthToken: cb =>  cb(accessToken),
-          volume: 0.5
-        });
+      script.onload = () => {
 
-        newPlayer.addListener('ready', ({ device_id }) => {
-          console.log('Ready with Device ID', device_id);
-        });
 
-        newPlayer.addListener('not_ready', ({ device_id }) => {
-          console.log('Device ID has gone offline', device_id);
-        });
+        window.onSpotifyWebPlaybackSDKReady = () => {
 
-        newPlayer.addListener('initialization_error', ({ message }) => {
-          console.error(message);
-        });
-
-        newPlayer.addListener('authentication_error', ({ message }) => {
-            console.error(message);
-        });
-
-        newPlayer.addListener('account_error', ({ message }) => {
-            console.error(message);
-        });
-
-        newPlayer.connect().then(success => {
-          if (success) {
-            console.log('The Web Playback SDK successfully connected to Spotify!');
-            // dispatch({ type: 'SET_PLAYER', payload: newPlayer });
-            setPlayer(newPlayer)
+          if (player) {
+            return
           }
-        });
-      };
+
+          initPlayer()
+
+
+        }
+      }
+
+    } else {
+      if (player) {
+        return
+      }
+      initPlayer()
+
     }
 
-  }, [ accessToken, player ])
 
+    return () => {
+      if (player) {
+        player.disconnect();
+        setPlayer(null)
+      }
+    };
 
-
+}, [accessToken, player]);
 
   return (
     <div
