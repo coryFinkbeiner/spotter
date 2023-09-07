@@ -13,6 +13,8 @@ function Lowbar() {
   const [ player, setPlayer ] = useState(null)
   const [ count, setCount ] = useState(0)
 
+  const [ state, setState ] = useState({})
+
 
 
   useEffect(() => {
@@ -50,15 +52,32 @@ function Lowbar() {
         }
       });
 
-      newPlayer.addListener('player_state_changed', ({
-        position,
-        duration,
-        track_window: { current_track }
-      }) => {
-        console.log('Currently Playing', current_track);
-        console.log('Position in Song', position);
-        console.log('Duration of Song', duration);
+
+
+      // newPlayer.addListener('player_state_changed', ({
+      //   position,
+      //   duration,
+      //   track_window: { current_track }
+      // }) => {
+      //   console.log('Currently Playing', current_track);
+      //   console.log('Position in Song', position);
+      //   console.log('Duration of Song', duration);
+      // });
+
+
+
+      newPlayer.addListener('player_state_changed', (
+        state
+      ) => {
+        console.log('state', state);
+        setState(state)
+        // console.log('Position in Song', position);
+        // console.log('Duration of Song', duration);
       });
+
+
+
+
     }
 
     return () => {
@@ -124,6 +143,16 @@ function Lowbar() {
               alignSelf: 'center',
             }}
             onClick={() => {
+              player.addListener('player_state_changed', ({
+                position,
+                duration,
+                track_window: { current_track }
+              }) => {
+                console.log('Currently Playing', current_track);
+                console.log('Position in Song', position);
+                console.log('Duration of Song', duration);
+              });
+
             }}
           />
           <PlayIcon
