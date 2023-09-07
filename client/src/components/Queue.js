@@ -6,8 +6,6 @@ function Queue() {
 
   const { poppedTrack, myQueue, dispatch } = useDataContext();
 
-
-
   return (
     <div
       style={{

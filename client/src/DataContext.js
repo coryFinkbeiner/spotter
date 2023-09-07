@@ -33,7 +33,7 @@ export const dataReducer = (state, action) => {
       return {
         ...state,
         myQueue: newQueue,
-        poppedTrack: pop,
+        poppedTrack: pop
       }
     case 'ADD_TO_QUEUE':
       const newQueue2 = [...state.myQueue];
@@ -60,14 +60,6 @@ export const dataReducer = (state, action) => {
         consoleViewType: action.payload
       }
 
-    // case 'SET_PLAYER':
-    //   return {
-    //     ...state,
-    //     player: action.payload
-    //   }
-
-
-
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -84,7 +76,6 @@ export const DataProvider = ({ children }) => {
     inView: {},
     playlistData: {},
     albumData: {},
-    // player: null,
   });
 
   return (

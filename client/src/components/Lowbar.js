@@ -1,28 +1,53 @@
 import React, { useState, useEffect }  from 'react'
 import { useDataContext } from '../hooks/useDataContext';
 import { PlayIcon, ChevronRightIcon, ChevronLeftIcon, QueueListIcon } from '@heroicons/react/solid'
-
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 
-import Album from './Album'
+
+import axios from 'axios'
+
+
+async function POSTtoSpotifyQueue(uri, accessToken) {
+  try {
+    const response = await axios.post(
+      'https://api.spotify.com/v1/me/player/queue',
+      null,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+        params: {
+          uri: uri,
+        },
+      }
+    );
+    console.log('POSTED TO SPOTIFY QUEUE')
+  } catch (error) {
+    console.log('POST Error:', error);
+  }
+}
+
+
 
 
 function Lowbar() {
-  const { dispatch, accessToken } = useDataContext()
+
+  const { dispatch, accessToken, myQueue, poppedTrack } = useDataContext()
+
   const [ player, setPlayer ] = useState(null)
-  const [ count, setCount ] = useState(0)
+  const [ playbackState, setPlaybackState ] = useState(null)
 
-  const [ state, setState ] = useState({})
 
+  const [ queueTimer, setQueueTimer ] = useState(null)
 
 
   useEffect(() => {
 
-    if (player){
-      console.log('player already exists')
-      return
-    }
+    // if (player) {
+    //   console.log('player already exists')
+    //   return
+    // }
 
     const script = document.createElement("script");
     script.src = "https://sdk.scdn.co/spotify-player.js";
@@ -53,14 +78,25 @@ function Lowbar() {
       });
 
 
+      newPlayer.addListener('player_state_changed', (state) => {
 
-      newPlayer.addListener('player_state_changed', (
-        state
-      ) => {
-        console.log('state', state);
-        setState(state)
+        setPlaybackState(state)
+
+        clearTimeout(queueTimer)
+        const timeLeft = state.duration - state.position
+        const newQueueTimer = setTimeout(() => {
+
+          // const { next } = dispatch({ type:'POP_QUEUE' })
+
+          POSTtoSpotifyQueue("spotify:track:0DCynJ3rQGYjIjGsnLqI4L", accessToken)
+
+          // console.log('LSAIDJF', next)
+
+        }, timeLeft - 3000 )
+
+        setQueueTimer(newQueueTimer)
+
       });
-
 
 
     }
@@ -94,7 +130,8 @@ function Lowbar() {
           width: '29%',
           color: 'white'
         }}
-      >{state.track_window.current_track.name}
+      >
+        {playbackState && playbackState?.track_window.current_track.name}
 
       </div>
 
@@ -128,15 +165,6 @@ function Lowbar() {
               alignSelf: 'center',
             }}
             onClick={() => {
-              player.addListener('player_state_changed', ({
-                position,
-                duration,
-                track_window: { current_track }
-              }) => {
-                console.log('Currently Playing', current_track);
-                console.log('Position in Song', position);
-                console.log('Duration of Song', duration);
-              });
 
             }}
           />
