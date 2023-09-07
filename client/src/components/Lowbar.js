@@ -5,46 +5,22 @@ import { PlayIcon, ChevronRightIcon, ChevronLeftIcon, QueueListIcon } from '@her
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 
+import Album from './Album'
+
+
 function Lowbar() {
   const { dispatch, accessToken } = useDataContext()
   const [ player, setPlayer ] = useState(null)
   const [ count, setCount ] = useState(0)
 
-  const initPlayer = () => {
-    console.log('initPlayer')
-    if (window.Spotify) {
-      const newPlayer = new window.Spotify.Player({
-        name: 'Web Playback SDK',
-        getOAuthToken: cb => { cb(accessToken) },
-        volume: 0.5
-      });
 
-      setPlayer(newPlayer)
-
-      newPlayer.addListener('ready', ({ device_id }) => {
-          console.log('Ready with Device ID', device_id);
-      });
-
-      newPlayer.addListener('not_ready', ({ device_id }) => {
-          console.log('Device ID has gone offline', device_id);
-      });
-
-      newPlayer.connect().then(success => {
-        if (success) {
-          console.log('The Web Playback SDK successfully connected to Spotify!');
-          console.log('setPlayer', newPlayer, player)
-
-        }
-      });
-
-    } else {
-      console.log('!window.Spotify')
-    }
-  }
 
   useEffect(() => {
 
-    if (player) return
+    if (player){
+      console.log('player already exists')
+      return
+    }
 
     const script = document.createElement("script");
     script.src = "https://sdk.scdn.co/spotify-player.js";
@@ -54,7 +30,7 @@ function Lowbar() {
     window.onSpotifyWebPlaybackSDKReady = () => {
 
       const newPlayer = new window.Spotify.Player({
-        name: 'Web Playback SDK',
+        name: 'Spotter SDK',
         getOAuthToken: cb => { cb(accessToken) },
         volume: 0.5
       });
@@ -70,24 +46,29 @@ function Lowbar() {
       newPlayer.connect().then(success => {
         if (success) {
           console.log('The Web Playback SDK successfully connected to Spotify!');
-          console.log('setPlayer', newPlayer, player)
           setPlayer(newPlayer)
-
         }
+      });
+
+      newPlayer.addListener('player_state_changed', ({
+        position,
+        duration,
+        track_window: { current_track }
+      }) => {
+        console.log('Currently Playing', current_track);
+        console.log('Position in Song', position);
+        console.log('Duration of Song', duration);
       });
     }
 
     return () => {
       if (player) {
-        console.log('script && !player')
         player.disconnect();
-        console.log('Player disconnected (maybe)')
         setPlayer(null)
       }
     };
 
   }, []);
-
 
 
   return (
@@ -106,9 +87,11 @@ function Lowbar() {
       <div
         style={{
           height: '100%',
-          width: '29%'
+          width: '29%',
+          color: 'white'
         }}
       >
+
       </div>
 
       {/* Center */}
@@ -122,7 +105,7 @@ function Lowbar() {
           justifyContent: 'center',
           color: 'white'
         }}
-      >{player?.name}
+      >
         <div
           style={{
             height: '60%',
@@ -139,6 +122,8 @@ function Lowbar() {
               transform: 'scaleX(-1)',
               fontSize: '24px',
               alignSelf: 'center',
+            }}
+            onClick={() => {
             }}
           />
           <PlayIcon
@@ -157,7 +142,7 @@ function Lowbar() {
             onClick={() => {
               player.getCurrentState().then( state => {
                 console.log({state})
-            });
+              });
             }}
           />
         </div>
