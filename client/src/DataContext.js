@@ -4,11 +4,13 @@ export const DataContext = createContext();
 
 export const dataReducer = (state, action) => {
   switch (action.type) {
+
     case 'SET_CODE':
       return {
         ...state,
         code: action.payload
       }
+
     case 'SET_ACCESS_TOKEN':
       return {
         ...state,
@@ -28,13 +30,20 @@ export const dataReducer = (state, action) => {
       };
 
     case 'POP_QUEUE':
-      const newQueue = [...state.myQueue];
-      const pop = newQueue.pop();
+      const newQueue = state.myQueue;
+      const pop = newQueue.shift();
       return {
         ...state,
         myQueue: newQueue,
         poppedTrack: pop
       }
+
+    case 'CLEAR_POP':
+      return {
+        ...state,
+        poppedTrack: null
+      }
+
     case 'ADD_TO_QUEUE':
       const newQueue2 = [...state.myQueue];
       newQueue2.push(action.payload)
@@ -54,6 +63,7 @@ export const dataReducer = (state, action) => {
         ...state,
         inView: action.payload
       }
+
     case 'CHANGE_VIEW_TYPE':
       return {
         ...state,
@@ -71,7 +81,7 @@ export const DataProvider = ({ children }) => {
     code: null,
     accessToken: null,
     myQueue: [],
-    poppedTrack: {},
+    poppedTrack: null,
     consoleViewType: '',
     inView: {},
     playlistData: {},

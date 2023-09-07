@@ -3,10 +3,7 @@ import { useDataContext } from '../hooks/useDataContext';
 import { PlayIcon, ChevronRightIcon, ChevronLeftIcon, QueueListIcon } from '@heroicons/react/solid'
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
-
-
 import axios from 'axios'
-
 
 async function POSTtoSpotifyQueue(uri, accessToken) {
   try {
@@ -28,26 +25,15 @@ async function POSTtoSpotifyQueue(uri, accessToken) {
   }
 }
 
-
-
-
 function Lowbar() {
 
-  const { dispatch, accessToken, myQueue, poppedTrack } = useDataContext()
+  const { dispatch, accessToken, poppedTrack, myQueue } = useDataContext()
 
   const [ player, setPlayer ] = useState(null)
   const [ playbackState, setPlaybackState ] = useState(null)
-
-
   const [ queueTimer, setQueueTimer ] = useState(null)
 
-
   useEffect(() => {
-
-    // if (player) {
-    //   console.log('player already exists')
-    //   return
-    // }
 
     const script = document.createElement("script");
     script.src = "https://sdk.scdn.co/spotify-player.js";
@@ -55,21 +41,17 @@ function Lowbar() {
     document.body.appendChild(script);
 
     window.onSpotifyWebPlaybackSDKReady = () => {
-
       const newPlayer = new window.Spotify.Player({
         name: 'Spotter SDK',
         getOAuthToken: cb => { cb(accessToken) },
         volume: 0.5
       });
-
       newPlayer.addListener('ready', ({ device_id }) => {
           console.log('Ready with Device ID', device_id);
       });
-
       newPlayer.addListener('not_ready', ({ device_id }) => {
           console.log('Device ID has gone offline', device_id);
       });
-
       newPlayer.connect().then(success => {
         if (success) {
           console.log('The Web Playback SDK successfully connected to Spotify!');
@@ -79,23 +61,15 @@ function Lowbar() {
 
 
       newPlayer.addListener('player_state_changed', (state) => {
-
         setPlaybackState(state)
-
         clearTimeout(queueTimer)
         const timeLeft = state.duration - state.position
         const newQueueTimer = setTimeout(() => {
 
-          // const { next } = dispatch({ type:'POP_QUEUE' })
-
-          POSTtoSpotifyQueue("spotify:track:0DCynJ3rQGYjIjGsnLqI4L", accessToken)
-
-          // console.log('LSAIDJF', next)
+          dispatch({ type: 'POP_QUEUE' })
 
         }, timeLeft - 3000 )
-
         setQueueTimer(newQueueTimer)
-
       });
 
 
@@ -109,6 +83,21 @@ function Lowbar() {
     };
 
   }, []);
+
+  useEffect(() => {
+    if (poppedTrack) {
+
+
+      POSTtoSpotifyQueue(poppedTrack.uri, accessToken);
+
+      // setTimeout(() => {
+      //   dispatch({ type: 'POP_QUEUE' })
+      // }, poppedTrack.duration_ms - 3000);
+
+    }
+
+  }, [poppedTrack]);
+
 
 
   return (
@@ -131,7 +120,7 @@ function Lowbar() {
           color: 'white'
         }}
       >
-        {playbackState && playbackState?.track_window.current_track.name}
+        {myQueue.length > 0 && myQueue[0].trackName}
 
       </div>
 
