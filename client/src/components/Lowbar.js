@@ -5,7 +5,7 @@ import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 import axios from 'axios'
 
-async function POSTtoSpotifyQueue(uri, accessToken) {
+async function POSTtoSpotifyQueue(uri, accessToken, dispatch) {
   try {
     const response = await axios.post(
       'https://api.spotify.com/v1/me/player/queue',
@@ -20,6 +20,9 @@ async function POSTtoSpotifyQueue(uri, accessToken) {
       }
     );
     console.log('POSTED TO SPOTIFY QUEUE')
+    dispatch({ type: 'CLEAR_POP'})
+
+
   } catch (error) {
     console.log('POST Error:', error);
   }
@@ -44,7 +47,7 @@ function Lowbar() {
       const newPlayer = new window.Spotify.Player({
         name: 'Spotter SDK',
         getOAuthToken: cb => { cb(accessToken) },
-        volume: 0.5
+        volume: 0
       });
       newPlayer.addListener('ready', ({ device_id }) => {
           console.log('Ready with Device ID', device_id);
@@ -84,15 +87,13 @@ function Lowbar() {
   }, []);
 
   useEffect(() => {
-    if (poppedTrack) {
+    if (!poppedTrack) return
 
-      POSTtoSpotifyQueue(poppedTrack.uri, accessToken);
+    POSTtoSpotifyQueue(poppedTrack.uri, accessToken, dispatch);
 
-    }
+    // dispatch({ type: 'CLEAR_POP'})
 
   }, [poppedTrack]);
-
-
 
   return (
     <div
@@ -148,7 +149,7 @@ function Lowbar() {
               alignSelf: 'center',
             }}
             onClick={() => {
-
+              dispatch({ type: 'POP_QUEUE' })
             }}
           />
           <PlayIcon
