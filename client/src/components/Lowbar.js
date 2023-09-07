@@ -19,6 +19,46 @@ function Lowbar() {
         volume: 0.5
       });
 
+      setPlayer(newPlayer)
+
+      newPlayer.addListener('ready', ({ device_id }) => {
+          console.log('Ready with Device ID', device_id);
+      });
+
+      newPlayer.addListener('not_ready', ({ device_id }) => {
+          console.log('Device ID has gone offline', device_id);
+      });
+
+      newPlayer.connect().then(success => {
+        if (success) {
+          console.log('The Web Playback SDK successfully connected to Spotify!');
+          console.log('setPlayer', newPlayer, player)
+
+        }
+      });
+
+    } else {
+      console.log('!window.Spotify')
+    }
+  }
+
+  useEffect(() => {
+
+    if (player) return
+
+    const script = document.createElement("script");
+    script.src = "https://sdk.scdn.co/spotify-player.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    window.onSpotifyWebPlaybackSDKReady = () => {
+
+      const newPlayer = new window.Spotify.Player({
+        name: 'Web Playback SDK',
+        getOAuthToken: cb => { cb(accessToken) },
+        volume: 0.5
+      });
+
       newPlayer.addListener('ready', ({ device_id }) => {
           console.log('Ready with Device ID', device_id);
       });
@@ -32,71 +72,10 @@ function Lowbar() {
           console.log('The Web Playback SDK successfully connected to Spotify!');
           console.log('setPlayer', newPlayer, player)
           setPlayer(newPlayer)
+
         }
       });
-
-    } else {
-      console.log('!window.Spotify')
     }
-  }
-
-
-  useEffect(() => {
-
-    if (player) {
-      console.log('player exists, return')
-      return
-    }
-
-    console.log('useEffect')
-
-    if (!document.getElementById('spotify-player-script')) {
-
-      console.log('!script')
-
-      const script = document.createElement("script");
-      script.src = "https://sdk.scdn.co/spotify-player.js";
-      script.async = true;
-      script.id = 'spotify-player-script';
-
-      document.body.appendChild(script);
-      console.log('appended:', script)
-
-
-      window.onSpotifyWebPlaybackSDKReady = () => {
-
-        console.log('onSpotifyWebPlaybackSDKReady')
-
-        if (player) {
-          console.log('onload, player already exists', player)
-          return
-        }
-
-
-        initPlayer()
-        // console.log('afte')
-
-      }
-
-
-    } else {
-      if (player) {
-        console.log('script && player')
-        return
-      }
-      initPlayer()
-
-    }
-
-    // else {
-    //   if (player) {
-    //     console.log('script && player')
-    //     return
-    //   }
-    //   initPlayer()
-
-    // }
-
 
     return () => {
       if (player) {
@@ -107,18 +86,8 @@ function Lowbar() {
       }
     };
 
-  }, [accessToken, player]);
+  }, []);
 
-
-  // useEffect(() => {
-  //   console.log('player useEffect')
-  //   if (player) {
-  //     return
-  //   }
-  //   setCount(count+1)
-
-
-  // }, [player])
 
 
   return (
@@ -185,7 +154,11 @@ function Lowbar() {
               fontSize: '24px',
               alignSelf: 'center',
             }}
-            onClick={() => console.log(player.name)}
+            onClick={() => {
+              player.getCurrentState().then( state => {
+                console.log({state})
+            });
+            }}
           />
         </div>
       </div>
