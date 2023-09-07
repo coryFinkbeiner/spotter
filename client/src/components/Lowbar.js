@@ -54,27 +54,12 @@ function Lowbar() {
 
 
 
-      // newPlayer.addListener('player_state_changed', ({
-      //   position,
-      //   duration,
-      //   track_window: { current_track }
-      // }) => {
-      //   console.log('Currently Playing', current_track);
-      //   console.log('Position in Song', position);
-      //   console.log('Duration of Song', duration);
-      // });
-
-
-
       newPlayer.addListener('player_state_changed', (
         state
       ) => {
         console.log('state', state);
         setState(state)
-        // console.log('Position in Song', position);
-        // console.log('Duration of Song', duration);
       });
-
 
 
 
@@ -109,7 +94,7 @@ function Lowbar() {
           width: '29%',
           color: 'white'
         }}
-      >
+      >{state.track_window.current_track.name}
 
       </div>
 
