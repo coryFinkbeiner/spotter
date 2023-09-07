@@ -72,7 +72,6 @@ function Lowbar() {
         setQueueTimer(newQueueTimer)
       });
 
-
     }
 
     return () => {
@@ -87,12 +86,7 @@ function Lowbar() {
   useEffect(() => {
     if (poppedTrack) {
 
-
       POSTtoSpotifyQueue(poppedTrack.uri, accessToken);
-
-      // setTimeout(() => {
-      //   dispatch({ type: 'POP_QUEUE' })
-      // }, poppedTrack.duration_ms - 3000);
 
     }
 
