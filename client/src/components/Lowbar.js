@@ -36,6 +36,8 @@ function Lowbar() {
   const [ playbackState, setPlaybackState ] = useState(null)
   const [ queueTimer, setQueueTimer ] = useState(null)
 
+  const [ currentSong, setCurrentSong ] = useState(null)
+
   useEffect(() => {
 
     const script = document.createElement("script");
@@ -47,7 +49,7 @@ function Lowbar() {
       const newPlayer = new window.Spotify.Player({
         name: 'Spotter SDK',
         getOAuthToken: cb => { cb(accessToken) },
-        volume: 0
+        volume: 0.5
       });
       newPlayer.addListener('ready', ({ device_id }) => {
           console.log('Ready with Device ID', device_id);
@@ -63,17 +65,29 @@ function Lowbar() {
       });
 
 
-      newPlayer.addListener('player_state_changed', (state) => {
-        setPlaybackState(state)
-        clearTimeout(queueTimer)
-        const timeLeft = state.duration - state.position
-        const newQueueTimer = setTimeout(() => {
-
-          dispatch({ type: 'POP_QUEUE' })
-
-        }, timeLeft - 3000 )
-        setQueueTimer(newQueueTimer)
+      newPlayer.addListener('player_state_changed', ({
+        track_window: { current_track }
+      }) => {
+        setCurrentSong(current_track)
       });
+
+
+
+
+
+      // newPlayer.addListener('player_state_changed', (state) => {
+      //   setPlaybackState(state)
+      //   clearTimeout(queueTimer)
+      //   const timeLeft = state.duration - state.position
+      //   const newQueueTimer = setTimeout(() => {
+
+      //     dispatch({ type: 'POP_QUEUE' })
+
+      //   }, timeLeft - 3000 )
+      //   setQueueTimer(newQueueTimer)
+      // });
+
+
 
     }
 
@@ -115,7 +129,6 @@ function Lowbar() {
           color: 'white'
         }}
       >
-        {myQueue.length > 0 && myQueue[0].trackName}
 
       </div>
 
@@ -152,6 +165,7 @@ function Lowbar() {
               dispatch({ type: 'POP_QUEUE' })
             }}
           />
+            {currentSong && currentSong.name}
           <PlayIcon
             style={{
               color: 'white',
