@@ -43,24 +43,24 @@ function Lowbar() {
 
 
 
-      // newPlayer.addListener('player_state_changed', ({
-      //   track_window: { current_track }
-      // }) => {
-      //   setCurrentSong(current_track)
-      // });
+      newPlayer.addListener('player_state_changed', ({
+        track_window: { current_track }
+      }) => {
+        setCurrentSong(current_track)
+      });
 
-      // newPlayer.addListener('player_state_changed', ({
-      //   duration,
-      //   position,
-      //   track_window: { current_track }
-      // }) => {
-      //   clearTimeout(queueTimer)
-      //   const timeLeft = duration - position
-      //   const newQueueTimer = setTimeout(() => {
-      //     setCount(count + 1)
-      //   }, timeLeft - 3000 )
-      //   setQueueTimer(newQueueTimer)
-      // });
+      newPlayer.addListener('player_state_changed', ({
+        duration,
+        position,
+        track_window: { current_track }
+      }) => {
+        clearTimeout(queueTimer)
+        const timeLeft = duration - position
+        const newQueueTimer = setTimeout(() => {
+          setCount(count + 1)
+        }, timeLeft - 3000 )
+        setQueueTimer(newQueueTimer)
+      });
 
 
 
@@ -74,14 +74,17 @@ function Lowbar() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   setNextSong(myQueue[0])
-  // }, [ myQueue ])
 
   useEffect(() => {
-    if (!nextTrack) return
+    if (!nextTrack) {
+      console.log('!nextTrack for count useEffect')
+      return
+    }
+
+    console.log('count useEffect:', {nextTrack})
 
     async function POSTtoSpotifyQueue() {
+
       try {
         const response = await axios.post(
           'https://api.spotify.com/v1/me/player/queue',
@@ -91,16 +94,17 @@ function Lowbar() {
               Authorization: `Bearer ${accessToken}`,
             },
             params: {
-              uri: nextTrack.uri,
+              uri: "spotify:artist:1a2b3c4d5e6f7g",
             },
           }
         );
+        console.log({response})
         dispatch({ type: 'SHIFT_QUEUE' })
       } catch (error) {
         console.log('queue Error:', error);
       }
     }
-    // POSTtoSpotifyQueue()
+    POSTtoSpotifyQueue()
 
   }, [ count ]);
 

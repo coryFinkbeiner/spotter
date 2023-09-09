@@ -50,9 +50,11 @@ export const dataReducer = (state, action) => {
     case 'ADD_TO_QUEUE':
       const newQueue2 = [...state.myQueue];
       newQueue2.push(action.payload)
+      const next2 = newQueue2[0]
       return {
         ...state,
         myQueue: newQueue2,
+        nextTrack: next2
       }
 
     case 'CLEAR_QUEUE':
