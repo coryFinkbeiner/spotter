@@ -5,38 +5,26 @@ import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 import axios from 'axios'
 
-async function POSTtoSpotifyQueue(uri, accessToken, dispatch) {
-  try {
-    const response = await axios.post(
-      'https://api.spotify.com/v1/me/player/queue',
-      null,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-        params: {
-          uri: uri,
-        },
-      }
-    );
-    console.log('POSTED TO SPOTIFY QUEUE')
-    dispatch({ type: 'CLEAR_POP'})
-
-
-  } catch (error) {
-    console.log('POST Error:', error);
-  }
-}
 
 function Lowbar() {
 
   const { dispatch, accessToken, poppedTrack, myQueue } = useDataContext()
 
   const [ player, setPlayer ] = useState(null)
-  const [ playbackState, setPlaybackState ] = useState(null)
+
+
+
   const [ queueTimer, setQueueTimer ] = useState(null)
 
   const [ currentSong, setCurrentSong ] = useState(null)
+
+  const [ count, setCount ] = useState(0)
+
+  const [nextSong, setNextSong] = useState(null)
+
+
+
+
 
   useEffect(() => {
 
@@ -49,7 +37,7 @@ function Lowbar() {
       const newPlayer = new window.Spotify.Player({
         name: 'Spotter SDK',
         getOAuthToken: cb => { cb(accessToken) },
-        volume: 0.5
+        // volume: 0.5
       });
       newPlayer.addListener('ready', ({ device_id }) => {
           console.log('Ready with Device ID', device_id);
@@ -65,6 +53,9 @@ function Lowbar() {
       });
 
 
+
+
+
       newPlayer.addListener('player_state_changed', ({
         track_window: { current_track }
       }) => {
@@ -72,19 +63,38 @@ function Lowbar() {
       });
 
 
+      newPlayer.addListener('player_state_changed', ({
+        duration,
+        position,
+        track_window: { current_track }
+      }) => {
+
+        clearTimeout(queueTimer)
+        const timeLeft = duration - position
+        const newQueueTimer = setTimeout(() => {
+
+          console.log('queue listener', {duration}, {position})
+          setCount(count + 1)
+
+        }, timeLeft - 3000 )
+        setQueueTimer(newQueueTimer)
+      });
 
 
 
-      // newPlayer.addListener('player_state_changed', (state) => {
-      //   setPlaybackState(state)
-      //   clearTimeout(queueTimer)
-      //   const timeLeft = state.duration - state.position
-      //   const newQueueTimer = setTimeout(() => {
 
-      //     dispatch({ type: 'POP_QUEUE' })
 
-      //   }, timeLeft - 3000 )
-      //   setQueueTimer(newQueueTimer)
+
+
+      // newPlayer.addListener('player_state_changed', ({
+      //   position,
+      //   duration
+      // }) => {
+      //   if (position == 10000) {
+      //     console.log('WOWOWOOWOWW')
+      //   }
+
+      //   // console.log('kjhklj')
       // });
 
 
@@ -101,13 +111,39 @@ function Lowbar() {
   }, []);
 
   useEffect(() => {
-    if (!poppedTrack) return
 
-    POSTtoSpotifyQueue(poppedTrack.uri, accessToken, dispatch);
 
-    // dispatch({ type: 'CLEAR_POP'})
+    console.log({count})
 
-  }, [poppedTrack]);
+    async function POSTtoSpotifyQueue() {
+      try {
+        const response = await axios.post(
+          'https://api.spotify.com/v1/me/player/queue',
+          null,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+            params: {
+              uri: "spotify:track:50I3ezICRrAV6QJqFjuryd",
+            },
+          }
+        );
+        console.log({response})
+
+
+
+
+      } catch (error) {
+        console.log('queue Error:', error);
+      }
+    }
+    POSTtoSpotifyQueue()
+
+
+
+
+  }, [ count ]);
 
   return (
     <div
