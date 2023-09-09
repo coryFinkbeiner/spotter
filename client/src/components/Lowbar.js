@@ -56,6 +56,8 @@ function Lowbar() {
 
 
 
+
+
       newPlayer.addListener('player_state_changed', ({
         track_window: { current_track }
       }) => {
@@ -63,39 +65,30 @@ function Lowbar() {
       });
 
 
-      newPlayer.addListener('player_state_changed', ({
-        duration,
-        position,
-        track_window: { current_track }
-      }) => {
-
-        clearTimeout(queueTimer)
-        const timeLeft = duration - position
-        const newQueueTimer = setTimeout(() => {
-
-          console.log('queue listener', {duration}, {position})
-          setCount(count + 1)
-
-        }, timeLeft - 3000 )
-        setQueueTimer(newQueueTimer)
-      });
-
-
-
-
-
 
 
       // newPlayer.addListener('player_state_changed', ({
+      //   duration,
       //   position,
-      //   duration
+      //   track_window: { current_track }
       // }) => {
-      //   if (position == 10000) {
-      //     console.log('WOWOWOOWOWW')
-      //   }
 
-      //   // console.log('kjhklj')
+      //   clearTimeout(queueTimer)
+      //   const timeLeft = duration - position
+      //   const newQueueTimer = setTimeout(() => {
+
+      //     console.log('queue listener', {duration}, {position})
+      //     setCount(count + 1)
+
+      //   }, timeLeft - 3000 )
+
+      //   setQueueTimer(newQueueTimer)
+
       // });
+
+
+
+
 
 
 
@@ -110,8 +103,23 @@ function Lowbar() {
 
   }, []);
 
+
+
+
   useEffect(() => {
 
+
+    setNextSong(myQueue[0])
+
+
+  }, [ myQueue ])
+
+
+
+
+
+
+  useEffect(() => {
 
     console.log({count})
 
@@ -125,25 +133,19 @@ function Lowbar() {
               Authorization: `Bearer ${accessToken}`,
             },
             params: {
-              uri: "spotify:track:50I3ezICRrAV6QJqFjuryd",
+              uri: nextSong.uri,
             },
           }
         );
         console.log({response})
-
-
-
-
       } catch (error) {
         console.log('queue Error:', error);
       }
     }
-    POSTtoSpotifyQueue()
-
-
-
+    // POSTtoSpotifyQueue()
 
   }, [ count ]);
+
 
   return (
     <div
