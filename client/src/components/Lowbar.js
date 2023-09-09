@@ -56,13 +56,13 @@ function Lowbar() {
         track_window: { current_track }
       }) => {
         clearTimeout(queueTimer)
+        setQueueTimer(null)
         const timeLeft = duration - position
         const newQueueTimer = setTimeout(() => {
           setCount(count + 1)
         }, timeLeft - 2000 )
         setQueueTimer(newQueueTimer)
       });
-
 
 
 
@@ -87,11 +87,8 @@ function Lowbar() {
 
   useEffect(() => {
     if (!nextTrack) {
-      // console.log('!nextTrack for count useEffect')
       return
     }
-
-    // console.log('count useEffect:', {nextTrack})
 
 
     (async () => {
