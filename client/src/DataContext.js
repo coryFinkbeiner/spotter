@@ -66,7 +66,8 @@ export const dataReducer = (state, action) => {
 
     case 'SHIFT_QUEUE':
       const newQueue = [...state.myQueue]
-      const next = newQueue.shift()
+      newQueue.shift()
+      const next = newQueue[0]
       return {
         ...state,
         myQueue: newQueue,

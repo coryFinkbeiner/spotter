@@ -43,6 +43,7 @@ function Lowbar() {
 
 
 
+
       newPlayer.addListener('player_state_changed', ({
         track_window: { current_track }
       }) => {
@@ -58,9 +59,12 @@ function Lowbar() {
         const timeLeft = duration - position
         const newQueueTimer = setTimeout(() => {
           setCount(count + 1)
-        }, timeLeft - 3000 )
+        }, timeLeft - 2000 )
         setQueueTimer(newQueueTimer)
       });
+
+
+
 
 
 
@@ -76,15 +80,21 @@ function Lowbar() {
 
 
   useEffect(() => {
+
+  }, [nextTrack])
+
+
+
+  useEffect(() => {
     if (!nextTrack) {
-      console.log('!nextTrack for count useEffect')
+      // console.log('!nextTrack for count useEffect')
       return
     }
 
-    console.log('count useEffect:', {nextTrack})
+    // console.log('count useEffect:', {nextTrack})
 
-    async function POSTtoSpotifyQueue() {
 
+    (async () => {
       try {
         const response = await axios.post(
           'https://api.spotify.com/v1/me/player/queue',
@@ -94,17 +104,16 @@ function Lowbar() {
               Authorization: `Bearer ${accessToken}`,
             },
             params: {
-              uri: "spotify:artist:1a2b3c4d5e6f7g",
+              uri: nextTrack.uri,
             },
           }
         );
-        console.log({response})
-        dispatch({ type: 'SHIFT_QUEUE' })
+        console.log({ response });
+        dispatch({ type: 'SHIFT_QUEUE' });
       } catch (error) {
         console.log('queue Error:', error);
       }
-    }
-    POSTtoSpotifyQueue()
+    })();
 
   }, [ count ]);
 
