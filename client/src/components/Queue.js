@@ -3,8 +3,7 @@ import Track from './Track'
 import { useDataContext } from '../hooks/useDataContext';
 
 function Queue() {
-
-  const { poppedTrack, myQueue, dispatch } = useDataContext();
+  const { myQueue, dispatch } = useDataContext();
 
   return (
     <div
@@ -14,10 +13,8 @@ function Queue() {
         backgroundColor: 'rgb(18, 18, 18)',
         borderRadius: '8px',
         height: '90vh'
-
       }}
     >
-
       <div
         style={{
           color: 'white',
@@ -107,7 +104,7 @@ function Queue() {
           maxHeight: '460px'
         }}
       >
-        {myQueue?.map((track, index) => (
+        {myQueue && myQueue?.map((track, index) => (
           <Track
             key={index}
             index={index}

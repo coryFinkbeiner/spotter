@@ -29,34 +29,51 @@ export const dataReducer = (state, action) => {
         albumData: action.payload
       };
 
-    case 'POP_QUEUE':
-      const newQueue = state.myQueue;
-      const pop = newQueue.shift();
-      return {
-        ...state,
-        myQueue: newQueue,
-        poppedTrack: pop
-      }
+    // case 'POP_QUEUE':
+    //   const newQueue = state.myQueue;
+    //   const pop = newQueue.shift();
+    //   return {
+    //     ...state,
+    //     myQueue: newQueue,
+    //     poppedTrack: pop
+    //   }
 
-    case 'CLEAR_POP':
-      return {
-        ...state,
-        poppedTrack: null
-      }
+    // case 'CLEAR_POP':
+    //   return {
+    //     ...state,
+    //     poppedTrack: null
+    //   }
+
+
+
 
     case 'ADD_TO_QUEUE':
       const newQueue2 = [...state.myQueue];
       newQueue2.push(action.payload)
       return {
         ...state,
-        myQueue: newQueue2
+        myQueue: newQueue2,
       }
 
     case 'CLEAR_QUEUE':
       return {
         ...state,
-        myQueue: []
+        myQueue: [],
+        nextTrack: null
       }
+
+    case 'SHIFT_QUEUE':
+      const newQueue = [...state.myQueue]
+      const next = newQueue.shift()
+      return {
+        ...state,
+        myQueue: newQueue,
+        nextTrack: next
+      }
+
+
+
+
 
     case 'VIEW_IN_CONSOLE':
       return {
@@ -80,8 +97,13 @@ export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, {
     code: null,
     accessToken: null,
+
     myQueue: [],
+    nextTrack: null,
+
     poppedTrack: null,
+
+
     consoleViewType: '',
     inView: {},
     playlistData: {},

@@ -8,13 +8,13 @@ import axios from 'axios'
 
 function Lowbar() {
 
-  const { dispatch, accessToken, myQueue } = useDataContext()
+  const { dispatch, accessToken, nextTrack } = useDataContext()
 
   const [ player, setPlayer ] = useState(null)
   const [ queueTimer, setQueueTimer ] = useState(null)
   const [ currentSong, setCurrentSong ] = useState(null)
   const [ count, setCount ] = useState(0)
-  const [nextSong, setNextSong] = useState(null)
+
 
 
   useEffect(() => {
@@ -26,7 +26,7 @@ function Lowbar() {
       const newPlayer = new window.Spotify.Player({
         name: 'Spotter SDK',
         getOAuthToken: cb => { cb(accessToken) },
-        // volume: 0.5
+        volume: 0
       });
       newPlayer.addListener('ready', ({ device_id }) => {
           console.log('Ready with Device ID', device_id);
@@ -43,24 +43,24 @@ function Lowbar() {
 
 
 
-      newPlayer.addListener('player_state_changed', ({
-        track_window: { current_track }
-      }) => {
-        setCurrentSong(current_track)
-      });
+      // newPlayer.addListener('player_state_changed', ({
+      //   track_window: { current_track }
+      // }) => {
+      //   setCurrentSong(current_track)
+      // });
 
-      newPlayer.addListener('player_state_changed', ({
-        duration,
-        position,
-        track_window: { current_track }
-      }) => {
-        clearTimeout(queueTimer)
-        const timeLeft = duration - position
-        const newQueueTimer = setTimeout(() => {
-          setCount(count + 1)
-        }, timeLeft - 3000 )
-        setQueueTimer(newQueueTimer)
-      });
+      // newPlayer.addListener('player_state_changed', ({
+      //   duration,
+      //   position,
+      //   track_window: { current_track }
+      // }) => {
+      //   clearTimeout(queueTimer)
+      //   const timeLeft = duration - position
+      //   const newQueueTimer = setTimeout(() => {
+      //     setCount(count + 1)
+      //   }, timeLeft - 3000 )
+      //   setQueueTimer(newQueueTimer)
+      // });
 
 
 
@@ -72,14 +72,15 @@ function Lowbar() {
         setPlayer(null)
       }
     };
-
   }, []);
 
-  useEffect(() => {
-    setNextSong(myQueue[0])
-  }, [ myQueue ])
+  // useEffect(() => {
+  //   setNextSong(myQueue[0])
+  // }, [ myQueue ])
 
   useEffect(() => {
+    if (!nextTrack) return
+
     async function POSTtoSpotifyQueue() {
       try {
         const response = await axios.post(
@@ -90,15 +91,16 @@ function Lowbar() {
               Authorization: `Bearer ${accessToken}`,
             },
             params: {
-              uri: nextSong.uri,
+              uri: nextTrack.uri,
             },
           }
         );
+        dispatch({ type: 'SHIFT_QUEUE' })
       } catch (error) {
         console.log('queue Error:', error);
       }
     }
-    POSTtoSpotifyQueue()
+    // POSTtoSpotifyQueue()
 
   }, [ count ]);
 
@@ -155,7 +157,7 @@ function Lowbar() {
               alignSelf: 'center',
             }}
             onClick={() => {
-              dispatch({ type: 'POP_QUEUE' })
+              dispatch({ type: 'SHIFT_QUEUE' })
             }}
           />
             {currentSong && currentSong.name}
