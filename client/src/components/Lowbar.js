@@ -8,31 +8,20 @@ import axios from 'axios'
 
 function Lowbar() {
 
-  const { dispatch, accessToken, poppedTrack, myQueue } = useDataContext()
+  const { dispatch, accessToken, myQueue } = useDataContext()
 
   const [ player, setPlayer ] = useState(null)
-
-
-
   const [ queueTimer, setQueueTimer ] = useState(null)
-
   const [ currentSong, setCurrentSong ] = useState(null)
-
   const [ count, setCount ] = useState(0)
-
   const [nextSong, setNextSong] = useState(null)
 
 
-
-
-
   useEffect(() => {
-
     const script = document.createElement("script");
     script.src = "https://sdk.scdn.co/spotify-player.js";
     script.async = true;
     document.body.appendChild(script);
-
     window.onSpotifyWebPlaybackSDKReady = () => {
       const newPlayer = new window.Spotify.Player({
         name: 'Spotter SDK',
@@ -54,41 +43,24 @@ function Lowbar() {
 
 
 
-
-
-
-
       newPlayer.addListener('player_state_changed', ({
         track_window: { current_track }
       }) => {
         setCurrentSong(current_track)
       });
 
-
-
-
-      // newPlayer.addListener('player_state_changed', ({
-      //   duration,
-      //   position,
-      //   track_window: { current_track }
-      // }) => {
-
-      //   clearTimeout(queueTimer)
-      //   const timeLeft = duration - position
-      //   const newQueueTimer = setTimeout(() => {
-
-      //     console.log('queue listener', {duration}, {position})
-      //     setCount(count + 1)
-
-      //   }, timeLeft - 3000 )
-
-      //   setQueueTimer(newQueueTimer)
-
-      // });
-
-
-
-
+      newPlayer.addListener('player_state_changed', ({
+        duration,
+        position,
+        track_window: { current_track }
+      }) => {
+        clearTimeout(queueTimer)
+        const timeLeft = duration - position
+        const newQueueTimer = setTimeout(() => {
+          setCount(count + 1)
+        }, timeLeft - 3000 )
+        setQueueTimer(newQueueTimer)
+      });
 
 
 
@@ -103,26 +75,11 @@ function Lowbar() {
 
   }, []);
 
-
-
-
   useEffect(() => {
-
-
     setNextSong(myQueue[0])
-
-
   }, [ myQueue ])
 
-
-
-
-
-
   useEffect(() => {
-
-    console.log({count})
-
     async function POSTtoSpotifyQueue() {
       try {
         const response = await axios.post(
@@ -137,15 +94,13 @@ function Lowbar() {
             },
           }
         );
-        console.log({response})
       } catch (error) {
         console.log('queue Error:', error);
       }
     }
-    // POSTtoSpotifyQueue()
+    POSTtoSpotifyQueue()
 
   }, [ count ]);
-
 
   return (
     <div
