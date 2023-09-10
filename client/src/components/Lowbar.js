@@ -123,7 +123,7 @@ function Lowbar() {
       try {
         const response = await axios.post(
           'https://api.spotify.com/v1/me/player/queue',
-          null,
+          deviceId,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -195,7 +195,29 @@ function Lowbar() {
               alignSelf: 'center',
             }}
             onClick={() => {
-              dispatch({ type: 'SHIFT_QUEUE' })
+
+              (async () => {
+                try {
+                  const response = await axios.post(
+                    'https://api.spotify.com/v1/me/player/queue',
+                    deviceId,
+                    {
+                      headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                      },
+                      params: {
+                        uri: nextTrack.uri,
+                      },
+                    }
+                  );
+                  console.log({ response });
+                  dispatch({ type: 'SHIFT_QUEUE' });
+                } catch (error) {
+                  console.log('queue Error:', error);
+                }
+              })();
+
+
             }}
           />
             {currentSong && currentSong.name}
