@@ -57,10 +57,16 @@ function Lowbar() {
         paused
       }) => {
         setIsPaused(paused)
-
       });
 
+      newPlayer.addListener('player_state_changed', ({
+        duration,
+        position,
+        track_window: { current_track }
+      }) => {
+        setCurrentSong(current_track)
 
+      });
 
 
 
@@ -104,16 +110,6 @@ function Lowbar() {
     };
   }, []);
 
-
-  useEffect(() => {
-
-    if (!playbackState) return
-
-
-    setIsPaused(playbackState.paused)
-
-
-  }, [ playbackState ])
 
 
 
@@ -209,19 +205,7 @@ function Lowbar() {
               color: 'white'
             }}
           >
-          { isPaused ?
-            <div
-              style={{
-                color: 'white'
-              }}
-            >PAUSE</div> :
-            <PlayIcon
-              style={{
-                color: 'white',
-                padding: '2px 19px 0px 19px',
-              }}
-            />
-          }
+          { isPaused ? <div>PLAY</div> : <div>PAUSE</div> }
           </div>
           <HiForward
             style={{
