@@ -20,6 +20,8 @@ function Lowbar() {
 
   const [ deviceId, setDeviceId ] = useState(null)
 
+  const [ isPaused, setIsPaused ] = useState(true)
+
 
 
 
@@ -51,11 +53,25 @@ function Lowbar() {
 
 
 
-      newPlayer.addListener('player_state_changed', (
-        state
-      ) => {
-        setPlaybackState(state)
+      newPlayer.addListener('player_state_changed', ({
+        paused
+      }) => {
+        setIsPaused(paused)
+
       });
+
+
+
+
+
+
+
+      // newPlayer.addListener('player_state_changed', (
+      //   state
+      // ) => {
+      //   setPlaybackState(state)
+
+      // });
 
 
 
@@ -90,8 +106,14 @@ function Lowbar() {
 
 
   useEffect(() => {
-    console.log({nextTrack})
-  }, [nextTrack])
+
+    if (!playbackState) return
+
+
+    setIsPaused(playbackState.paused)
+
+
+  }, [ playbackState ])
 
 
 
@@ -181,13 +203,26 @@ function Lowbar() {
             }}
           />
             {currentSong && currentSong.name}
-          <PlayIcon
+          <div
+            onClick={() => player.togglePlay()}
             style={{
-              color: 'white',
-              padding: '2px 19px 0px 19px',
+              color: 'white'
             }}
-            onClick={() =>  player.togglePlay() }
-          />
+          >
+          { isPaused ?
+            <div
+              style={{
+                color: 'white'
+              }}
+            >PAUSE</div> :
+            <PlayIcon
+              style={{
+                color: 'white',
+                padding: '2px 19px 0px 19px',
+              }}
+            />
+          }
+          </div>
           <HiForward
             style={{
               color: 'white',
