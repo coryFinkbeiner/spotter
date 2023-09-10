@@ -16,6 +16,12 @@ function Lowbar() {
   const [ count, setCount ] = useState(0)
 
 
+  const [ playbackState, setPlaybackState ] = useState(null)
+
+  const [ deviceId, setDeviceId ] = useState(null)
+
+
+
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -30,6 +36,7 @@ function Lowbar() {
       });
       newPlayer.addListener('ready', ({ device_id }) => {
           console.log('Ready with Device ID', device_id);
+          setDeviceId(device_id)
       });
       newPlayer.addListener('not_ready', ({ device_id }) => {
           console.log('Device ID has gone offline', device_id);
@@ -44,25 +51,28 @@ function Lowbar() {
 
 
 
-      newPlayer.addListener('player_state_changed', ({
-        track_window: { current_track }
-      }) => {
-        setCurrentSong(current_track)
+      newPlayer.addListener('player_state_changed', (
+        state
+      ) => {
+        setPlaybackState(state)
       });
 
-      newPlayer.addListener('player_state_changed', ({
-        duration,
-        position,
-        track_window: { current_track }
-      }) => {
-        clearTimeout(queueTimer)
-        setQueueTimer(null)
-        const timeLeft = duration - position
-        const newQueueTimer = setTimeout(() => {
-          setCount(count + 1)
-        }, timeLeft - 2000 )
-        setQueueTimer(newQueueTimer)
-      });
+
+
+
+      // newPlayer.addListener('player_state_changed', ({
+      //   duration,
+      //   position,
+      //   track_window: { current_track }
+      // }) => {
+      //   clearTimeout(queueTimer)
+      //   setQueueTimer(null)
+      //   const timeLeft = duration - position
+      //   const newQueueTimer = setTimeout(() => {
+      //     setCount(count + 1)
+      //   }, timeLeft - 2000 )
+      //   setQueueTimer(newQueueTimer)
+      // });
 
 
 
@@ -80,7 +90,7 @@ function Lowbar() {
 
 
   useEffect(() => {
-
+    console.log({nextTrack})
   }, [nextTrack])
 
 

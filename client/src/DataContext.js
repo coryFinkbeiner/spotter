@@ -67,7 +67,7 @@ export const dataReducer = (state, action) => {
     case 'SHIFT_QUEUE':
       const newQueue = [...state.myQueue]
       newQueue.shift()
-      const next = newQueue[0]
+      const next = newQueue.shift()
       return {
         ...state,
         myQueue: newQueue,
@@ -106,11 +106,11 @@ export const DataProvider = ({ children }) => {
 
     poppedTrack: null,
 
-
     consoleViewType: '',
     inView: {},
     playlistData: {},
     albumData: {},
+
   });
 
   return (
