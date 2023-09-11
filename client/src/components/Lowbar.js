@@ -11,18 +11,15 @@ function Lowbar() {
   const { dispatch, accessToken, nextTrack } = useDataContext()
 
   const [ player, setPlayer ] = useState(null)
-  const [ queueTimer, setQueueTimer ] = useState(null)
+
   const [ currentSong, setCurrentSong ] = useState(null)
   const [ count, setCount ] = useState(0)
-
 
   const [ playbackState, setPlaybackState ] = useState(null)
 
   const [ deviceId, setDeviceId ] = useState(null)
 
   const [ isPaused, setIsPaused ] = useState(true)
-
-
 
 
   useEffect(() => {
@@ -60,43 +57,10 @@ function Lowbar() {
       });
 
       newPlayer.addListener('player_state_changed', ({
-        duration,
-        position,
         track_window: { current_track }
       }) => {
         setCurrentSong(current_track)
-
       });
-
-
-
-
-
-      // newPlayer.addListener('player_state_changed', (
-      //   state
-      // ) => {
-      //   setPlaybackState(state)
-
-      // });
-
-
-
-
-      // newPlayer.addListener('player_state_changed', ({
-      //   duration,
-      //   position,
-      //   track_window: { current_track }
-      // }) => {
-      //   clearTimeout(queueTimer)
-      //   setQueueTimer(null)
-      //   const timeLeft = duration - position
-      //   const newQueueTimer = setTimeout(() => {
-      //     setCount(count + 1)
-      //   }, timeLeft - 2000 )
-      //   setQueueTimer(newQueueTimer)
-      // });
-
-
 
 
 
@@ -111,13 +75,34 @@ function Lowbar() {
   }, []);
 
 
+  useEffect(() => {
+    if (!player) return
+
+    function checkTimeLeft() {
+      player.getCurrentState().then((state) => {
+        if (!state) return
+        const timeLeft = state.duration - state.position
+        // console.log({timeLeft})
+        if (timeLeft < 3500) {
+
+          // console.log({timeLeft})
+          setCount(count+1)
+        }
+      });
+      setTimeout(checkTimeLeft, 2000);
+    }
+    checkTimeLeft()
+
+
+
+  }, [ player ])
+
 
 
   useEffect(() => {
     if (!nextTrack) {
       return
     }
-
 
     (async () => {
       try {
@@ -134,11 +119,12 @@ function Lowbar() {
           }
         );
         console.log({ response });
-        dispatch({ type: 'SHIFT_QUEUE' });
+
       } catch (error) {
         console.log('queue Error:', error);
       }
     })();
+    dispatch({ type: 'SHIFT_QUEUE' });
 
   }, [ count ]);
 
@@ -196,27 +182,7 @@ function Lowbar() {
             }}
             onClick={() => {
 
-              (async () => {
-                try {
-                  const response = await axios.post(
-                    'https://api.spotify.com/v1/me/player/queue',
-                    deviceId,
-                    {
-                      headers: {
-                        Authorization: `Bearer ${accessToken}`,
-                      },
-                      params: {
-                        uri: nextTrack.uri,
-                      },
-                    }
-                  );
-                  console.log({ response });
-                  dispatch({ type: 'SHIFT_QUEUE' });
-                } catch (error) {
-                  console.log('queue Error:', error);
-                }
-              })();
-
+              setCount(count+1)
 
             }}
           />
