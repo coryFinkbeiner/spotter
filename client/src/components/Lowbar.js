@@ -77,24 +77,19 @@ function Lowbar() {
 
   useEffect(() => {
     if (!player) return
-
     function checkTimeLeft() {
       player.getCurrentState().then((state) => {
         if (!state) return
-        const timeLeft = state.duration - state.position
-        // console.log({timeLeft})
-        if (timeLeft < 3500) {
 
-          // console.log({timeLeft})
-          setCount(count+1)
+        const timeLeft = state.duration - state.position
+        console.log({timeLeft})
+        if (timeLeft < 2000) {
+          setCount(Math.floor(Math.random() * 5000) + 1)
         }
       });
-      setTimeout(checkTimeLeft, 2000);
+      setTimeout(checkTimeLeft, 1999);
     }
     checkTimeLeft()
-
-
-
   }, [ player ])
 
 
@@ -119,12 +114,13 @@ function Lowbar() {
           }
         );
         console.log({ response });
+        dispatch({ type: 'SHIFT_QUEUE' });
 
       } catch (error) {
         console.log('queue Error:', error);
       }
     })();
-    dispatch({ type: 'SHIFT_QUEUE' });
+
 
   }, [ count ]);
 
