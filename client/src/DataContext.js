@@ -5,6 +5,12 @@ export const DataContext = createContext();
 export const dataReducer = (state, action) => {
   switch (action.type) {
 
+    case 'SET_USER':
+      return {
+        ...state,
+        user: action.payload
+      }
+
     case 'SET_CODE':
       return {
         ...state,
@@ -98,6 +104,9 @@ export const dataReducer = (state, action) => {
 
 export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, {
+
+    user: null,
+
     code: null,
     accessToken: null,
 
@@ -106,7 +115,7 @@ export const DataProvider = ({ children }) => {
 
     poppedTrack: null,
 
-    consoleViewType: '',
+    consoleViewType: 'Home',
     inView: {},
     playlistData: {},
     albumData: {},

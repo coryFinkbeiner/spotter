@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useDataContext } from '../hooks/useDataContext';
 
 const Login = ({setIsLoggedIn}) => {
+
+  const { dispatch } = useDataContext()
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,7 +19,9 @@ const Login = ({setIsLoggedIn}) => {
         }
       });
       console.log('Login response:', response.data);
+      dispatch({type: 'SET_USER', payload: response.data})
       setIsLoggedIn(true)
+
     } catch (error) {
       console.error('Login error:', error);
     }
