@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Login = () => {
+const Login = ({setIsLoggedIn}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,11 +15,7 @@ const Login = () => {
         }
       });
       console.log('Login response:', response.data);
-
-      window.location.href = '/login'
-
-
-
+      setIsLoggedIn(true)
     } catch (error) {
       console.error('Login error:', error);
     }
@@ -49,7 +45,7 @@ const Login = () => {
   );
 };
 
-const Register = () => {
+const Register = ({setIsLoggedIn}) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -63,10 +59,10 @@ const Register = () => {
         password,
       });
       console.log('Register response:', response.data);
+      setIsLoggedIn(true)
 
 
-
-      window.location.href = '/login'
+      // window.location.href = '/login'
       // add the user info to the context
       // and route the user to the spotify login?
 
@@ -110,13 +106,13 @@ const Register = () => {
   );
 };
 
-const AppLogin = () => {
+const AppLogin = ({ setIsLoggedIn }) => {
   const [isNewUser, setIsNewUser] = useState(false);
 
   return (
     <div>
       <h1>{isNewUser ? 'Register' : 'Login'}</h1>
-      {isNewUser ? <Register /> : <Login />}
+      {isNewUser ? <Register setIsLoggedIn={setIsLoggedIn} /> : <Login setIsLoggedIn={setIsLoggedIn}/>}
       <p>
         {isNewUser ? 'Already have an account?' : 'New user?'}
         <button onClick={() => setIsNewUser(!isNewUser)}>
