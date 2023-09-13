@@ -107,6 +107,7 @@ function App() {
                   });
                   console.log('Register response:', response);
                   dispatch({ type: 'SET_USER', payload: response.data });
+                  setWelcome(true)
 
                 } catch (error) {
                   console.error('Register error:', error);
