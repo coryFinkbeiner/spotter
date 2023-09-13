@@ -40,31 +40,39 @@ function Lowbar() {
       newPlayer.addListener('not_ready', ({ device_id }) => {
           console.log('Device ID has gone offline', device_id);
       });
+
       newPlayer.connect().then(success => {
         if (success) {
           console.log('The Web Playback SDK successfully connected to Spotify!');
           setPlayer(newPlayer)
         }
+
       });
 
 
 
 
-      newPlayer.addListener('player_state_changed', ({
-        paused
-      }) => {
-        setIsPaused(paused)
-      });
+      // newPlayer.addListener('player_state_changed', ({
+      //   paused
+      // }) => {
+      //   setIsPaused(paused)
+      // });
 
-      newPlayer.addListener('player_state_changed', ({
-        track_window: { current_track }
-      }) => {
-        setCurrentSong(current_track)
-      });
+      // newPlayer.addListener('player_state_changed', ({
+      //   track_window: { current_track }
+      // }) => {
+      //   setCurrentSong(current_track)
+      // });
+
+
 
 
 
     }
+
+
+
+
 
     return () => {
       if (player) {
@@ -77,6 +85,7 @@ function Lowbar() {
 
   useEffect(() => {
     if (!player) return
+
     function checkTimeLeft() {
       player.getCurrentState().then((state) => {
         if (!state) return

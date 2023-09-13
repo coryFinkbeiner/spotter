@@ -93,7 +93,7 @@ function Artists({ results }) {
 
 function Search() {
   const [query, setQuery] = useState('');
-  const [radio, setRadio] = useState('');
+  const [radio, setRadio] = useState('artist');
   const [results, setResults] = useState({});
   const { accessToken, dispatch } = useDataContext();
   const [count, setCount] = useState(0)
