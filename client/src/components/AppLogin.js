@@ -58,6 +58,8 @@ const Register = ({setIsLoggedIn}) => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
+
     try {
       const response = await axios.post('http://localhost:3002/users', {
         username,
@@ -66,17 +68,9 @@ const Register = ({setIsLoggedIn}) => {
       });
       console.log('Register response:', response.data);
       setIsLoggedIn(true)
-
-
-      // window.location.href = '/login'
-      // add the user info to the context
-      // and route the user to the spotify login?
-
-
     } catch (error) {
       console.error('Register error:', error);
     }
-
 
 
   };

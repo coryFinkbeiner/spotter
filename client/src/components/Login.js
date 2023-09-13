@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 // import AppLogin from './AppLogin'
 
 import { useDataContext } from '../hooks/useDataContext';
+import axios from 'axios';
 
 
 
@@ -15,34 +16,14 @@ function Login() {
   const { dispatch } = useDataContext()
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const [isNewUser, setIsNewUser] = useState(true);
 
 
   return (
-    isLoggedIn ? (
-      <button onClick={() => (window.location.href = AUTH_URL)}>
-        Login With Spotify
-      </button>
-    ) : (
-      <div>
-        { isNewUser ? (
-
-          <div>
-            <h1>Register</h1>
-          </div>
-
-
-        ) : (
-
-          <div>
-            <h1>Login</h1>
-          </div>
-
-        )}
-
-      </div>
-
-    )
+    <button onClick={() => (window.location.href = AUTH_URL)}>
+      Login With Spotify
+    </button>
   );
 }
 

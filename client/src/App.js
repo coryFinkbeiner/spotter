@@ -18,6 +18,16 @@ function App() {
   const { code, dispatch, player } = useDataContext()
   const newCode = new URLSearchParams(window.location.search).get("code")
 
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [isNewUser, setIsNewUser] = useState(true);
+
+
+  const [welcome, setWelcome] = useState(false);
+
+
+
   useEffect(() => {
     if (newCode) dispatch({type: 'SET_CODE' , payload: newCode })
   }, [])
@@ -67,6 +77,93 @@ function App() {
   }, [accessToken])
 
 
-  return code ? <Dashboard /> : <Login />
+
+
+  return (
+
+    code ? (
+
+
+      welcome ? (
+        <Dashboard />
+      ) : (
+
+
+        isNewUser ? (
+
+          <div>
+            <h1>Register</h1>
+            <form onSubmit={(e) => {
+              // is this necessary?
+              e.preventDefault();
+
+
+              (async () => {
+                try {
+                  const response = await axios.post('http://localhost:3002/users', {
+                    username,
+                    email,
+                    password,
+                  });
+                  console.log('Register response:', response);
+                  dispatch({ type: 'SET_USER', payload: response.data });
+
+                } catch (error) {
+                  console.error('Register error:', error);
+                }
+              })();
+
+
+            }}>
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button type="submit">Register</button>
+            </form>
+          </div>
+
+
+
+
+        ) : (
+
+
+
+
+          <div>Login</div>
+
+
+        )
+
+      )
+
+
+
+
+    ) : (
+
+      <Login />
+
+    )
+  )
+
 }
 export default App;
