@@ -27,15 +27,27 @@ function Lowbar() {
     script.src = "https://sdk.scdn.co/spotify-player.js";
     script.async = true;
     document.body.appendChild(script);
+
+
+
+
     window.onSpotifyWebPlaybackSDKReady = () => {
+
+
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+      const letter = chars[Math.floor(Math.random() * chars.length)]
+
+
       const newPlayer = new window.Spotify.Player({
-        name: 'Spotter SDK',
+        name: letter,
         getOAuthToken: cb => { cb(accessToken) },
-        volume: 0
+        volume: 0.2
       });
-      newPlayer.addListener('ready', ({ device_id }) => {
-          console.log('Ready with Device ID', device_id);
-          setDeviceId(device_id)
+      console.log({letter})
+      newPlayer.addListener('ready', ({device_id}) => {
+        console.log('ready with', letter)
+        setDeviceId(device_id)
       });
       newPlayer.addListener('not_ready', ({ device_id }) => {
           console.log('Device ID has gone offline', device_id);
@@ -59,7 +71,7 @@ function Lowbar() {
       });
 
       newPlayer.addListener('player_state_changed', ({
-        track_window: { current_track }
+        track_window: { current_track },
       }) => {
         setCurrentSong(current_track)
       });
@@ -193,7 +205,6 @@ function Lowbar() {
           <div
             onClick={() => {
               player.togglePlay()
-              console.log({isPaused})
             }}
             style={{
               color: 'white'
