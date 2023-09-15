@@ -30,6 +30,7 @@ app.post('/users', async (req, res) => {
 });
 
 app.get('/users', async (req, res) => {
+
   try {
     const { username, password } = req.query;
     const query = `

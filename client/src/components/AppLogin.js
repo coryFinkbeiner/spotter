@@ -11,11 +11,12 @@ const Login = ({setIsLoggedIn}) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log({username}, {password})
     try {
       const response = await axios.get('http://localhost:3002/users', {
         params: {
-          username: username,
-          password: password,
+          username,
+          password,
         }
       });
       console.log('Login response:', response.data);

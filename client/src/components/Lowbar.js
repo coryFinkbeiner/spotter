@@ -52,17 +52,17 @@ function Lowbar() {
 
 
 
-      // newPlayer.addListener('player_state_changed', ({
-      //   paused
-      // }) => {
-      //   setIsPaused(paused)
-      // });
+      newPlayer.addListener('player_state_changed', ({
+        paused
+      }) => {
+        setIsPaused(paused)
+      });
 
-      // newPlayer.addListener('player_state_changed', ({
-      //   track_window: { current_track }
-      // }) => {
-      //   setCurrentSong(current_track)
-      // });
+      newPlayer.addListener('player_state_changed', ({
+        track_window: { current_track }
+      }) => {
+        setCurrentSong(current_track)
+      });
 
 
 
@@ -89,9 +89,7 @@ function Lowbar() {
     function checkTimeLeft() {
       player.getCurrentState().then((state) => {
         if (!state) return
-
         const timeLeft = state.duration - state.position
-        console.log({timeLeft})
         if (timeLeft < 2000) {
           setCount(Math.floor(Math.random() * 5000) + 1)
         }
@@ -193,7 +191,10 @@ function Lowbar() {
           />
             {currentSong && currentSong.name}
           <div
-            onClick={() => player.togglePlay()}
+            onClick={() => {
+              player.togglePlay()
+              console.log({isPaused})
+            }}
             style={{
               color: 'white'
             }}

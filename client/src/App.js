@@ -21,7 +21,7 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [isNewUser, setIsNewUser] = useState(true);
+  const [isNewUser, setIsNewUser] = useState(false);
 
 
   const [welcome, setWelcome] = useState(false);
@@ -90,44 +90,85 @@ function App() {
 
 
         isNewUser ? (
-
-          <div>
-            <h1>Register</h1>
-            <form onSubmit={(e) => {
-              // is this necessary?
+          <>
+            <div>
+              <h1>Register</h1>
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                (async () => {
+                  try {
+                    const response = await axios.post('http://localhost:3002/users', {
+                      username,
+                      email,
+                      password,
+                    });
+                    console.log('Register response:', response);
+                    dispatch({ type: 'SET_USER', payload: response.data });
+                    setWelcome(true)
+                  } catch (error) {
+                    console.error('Register error:', error);
+                  }
+                })();
+              }}>
+                <input
+                  type="text"
+                  placeholder="Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <button type="submit">Register</button>
+              </form>
+            </div>
+            <button
+              onClick={() => setIsNewUser(false)}
+            >
+              Already a User?
+            </button>
+          </>
+        ) : (
+          <>
+            <div>
+            <h1>Login</h1>
+            <form
+              onSubmit={(e) => {
               e.preventDefault();
-
-
               (async () => {
                 try {
-                  const response = await axios.post('http://localhost:3002/users', {
-                    username,
-                    email,
-                    password,
+                  const response = await axios.get('http://localhost:3002/users', {
+                    params: {
+                      username,
+                      password,
+                    }
                   });
                   console.log('Register response:', response);
                   dispatch({ type: 'SET_USER', payload: response.data });
                   setWelcome(true)
-
                 } catch (error) {
                   console.error('Register error:', error);
                 }
               })();
-
-
-            }}>
+            }}
+            >
               <input
                 type="text"
                 placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <input
@@ -137,34 +178,20 @@ function App() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <button type="submit">Register</button>
+              <button type="submit">Login</button>
             </form>
-          </div>
-
-
-
-
-        ) : (
-
-
-
-
-          <div>Login</div>
-
-
+            </div>
+            <button
+              onClick={() => setIsNewUser(true)}
+            >
+              New User?
+            </button>
+          </>
         )
-
       )
-
-
-
-
     ) : (
-
       <Login />
-
     )
   )
-
 }
 export default App;
