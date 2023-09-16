@@ -42,7 +42,7 @@ function Lowbar() {
       const newPlayer = new window.Spotify.Player({
         name: letter,
         getOAuthToken: cb => { cb(accessToken) },
-        volume: 0.2
+        // volume: 0.2
       });
       console.log({letter})
       newPlayer.addListener('ready', ({device_id}) => {
@@ -64,27 +64,11 @@ function Lowbar() {
 
 
 
-      newPlayer.addListener('player_state_changed', ({
-        paused
-      }) => {
-        setIsPaused(paused)
-      });
-
-      newPlayer.addListener('player_state_changed', ({
-        track_window: { current_track },
-      }) => {
-        setCurrentSong(current_track)
-      });
-
 
 
 
 
     }
-
-
-
-
 
     return () => {
       if (player) {

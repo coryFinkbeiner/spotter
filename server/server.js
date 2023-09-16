@@ -49,6 +49,38 @@ app.get('/users', async (req, res) => {
   }
 });
 
+app.post('/tracks', async (req, res) => {
+  try {
+    const { spotify_id, response } = req.body;
+
+    const query = `
+      INSERT INTO tracks (spotify_id, response)
+      VALUES ($1, $2)
+      RETURNING *;
+    `;
+    const result = await pool.query(query, [ spotify_id, response]);
+
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error('Error posting track:', error);
+    res.status(500).json({ error: 'Error posting track' });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken
