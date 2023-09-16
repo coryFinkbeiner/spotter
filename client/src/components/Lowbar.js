@@ -64,6 +64,18 @@ function Lowbar() {
 
 
 
+      newPlayer.addListener('player_state_changed', ({
+        paused
+      }) => {
+        setIsPaused(paused)
+      });
+
+      newPlayer.addListener('player_state_changed', ({
+        track_window: { current_track },
+      }) => {
+        setCurrentSong(current_track)
+      });
+
 
 
 
