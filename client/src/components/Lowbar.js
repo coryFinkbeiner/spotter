@@ -27,18 +27,9 @@ function Lowbar() {
     script.src = "https://sdk.scdn.co/spotify-player.js";
     script.async = true;
     document.body.appendChild(script);
-
-
-
-
     window.onSpotifyWebPlaybackSDKReady = () => {
-
-
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
       const letter = chars[Math.floor(Math.random() * chars.length)]
-
-
       const newPlayer = new window.Spotify.Player({
         name: letter,
         getOAuthToken: cb => { cb(accessToken) },
@@ -46,7 +37,7 @@ function Lowbar() {
       });
       console.log({letter})
       newPlayer.addListener('ready', ({device_id}) => {
-        console.log('ready with', letter)
+        // console.log('ready with', letter)
         setDeviceId(device_id)
       });
       newPlayer.addListener('not_ready', ({ device_id }) => {
@@ -73,6 +64,7 @@ function Lowbar() {
       newPlayer.addListener('player_state_changed', ({
         track_window: { current_track },
       }) => {
+        // check spotify id
         setCurrentSong(current_track)
       });
 
@@ -193,7 +185,20 @@ function Lowbar() {
             }}
             onClick={() => {
 
-              setCount(count+1)
+              (async () => {
+                try {
+                  const res = await axios.post('http://localhost:3002/tracks', {
+                    params: {
+                      spotify_id: 'test id',
+                      response: 'test response',
+                    }
+                  });
+                  console.log('tracks (postgres) post response:', res);
+
+                } catch (error) {
+                  console.error('tracks (postgres) post error:', error);
+                }
+              })()
 
             }}
           />
