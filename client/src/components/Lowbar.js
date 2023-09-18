@@ -35,7 +35,7 @@ function Lowbar() {
         getOAuthToken: cb => { cb(accessToken) },
         // volume: 0.2
       });
-      console.log({letter})
+      console.log(letter)
       newPlayer.addListener('ready', ({device_id}) => {
         // console.log('ready with', letter)
         setDeviceId(device_id)
@@ -64,7 +64,6 @@ function Lowbar() {
       newPlayer.addListener('player_state_changed', ({
         track_window: { current_track },
       }) => {
-        // check spotify id
         setCurrentSong(current_track)
       });
 
@@ -81,6 +80,31 @@ function Lowbar() {
       }
     };
   }, []);
+
+
+
+  // useEffect(() => {
+
+  //   if (!currentSong) return
+
+  //   (async () => {
+  //     try {
+  //       const res = await axios.post('http://localhost:3002/tracks', {
+
+  //         spotify_id: currentSong.id,
+  //         response: currentSong,
+
+  //       });
+  //       console.log('tracks (postgres) post response:', res);
+
+  //     } catch (error) {
+  //       console.error('tracks (postgres) post error:', error);
+  //     }
+  //   })()
+
+
+  // }, [ currentSong ])
+
 
 
   useEffect(() => {
@@ -122,13 +146,10 @@ function Lowbar() {
         );
         console.log({ response });
         dispatch({ type: 'SHIFT_QUEUE' });
-
       } catch (error) {
         console.log('queue Error:', error);
       }
     })();
-
-
   }, [ count ]);
 
   return (
@@ -185,13 +206,15 @@ function Lowbar() {
             }}
             onClick={() => {
 
+
+
               (async () => {
                 try {
                   const res = await axios.post('http://localhost:3002/tracks', {
-                    params: {
-                      spotify_id: 'test id',
-                      response: 'test response',
-                    }
+
+                    spotify_id: currentSong.id,
+                    response: currentSong,
+
                   });
                   console.log('tracks (postgres) post response:', res);
 
