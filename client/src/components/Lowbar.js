@@ -96,43 +96,48 @@ function Lowbar() {
 
     if (!currentID) return
 
-    console.log('currentSong useEffect hit')
-    console.log({currentID})
 
 
-    // if (currentSong.id !== previousSongID) {
+    player.getCurrentState().then( state => {
+      if (!state) return
 
-    // }
+      if (currentID !== state.track_window.current_track.id) console.log('id error')
 
+      // console.log(state.track_window.current_track)
 
-
-    // player.getCurrentState().then( state => {
-    //   if (!state) return
-    //   console.log(state.track_window.previous_tracks)
-    // });
+      setCurrentSong(state.track_window.current_track)
 
 
-
-
-    // if (currentSong.id == playbackState.track_window.previous_tracks[0].id) return
-
-    // (async () => {
-    //   try {
-    //     const res = await axios.post('http://localhost:3002/tracks', {
-
-    //       spotify_id: currentSong.id,
-    //       response: currentSong,
-
-    //     });
-    //     console.log('tracks (postgres) post response:', res);
-
-    //   } catch (error) {
-    //     console.error('tracks (postgres) post error:', error);
-    //   }
-    // })()
+    });
 
 
   }, [ currentID ])
+
+
+
+  useEffect(() => {
+
+    if (!currentSong) return
+
+
+    (async () => {
+      try {
+        const res = await axios.post('http://localhost:3002/tracks', {
+
+          spotify_id: currentID,
+          response: currentSong,
+
+        });
+        console.log('tracks (postgres) post response:', res);
+
+      } catch (error) {
+        console.error('tracks (postgres) post error:', error);
+      }
+    })()
+
+
+
+  }, [ currentSong ])
 
 
 
