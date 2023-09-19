@@ -11,6 +11,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const pool = require('./models/db');
 
 
+
+
+
 app.post('/users', async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -49,6 +52,9 @@ app.get('/users', async (req, res) => {
   }
 });
 
+
+
+
 app.post('/tracks', async (req, res) => {
   try {
     const { spotify_id, response } = req.body;
@@ -64,12 +70,6 @@ app.post('/tracks', async (req, res) => {
     res.status(500).json({ error: 'Error posting track' });
   }
 });
-
-
-
-
-
-
 
 
 
