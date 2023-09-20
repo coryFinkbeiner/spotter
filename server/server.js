@@ -48,6 +48,33 @@ app.post('/listening_history', async (req, res) => {
   }
 });
 
+app.get('/listening_history', async (req, res) => {
+  try {
+    // You can extract any query parameters here if needed
+    // For example: const userId = req.query.userId;
+
+    const query = `
+      SELECT lh.id AS listening_history_id,
+             lh.spotify_id_ref,
+             lh.user_id,
+             lh.play_time,
+             t.response AS track_response
+      FROM listening_history lh
+      JOIN tracks t ON lh.spotify_id_ref = t.spotify_id
+      WHERE lh.user_id = $1
+      AND lh.play_time >= CURRENT_TIMESTAMP - INTERVAL '10 days';
+    `;
+
+    const result = await pool.query(query);
+
+    res.json(result.rows);
+  } catch (error) {
+    console.error('/listening_history', error);
+    res.status(500).json({ error: 'Error fetching history' });
+  }
+});
+
+
 
 
 

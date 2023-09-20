@@ -10,6 +10,18 @@ function Sidebar() {
 
   const { accessToken, dispatch } = useDataContext();
 
+  const [results, setResults] = useState({}); // remnant?
+
+
+  useEffect(() => {
+
+
+
+  }, [])
+
+
+
+
   return (
 
     // Sidebar Container
@@ -108,6 +120,21 @@ function Sidebar() {
           {radio === 'playlists' && (
             <Playlists />
           )}
+
+
+          {radio === 'history' && (
+
+
+            <div className='sidebar-render'>
+              {playlistData?.items?.map((playlist, index) => (
+                <SidePlaylist key={index} playlist={playlist} id={index} />
+              ))}
+            </div>
+
+          )}
+
+
+
 
         </div>
       </div>
