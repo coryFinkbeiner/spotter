@@ -14,6 +14,44 @@ const pool = require('./models/db');
 
 
 
+
+app.post('/tracks', async (req, res) => {
+  try {
+    const { spotify_id, response } = req.body;
+    const query = `
+      INSERT INTO tracks (spotify_id, response)
+      VALUES ($1, $2)
+      ON CONFLICT (spotify_id) DO NOTHING
+      RETURNING *;
+    `;
+    const result = await pool.query(query, [spotify_id, response]);
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error('Error posting track:', error);
+    res.status(500).json({ error: 'Error posting track' });
+  }
+});
+
+app.post('/listening_history', async (req, res) => {
+  try {
+    const { spotify_id_ref, user_id } = req.body;
+    const query = `
+      INSERT INTO listening_history (spotify_id_ref, user_id)
+      VALUES ($1, $2)
+      RETURNING *;
+    `;
+    const result = await pool.query(query, [spotify_id_ref, user_id]);
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error('/listening_history', error);
+    res.status(500).json({ error: 'Error posting history' });
+  }
+});
+
+
+
+
+
 app.post('/users', async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -53,52 +91,6 @@ app.get('/users', async (req, res) => {
 });
 
 
-
-
-app.post('/tracks', async (req, res) => {
-  try {
-    const { spotify_id, response } = req.body;
-    const query = `
-      INSERT INTO tracks (spotify_id, response)
-      VALUES ($1, $2)
-      ON CONFLICT (spotify_id) DO NOTHING
-      RETURNING *;
-    `;
-    const result = await pool.query(query, [spotify_id, response]);
-    res.json(result.rows[0]);
-  } catch (error) {
-    console.error('Error posting track:', error);
-    res.status(500).json({ error: 'Error posting track' });
-  }
-});
-
-app.post('/listening_history', async (req, res) => {
-  try {
-    const { spotify_id_ref, user_id } = req.body;
-    const query = `
-      INSERT INTO listening_history (spotify_id_ref, user_id)
-      VALUES ($1, $2)
-      RETURNING *;
-
-    `;
-    const result = await pool.query(query, [spotify_id_ref, user_id]);
-    res.json(result.rows[0]);
-  } catch (error) {
-    console.error('/listening_history', error);
-    res.status(500).json({ error: 'Error posting history' });
-  }
-});
-
-
-
-
-
-
-
-
-
-
-
 app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken
   const spotifyApi = new SpotifyWebApi({
@@ -123,14 +115,12 @@ app.post("/refresh", (req, res) => {
 })
 
 app.post("/login", (req, res) => {
-
   const code = req.body.code
   const spotifyApi = new SpotifyWebApi({
     redirectUri: process.env.REDIRECT_URI,
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
   })
-
   spotifyApi
     .authorizationCodeGrant(code)
     .then(data => {

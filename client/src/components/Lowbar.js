@@ -46,7 +46,6 @@ function Lowbar() {
       newPlayer.addListener('not_ready', ({ device_id }) => {
           console.log('Device ID has gone offline', device_id);
       });
-
       newPlayer.connect().then(success => {
         if (success) {
           console.log('The Web Playback SDK successfully connected to Spotify!');
@@ -100,59 +99,28 @@ function Lowbar() {
   }, [ currentID ])
 
 
-
+  // post to tracks and listening_history
   useEffect(() => {
     if (!currentSong) return
-
     (async () => {
       try {
-
-
         const resTracks = await axios.post('http://localhost:3002/tracks', {
           spotify_id: currentID,
           response: currentSong,
         });
-
-
         const resHistory = await axios.post('http://localhost:3002/listening_history', {
-
           spotify_id_ref: currentID,
           user_id: user.id,
-
         });
-
         console.log('listening_history post response:', resHistory);
-
         console.log('tracks post response:', resTracks);
-
       } catch (error) {
         console.error('tracks or history post error:', error);
       }
     })()
-
-
-
-    // (async () => {
-    //   try {
-    //     const res = await axios.post('http://localhost:3002/listening_history', {
-
-    //       spotify_id_ref: currentSong.id,
-    //       response: currentSong,
-
-    //     });
-    //     console.log('listening_history post response:', res);
-
-    //   } catch (error) {
-    //     console.error('listening_history post error:', error);
-    //   }
-    // })()
-
-
-
   }, [ currentSong ])
 
-
-
+  // homemade listener, "are you less than two seconds from finishing?"
   useEffect(() => {
     if (!player) return
 
@@ -169,8 +137,7 @@ function Lowbar() {
     checkTimeLeft()
   }, [ player ])
 
-
-
+  // Spotify Queue Post, triggered by Count dependency
   useEffect(() => {
     if (!nextTrack) {
       return
@@ -197,6 +164,7 @@ function Lowbar() {
       }
     })();
   }, [ count ]);
+
 
   return (
     <div
