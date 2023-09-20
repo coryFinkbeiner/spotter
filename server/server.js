@@ -61,6 +61,7 @@ app.post('/tracks', async (req, res) => {
     const query = `
       INSERT INTO tracks (spotify_id, response)
       VALUES ($1, $2)
+      ON CONFLICT (spotify_id) DO NOTHING
       RETURNING *;
     `;
     const result = await pool.query(query, [spotify_id, response]);
@@ -70,6 +71,24 @@ app.post('/tracks', async (req, res) => {
     res.status(500).json({ error: 'Error posting track' });
   }
 });
+
+app.post('/listening_history', async (req, res) => {
+  try {
+    const { spotify_id_ref, user_id } = req.body;
+    const query = `
+      INSERT INTO listening_history (spotify_id_ref, user_id)
+      VALUES ($1, $2)
+      RETURNING *;
+
+    `;
+    const result = await pool.query(query, [spotify_id_ref, user_id]);
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error('/listening_history', error);
+    res.status(500).json({ error: 'Error posting history' });
+  }
+});
+
 
 
 

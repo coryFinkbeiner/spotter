@@ -8,7 +8,7 @@ import axios from 'axios'
 
 function Lowbar() {
 
-  const { dispatch, accessToken, nextTrack } = useDataContext()
+  const { dispatch, accessToken, nextTrack, user } = useDataContext()
 
   const [ player, setPlayer ] = useState(null)
 
@@ -90,50 +90,62 @@ function Lowbar() {
     };
   }, []);
 
-
-
   useEffect(() => {
-
     if (!currentID) return
-
-
-
     player.getCurrentState().then( state => {
       if (!state) return
-
       if (currentID !== state.track_window.current_track.id) console.log('id error')
-
-      // console.log(state.track_window.current_track)
-
       setCurrentSong(state.track_window.current_track)
-
-
     });
-
-
   }, [ currentID ])
 
 
 
   useEffect(() => {
-
     if (!currentSong) return
-
 
     (async () => {
       try {
-        const res = await axios.post('http://localhost:3002/tracks', {
 
+
+        const resTracks = await axios.post('http://localhost:3002/tracks', {
           spotify_id: currentID,
           response: currentSong,
+        });
+
+
+        const resHistory = await axios.post('http://localhost:3002/listening_history', {
+
+          spotify_id_ref: currentID,
+          user_id: user.id,
 
         });
-        console.log('tracks (postgres) post response:', res);
+
+        console.log('listening_history post response:', resHistory);
+
+        console.log('tracks post response:', resTracks);
 
       } catch (error) {
-        console.error('tracks (postgres) post error:', error);
+        console.error('tracks or history post error:', error);
       }
     })()
+
+
+
+    // (async () => {
+    //   try {
+    //     const res = await axios.post('http://localhost:3002/listening_history', {
+
+    //       spotify_id_ref: currentSong.id,
+    //       response: currentSong,
+
+    //     });
+    //     console.log('listening_history post response:', res);
+
+    //   } catch (error) {
+    //     console.error('listening_history post error:', error);
+    //   }
+    // })()
 
 
 
@@ -244,16 +256,16 @@ function Lowbar() {
 
               (async () => {
                 try {
-                  const res = await axios.post('http://localhost:3002/tracks', {
+                  const res = await axios.post('http://localhost:3002/listening_history', {
 
-                    spotify_id: currentSong.id,
+                    spotify_id_ref: currentSong.id,
                     response: currentSong,
 
                   });
-                  console.log('tracks (postgres) post response:', res);
+                  console.log('listening_history post response:', res);
 
                 } catch (error) {
-                  console.error('tracks (postgres) post error:', error);
+                  console.error('listening_history post error:', error);
                 }
               })()
 
