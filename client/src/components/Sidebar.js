@@ -6,14 +6,25 @@ import Albums from './Albums';
 
 function Sidebar() {
   const [radio, setRadio] = useState('playlists');
-  const [results, setResults] = useState({});
-
-  const { accessToken, dispatch } = useDataContext();
-
   const [results, setResults] = useState({}); // remnant?
+
+  const { accessToken, dispatch, user } = useDataContext();
 
 
   useEffect(() => {
+
+    (async () => {
+      try {
+        const response = await axios.get(`http://localhost:3002/listening_history`, {
+          params: {
+            user_id: user.id,
+          }
+        });
+        console.log('Listening History:', response.data);
+      } catch (error) {
+        console.error('Error fetching listening history:', error);
+      }
+    })();
 
 
 
@@ -121,7 +132,7 @@ function Sidebar() {
             <Playlists />
           )}
 
-
+{/*
           {radio === 'history' && (
 
 
@@ -132,7 +143,7 @@ function Sidebar() {
             </div>
 
           )}
-
+ */}
 
 
 

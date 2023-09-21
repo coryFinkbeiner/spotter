@@ -50,8 +50,9 @@ app.post('/listening_history', async (req, res) => {
 
 app.get('/listening_history', async (req, res) => {
   try {
-    // You can extract any query parameters here if needed
-    // For example: const userId = req.query.userId;
+
+    const { user_id } = req.query;
+    console.log({user_id})
 
     const query = `
       SELECT lh.id AS listening_history_id,
@@ -65,7 +66,7 @@ app.get('/listening_history', async (req, res) => {
       AND lh.play_time >= CURRENT_TIMESTAMP - INTERVAL '10 days';
     `;
 
-    const result = await pool.query(query);
+    const result = await pool.query(query, [ user_id ]);
 
     res.json(result.rows);
   } catch (error) {

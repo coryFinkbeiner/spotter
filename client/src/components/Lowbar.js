@@ -51,29 +51,28 @@ function Lowbar() {
           console.log('The Web Playback SDK successfully connected to Spotify!');
           setPlayer(newPlayer)
         }
-
       });
 
 
 
 
-      // newPlayer.addListener('player_state_changed', ({
-      //   paused
-      // }) => {
-      //   setIsPaused(paused)
-      // });
+      newPlayer.addListener('player_state_changed', ({
+        paused
+      }) => {
+        setIsPaused(paused)
+      });
 
-      // newPlayer.addListener('player_state_changed', ({
-      //   track_window: { current_track: { id } },
-      // }) => {
-      //   if (!id) return
-      //   if (!currentID) {
-      //     setCurrentID(id)
-      //     return
-      //   }
-      //   if (id === currentID) return
-      //   setCurrentID(id)
-      // });
+      newPlayer.addListener('player_state_changed', ({
+        track_window: { current_track: { id } },
+      }) => {
+        if (!id) return
+        if (!currentID) {
+          setCurrentID(id)
+          return
+        }
+        if (id === currentID) return
+        setCurrentID(id)
+      });
 
 
 
