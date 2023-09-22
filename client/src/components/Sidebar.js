@@ -141,70 +141,59 @@ function Sidebar() {
             <Playlists />
           )}
 
-{/*
           {radio === 'history' && (
 
-
             <div className='sidebar-render'>
-              {historyArray?.map((item, index) => (
-                <div className='sidebar-item-container'
-                  key={index}
-                  onClick={() => {
-                  }}
-                  style={{
-                    cursor: 'pointer',
-                    backgroundColor: isHovering ? 'rgb(45, 45, 45)' : 'transparent',
-                    borderRadius: '6px',
 
-                  }}
-                  onMouseEnter={() => setIsHovering(true)}
-                  onMouseLeave={() => setIsHovering(false)}
-                >
-                  <img
-                    src={item.track_response.album.images[0]?.url}
-                    style={{
-                      borderRadius: '5px',
-                      margin: '2px'
+              {calendarObject && Object.keys(calendarObject).map((date, index) => {
+
+                return (
+                  <div className='sidebar-item-container'
+                    key={index}
+                    onClick={() => {
                     }}
-                  />
-                  <div
                     style={{
-                      color: 'white',
-                      marginLeft: '3px',
-                      padding: '2px',
+                      cursor: 'pointer',
+                      backgroundColor: isHovering ? 'rgb(45, 45, 45)' : 'transparent',
+                      borderRadius: '6px',
+                      color: 'white'
+
                     }}
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
                   >
+                    <img
+                      // src={calendarObject[].track_response.album.images[0].url}
+                      src={"https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd"}
+                      style={{
+                        borderRadius: '5px',
+                        margin: '2px'
+                      }}
+                    />
                     <div
                       style={{
-                        height: '50%',
-                        fontWeight: 'bold',
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
+                        color: 'white',
+                        marginLeft: '3px',
+                        padding: '2px',
                       }}
                     >
-                      {item.track_response.name}
-                    </div>
-                    <div
-                      style={{
-                        height: '50%',
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                      }}
-                    >
-                      {playlist.owner.display_name}
+                      <div
+                        style={{
+                          height: '50%',
+                          fontWeight: 'bold',
+                          whiteSpace: 'nowrap',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                        }}
+                      >
+                        {date}
+                      </div>
                     </div>
                   </div>
-                </div>
-                ))}
-              </div>
-
-          )} */}
-
-
-
-
+                )
+              })}
+            </div>
+          )}
         </div>
       </div>
 
