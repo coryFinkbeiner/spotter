@@ -40,12 +40,13 @@ function Lowbar() {
       });
       console.log(letter)
       newPlayer.addListener('ready', ({device_id}) => {
-        // console.log('ready with', letter)
         setDeviceId(device_id)
       });
       newPlayer.addListener('not_ready', ({ device_id }) => {
           console.log('Device ID has gone offline', device_id);
       });
+
+
       newPlayer.connect().then(success => {
         if (success) {
           console.log('The Web Playback SDK successfully connected to Spotify!');
@@ -73,6 +74,9 @@ function Lowbar() {
         if (id === currentID) return
         setCurrentID(id)
       });
+
+
+
 
 
 

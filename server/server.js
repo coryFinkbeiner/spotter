@@ -50,10 +50,7 @@ app.post('/listening_history', async (req, res) => {
 
 app.get('/listening_history', async (req, res) => {
   try {
-
     const { user_id } = req.query;
-    console.log({user_id})
-
     const query = `
       SELECT lh.id AS listening_history_id,
              lh.spotify_id_ref,
@@ -62,12 +59,9 @@ app.get('/listening_history', async (req, res) => {
              t.response AS track_response
       FROM listening_history lh
       JOIN tracks t ON lh.spotify_id_ref = t.spotify_id
-      WHERE lh.user_id = $1
-      AND lh.play_time >= CURRENT_TIMESTAMP - INTERVAL '10 days';
+      WHERE lh.user_id = $1;
     `;
-
     const result = await pool.query(query, [ user_id ]);
-
     res.json(result.rows);
   } catch (error) {
     console.error('/listening_history', error);

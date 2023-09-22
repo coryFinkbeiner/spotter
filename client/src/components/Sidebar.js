@@ -5,14 +5,17 @@ import Playlists from './Playlists'
 import Albums from './Albums';
 
 function Sidebar() {
-  const [radio, setRadio] = useState('playlists');
+  const [radio, setRadio] = useState('history');
   const [results, setResults] = useState({}); // remnant?
 
   const { accessToken, dispatch, user } = useDataContext();
 
+  const [isHovering, setIsHovering] = useState(false);
+
+  const [calendarObject, setCalendarObject] = useState(null);
+
 
   useEffect(() => {
-
     (async () => {
       try {
         const response = await axios.get(`http://localhost:3002/listening_history`, {
@@ -20,14 +23,20 @@ function Sidebar() {
             user_id: user.id,
           }
         });
-        console.log('Listening History:', response.data);
+        const groupedData = {};
+        response.data.forEach((item) => {
+          const date = new Date(item.play_time).toLocaleDateString();
+          if (!groupedData[date]) {
+            groupedData[date] = [];
+          }
+          groupedData[date].push(item);
+        });
+        setCalendarObject(groupedData);
+        console.log({calendarObject})
       } catch (error) {
         console.error('Error fetching listening history:', error);
       }
     })();
-
-
-
   }, [])
 
 
@@ -137,13 +146,62 @@ function Sidebar() {
 
 
             <div className='sidebar-render'>
-              {playlistData?.items?.map((playlist, index) => (
-                <SidePlaylist key={index} playlist={playlist} id={index} />
-              ))}
-            </div>
+              {historyArray?.map((item, index) => (
+                <div className='sidebar-item-container'
+                  key={index}
+                  onClick={() => {
+                  }}
+                  style={{
+                    cursor: 'pointer',
+                    backgroundColor: isHovering ? 'rgb(45, 45, 45)' : 'transparent',
+                    borderRadius: '6px',
 
-          )}
- */}
+                  }}
+                  onMouseEnter={() => setIsHovering(true)}
+                  onMouseLeave={() => setIsHovering(false)}
+                >
+                  <img
+                    src={item.track_response.album.images[0]?.url}
+                    style={{
+                      borderRadius: '5px',
+                      margin: '2px'
+                    }}
+                  />
+                  <div
+                    style={{
+                      color: 'white',
+                      marginLeft: '3px',
+                      padding: '2px',
+                    }}
+                  >
+                    <div
+                      style={{
+                        height: '50%',
+                        fontWeight: 'bold',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      }}
+                    >
+                      {item.track_response.name}
+                    </div>
+                    <div
+                      style={{
+                        height: '50%',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      }}
+                    >
+                      {playlist.owner.display_name}
+                    </div>
+                  </div>
+                </div>
+                ))}
+              </div>
+
+          )} */}
+
 
 
 
