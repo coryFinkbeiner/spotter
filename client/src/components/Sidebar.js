@@ -151,16 +151,19 @@ function Sidebar() {
                   <div className='sidebar-item-container'
                     key={index}
                     onClick={() => {
+                      dispatch({ type: 'VIEW_IN_CONSOLE', payload: calendarObject })
+                      dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'HistoryView' })
                     }}
                     style={{
                       cursor: 'pointer',
-                      backgroundColor: isHovering ? 'rgb(45, 45, 45)' : 'transparent',
+                      // backgroundColor: isHovering ? 'rgb(45, 45, 45)' : 'transparent',
+                      backgroundColor: 'rgb(45, 45, 45)',
                       borderRadius: '6px',
                       color: 'white'
 
                     }}
-                    onMouseEnter={() => setIsHovering(true)}
-                    onMouseLeave={() => setIsHovering(false)}
+                    // onMouseEnter={() => setIsHovering(true)}
+                    // onMouseLeave={() => setIsHovering(false)}
                   >
                     <img
                       // src={calendarObject[].track_response.album.images[0].url}

@@ -8,6 +8,7 @@ import PlaylistView from './PlaylistView'
 import ArtistView from './ArtistView'
 import Lowbar from './Lowbar'
 import Home from './Home'
+import HistoryView from './HistoryView'
 
 function Dashboard() {
 
@@ -27,6 +28,7 @@ function Dashboard() {
           {consoleViewType === 'PlaylistView' && <PlaylistView />}
           {consoleViewType === 'QueueView' && <Queue />}
           {consoleViewType === 'Home' && <Home />}
+          {consoleViewType === 'HistoryView' && <HistoryView />}
         </div>
       </div>
 
