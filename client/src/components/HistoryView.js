@@ -7,10 +7,14 @@ function HistoryView() {
 
   const { inView } = useDataContext()
 
-
+  console.log({inView})
 
   return (
-    <div>HistoryView</div>
+    <div
+      style={{
+        color: 'white'
+      }}
+    >HistoryView</div>
   )
 }
 

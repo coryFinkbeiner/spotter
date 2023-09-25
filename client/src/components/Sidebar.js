@@ -145,13 +145,13 @@ function Sidebar() {
 
             <div className='sidebar-render'>
 
-              {calendarObject && Object.keys(calendarObject).map((date, index) => {
+              {calendarObject && Object.entries(calendarObject).map(([date, data], index) => {
 
                 return (
                   <div className='sidebar-item-container'
                     key={index}
                     onClick={() => {
-                      dispatch({ type: 'VIEW_IN_CONSOLE', payload: calendarObject })
+                      dispatch({ type: 'VIEW_IN_CONSOLE', payload: [date, data] })
                       dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'HistoryView' })
                     }}
                     style={{
