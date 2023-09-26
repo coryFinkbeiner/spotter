@@ -124,6 +124,17 @@ function Sidebar() {
           >
             Playlists
           </div>
+          <div
+            className='s-2-2-radio'
+            onClick={() => setRadio('history')}
+            style={{
+              cursor: 'pointer',
+              backgroundColor: radio === 'history' ? 'white' : 'rgba(255, 255, 255, 0.07)',
+              color: radio === 'history' ? 'black' : 'rgba(255, 255, 255)'
+            }}
+          >
+            History
+          </div>
         </div>
         <div
           style={{

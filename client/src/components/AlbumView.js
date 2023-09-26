@@ -30,7 +30,6 @@ function AlbumView() {
           >
             Album
           </div>
-
           <div
             style={{
               fontSize: '36px',
@@ -45,27 +44,25 @@ function AlbumView() {
           >
             {inView.albumName}
           </div>
-
-          <div
-            style={{
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              fontSize: '15px',
-              textOverflow: 'ellipsis',
-              color: 'white',
-              display: 'flex',
-              flexDirection: 'row',
-            }}
+        <div
+          style={{
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            fontSize: '15px',
+            textOverflow: 'ellipsis',
+            color: 'white',
+            display: 'flex',
+            flexDirection: 'row',
+          }}
+        >
+          <div style={{fontWeight: 'bold'}}
           >
-            <div style={{fontWeight: 'bold'}}>{inView.artistName} </div> &nbsp;
-            &middot; {inView.year} &middot; {inView.totalTracks} songs
+            {inView.artistName}
           </div>
-
-
+            &nbsp; &middot; {inView.year} &middot; {inView.totalTracks} songs
         </div>
+      </div>
     </div>
-
-
     <div
       style={{
         overflowY: 'auto',
@@ -80,7 +77,6 @@ function AlbumView() {
           index={index}
           image={inView.imageURL}
           trackName={track.name}
-          // artistName={track.artists[0].name}
           albumName={inView.albumName}
           duration_ms={track.duration_ms}
           uri={track.uri}
@@ -92,7 +88,3 @@ function AlbumView() {
 }
 
 export default AlbumView
-
-
-
-

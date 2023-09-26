@@ -21,13 +21,11 @@ function PlaylistView() {
         console.log('Error fetching tracks:', error);
       }
     };
-
     fetchTracks();
   }, [accessToken, inView]);
 
   return (
     <div className='AlbumPlaylistView'>
-
       <div className='view-top'>
         <img className='view-top-img'
           src={inView.images[0]?.url}
@@ -45,13 +43,10 @@ function PlaylistView() {
         </div>
       </div>
 
-
-
       <div
         style={{
           overflowY: 'auto',
           maxHeight: 'calc(100vh - 13vh)'
-          // zIndex: 1,
         }}
       >
         {tracks?.map((track, index) => (
