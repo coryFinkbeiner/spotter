@@ -158,117 +158,53 @@ function Lowbar() {
         width: '770px',
         minWidth: '770px',
         display: 'flex',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        zIndex: 2,
         flexDirection: 'row',
+
+        backgroundColor: 'pink'
       }}
     >
       <div
         style={{
           height: '100%',
-          width: '29%',
-          color: 'white'
+          width: '28%',
+          backgroundColor: 'lightblue'
         }}
       >
-
+        Current Track
       </div>
 
-      {/* Center */}
       <div
         style={{
           height: '100%',
-          width: '42%',
-          display: 'flex',
-          flexDirection: 'row',
-          display: 'flex',
-          justifyContent: 'center',
-          color: 'white'
+          width: '22%',
+          backgroundColor: 'red'
         }}
       >
-        <div
-          style={{
-            height: '60%',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            marginTop: '5px'
-          }}
-        >
-          <HiForward
-            style={{
-              color: 'white',
-              transform: 'scaleX(-1)',
-              fontSize: '24px',
-              alignSelf: 'center',
-            }}
-            onClick={() => {
-
-
-
-              (async () => {
-                try {
-                  const res = await axios.post('http://localhost:3002/listening_history', {
-
-                    spotify_id_ref: currentSong.id,
-                    response: currentSong,
-
-                  });
-                  console.log('listening_history post response:', res);
-
-                } catch (error) {
-                  console.error('listening_history post error:', error);
-                }
-              })()
-
-            }}
-          />
-            {currentSong && currentSong.name}
-          <div
-            onClick={() => {
-              player.togglePlay()
-            }}
-            style={{
-              color: 'white'
-            }}
-          >
-          { isPaused ? <div>PLAY</div> : <div>PAUSE</div> }
-          </div>
-          <HiForward
-            style={{
-              color: 'white',
-              fontSize: '24px',
-              alignSelf: 'center',
-            }}
-            onClick={() => {
-              player.getCurrentState().then( state => {
-                console.log({state})
-              });
-            }}
-          />
-        </div>
+        Play/Pause , Skip
       </div>
+
       <div
-        onClick={() => {
-          dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'QueueView' })
+        style={{
+          backgroundColor: 'purple',
+          width: '38%',
+          height: '100%',
         }}
+      >
+        Spots
+      </div>
+
+      <div
         style={{
           height: '100%',
-          width: '29%',
-          display: 'flex',
-          justifyContent: 'right',
-          color: 'white',
-          paddingRight: '26px',
-          alignSelf: 'center',
-          fontWeight: 'bold',
-          fontSize: '30px',
-          paddingTop: '12px',
-          cursor: 'pointer'
+          width: '12%',
+          backgroundColor: 'orange'
         }}
       >
-        <HiOutlineQueueList />
+        Queue
       </div>
+
+
+
     </div>
   )
 }

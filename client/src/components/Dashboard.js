@@ -37,7 +37,7 @@ function Dashboard() {
           position: 'fixed',
           bottom: 0,
           width: '100%',
-          height: '9vh',
+          height: '12%',
           display: 'flex',
           justifyContent: 'center',
           backgroundColor: 'black',
