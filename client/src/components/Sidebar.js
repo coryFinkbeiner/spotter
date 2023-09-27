@@ -39,9 +39,6 @@ function Sidebar() {
     })();
   }, [])
 
-
-
-
   return (
 
     // Sidebar Container
@@ -156,55 +153,57 @@ function Sidebar() {
 
             <div className='sidebar-render'>
 
-              {calendarObject && Object.entries(calendarObject).map(([date, data], index) => {
+              {calendarObject &&
+                Object.entries(calendarObject)
+                  .map(([date, data]) => ({ date, data }))
+                  .sort((a, b) => new Date(b.date) - new Date(a.date))
+                  .map(({ date, data }, index) => {
 
-                return (
-                  <div className='sidebar-item-container'
-                    key={index}
-                    onClick={() => {
-                      dispatch({ type: 'VIEW_IN_CONSOLE', payload: [date, data] })
-                      dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'HistoryView' })
-                    }}
-                    style={{
-                      cursor: 'pointer',
-                      // backgroundColor: isHovering ? 'rgb(45, 45, 45)' : 'transparent',
-                      backgroundColor: 'rgb(45, 45, 45)',
-                      borderRadius: '6px',
-                      color: 'white'
-
-                    }}
-                    // onMouseEnter={() => setIsHovering(true)}
-                    // onMouseLeave={() => setIsHovering(false)}
-                  >
-                    <img
-                      // src={calendarObject[].track_response.album.images[0].url}
-                      src={"https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd"}
-                      style={{
-                        borderRadius: '5px',
-                        margin: '2px'
-                      }}
-                    />
-                    <div
-                      style={{
-                        color: 'white',
-                        marginLeft: '3px',
-                        padding: '2px',
-                      }}
-                    >
-                      <div
+                    return (
+                      <div className='sidebar-item-container'
+                        key={index}
+                        onClick={() => {
+                          dispatch({ type: 'VIEW_IN_CONSOLE', payload: [date, data] })
+                          dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'HistoryView' })
+                        }}
                         style={{
-                          height: '50%',
-                          fontWeight: 'bold',
-                          whiteSpace: 'nowrap',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
+                          cursor: 'pointer',
+                          // backgroundColor: 'transparent',
+                          borderRadius: '6px',
+                          color: 'white'
+
                         }}
                       >
-                        {date}
+                        <img
+                          src={"https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd"}
+                          style={{
+                            borderRadius: '5px',
+                            margin: '2px'
+                          }}
+                        />
+                        <div
+                          style={{
+                            color: 'white',
+                            marginLeft: '3px',
+                            padding: '2px',
+                          }}
+                        >
+                          <div
+                            style={{
+                              height: '50%',
+                              fontWeight: 'bold',
+                              whiteSpace: 'nowrap',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis',
+                            }}
+                          >
+                            {date}
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                )
+                    )
+
+
               })}
             </div>
           )}
