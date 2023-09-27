@@ -7,23 +7,14 @@ import axios from 'axios'
 
 
 function Lowbar() {
-
   const { dispatch, accessToken, nextTrack, user } = useDataContext()
-
   const [ player, setPlayer ] = useState(null)
-
   const [ currentSong, setCurrentSong ] = useState(null)
   const [ count, setCount ] = useState(0)
-
-  // const [ playbackState, setPlaybackState ] = useState(null)
-
   const [ deviceId, setDeviceId ] = useState(null)
-
   const [ isPaused, setIsPaused ] = useState(true)
-
   const [ previousID, setPreviousID ] = useState(null)
   const [ currentID, setCurrentID ] = useState(null)
-
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -45,8 +36,6 @@ function Lowbar() {
       newPlayer.addListener('not_ready', ({ device_id }) => {
           console.log('Device ID has gone offline', device_id);
       });
-
-
       newPlayer.connect().then(success => {
         if (success) {
           console.log('The Web Playback SDK successfully connected to Spotify!');
@@ -111,8 +100,6 @@ function Lowbar() {
           spotify_id_ref: currentID,
           user_id: user.id,
         });
-        console.log('listening_history post response:', resHistory);
-        console.log('tracks post response:', resTracks);
       } catch (error) {
         console.error('tracks or history post error:', error);
       }
@@ -163,7 +150,6 @@ function Lowbar() {
       }
     })();
   }, [ count ]);
-
 
   return (
     <div
