@@ -168,7 +168,6 @@ function Sidebar() {
                         }}
                         style={{
                           cursor: 'pointer',
-                          // backgroundColor: 'transparent',
                           borderRadius: '6px',
                           color: 'white'
 
@@ -197,13 +196,13 @@ function Sidebar() {
                               textOverflow: 'ellipsis',
                             }}
                           >
-                            {date}
+                            {new Date(date).toLocaleDateString() === new Date().toLocaleDateString()
+                              ? 'Today'
+                              : date}
                           </div>
                         </div>
                       </div>
                     )
-
-
               })}
             </div>
           )}
