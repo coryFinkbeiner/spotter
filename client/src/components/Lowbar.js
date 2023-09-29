@@ -82,6 +82,7 @@ function Lowbar() {
     player.getCurrentState().then( state => {
       if (!state) return
       if (currentID !== state.track_window.current_track.id) console.log('id error')
+      console.log('currentSong', currentSong)
       setCurrentSong(state.track_window.current_track)
     });
   }, [ currentID ])
@@ -166,17 +167,31 @@ function Lowbar() {
       <div
         style={{
           height: '100%',
-          width: '28%',
-          backgroundColor: 'lightblue'
+          width: '36%',
+          padding: '8px 10px 12px 12px',
+          backgroundColor: 'lightblue',
+          display: 'flex',
+          flex: 'row'
         }}
       >
-        Current Track
+        <img
+          // src={currentSong?.album.images[0]?.url}
+          src={currentSong?.album.images[0].url}
+          style={{
+            borderRadius: '5px',
+            margin: '2px'
+          }}
+        />
+        <div>
+          <div>{currentSong?.name}</div>
+          <div>{currentSong?.artists[0].name}</div>
+        </div>
       </div>
 
       <div
         style={{
           height: '100%',
-          width: '22%',
+          width: '20%',
           backgroundColor: 'red'
         }}
       >
@@ -186,7 +201,7 @@ function Lowbar() {
       <div
         style={{
           backgroundColor: 'purple',
-          width: '38%',
+          width: '32%',
           height: '100%',
         }}
       >
