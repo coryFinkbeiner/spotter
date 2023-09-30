@@ -167,21 +167,44 @@ function Lowbar() {
         style={{
           height: '100%',
           width: '50%',
-          padding: '8px 10px 12px 12px',
+          marginTop: '6px',
           display: 'flex',
-          flex: 'row'
+          flex: 'row',
         }}
       >
         <img
           src={currentSong?.album.images[0].url}
           style={{
             borderRadius: '5px',
-            margin: '2px'
+            margin: '2px',
+            height: '90%'
           }}
         />
-        <div>
-          <div>{currentSong?.name}</div>
-          <div>{currentSong?.artists[0].name}</div>
+        <div
+          style={{
+            marginLeft: '12px',
+            marginTop: '10px'
+          }}
+        >
+
+
+          <div
+            style={{
+              color: 'white',
+              fontWeight: 'bold',
+
+            }}
+          >{currentSong?.name}</div>
+
+
+          <div
+            style={{
+              color: '#f5f5f5',
+              fontSize: '14px'
+            }}
+          >{currentSong?.artists[0].name}</div>
+
+
         </div>
       </div>
 
