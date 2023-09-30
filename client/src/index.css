@@ -41,7 +41,7 @@ code {
 .AlbumPlaylistView {
   margin: 6px;
   padding: 2px;
-  height: 100%;
+  height: 100vh;
 
   border-radius: 8px;
 

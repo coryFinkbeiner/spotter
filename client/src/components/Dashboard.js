@@ -20,7 +20,11 @@ function Dashboard() {
       style={{
         backgroundColor: 'rgb(0, 0, 0)',
       }}>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center"
+        style={{
+
+        }}
+      >
         <Sidebar />
         <div style={{ flex: '0 0 540px', minWidth: '540px' }}>
           {consoleViewType === 'SearchView' && <Search />}

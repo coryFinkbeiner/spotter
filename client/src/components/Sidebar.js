@@ -47,7 +47,7 @@ function Sidebar() {
       minWidth: '240px',
       margin: '6px',
       padding: '2px',
-      height: '87vh',
+      height: '100vh',
     }}>
 
       {/* Navigation Bar */}
