@@ -4,13 +4,8 @@ import { PlayIcon, ChevronRightIcon, ChevronLeftIcon, QueueListIcon } from '@her
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 import axios from 'axios'
-
 import { FaCirclePlay, FaCirclePause } from "react-icons/fa6"
-
 import { IoIosSkipForward } from "react-icons/io"
-
-
-
 
 
 function Lowbar() {
@@ -89,7 +84,6 @@ function Lowbar() {
     player.getCurrentState().then( state => {
       if (!state) return
       if (currentID !== state.track_window.current_track.id) console.log('id error')
-      console.log('currentSong', currentSong)
       setCurrentSong(state.track_window.current_track)
     });
   }, [ currentID ])
@@ -151,7 +145,6 @@ function Lowbar() {
             },
           }
         );
-        console.log({ response });
         dispatch({ type: 'SHIFT_QUEUE' });
       } catch (error) {
         console.log('queue Error:', error);
@@ -216,7 +209,7 @@ function Lowbar() {
         >
 
 
-          {!isPaused ?
+          {isPaused ?
             <FaCirclePlay
             style={{
               height: '40px',
@@ -242,6 +235,33 @@ function Lowbar() {
               height: '30px',
               width: '30px',
               marginLeft: '16px',
+            }}
+            onClick={() => {
+
+              (async () => {
+                try {
+                  const response = await axios.post(
+                    'https://api.spotify.com/v1/me/player/queue',
+                    deviceId,
+                    {
+                      headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                      },
+                      params: {
+                        uri: nextTrack.uri,
+                      },
+                    }
+                  );
+                  dispatch({ type: 'SHIFT_QUEUE' });
+
+                  player.nextTrack()
+
+
+                } catch (error) {
+                  console.log('queue Error:', error);
+                }
+              })();
+
             }}
           />
 
