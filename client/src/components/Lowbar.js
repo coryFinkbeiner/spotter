@@ -6,6 +6,7 @@ import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 import axios from 'axios'
 import { FaCirclePlay, FaCirclePause } from "react-icons/fa6"
 import { IoIosSkipForward } from "react-icons/io"
+import { GoDotFill } from "react-icons/go"
 
 
 function Lowbar() {
@@ -152,8 +153,6 @@ function Lowbar() {
     })();
   }, [ count ]);
 
-
-
   return (
     <div
       style={{
@@ -163,15 +162,15 @@ function Lowbar() {
         display: 'flex',
         flexDirection: 'row',
 
-        backgroundColor: 'pink'
+        // backgroundColor: 'pink'
       }}
     >
       <div
         style={{
           height: '100%',
-          width: '40%',
+          width: '50%',
           padding: '8px 10px 12px 12px',
-          backgroundColor: 'lightblue',
+          // backgroundColor: 'lightblue',
           display: 'flex',
           flex: 'row'
         }}
@@ -192,8 +191,8 @@ function Lowbar() {
       <div
         style={{
           height: '100%',
-          width: '16%',
-          backgroundColor: 'red'
+          width: '20%',
+          // backgroundColor: 'red'
         }}
       >
         <div
@@ -202,9 +201,11 @@ function Lowbar() {
             flex: 'row',
             color: 'white',
             justifyContent: 'center',
-            height: '100%',
+            // height: '100%',
             alignItems: 'center',
-            paddingBottom: '14px'
+            marginTop: '15px',
+            marginLeft: '16px'
+            // paddingBottom: '14px'
           }}
         >
           {isPaused ?
@@ -212,6 +213,7 @@ function Lowbar() {
             style={{
               height: '40px',
               width: '40px',
+              cursor: 'pointer',
             }}
             onClick={() => {
               player.togglePlay()
@@ -221,6 +223,7 @@ function Lowbar() {
             style={{
               height: '40px',
               width: '40px',
+              cursor: 'pointer',
             }}
             onClick={() => {
               player.togglePlay()
@@ -233,6 +236,7 @@ function Lowbar() {
               height: '30px',
               width: '30px',
               marginLeft: '16px',
+              cursor: 'pointer',
             }}
             onClick={() => {
 
@@ -263,20 +267,58 @@ function Lowbar() {
 
       <div
         style={{
-          backgroundColor: 'purple',
+          // backgroundColor: 'purple',
           width: '32%',
           height: '100%',
+          display: 'flex',
+          flex: 'row',
+          alignItems: 'center',
         }}
       >
-        Spots
+
+
+        <div
+          style={{
+            borderRadius: '50%',
+            width: '66px',
+            height: '66px',
+            backgroundColor: 'red',
+            marginRight: '6px',
+            marginLeft: '8px',
+            cursor: 'pointer',
+          }}
+        ></div>
+        <div
+          style={{
+            borderRadius: '50%',
+            width: '66px',
+            height: '66px',
+            backgroundColor: 'yellow',
+            marginRight: '6px',
+            cursor: 'pointer',
+          }}
+        ></div>
+        <div
+          style={{
+            borderRadius: '50%',
+            width: '66px',
+            height: '66px',
+            backgroundColor: 'blue',
+            marginRight: '6px',
+            cursor: 'pointer',
+          }}
+        ></div>
+
+
+
       </div>
 
       <div
         style={{
           display: 'flex',
           height: '100%',
-          width: '12%',
-          backgroundColor: 'orange',
+          width: '10%',
+          // backgroundColor: 'orange',
           color: 'white',
           justifyContent: 'center',
           // paddingTop: '17px',
@@ -285,10 +327,10 @@ function Lowbar() {
       >
         <HiOutlineQueueList
            style={{
-            height: '61%',
-            width: '61%',
-            paddingTop: '8px',
-            paddingLeft: '15px',
+            height: '40px',
+            width: '40px',
+            marginTop: '14px',
+            // paddingLeft: '15px',
             cursor: 'pointer',
           }}
           onClick={() => {
@@ -296,8 +338,6 @@ function Lowbar() {
           }}
         />
       </div>
-
-
 
     </div>
   )
