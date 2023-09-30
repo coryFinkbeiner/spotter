@@ -207,8 +207,6 @@ function Lowbar() {
             paddingBottom: '14px'
           }}
         >
-
-
           {isPaused ?
             <FaCirclePlay
             style={{
@@ -253,18 +251,13 @@ function Lowbar() {
                     }
                   );
                   dispatch({ type: 'SHIFT_QUEUE' });
-
                   player.nextTrack()
-
-
                 } catch (error) {
                   console.log('queue Error:', error);
                 }
               })();
-
             }}
           />
-
         </div>
       </div>
 
@@ -280,12 +273,28 @@ function Lowbar() {
 
       <div
         style={{
+          display: 'flex',
           height: '100%',
           width: '12%',
-          backgroundColor: 'orange'
+          backgroundColor: 'orange',
+          color: 'white',
+          justifyContent: 'center',
+          // paddingTop: '17px',
+
         }}
       >
-        Queue
+        <HiOutlineQueueList
+           style={{
+            height: '61%',
+            width: '61%',
+            paddingTop: '8px',
+            paddingLeft: '15px',
+            cursor: 'pointer',
+          }}
+          onClick={() => {
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'QueueView' })
+          }}
+        />
       </div>
 
 
