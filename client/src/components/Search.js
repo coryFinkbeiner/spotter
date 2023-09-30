@@ -65,6 +65,8 @@ function Artists({ results }) {
     return <div>Search Artists</div>;
   }
 
+  console.log({results})
+
   return (
     <div
       style={{
@@ -75,11 +77,11 @@ function Artists({ results }) {
         rowGap: '0',
       }}
     >
-      {results.artists.items.map((item, index) => (
+      {results?.artists.items.map((item, index) => (
         <Artist
           key={item.id}
           index={index}
-          imageURL={item.images[0].url}
+          // imageURL={item.images[0].url}
           artistName={item.name}
           item={item}
           id={item.id}

@@ -5,6 +5,13 @@ import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { HiOutlineQueueList, HiForward } from "react-icons/hi2";
 import axios from 'axios'
 
+import { FaCirclePlay, FaCirclePause } from "react-icons/fa6"
+
+import { IoIosSkipForward } from "react-icons/io"
+
+
+
+
 
 function Lowbar() {
   const { dispatch, accessToken, nextTrack, user } = useDataContext()
@@ -152,6 +159,8 @@ function Lowbar() {
     })();
   }, [ count ]);
 
+
+
   return (
     <div
       style={{
@@ -167,7 +176,7 @@ function Lowbar() {
       <div
         style={{
           height: '100%',
-          width: '36%',
+          width: '40%',
           padding: '8px 10px 12px 12px',
           backgroundColor: 'lightblue',
           display: 'flex',
@@ -175,7 +184,6 @@ function Lowbar() {
         }}
       >
         <img
-          // src={currentSong?.album.images[0]?.url}
           src={currentSong?.album.images[0].url}
           style={{
             borderRadius: '5px',
@@ -191,11 +199,53 @@ function Lowbar() {
       <div
         style={{
           height: '100%',
-          width: '20%',
+          width: '16%',
           backgroundColor: 'red'
         }}
       >
-        Play/Pause , Skip
+        <div
+          style={{
+            display: 'flex',
+            flex: 'row',
+            color: 'white',
+            justifyContent: 'center',
+            height: '100%',
+            alignItems: 'center',
+            paddingBottom: '14px'
+          }}
+        >
+
+
+          {!isPaused ?
+            <FaCirclePlay
+            style={{
+              height: '40px',
+              width: '40px',
+            }}
+            onClick={() => {
+              player.togglePlay()
+            }}
+          /> :
+          <FaCirclePause
+            style={{
+              height: '40px',
+              width: '40px',
+            }}
+            onClick={() => {
+              player.togglePlay()
+            }}
+          />}
+
+
+          <IoIosSkipForward
+            style={{
+              height: '30px',
+              width: '30px',
+              marginLeft: '16px',
+            }}
+          />
+
+        </div>
       </div>
 
       <div
