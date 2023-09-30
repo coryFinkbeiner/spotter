@@ -5,7 +5,7 @@ import Playlists from './Playlists'
 import Albums from './Albums';
 
 function Sidebar() {
-  const [radio, setRadio] = useState('history');
+  const [radio, setRadio] = useState('albums');
   const [results, setResults] = useState({}); // remnant?
 
   const { accessToken, dispatch, user } = useDataContext();
