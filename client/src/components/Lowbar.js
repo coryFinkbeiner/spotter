@@ -198,7 +198,7 @@ function Lowbar() {
             color: 'white',
             justifyContent: 'center',
             alignItems: 'center',
-            marginTop: '15px',
+            marginTop: '18px',
 
           }}
         >
@@ -266,6 +266,7 @@ function Lowbar() {
           display: 'flex',
           flex: 'row',
           alignItems: 'center',
+          paddingTop: '7px'
         }}
       >
         <div
@@ -274,7 +275,7 @@ function Lowbar() {
             width: '66px',
             height: '66px',
             backgroundColor: 'red',
-            marginRight: '6px',
+            marginRight: '10px',
             marginLeft: '8px',
             cursor: 'pointer',
           }}
@@ -289,7 +290,7 @@ function Lowbar() {
             width: '66px',
             height: '66px',
             backgroundColor: 'yellow',
-            marginRight: '6px',
+            marginRight: '10px',
             cursor: 'pointer',
           }}
           onClick={() => {
@@ -303,7 +304,7 @@ function Lowbar() {
             width: '66px',
             height: '66px',
             backgroundColor: 'blue',
-            marginRight: '6px',
+            // marginRight: '6px',
             cursor: 'pointer',
           }}
           onClick={() => {
@@ -319,6 +320,7 @@ function Lowbar() {
           width: '10%',
           color: 'white',
           justifyContent: 'center',
+          paddingTop: '4px'
         }}
       >
         <HiOutlineQueueList
@@ -327,6 +329,7 @@ function Lowbar() {
             width: '40px',
             marginTop: '14px',
             cursor: 'pointer',
+            marginLeft: '27px'
           }}
           onClick={() => {
             dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'QueueView' })
