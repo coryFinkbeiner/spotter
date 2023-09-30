@@ -9,6 +9,7 @@ import ArtistView from './ArtistView'
 import Lowbar from './Lowbar'
 import Home from './Home'
 import HistoryView from './HistoryView'
+import SpotView from './SpotView'
 
 function Dashboard() {
 
@@ -29,6 +30,7 @@ function Dashboard() {
           {consoleViewType === 'QueueView' && <Queue />}
           {consoleViewType === 'Home' && <Home />}
           {consoleViewType === 'HistoryView' && <HistoryView />}
+          {consoleViewType === 'SpotView' && <SpotView />}
         </div>
       </div>
 

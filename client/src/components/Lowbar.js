@@ -161,8 +161,6 @@ function Lowbar() {
         minWidth: '770px',
         display: 'flex',
         flexDirection: 'row',
-
-        // backgroundColor: 'pink'
       }}
     >
       <div
@@ -170,7 +168,6 @@ function Lowbar() {
           height: '100%',
           width: '50%',
           padding: '8px 10px 12px 12px',
-          // backgroundColor: 'lightblue',
           display: 'flex',
           flex: 'row'
         }}
@@ -192,7 +189,6 @@ function Lowbar() {
         style={{
           height: '100%',
           width: '20%',
-          // backgroundColor: 'red'
         }}
       >
         <div
@@ -201,11 +197,9 @@ function Lowbar() {
             flex: 'row',
             color: 'white',
             justifyContent: 'center',
-            // height: '100%',
             alignItems: 'center',
             marginTop: '15px',
-            marginLeft: '16px'
-            // paddingBottom: '14px'
+
           }}
         >
           {isPaused ?
@@ -267,7 +261,6 @@ function Lowbar() {
 
       <div
         style={{
-          // backgroundColor: 'purple',
           width: '32%',
           height: '100%',
           display: 'flex',
@@ -275,8 +268,6 @@ function Lowbar() {
           alignItems: 'center',
         }}
       >
-
-
         <div
           style={{
             borderRadius: '50%',
@@ -286,6 +277,10 @@ function Lowbar() {
             marginRight: '6px',
             marginLeft: '8px',
             cursor: 'pointer',
+          }}
+          onClick={() => {
+            dispatch({ type: 'VIEW_IN_CONSOLE', payload: 'red'})
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'SpotView' })
           }}
         ></div>
         <div
@@ -297,6 +292,10 @@ function Lowbar() {
             marginRight: '6px',
             cursor: 'pointer',
           }}
+          onClick={() => {
+            dispatch({ type: 'VIEW_IN_CONSOLE', payload: 'yellow'})
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'SpotView' })
+          }}
         ></div>
         <div
           style={{
@@ -307,22 +306,19 @@ function Lowbar() {
             marginRight: '6px',
             cursor: 'pointer',
           }}
+          onClick={() => {
+            dispatch({ type: 'VIEW_IN_CONSOLE', payload: 'blue'})
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'SpotView' })
+          }}
         ></div>
-
-
-
       </div>
-
       <div
         style={{
           display: 'flex',
           height: '100%',
           width: '10%',
-          // backgroundColor: 'orange',
           color: 'white',
           justifyContent: 'center',
-          // paddingTop: '17px',
-
         }}
       >
         <HiOutlineQueueList
@@ -330,7 +326,6 @@ function Lowbar() {
             height: '40px',
             width: '40px',
             marginTop: '14px',
-            // paddingLeft: '15px',
             cursor: 'pointer',
           }}
           onClick={() => {
@@ -338,7 +333,6 @@ function Lowbar() {
           }}
         />
       </div>
-
     </div>
   )
 }
