@@ -37,7 +37,43 @@ function ArtistView() {
 
 
   return (
-    <div>{inView.artistName}</div>
+
+
+    <div className='AlbumPlaylistView'>
+      <div className='view-top'>
+        <img className='view-top-img'
+          src={"https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd"}
+        />
+        <div
+          style={{
+            margin: '12px',
+            marginLeft: '9px',
+            padding: '2px',
+            marginTop: '80px'
+          }}
+        >
+          <div
+            style={{
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              fontSize: '15px',
+              textOverflow: 'ellipsis',
+              color: 'white',
+              display: 'flex',
+              flexDirection: 'row',
+            }}
+          >
+            <div style={{fontWeight: 'bold'}}
+            >
+              {inView.artistName}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
   )
 }
 
