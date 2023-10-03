@@ -6,21 +6,34 @@ function ArtistView() {
 
   const { inView, accessToken } = useDataContext()
 
-
   useEffect(() => {
-    (async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get(`https://api.spotify.com/v1/artists/${inView.id}/albums`, {
+        const albumsResponse = await axios.get(`https://api.spotify.com/v1/artists/${inView.id}/albums`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-        console.log('ArtistView response.data', response.data)
+        console.log('artist albums response.data', albumsResponse.data);
+
+        const topTracksResponse = await axios.get(`https://api.spotify.com/v1/artists/${inView.id}/top-tracks`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+          params: {
+            market: 'US',
+          },
+        });
+        console.log('top-tracks response.data', topTracksResponse.data);
+
       } catch (error) {
-        console.log('Error fetching artist albums:', error);
+        console.log('Error fetching artist data:', error);
       }
-    })()
-  }, [ ])
+    };
+
+    fetchData();
+
+  }, []);
 
 
   return (
@@ -29,4 +42,3 @@ function ArtistView() {
 }
 
 export default ArtistView
-
