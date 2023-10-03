@@ -79,7 +79,7 @@ function Artists({ results }) {
         <Artist
           key={item.id}
           index={index}
-          // imageURL={item.images[0].url}
+          imageURL={item.images[0].url}
           artistName={item.name}
           item={item}
           id={item.id}
@@ -120,14 +120,11 @@ function Search() {
     fetchData()
   }, [count, radio, accessToken]);
 
-
   const handleChange = (event) => {
     setQuery(event.target.value);
   };
 
-
   return (
-
     <div
       style={{
         backgroundColor: 'rgb(18, 18, 18)',
@@ -137,7 +134,6 @@ function Search() {
         borderRadius: '8px',
       }}
     >
-
       {/* top container */}
       <div
         style={{
@@ -147,7 +143,6 @@ function Search() {
           borderRadius: '8px',
         }}
       >
-
         <div
           style={{
             height: '64px',
@@ -302,7 +297,6 @@ function Search() {
           </div>
         </div>
       </div>
-
       {/* bottom container */}
       <div
         style={{
@@ -311,14 +305,12 @@ function Search() {
           margin: '2px 2px 2px 2px'
         }}
       >
-
         {/* render container */}
         <div
           style={{
             height: '100%',
           }}
         >
-
           {radio === 'track' &&
             <Tracks results={results}/>
           }
@@ -328,17 +320,10 @@ function Search() {
           {radio === 'artist' &&
             <Artists results={results}/>
           }
-
-
-
         </div>
       </div>
     </div>
-
   );
 }
 
 export default Search;
-
-
-

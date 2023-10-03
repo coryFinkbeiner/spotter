@@ -3,7 +3,7 @@ import { useDataContext } from '../hooks/useDataContext';
 
 function Artist({
   index,
-  // imageURL,
+  imageURL,
   artistName,
   item,
   id
@@ -32,7 +32,7 @@ function Artist({
         dispatch({
           type: 'VIEW_IN_CONSOLE', payload: {
             index,
-            // imageURL,
+            imageURL,
             artistName,
             item,
             id
@@ -42,8 +42,8 @@ function Artist({
       }}
     >
       <img
-        // src={imageURL}
-        src={"https://i.scdn.co/image/ab6761610000e5eb8a4785e1f03f463cb8153407"}
+        src={imageURL}
+        // src={"https://i.scdn.co/image/ab6761610000e5eb8a4785e1f03f463cb8153407"}
         style={{
           borderRadius: '5px',
           width: '100%',

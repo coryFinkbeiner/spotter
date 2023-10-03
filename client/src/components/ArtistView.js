@@ -30,15 +30,10 @@ function ArtistView() {
         console.log('Error fetching artist data:', error);
       }
     };
-
     fetchData();
-
   }, []);
 
-
   return (
-
-
     <div className='AlbumPlaylistView'>
       <div className='view-top'>
         <img className='view-top-img'
@@ -71,9 +66,6 @@ function ArtistView() {
         </div>
       </div>
     </div>
-
-
-
   )
 }
 
