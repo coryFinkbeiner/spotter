@@ -186,8 +186,6 @@ function Lowbar() {
             marginTop: '10px'
           }}
         >
-
-
           <div
             style={{
               color: 'white',
@@ -195,19 +193,14 @@ function Lowbar() {
 
             }}
           >{currentSong?.name}</div>
-
-
           <div
             style={{
               color: '#f5f5f5',
               fontSize: '14px'
             }}
           >{currentSong?.artists[0].name}</div>
-
-
         </div>
       </div>
-
       <div
         style={{
           height: '100%',
@@ -246,7 +239,6 @@ function Lowbar() {
               player.togglePlay()
             }}
           />}
-
 
           <IoIosSkipForward
             style={{

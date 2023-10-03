@@ -65,8 +65,6 @@ function Artists({ results }) {
     return <div>Search Artists</div>;
   }
 
-  console.log({results})
-
   return (
     <div
       style={{
@@ -114,6 +112,7 @@ function Search() {
           },
         });
         setResults(response.data);
+        // console.log('search response.data', response.data);
       } catch (error) {
         // console.log('Search Error:', error);
       }

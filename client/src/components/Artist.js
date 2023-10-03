@@ -9,7 +9,7 @@ function Artist({
   id
 }) {
   const [isHovering, setIsHovering] = useState(false);
-  const { dispatch} = useDataContext()
+  const { dispatch } = useDataContext()
 
   return (
     <div
@@ -40,8 +40,6 @@ function Artist({
         })
         dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'ArtistView' })
       }}
-
-
     >
       <img
         // src={imageURL}
