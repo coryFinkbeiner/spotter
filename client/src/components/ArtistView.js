@@ -57,7 +57,19 @@ function ArtistView() {
           position: 'relative',
         }}
       >
-       <div>Artist Name</div>
+       <div
+        style={{
+          color: 'white',
+          flex: '1',
+          position: 'absolute',
+          bottom: '0',
+          left: '0',
+          margin: '12px',
+          padding: '2px',
+          fontWeight: 'bold',
+          fontSize: '60px'
+        }}
+       >{inView.artistName}</div>
       </div>
 
 
