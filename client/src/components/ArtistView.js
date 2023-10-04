@@ -43,10 +43,59 @@ function ArtistView() {
       }}
     >
 
+
       {/* Top */}
 
 
 
+      <div
+        style={{
+          height: '230px',
+          width: '100%',
+          margin: '2px',
+          padding: '4px',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        <div
+          style={{
+            height: '100%',
+            background: `url(${inView.imageURL})`,
+            backgroundSize: 'contain',
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            right: '0',
+            bottom: '0',
+          }}
+        ></div>
+        <div
+          style={{
+            color: 'white',
+            position: 'absolute',
+            bottom: '0',
+            left: '0',
+            margin: '12px',
+            padding: '2px',
+            fontWeight: 'bold',
+            fontSize: '60px',
+          }}
+        >
+          {inView.artistName}
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+{/*
       <div
         style={{
           height: '230px',
@@ -71,55 +120,7 @@ function ArtistView() {
         }}
        >{inView.artistName}</div>
       </div>
-
-
-
-
-      {/* <div
-        style={{
-          height: '230px',
-          margin: '2px',
-          padding: '4px',
-          display: 'flex',
-          flex: 'row',
-        }}
-      >
-        <img
-          src={inView.imageURL}
-          style={{
-            borderRadius: '50%',
-            margin: '12px'
-          }}
-        />
-        <div
-          style={{
-            margin: '12px',
-            marginLeft: '9px',
-            padding: '2px',
-            marginTop: '80px'
-          }}
-        >
-          <div
-            style={{
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              fontSize: '15px',
-              textOverflow: 'ellipsis',
-              color: 'white',
-              display: 'flex',
-              flexDirection: 'row',
-            }}
-          >
-            <div style={{
-              fontWeight: 'bold',
-              fontSize: '80px'
-            }}
-            >
-              {inView.artistName}
-            </div>
-          </div>
-        </div>
-      </div> */}
+ */}
 
 
 
