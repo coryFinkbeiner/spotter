@@ -37,7 +37,10 @@ function ArtistView() {
     <div className='AlbumPlaylistView'>
       <div className='view-top'>
         <img className='view-top-img'
-          src={"https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd"}
+          src={inView.imageURL}
+          style={{
+            borderRadius: '50%',
+          }}
         />
         <div
           style={{

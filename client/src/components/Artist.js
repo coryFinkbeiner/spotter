@@ -43,12 +43,10 @@ function Artist({
     >
       <img
         src={imageURL}
-        // src={"https://i.scdn.co/image/ab6761610000e5eb8a4785e1f03f463cb8153407"}
         style={{
           borderRadius: '5px',
           width: '100%',
           paddingBottom: '9px',
-
         }}
       />
         <div
