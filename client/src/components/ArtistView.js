@@ -34,12 +34,49 @@ function ArtistView() {
   }, []);
 
   return (
-    <div className='AlbumPlaylistView'>
-      <div className='view-top'>
-        <img className='view-top-img'
+    <div
+      style={{
+        margin: '6px',
+        padding: '2px',
+        height: '100vh',
+        borderRadius: '8px'
+      }}
+    >
+
+      {/* Top */}
+
+
+
+      <div
+        style={{
+          height: '230px',
+          margin: '2px',
+          padding: '4px',
+          background: `url(${inView.imageURL})`,
+          backgroundSize: 'cover',
+          position: 'relative',
+        }}
+      >
+       <div>Artist Name</div>
+      </div>
+
+
+
+
+      {/* <div
+        style={{
+          height: '230px',
+          margin: '2px',
+          padding: '4px',
+          display: 'flex',
+          flex: 'row',
+        }}
+      >
+        <img
           src={inView.imageURL}
           style={{
             borderRadius: '50%',
+            margin: '12px'
           }}
         />
         <div
@@ -61,13 +98,19 @@ function ArtistView() {
               flexDirection: 'row',
             }}
           >
-            <div style={{fontWeight: 'bold'}}
+            <div style={{
+              fontWeight: 'bold',
+              fontSize: '80px'
+            }}
             >
               {inView.artistName}
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+
+
     </div>
   )
 }
