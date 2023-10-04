@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function ArtistView() {
-
   const { inView, accessToken } = useDataContext()
+
+  const [ popularSongs, setPopularSongs ] = useState(null)
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,7 +16,9 @@ function ArtistView() {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-        console.log('artist albums response.data', albumsResponse.data);
+        // console.log('artist albums response.data', albumsResponse.data);
+
+
 
         const topTracksResponse = await axios.get(`https://api.spotify.com/v1/artists/${inView.id}/top-tracks`, {
           headers: {
@@ -24,7 +28,9 @@ function ArtistView() {
             market: 'US',
           },
         });
-        console.log('top-tracks response.data', topTracksResponse.data);
+        // console.log('top-tracks response.data', topTracksResponse.data);
+
+        setPopularSongs(topTracksResponse.data.tracks)
 
       } catch (error) {
         console.log('Error fetching artist data:', error);
@@ -43,11 +49,7 @@ function ArtistView() {
       }}
     >
 
-
       {/* Top */}
-
-
-
       <div
         style={{
           height: '230px',
@@ -86,41 +88,9 @@ function ArtistView() {
         </div>
       </div>
 
+      {/* Popular Songs */}
 
 
-
-
-
-
-
-
-
-{/*
-      <div
-        style={{
-          height: '230px',
-          margin: '2px',
-          padding: '4px',
-          background: `url(${inView.imageURL})`,
-          backgroundSize: 'cover',
-          position: 'relative',
-        }}
-      >
-       <div
-        style={{
-          color: 'white',
-          flex: '1',
-          position: 'absolute',
-          bottom: '0',
-          left: '0',
-          margin: '12px',
-          padding: '2px',
-          fontWeight: 'bold',
-          fontSize: '60px'
-        }}
-       >{inView.artistName}</div>
-      </div>
- */}
 
 
 

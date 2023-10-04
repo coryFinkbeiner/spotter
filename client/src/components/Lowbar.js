@@ -30,7 +30,7 @@ function Lowbar() {
       const newPlayer = new window.Spotify.Player({
         name: letter,
         getOAuthToken: cb => { cb(accessToken) },
-        volume: 0
+        // volume: 0
       });
       console.log(letter)
       newPlayer.addListener('ready', ({device_id}) => {
