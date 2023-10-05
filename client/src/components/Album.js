@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDataContext } from '../hooks/useDataContext';
 import axios from 'axios'
 
-
 function Album({
   index,
   imageURL,
@@ -11,7 +10,6 @@ function Album({
   release_date,
   item,
   id
-
 }) {
   const { dispatch, accessToken } = useDataContext()
   const [isHovering, setIsHovering] = useState(false);

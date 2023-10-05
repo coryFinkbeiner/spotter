@@ -1,6 +1,7 @@
 import { useDataContext } from '../hooks/useDataContext';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Track from './Track'
 
 function ArtistView() {
   const { inView, accessToken } = useDataContext()
@@ -89,6 +90,67 @@ function ArtistView() {
       </div>
 
       {/* Popular Songs */}
+      <div>
+        <div
+          style={{
+            color: 'white',
+            fontSize: '22px',
+            fontWeight: 'bold',
+            marginTop: '18px',
+            marginLeft: '8px',
+          }}
+        >Popular</div>
+        <div>
+          {popularSongs?.map((track, index) => {
+            if (index > 4) return
+            return (
+              <Track
+                key={index}
+                index={index}
+                image={track.album.images[0].url}
+                trackName={track.name}
+                albumName={track.album.name}
+                duration_ms={track.duration_ms}
+                uri={track.uri}
+              />
+            )
+          })}
+        </div>
+      </div>
+
+
+      {/* Discography */}
+
+      <div
+        style={{
+
+        }}
+      >
+        <div
+          style={{
+            color: 'white',
+            fontSize: '22px',
+            fontWeight: 'bold',
+            marginTop: '18px',
+            marginLeft: '8px',
+          }}
+        >Discography</div>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            height: '100%',
+            alignItems: 'start',
+            rowGap: '0',
+          }}
+        >here
+
+        </div>
+
+      </div>
+
+
+
 
 
 
