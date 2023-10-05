@@ -10,7 +10,6 @@ function SideAlbum({ album}) {
       style={{
         cursor: 'pointer',
         height: '65px',
-        // margin: '1px',
         display: 'flex',
         flexDirection: 'row',
         padding: '2px',
@@ -75,7 +74,6 @@ function SideAlbum({ album}) {
 }
 
 function Albums() {
-
   const { albumData, dispatch } = useDataContext()
 
   return (

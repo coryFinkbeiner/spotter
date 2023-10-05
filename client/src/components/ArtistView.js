@@ -2,11 +2,13 @@ import { useDataContext } from '../hooks/useDataContext';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Track from './Track'
+import Album from './Album'
 
 function ArtistView() {
   const { inView, accessToken } = useDataContext()
 
   const [ popularSongs, setPopularSongs ] = useState(null)
+  const [ discography, setDiscography ] = useState(null)
 
 
   useEffect(() => {
@@ -17,9 +19,7 @@ function ArtistView() {
             Authorization: `Bearer ${accessToken}`,
           },
         });
-        // console.log('artist albums response.data', albumsResponse.data);
-
-
+        setDiscography(albumsResponse.data)
 
         const topTracksResponse = await axios.get(`https://api.spotify.com/v1/artists/${inView.id}/top-tracks`, {
           headers: {
@@ -29,8 +29,6 @@ function ArtistView() {
             market: 'US',
           },
         });
-        // console.log('top-tracks response.data', topTracksResponse.data);
-
         setPopularSongs(topTracksResponse.data.tracks)
 
       } catch (error) {
@@ -134,6 +132,9 @@ function ArtistView() {
             marginTop: '18px',
             marginLeft: '8px',
           }}
+          onClick={() => {
+            console.log({discography})
+          }}
         >Discography</div>
         <div
           style={{
@@ -143,7 +144,18 @@ function ArtistView() {
             alignItems: 'start',
             rowGap: '0',
           }}
-        >here
+        >
+          {discography?.items.map((item, index) => (
+            <Album
+              index={index}
+              imageURL={item.images[2].url}
+              albumName={item.name}
+              artistName={item.artists[0].name}
+              release_date={item.release_date}
+              item={item}
+              id={item.id}
+            />
+          ))}
 
         </div>
 
