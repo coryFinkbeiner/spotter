@@ -50,11 +50,31 @@ function Track({
           <div
             style={redCircle}
             onClick={() => {
-              console.log({device_id})
+              dispatch({
+                type: 'ADD_TO_RED',
+                payload: 'red',
+              });
             }}
           ></div>
-          <div style={yellowCircle}></div>
-          <div style={blueCircle}></div>
+          <div
+            style={yellowCircle}
+            onClick={() => {
+              dispatch({
+                type: 'ADD_TO_YELLOW',
+                payload: 'yellow',
+              });
+            }}
+          ></div>
+          <div
+            style={blueCircle}
+            onClick={() => {
+              dispatch({
+                type: 'ADD_TO_BLUE',
+                payload: 'blue',
+              });
+
+            }}
+          ></div>
         </>
       )}
       <div

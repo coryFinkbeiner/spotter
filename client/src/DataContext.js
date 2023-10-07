@@ -5,17 +5,11 @@ export const DataContext = createContext();
 export const dataReducer = (state, action) => {
   switch (action.type) {
 
-
-
     case 'SET_DEVICE_ID':
       return {
         ...state,
         device_id: action.payload
       }
-
-
-
-
 
     case 'SET_USER':
       return {
@@ -46,7 +40,6 @@ export const dataReducer = (state, action) => {
         ...state,
         albumData: action.payload
       };
-
 
     case 'ADD_TO_QUEUE':
       const newQueue2 = [...state.myQueue];
@@ -87,6 +80,27 @@ export const dataReducer = (state, action) => {
         consoleViewType: action.payload
       }
 
+    case 'ADD_TO_RED':
+      return {
+        ...state,
+        red: [...state.red, action.payload],
+      };
+
+    case 'ADD_TO_YELLOW':
+      return {
+        ...state,
+        yellow: [...state.yellow, action.payload],
+      };
+
+    case 'ADD_TO_BLUE':
+      return {
+        ...state,
+        blue: [...state.blue, action.payload],
+      };
+
+
+
+
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -105,9 +119,11 @@ export const DataProvider = ({ children }) => {
     inView: {},
     playlistData: {},
     albumData: {},
-
     device_id: null,
 
+    red: [],
+    yellow: [],
+    blue: [],
 
 
   });
