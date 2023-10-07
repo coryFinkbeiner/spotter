@@ -14,14 +14,39 @@ function Track({
   const { dispatch } = useDataContext()
   const [isHovering, setIsHovering] = useState(false);
 
+  // const TrackContainer = {
+  //   display: 'flex',
+  //   alignItems: 'center',
+  //   padding: '8px',
+  //   cursor: 'pointer',
+  //   borderRadius: '5px',
+  //   backgroundColor: isHovering ? 'rgb(40, 40, 40)' : 'transparent'
+  // }
+
+
   const TrackContainer = {
+    position: 'relative', // Added for positioning circles relative to this container
     display: 'flex',
     alignItems: 'center',
     padding: '8px',
     cursor: 'pointer',
     borderRadius: '5px',
-    backgroundColor: isHovering ? 'rgb(40, 40, 40)' : 'transparent'
-  }
+    backgroundColor: isHovering ? 'rgb(40, 40, 40)' : 'transparent',
+  };
+
+  const circleStyle = {
+    position: 'absolute',
+    borderRadius: '50%',
+    width: '40px',
+    height: '40px',
+    opacity: 0.2,
+    transform: 'translate(-50%, -50%)', // Center the circles
+  };
+
+  const redCircle = { ...circleStyle, backgroundColor: 'red', top: '50%', left: '50%' };
+  const yellowCircle = { ...circleStyle, backgroundColor: 'yellow', top: '50%', left: '60%' };
+  const blueCircle = { ...circleStyle, backgroundColor: 'blue', top: '50%', left: '70%' };
+
 
 
   return (
@@ -43,6 +68,18 @@ function Track({
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
+
+
+      {isHovering && (
+        <>
+          <div style={redCircle}></div>
+          <div style={yellowCircle}></div>
+          <div style={blueCircle}></div>
+        </>
+      )}
+
+
+
       <div
         style={{
           padding: '15px',
@@ -50,16 +87,13 @@ function Track({
         }}
       >
         {isHovering ?
-
           <BsFillPlayFill
             style={{
               color: 'white',
               fontSize: '20px'
             }}
           />
-
         : index + 1
-
         }
       </div>
       <img
