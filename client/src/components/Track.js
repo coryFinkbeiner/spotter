@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { useDataContext } from '../hooks/useDataContext';
 import { BsFillPlayFill } from "react-icons/bs"
+import axios from 'axios'
+
 
 function Track({
   index,
@@ -11,9 +13,8 @@ function Track({
   duration_ms,
   uri
 }) {
-  const { dispatch } = useDataContext()
+  const { accessToken, dispatch, device_id } = useDataContext()
   const [isHovering, setIsHovering] = useState(false);
-
 
   const TrackContainer = {
     position: 'relative',
@@ -44,20 +45,18 @@ function Track({
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-
       {isHovering && (
         <>
           <div
             style={redCircle}
             onClick={() => {
-              console.log('red')
+              console.log({device_id})
             }}
           ></div>
           <div style={yellowCircle}></div>
           <div style={blueCircle}></div>
         </>
       )}
-
       <div
         style={{
           padding: '15px',
@@ -69,6 +68,26 @@ function Track({
             style={{
               color: 'white',
               fontSize: '20px'
+            }}
+            onClick={() => {
+              (async () => {
+                try {
+                  const response = await axios.put(
+                    'https://api.spotify.com/v1/me/player/play',
+                    {
+                      uris: [uri],
+                      device_id: device_id,
+                    },
+                    {
+                      headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                      }
+                    }
+                  );
+                } catch (error) {
+                  console.log('Play Error:', error);
+                }
+              })();
             }}
           />
         : index + 1

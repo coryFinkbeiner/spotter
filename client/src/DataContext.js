@@ -5,6 +5,18 @@ export const DataContext = createContext();
 export const dataReducer = (state, action) => {
   switch (action.type) {
 
+
+
+    case 'SET_DEVICE_ID':
+      return {
+        ...state,
+        device_id: action.payload
+      }
+
+
+
+
+
     case 'SET_USER':
       return {
         ...state,
@@ -35,23 +47,6 @@ export const dataReducer = (state, action) => {
         albumData: action.payload
       };
 
-    // case 'POP_QUEUE':
-    //   const newQueue = state.myQueue;
-    //   const pop = newQueue.shift();
-    //   return {
-    //     ...state,
-    //     myQueue: newQueue,
-    //     poppedTrack: pop
-    //   }
-
-    // case 'CLEAR_POP':
-    //   return {
-    //     ...state,
-    //     poppedTrack: null
-    //   }
-
-
-
 
     case 'ADD_TO_QUEUE':
       const newQueue2 = [...state.myQueue];
@@ -80,10 +75,6 @@ export const dataReducer = (state, action) => {
         nextTrack: next
       }
 
-
-
-
-
     case 'VIEW_IN_CONSOLE':
       return {
         ...state,
@@ -104,21 +95,20 @@ export const dataReducer = (state, action) => {
 
 export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, {
-
     user: null,
-
     code: null,
     accessToken: null,
-
     myQueue: [],
     nextTrack: null,
-
     poppedTrack: null,
-
     consoleViewType: 'Home',
     inView: {},
     playlistData: {},
     albumData: {},
+
+    device_id: null,
+
+
 
   });
 

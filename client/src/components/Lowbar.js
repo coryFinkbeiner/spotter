@@ -35,6 +35,9 @@ function Lowbar() {
       console.log(letter)
       newPlayer.addListener('ready', ({device_id}) => {
         setDeviceId(device_id)
+
+        dispatch({ type: 'SET_DEVICE_ID', payload: device_id })
+
       });
       newPlayer.addListener('not_ready', ({ device_id }) => {
           console.log('Device ID has gone offline', device_id);
@@ -88,7 +91,6 @@ function Lowbar() {
       setCurrentSong(state.track_window.current_track)
     });
   }, [ currentID ])
-
 
   // post to tracks and listening_history
   useEffect(() => {
