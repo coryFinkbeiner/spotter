@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useDataContext } from '../hooks/useDataContext';
+import { BsFillPlayFill } from "react-icons/bs"
 
 function Track({
   index,
@@ -48,7 +49,18 @@ function Track({
           color: 'grey',
         }}
       >
-        {index + 1}
+        {isHovering ?
+
+          <BsFillPlayFill
+            style={{
+              color: 'white',
+              fontSize: '20px'
+            }}
+          />
+
+        : index + 1
+
+        }
       </div>
       <img
         src={image}

@@ -116,14 +116,8 @@ function ArtistView() {
         </div>
       </div>
 
-
       {/* Discography */}
-
-      <div
-        style={{
-
-        }}
-      >
+      <div>
         <div
           style={{
             color: 'white',
@@ -156,18 +150,8 @@ function ArtistView() {
               id={item.id}
             />
           ))}
-
         </div>
-
       </div>
-
-
-
-
-
-
-
-
     </div>
   )
 }
