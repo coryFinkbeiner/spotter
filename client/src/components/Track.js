@@ -14,18 +14,9 @@ function Track({
   const { dispatch } = useDataContext()
   const [isHovering, setIsHovering] = useState(false);
 
-  // const TrackContainer = {
-  //   display: 'flex',
-  //   alignItems: 'center',
-  //   padding: '8px',
-  //   cursor: 'pointer',
-  //   borderRadius: '5px',
-  //   backgroundColor: isHovering ? 'rgb(40, 40, 40)' : 'transparent'
-  // }
-
 
   const TrackContainer = {
-    position: 'relative', // Added for positioning circles relative to this container
+    position: 'relative',
     display: 'flex',
     alignItems: 'center',
     padding: '8px',
@@ -37,48 +28,35 @@ function Track({
   const circleStyle = {
     position: 'absolute',
     borderRadius: '50%',
-    width: '40px',
-    height: '40px',
+    width: '60px',
+    height: '60px',
     opacity: 0.2,
-    transform: 'translate(-50%, -50%)', // Center the circles
+    transform: 'translate(-50%, -50%)',
   };
 
-  const redCircle = { ...circleStyle, backgroundColor: 'red', top: '50%', left: '50%' };
-  const yellowCircle = { ...circleStyle, backgroundColor: 'yellow', top: '50%', left: '60%' };
-  const blueCircle = { ...circleStyle, backgroundColor: 'blue', top: '50%', left: '70%' };
-
-
+  const redCircle = { ...circleStyle, backgroundColor: 'red', top: '50%', left: '51.2%' };
+  const yellowCircle = { ...circleStyle, backgroundColor: 'yellow', top: '50%', left: '65.5%' };
+  const blueCircle = { ...circleStyle, backgroundColor: 'blue', top: '50%', left: '79.8%' };
 
   return (
     <div
-      onClick={() =>
-        dispatch({
-          type: 'ADD_TO_QUEUE',
-          payload: {
-            image,
-            trackName,
-            artistName,
-            albumName,
-            duration_ms,
-            uri
-          }
-        }
-      )}
       style={TrackContainer}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
 
-
       {isHovering && (
         <>
-          <div style={redCircle}></div>
+          <div
+            style={redCircle}
+            onClick={() => {
+              console.log('red')
+            }}
+          ></div>
           <div style={yellowCircle}></div>
           <div style={blueCircle}></div>
         </>
       )}
-
-
 
       <div
         style={{
