@@ -12,9 +12,7 @@ function Track({
   albumName,
   duration_ms,
   uri,
-
   trackObject,
-
 }) {
   const { accessToken, dispatch, device_id } = useDataContext()
   const [isHovering, setIsHovering] = useState(false);
@@ -55,7 +53,16 @@ function Track({
             onClick={() => {
               dispatch({
                 type: 'ADD_TO_RED',
-                payload: trackObject,
+                payload: {
+                  index,
+                  image,
+                  trackName,
+                  artistName,
+                  albumName,
+                  duration_ms,
+                  uri,
+                  trackObject,
+                }
               });
             }}
           ></div>
@@ -136,7 +143,6 @@ function Track({
             whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
-
           }}
         >
           {trackName}

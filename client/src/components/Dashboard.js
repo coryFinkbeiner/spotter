@@ -9,7 +9,10 @@ import ArtistView from './ArtistView'
 import Lowbar from './Lowbar'
 import Home from './Home'
 import HistoryView from './HistoryView'
-import SpotView from './SpotView'
+import RedView from './RedView'
+import YellowView from './YellowView'
+import BlueView from './BlueView'
+
 
 function Dashboard() {
 
@@ -34,7 +37,9 @@ function Dashboard() {
           {consoleViewType === 'QueueView' && <Queue />}
           {consoleViewType === 'Home' && <Home />}
           {consoleViewType === 'HistoryView' && <HistoryView />}
-          {consoleViewType === 'SpotView' && <SpotView />}
+          {consoleViewType === 'RedView' && <RedView />}
+          {consoleViewType === 'YellowView' && <YellowView />}
+          {consoleViewType === 'BlueView' && <BlueView />}
         </div>
       </div>
 

@@ -7,8 +7,6 @@ function HistoryView() {
 
   const { inView } = useDataContext()
 
-  console.log({inView})
-
   return (
 
     <div className='AlbumPlaylistView'>

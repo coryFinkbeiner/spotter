@@ -30,11 +30,11 @@ function Lowbar() {
       const newPlayer = new window.Spotify.Player({
         name: letter,
         getOAuthToken: cb => { cb(accessToken) },
-        // volume: 0
+        volume: 0
       });
       console.log(letter)
       newPlayer.addListener('ready', ({device_id}) => {
-        setDeviceId(device_id
+        setDeviceId(device_id)
         dispatch({ type: 'SET_DEVICE_ID', payload: device_id })
       });
       newPlayer.addListener('not_ready', ({ device_id }) => {
@@ -295,8 +295,7 @@ function Lowbar() {
             cursor: 'pointer',
           }}
           onClick={() => {
-            dispatch({ type: 'VIEW_IN_CONSOLE', payload: 'red'})
-            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'SpotView' })
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'RedView' })
           }}
         ></div>
         <div
@@ -309,8 +308,7 @@ function Lowbar() {
             cursor: 'pointer',
           }}
           onClick={() => {
-            dispatch({ type: 'VIEW_IN_CONSOLE', payload: 'yellow'})
-            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'SpotView' })
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'YellowView' })
           }}
         ></div>
         <div
@@ -319,12 +317,10 @@ function Lowbar() {
             width: '66px',
             height: '66px',
             backgroundColor: 'blue',
-            // marginRight: '6px',
             cursor: 'pointer',
           }}
           onClick={() => {
-            dispatch({ type: 'VIEW_IN_CONSOLE', payload: 'blue'})
-            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'SpotView' })
+            dispatch({ type:'CHANGE_VIEW_TYPE', payload: 'BlueView' })
           }}
         ></div>
       </div>
