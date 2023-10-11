@@ -59,6 +59,7 @@ function PlaylistView() {
             albumName={track.track.album.name}
             duration_ms={1000}
             uri={track.track.uri}
+            trackObject={track}
           />
         ))}
       </div>

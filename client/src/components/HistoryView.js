@@ -59,6 +59,7 @@ function HistoryView() {
             albumName={track.track_response.album.name}
             duration_ms={track.track_response.duration_ms}
             uri={track.track_response.uri}
+            trackObject={track}
           />
         ))}
       </div>

@@ -25,7 +25,6 @@ function Queue() {
       >
         Queue
       </div>
-
       <div
         style={{
           height: '100px',
@@ -50,18 +49,13 @@ function Queue() {
         />
       </div>
 
-      <div
-        style={{
-        }}
-      >
-
+      <div>
         <div
-        style={{
-          display: 'flex',
-          margin: '14px 10px 0px 7px',
-        }}
+          style={{
+            display: 'flex',
+            margin: '14px 10px 0px 7px',
+          }}
         >
-
           <div
             style={{
               color: 'grey',
@@ -85,14 +79,6 @@ function Queue() {
           >
             Clear queue
           </div>
-
-
-        </div>
-
-        <div
-        style={{
-        }}
-        >
         </div>
       </div>
 
@@ -114,6 +100,7 @@ function Queue() {
             albumName={track.albumName}
             duration_ms={track.duration_ms}
             uri={track.uri}
+            trackObject={track}
           />
         ))}
       </div>

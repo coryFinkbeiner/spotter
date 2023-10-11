@@ -67,11 +67,8 @@ function Artist({
             fontSize: '10px',
           }}
         >
-          <div
-          >
-            Artist
+          <div>Artist</div>
         </div>
-      </div>
     </div>
   )
 }

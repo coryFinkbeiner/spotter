@@ -19,7 +19,6 @@ function AlbumView() {
             marginLeft: '9px',
             padding: '2px',
             marginTop: '80px'
-
           }}
         >
           <div
@@ -80,6 +79,7 @@ function AlbumView() {
           albumName={inView.albumName}
           duration_ms={track.duration_ms}
           uri={track.uri}
+          trackObject={track}
         />
       ))}
     </div>

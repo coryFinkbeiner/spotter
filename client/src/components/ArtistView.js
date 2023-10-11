@@ -110,6 +110,7 @@ function ArtistView() {
                 albumName={track.album.name}
                 duration_ms={track.duration_ms}
                 uri={track.uri}
+                trackObject={track}
               />
             )
           })}

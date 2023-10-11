@@ -11,7 +11,10 @@ function Track({
   artistName,
   albumName,
   duration_ms,
-  uri
+  uri,
+
+  trackObject,
+
 }) {
   const { accessToken, dispatch, device_id } = useDataContext()
   const [isHovering, setIsHovering] = useState(false);
@@ -52,7 +55,7 @@ function Track({
             onClick={() => {
               dispatch({
                 type: 'ADD_TO_RED',
-                payload: 'red',
+                payload: trackObject,
               });
             }}
           ></div>

@@ -24,6 +24,7 @@ function Tracks({ results }) {
         albumName={item.album.name}
         duration_ms={item.durations_ms}
         uri={item.uri}
+        trackObject={item}
       />
     ))
   );
@@ -62,7 +63,7 @@ function Albums({ results }) {
 
 function Artists({ results }) {
   if (!results.artists) {
-    return <div>Search Artists</div>;
+    return <div>Search Artists</div>
   }
 
   return (
