@@ -71,7 +71,16 @@ function Track({
             onClick={() => {
               dispatch({
                 type: 'ADD_TO_YELLOW',
-                payload: 'yellow',
+                payload: {
+                  index,
+                  image,
+                  trackName,
+                  artistName,
+                  albumName,
+                  duration_ms,
+                  uri,
+                  trackObject,
+                }
               });
             }}
           ></div>
@@ -80,9 +89,17 @@ function Track({
             onClick={() => {
               dispatch({
                 type: 'ADD_TO_BLUE',
-                payload: 'blue',
+                payload: {
+                  index,
+                  image,
+                  trackName,
+                  artistName,
+                  albumName,
+                  duration_ms,
+                  uri,
+                  trackObject,
+                }
               });
-
             }}
           ></div>
         </>

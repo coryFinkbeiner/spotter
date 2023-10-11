@@ -5,9 +5,6 @@ import Track from './Track'
 function RedView() {
   const { red } = useDataContext()
 
-  console.log({red})
-
-
   return (
     <div
       style={{
@@ -23,7 +20,6 @@ function RedView() {
         style={{
           height: '13%',
           borderRadius: '8px',
-
           backgroundColor: 'red'
         }}
       ></div>
