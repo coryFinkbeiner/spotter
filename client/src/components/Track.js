@@ -3,7 +3,6 @@ import { useDataContext } from '../hooks/useDataContext';
 import { BsFillPlayFill } from "react-icons/bs"
 import axios from 'axios'
 
-
 function Track({
   index,
   image,

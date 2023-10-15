@@ -8,7 +8,6 @@ import { FaCirclePlay, FaCirclePause } from "react-icons/fa6"
 import { IoIosSkipForward } from "react-icons/io"
 import { GoDotFill } from "react-icons/go"
 
-
 function Lowbar() {
   const { dispatch, accessToken, nextTrack, user } = useDataContext()
   const [ player, setPlayer ] = useState(null)
