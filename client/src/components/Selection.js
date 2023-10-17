@@ -72,7 +72,7 @@ function Selection({
 
   return (
     <Layout>
-      <RenderBox/>
+      <RenderBox />
     </Layout>
   )
 }

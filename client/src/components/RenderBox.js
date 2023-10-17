@@ -1,4 +1,5 @@
 import React from 'react'
+import TrackElement from './TrackElement'
 
 function RenderBox({
 
@@ -6,6 +7,51 @@ function RenderBox({
 
 
 }) {
+
+  const testTracks = [
+
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+
+  ]
 
 
   const Layout = ({ children }) => {
@@ -19,7 +65,7 @@ function RenderBox({
 
         }}
       >
-
+        {children}
       </div>
     )
   }
@@ -32,7 +78,12 @@ function RenderBox({
 
   return (
    <Layout>
-
+     {testTracks.map((trackData, index) => (
+        <TrackElement
+          key={index}
+          trackData={trackData}
+        />
+      ))}
    </Layout>
   )
 }
