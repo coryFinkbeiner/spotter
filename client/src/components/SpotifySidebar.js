@@ -18,7 +18,6 @@ function SpotifySidebar() {
         {/* Top */}
         <div
           style={{
-            // height: '100%',
             backgroundColor: 'green'
           }}
         >
@@ -27,8 +26,8 @@ function SpotifySidebar() {
         {/* RenderBox container */}
         <div
           style={{
-            // height: '100%',
-            backgroundColor: 'white'
+            backgroundColor: 'white',
+            position: 'relative',
           }}
         >{children}</div>
       </div>
@@ -39,7 +38,7 @@ function SpotifySidebar() {
 
   return (
     <Layout>
-
+      <RenderBox columnAmount={2}/>
     </Layout>
   )
 }
