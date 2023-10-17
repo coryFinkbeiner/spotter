@@ -61,7 +61,15 @@ function RenderBox({
       <div
         style={{
           backgroundColor: 'pink',
-          height: '100%',
+          // height: '100%',
+
+          display: 'grid',
+
+          // gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+
+          gridTemplateColumns: 'repeat(3, 1fr)',
+
+          gridGap: '2px'
 
         }}
       >
