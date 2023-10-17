@@ -20,6 +20,7 @@ function Selection({
           height: '100%',
           display: 'grid',
           gridTemplateRows: '1fr 2.4fr',
+
         }}
       >
         <div
@@ -62,6 +63,8 @@ function Selection({
           style={{
             backgroundColor: 'yellow',
             padding: '2px',
+            position: 'relative',
+
           }}
         >{children}</div>
       </div>

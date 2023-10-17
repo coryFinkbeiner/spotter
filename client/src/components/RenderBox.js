@@ -51,6 +51,241 @@ function RenderBox({
       trackName: 'TEST trackName',
       albumName: 'TEST albumName',
     },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
+    {
+      imageURL: "https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd",
+      trackName: 'TEST trackName',
+      albumName: 'TEST albumName',
+    },
 
   ]
 
@@ -65,7 +300,20 @@ function RenderBox({
           backgroundColor: 'pink',
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gridGap: '2px'
+          gridGap: '2px',
+
+
+
+
+          // overflow: 'hidden',
+
+          position: 'absolute',
+          overflowY: 'scroll',
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0,
+
         }}
       >
         {children}
