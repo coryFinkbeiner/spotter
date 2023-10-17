@@ -1,6 +1,11 @@
 import React from 'react'
 
-function RenderBox() {
+function RenderBox({
+
+  tracks,
+
+
+}) {
 
 
   const Layout = ({ children }) => {
