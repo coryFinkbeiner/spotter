@@ -7,3 +7,6 @@ function Console() {
 }
 
 export default Console
+
+// SpotifyConsole
+// SpotifyBar

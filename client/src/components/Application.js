@@ -3,17 +3,17 @@ import Console from './Console'
 import Dash from './Dash'
 import PlayerBar from './PlayerBar'
 import BeatBar from './BeatBar'
-import Layout from './Layout'
+import AppLayout from './AppLayout'
 
 
 function Application() {
   return (
-    <Layout>
+    <AppLayout>
       <Dash />
       <Console />
       <BeatBar />
       <PlayerBar />
-    </Layout>
+    </AppLayout>
   )
 }
 

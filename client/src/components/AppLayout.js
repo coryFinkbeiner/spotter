@@ -2,7 +2,7 @@
 import React from 'react';
 
 
-function Layout({ children }) {
+function AppLayout({ children }) {
 
   const [ one, two, three, four ] = React.Children.toArray(children);
 
@@ -64,7 +64,7 @@ function Layout({ children }) {
 
 
 
-export default Layout;
+export default AppLayout;
 
 
 
