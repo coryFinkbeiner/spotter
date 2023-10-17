@@ -15,7 +15,7 @@ function MySpotify() {
           backgroundColor: 'red',
           color: 'white',
           display: 'grid',
-          gridTemplateColumns: '1fr 3.5fr',
+          gridTemplateColumns: '1fr 2.25fr',
           padding: '2px',
           columnGap: '2px'
         }}
@@ -45,3 +45,5 @@ function MySpotify() {
 }
 
 export default MySpotify
+
+// could have advanced folder view of all your folders.
