@@ -8,6 +8,7 @@ function RenderBox({
 
 }) {
 
+
   const testTracks = [
 
     {
@@ -54,35 +55,23 @@ function RenderBox({
   ]
 
 
-  const Layout = ({ children }) => {
 
+
+  const Layout = ({ children }) => {
 
     return (
       <div
         style={{
           backgroundColor: 'pink',
-          // height: '100%',
-
           display: 'grid',
-
-          // gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-
           gridTemplateColumns: 'repeat(3, 1fr)',
-
           gridGap: '2px'
-
         }}
       >
         {children}
       </div>
     )
   }
-
-
-
-
-
-
 
   return (
    <Layout>
