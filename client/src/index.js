@@ -5,9 +5,7 @@ import App from './App';
 import { DataProvider } from './DataContext';
 
 import Layout from './components/Layout';
-
-
-
+import Application from './components/Application'
 
 
 
@@ -19,7 +17,7 @@ root.render(
       {/* <App /> */}
 
 
-      <Layout />
+      <Application />
 
 
 

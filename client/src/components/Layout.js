@@ -4,7 +4,8 @@ import React from 'react';
 
 function Layout({ children }) {
 
-  // const [ one, two, three, four ] = children;
+  const [ one, two, three, four ] = React.Children.toArray(children);
+
 
   return (
     <div
@@ -17,23 +18,31 @@ function Layout({ children }) {
       }}
     >
 
-
-      <div
+     <div
         style={{
-          backgroundColor: 'red',
+          // backgroundColor: 'red',
 
         }}
       >
-
+        {one}
       </div>
 
       <div
         style={{
-          backgroundColor: 'blue',
+          backgroundColor: 'grey',
 
         }}
       >
+        {two}
+      </div>
 
+      <div
+        style={{
+          // backgroundColor: 'blue',
+
+        }}
+      >
+        {three}
       </div>
 
       <div
@@ -41,16 +50,9 @@ function Layout({ children }) {
           backgroundColor: 'green',
         }}
       >
-
+        {four}
       </div>
 
-      <div
-        style={{
-          backgroundColor: 'pink'
-        }}
-      >
-
-      </div>
 
 
 
