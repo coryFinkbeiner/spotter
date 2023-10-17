@@ -2,8 +2,6 @@ import React from 'react'
 import MySpotify from './MySpotify'
 import SpotifySidebar from './SpotifySidebar'
 
-
-
 const Layout = ({children}) => {
 
   const [ left, right ] = React.Children.toArray(children);
@@ -36,35 +34,15 @@ const Layout = ({children}) => {
   )
 }
 
-
-
-
 function Console() {
   return (
-
-
     <Layout>
       <SpotifySidebar />
       <MySpotify />
     </Layout>
-
-
-
   )
 }
 
 export default Console
 
-
-// I guess i will do the slide in this component...
-//
-
-
-
-// NoteView
-// *CalendarView
-
-
-
-// should create conditional between Spotify, *Folders, *Calendar.... whatever....
-// for now, i'll just do Spotify tho...
+// MyNotes * SpotifySidebar slide

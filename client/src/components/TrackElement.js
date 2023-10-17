@@ -15,14 +15,6 @@ function TrackElement({
           display: 'grid',
           gridTemplateColumns: '1.5fr auto 5fr',
           padding: '1px',
-
-
-          // overflow: 'hidden',
-
-          // minHeight: '0px'
-
-
-
         }}
       >
 
