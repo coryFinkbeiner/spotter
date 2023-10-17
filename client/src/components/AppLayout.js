@@ -29,7 +29,7 @@ function AppLayout({ children }) {
 
       <div
         style={{
-          backgroundColor: 'grey',
+          // backgroundColor: 'grey',
 
         }}
       >
