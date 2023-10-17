@@ -2,7 +2,12 @@ import React from 'react'
 
 function SpotifySidebar() {
   return (
-    <div>SpotifySidebar</div>
+    <div
+      style={{
+        height: '100%',
+        backgroundColor: 'pink'
+      }}
+    >SpotifySidebar</div>
   )
 }
 
