@@ -29,7 +29,6 @@ function Album({
   return (
     <div
       onClick={() => {
-
         const fetchData = async () => {
           try {
             const response = await axios.get('https://api.spotify.com/v1/albums/' + id + '/tracks', {

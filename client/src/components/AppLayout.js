@@ -20,7 +20,7 @@ function AppLayout({ children }) {
 
      <div
         style={{
-          // backgroundColor: 'red',
+          backgroundColor: 'black',
 
         }}
       >

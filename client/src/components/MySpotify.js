@@ -16,12 +16,14 @@ function MySpotify() {
           color: 'white',
           display: 'grid',
           gridTemplateColumns: '1fr 3.5fr',
+          padding: '2px',
+          columnGap: '2px'
         }}
       >
         <div
           style={{
             backgroundColor: 'blue',
-            height:'100%'
+            height:'100%',
           }}
         >{left}</div>
         <div
@@ -33,10 +35,6 @@ function MySpotify() {
       </div>
     )
   }
-
-
-
-
 
   return (
     <Layout>
