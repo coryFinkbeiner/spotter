@@ -17,16 +17,11 @@ function App() {
   const accessToken = useAuth()
   const { code, dispatch, player } = useDataContext()
   const newCode = new URLSearchParams(window.location.search).get("code")
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [isNewUser, setIsNewUser] = useState(false);
-
-
   const [welcome, setWelcome] = useState(false);
-
-
 
   useEffect(() => {
     if (newCode) dispatch({type: 'SET_CODE' , payload: newCode })
@@ -52,7 +47,6 @@ function App() {
         });
 
       } catch (error) {
-        // console.log('Album fetch Error:', error);
       }
     };
 
@@ -68,27 +62,17 @@ function App() {
           payload: response.data
         });
       } catch (error) {
-        // console.log('Playlist fetch Error:', error);
       }
     };
     fetchPlaylists();
     fetchAlbums();
-
   }, [accessToken])
 
-
-
-
   return (
-
     code ? (
-
-
       welcome ? (
         <Dashboard />
       ) : (
-
-
         isNewUser ? (
           <>
             <div>

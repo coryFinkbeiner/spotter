@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import { DataProvider } from './DataContext';
 
+import Application from './components/Application';
+
 
 import FakeApp from './components/FakeApp';
 
@@ -18,7 +20,10 @@ root.render(
       {/* <App /> */}
 
 
-      <FakeApp />
+      {/* <FakeApp /> */}
+
+
+      <Application />
 
 
 
