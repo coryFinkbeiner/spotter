@@ -13,7 +13,7 @@ function TrackElement({
         height: '63px',
         display: 'grid',
         gridTemplateColumns: '1.5fr auto 5fr',
-        padding: '1px',
+        padding: '2px',
       }}
     >
 
@@ -24,6 +24,8 @@ function TrackElement({
           height: '61px'
         }}
       />
+
+
       <div
         style={{
           backgroundColor: 'white',
