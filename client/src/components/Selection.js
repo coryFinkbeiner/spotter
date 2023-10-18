@@ -358,7 +358,7 @@ function Selection({
 
   return (
     <Layout>
-      <RenderBox columnAmount={3}>
+      <RenderBox itemType={'track'}>
         {testTracks.map((trackData, index) => (
           <TrackElement
             key={index}

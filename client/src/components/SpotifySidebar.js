@@ -320,7 +320,8 @@ function SpotifySidebar() {
 
   return (
     <Layout>
-      <RenderBox columnAmount={2}>
+      <RenderBox itemType={'collection'}>
+
       {testTracks.map((collectionData, index) => (
           <CollectionElement
             key={index}
