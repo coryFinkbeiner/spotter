@@ -25,7 +25,6 @@ function TrackElement({
         }}
       />
 
-
       <div
         style={{
           backgroundColor: 'white',

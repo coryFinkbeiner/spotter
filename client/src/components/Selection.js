@@ -295,18 +295,6 @@ function Selection({
   ]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   const Layout = ({ children }) => {
 
     return (
@@ -366,7 +354,6 @@ function Selection({
       </div>
     )
   }
-
 
 
   return (

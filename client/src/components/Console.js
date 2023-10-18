@@ -10,7 +10,6 @@ const Layout = ({children}) => {
     <div
       style={{
         height: '100%',
-        backgroundColor: 'red',
         color: 'white',
         display: 'grid',
         gridTemplateColumns: '1fr 2.25fr',
@@ -20,13 +19,11 @@ const Layout = ({children}) => {
     >
       <div
         style={{
-          backgroundColor: 'blue',
           height:'100%',
         }}
       >{left}</div>
       <div
         style={{
-          backgroundColor: 'pink',
           height:'100%'
         }}
       >{right}</div>
