@@ -378,7 +378,6 @@ function Selection({
             trackData={trackData}
           />
         ))}
-
       </RenderBox>
     </Layout>
   )

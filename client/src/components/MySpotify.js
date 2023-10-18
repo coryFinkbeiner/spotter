@@ -3,8 +3,16 @@ import Selection from './Selection'
 
 function MySpotify() {
 
+
   return (
-    <Selection />
+    <div
+      style={{
+        padding: '2px'
+      }}
+    >
+      <Selection />
+    </div>
+
   )
 }
 
