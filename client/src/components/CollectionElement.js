@@ -13,8 +13,8 @@ function CollectionElement({
         // height: '22vh',
         // height: '100%',
         padding: '2px',
-        // display: 'grid',
-        // gridTemplateRows: '3fr 1fr',
+        display: 'grid',
+        gridTemplateRows: '3fr 1fr',
       }}
     >
 
@@ -30,13 +30,13 @@ function CollectionElement({
       >
 
       </div>
-{/*
+
       <div
         style={{
           backgroundColor: 'white',
         }}
       >
-      </div> */}
+      </div>
 
     </div>
 
