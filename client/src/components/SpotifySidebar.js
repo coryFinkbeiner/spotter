@@ -296,6 +296,7 @@ function SpotifySidebar() {
           height: '100%',
           display: 'grid',
           gridTemplateRows: '1fr 2.4fr',
+          minWidth: '159px'
         }}
       >
 

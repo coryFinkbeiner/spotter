@@ -5,7 +5,6 @@ function CollectionElement({
   collectionData
 }) {
 
-
   return (
 
     <div
@@ -14,8 +13,8 @@ function CollectionElement({
         // height: '22vh',
         // height: '100%',
         padding: '2px',
-        display: 'grid',
-        gridTemplateRows: '3fr 1fr',
+        // display: 'grid',
+        // gridTemplateRows: '3fr 1fr',
       }}
     >
 
@@ -24,18 +23,20 @@ function CollectionElement({
           backgroundImage: "url('https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd')",
           backgroundSize: 'cover', // Options: 'auto', 'contain', 'cover', or specific values like '50% 50%'
           backgroundPosition: 'center',
+
+          height: '118px',
+          width: ' 118px',
         }}
       >
 
       </div>
-
+{/*
       <div
         style={{
           backgroundColor: 'white',
         }}
       >
-
-      </div>
+      </div> */}
 
     </div>
 
