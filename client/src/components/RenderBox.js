@@ -21,12 +21,13 @@ function RenderBox({
 
   const collectionStyle = {
     ...commonStyle,
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    // gridTemplateRows: 'repeat(auto-fill, 100px)'
   };
 
   const trackStyle = {
     ...commonStyle,
-    gridTemplateColumns: 'repeat(2, 1fr)',
+    gridTemplateColumns: 'repeat(3, 1fr)',
   };
 
   const selectedStyle = itemType === 'collection' ? collectionStyle : trackStyle;

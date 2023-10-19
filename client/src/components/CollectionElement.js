@@ -12,7 +12,7 @@ function CollectionElement({
       style={{
         backgroundColor: 'red',
         // height: '22vh',
-        height: '100%',
+        // height: '100%',
         padding: '2px',
         display: 'grid',
         gridTemplateRows: '3fr 1fr',

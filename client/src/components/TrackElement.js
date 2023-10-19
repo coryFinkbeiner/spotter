@@ -21,7 +21,7 @@ function TrackElement({
       <img
         src={trackData.imageURL}
         style={{
-          height: '61px'
+          // height: '61px'
         }}
       />
 
