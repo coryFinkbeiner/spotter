@@ -3,37 +3,29 @@ import useAuth from "./hooks/useAuth";
 import SpotifyWebApi from "spotify-web-api-node";
 import axios from 'axios';
 
-const spotifyApi = new SpotifyWebApi({
-  clientId: "b5fd7277f6654b3e881be98a94afd5fc",
-});
+// const spotifyApi = new SpotifyWebApi({
+//   clientId: "b5fd7277f6654b3e881be98a94afd5fc",
+// });
 
-const useSpotifyAPI = () => {
-
-  const [code, setCode] = useState(null);
-  const [currentAccessToken, setCurrentAccessToken] = useState(null);
-
-  useEffect(() => {
-    if (code) return
-    const newCode = new URLSearchParams(window.location.search).get("code")
-    setCode(code);
-  }, [code, accessToken]);
+const useSpotifyAPI = (accessToken) => {
 
 
-  useEffect(() => {
-    if (accessToken) return
-    const accessToken = useAuth(code)
-    setCurrentAccessToken(accessToken)
-  }, [currentAccessToken]);
+  const getMyPlaylists = async () => {
+    try {
+      const response = await axios.get(`https://api.spotify.com/v1/me/playlists`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+      return response.data
 
-  useEffect(() => {
-    if (!currentAccessToken) return
-    spotifyApi.setAccessToken(accessToken);
-    setAccessToken(accessToken);
-  }, [currentAccessToken]);
+    } catch (error) {
+    }
+  };
 
-
-  return accessToken
-
+  return {
+    getMyPlaylists
+  }
 
 };
 

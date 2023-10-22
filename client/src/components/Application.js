@@ -30,11 +30,16 @@ import BeatBar from './BeatBar'
 import AppLayout from './AppLayout'
 
 import useSpotifyAuth from '../useSpotifyAuth'
+import useSpotifyAPI from '../useSpotifyAPI'
 
 
 function Application({ code }) {
 
   const accessToken = useSpotifyAuth(code)
+
+  const { getMyPlaylists } = useSpotifyAPI(accessToken)
+
+  console.log(getMyPlaylists)
 
 
   return (
