@@ -32,9 +32,9 @@ const useSpotifyAPI = () => {
   }, [currentAccessToken]);
 
 
-  return {
+  return accessToken
 
-  };
+
 };
 
 export default useSpotifyAPI;

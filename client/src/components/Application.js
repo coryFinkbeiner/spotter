@@ -29,13 +29,16 @@ import PlayerBar from './PlayerBar'
 import BeatBar from './BeatBar'
 import AppLayout from './AppLayout'
 
+import useSpotifyAuth from '../useSpotifyAuth'
+
 
 function Application({ code }) {
 
+  const accessToken = useSpotifyAuth(code)
 
 
   return (
-    <div>{code}</div>
+    <div>{accessToken}</div>
   )
 
 
