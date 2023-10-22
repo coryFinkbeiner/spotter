@@ -9,10 +9,12 @@ const DataProvider = ({ code, children }) => {
   const accessToken = useSpotifyAuth(code);
   const {
     myPlaylists,
+    myAlbums
    } = useSpotifyAPI(accessToken);
 
   const value = {
     myPlaylists,
+    myAlbums
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
