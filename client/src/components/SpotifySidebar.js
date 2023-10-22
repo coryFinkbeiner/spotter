@@ -1,8 +1,16 @@
 import React from 'react'
 import RenderBox from "./RenderBox"
 import CollectionElement from "./CollectionElement"
+import { useData } from '../DataProvider';
 
 function SpotifySidebar() {
+
+
+  const { myPlaylists } = useData()
+
+  console.log({myPlaylists})
+
+
 
   const testTracks = [
 
