@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react';
-import useAuth from "./hooks/useAuth";
-import SpotifyWebApi from "spotify-web-api-node";
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-// const spotifyApi = new SpotifyWebApi({
-//   clientId: "b5fd7277f6654b3e881be98a94afd5fc",
-// });
-
 const useSpotifyAPI = (accessToken) => {
+
+  const [ myAlbums, setMyAlbums ] = useState([])
+  const [ myPlaylists, setMyPlaylists ] = useState([])
 
 
   const getMyPlaylists = async () => {
@@ -17,14 +14,23 @@ const useSpotifyAPI = (accessToken) => {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      return response.data
+
+      setMyPlaylists(response.data)
 
     } catch (error) {
+      console.log('get Library error', error)
     }
   };
 
+  useEffect(() => {
+    if (!accessToken) return
+
+    getMyPlaylists();
+
+  }, [accessToken]);
+
   return {
-    getMyPlaylists
+    myPlaylists
   }
 
 };
