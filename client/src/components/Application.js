@@ -1,3 +1,27 @@
+// import React from 'react'
+// import Console from './Console'
+// import Dash from './Dash'
+// import PlayerBar from './PlayerBar'
+// import BeatBar from './BeatBar'
+// import AppLayout from './AppLayout'
+
+
+// function Application() {
+//   return (
+//     <AppLayout>
+//       <Dash />
+//       <Console />
+//       <BeatBar />
+//       <PlayerBar />
+//     </AppLayout>
+//   )
+// }
+
+// export default Application
+
+
+
+
 import React from 'react'
 import Console from './Console'
 import Dash from './Dash'
@@ -6,17 +30,25 @@ import BeatBar from './BeatBar'
 import AppLayout from './AppLayout'
 
 
-function Application() {
+function Application({ code }) {
+
+
+
   return (
-    <AppLayout>
-      <Dash />
-      <Console />
-      <BeatBar />
-      <PlayerBar />
-    </AppLayout>
+    <div>{code}</div>
   )
+
+
+  // return (
+  //   <AppLayout>
+  //     <Dash />
+  //     <Console />
+  //     <BeatBar />
+  //     <PlayerBar />
+  //   </AppLayout>
+  // )
 }
 
 export default Application
 
-// might want to move the Layout to index.js... or something.
+

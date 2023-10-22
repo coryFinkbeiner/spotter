@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useDataContext } from './useDataContext'
 
 
-const useAuth = () => {
 
-  const { code } = useDataContext()
-
+const useSpotifyAuth = code => {
 
   const [accessToken, setAccessToken] = useState();
   const [refreshToken, setRefreshToken] = useState();
@@ -53,4 +50,4 @@ const useAuth = () => {
   return accessToken;
 };
 
-export default useAuth;
+export default useSpotifyAuth;
