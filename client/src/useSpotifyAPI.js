@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const useSpotifyAPI = (accessToken) => {
-  const [ myPlaylists, setMyPlaylists ] = useState([])
-  const [ myAlbums, setMyAlbums ] = useState([])
+  const [ myPlaylists, setMyPlaylists ] = useState([]);
+  const [ myAlbums, setMyAlbums ] = useState([]);
 
   const getMyPlaylists = async () => {
     try {
@@ -12,9 +12,9 @@ const useSpotifyAPI = (accessToken) => {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-      setMyPlaylists(response.data)
+      setMyPlaylists(response.data);
     } catch (error) {
-      console.log('get Library error', error)
+      console.log('get Library error', error);
     }
   };
 
@@ -25,22 +25,19 @@ const useSpotifyAPI = (accessToken) => {
           Authorization: `Bearer ${accessToken}`,
         },
       });
-
       setMyAlbums(response.data)
-
     } catch (error) {
       console.log('get Library error', error)
     }
   };
 
-
   useEffect(() => {
     if (!accessToken) return
 
     getMyPlaylists();
-    getMyAlbums()
+    getMyAlbums();
 
-  }, [accessToken]);
+  }, [ accessToken ]);
 
   return {
     myPlaylists,

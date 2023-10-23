@@ -14,7 +14,7 @@ const DataProvider = ({ code, children }) => {
 
   const value = {
     myPlaylists,
-    myAlbums
+    myAlbums,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

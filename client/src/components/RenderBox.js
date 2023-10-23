@@ -5,7 +5,6 @@ function RenderBox({
   itemType,
 }) {
 
-
   const commonStyle = {
     display: 'grid',
     gridGap: '2px',
@@ -17,7 +16,6 @@ function RenderBox({
     left: 0,
     padding: '2px',
   };
-
 
   const collectionStyle = {
     ...commonStyle,

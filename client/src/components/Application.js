@@ -6,7 +6,7 @@ import BeatBar from './BeatBar';
 import AppLayout from './AppLayout';
 
 
-function Application({ code }) {
+function Application() {
   return (
 
       <AppLayout>

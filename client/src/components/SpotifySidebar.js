@@ -5,12 +5,9 @@ import { useData } from '../DataProvider';
 
 function SpotifySidebar() {
 
-
   const { myPlaylists, myAlbums } = useData()
 
   console.log({myAlbums})
-
-
 
   const Layout = ({ children }) => {
 
