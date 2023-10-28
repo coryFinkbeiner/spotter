@@ -7,16 +7,20 @@ const DataContext = createContext();
 
 const DataProvider = ({ code, children }) => {
   const accessToken = useSpotifyAuth(code);
-  const {
-    myPlaylists,
-    myAlbums,
-    // myTopItems,
-   } = useSpotifyAPI(accessToken);
+
+  const myPlaylists = useSpotifyAPI({
+    accessToken,
+    endpoint: 'me/playlists',
+  })
+
+  const myAlbums = useSpotifyAPI({
+    accessToken,
+    endpoint: 'me/albums',
+  })
 
   const value = {
     myPlaylists,
-    myAlbums,
-    // myTopItems,
+    myAlbums
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

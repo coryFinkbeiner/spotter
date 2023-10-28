@@ -7,7 +7,7 @@ function SpotifySidebar() {
 
   const { myPlaylists, myAlbums } = useData()
 
-  console.log({myAlbums})
+  console.log({myPlaylists, myAlbums})
 
   const Layout = ({ children }) => {
 
