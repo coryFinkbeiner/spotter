@@ -7,10 +7,7 @@ import useSpotifyAPI from '../useSpotifyAPI';
 function SpotifySidebar() {
   const { myPlaylists, myAlbums, setSelection } = useData()
 
-  console.log({myPlaylists, myAlbums});
-
   const Layout = ({ children }) => {
-
     return (
       <div
         style={{
@@ -20,7 +17,6 @@ function SpotifySidebar() {
           minWidth: '159px'
         }}
       >
-
         {/* Top */}
         <div
           style={{
@@ -28,7 +24,6 @@ function SpotifySidebar() {
           }}
         >
         </div>
-
         {/* RenderBox container */}
         <div
           style={{

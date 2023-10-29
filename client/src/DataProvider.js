@@ -6,12 +6,12 @@ import useSpotifyAuth from './useSpotifyAuth';
 const DataContext = createContext();
 
 const DataProvider = ({ code, children }) => {
-  const accessToken = useSpotifyAuth(code);
+  const t = useSpotifyAuth(code);
 
   const [ selection, setSelection ] = useState(null)
 
-  const myPlaylists = useSpotifyAPI(accessToken, 'me/playlists');
-  const myAlbums = useSpotifyAPI(accessToken, 'me/albums');
+  const myPlaylists = useSpotifyAPI(t, 'me/playlists');
+  const myAlbums = useSpotifyAPI(t, 'me/albums');
 
 
   const value = {
@@ -19,7 +19,7 @@ const DataProvider = ({ code, children }) => {
     myAlbums,
     selection,
     setSelection,
-    accessToken,
+    t,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

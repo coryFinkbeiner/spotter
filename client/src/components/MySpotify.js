@@ -1,5 +1,6 @@
 import React from 'react'
 import Selection from './Selection'
+import SearchSpotify from './SearchSpotify'
 
 function MySpotify() {
 
@@ -10,10 +11,19 @@ function MySpotify() {
         padding: '2px'
       }}
     >
-      <Selection />
+
+
+      {/* <Selection /> */}
+
+
+      <SearchSpotify />
+
+
+
     </div>
 
   )
 }
 
 export default MySpotify
+
