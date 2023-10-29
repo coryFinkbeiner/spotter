@@ -8,11 +8,10 @@ const DataContext = createContext();
 const DataProvider = ({ code, children }) => {
   const t = useSpotifyAuth(code);
 
-  const [ selection, setSelection ] = useState(null)
+  const [ selection, setSelection ] = useState(null);
 
   const myPlaylists = useSpotifyAPI(t, 'me/playlists');
   const myAlbums = useSpotifyAPI(t, 'me/albums');
-
 
   const value = {
     myPlaylists,

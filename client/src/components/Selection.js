@@ -1,7 +1,7 @@
 import React from 'react'
 import RenderBox from "./RenderBox"
 import TrackElement from './TrackElement'
-
+import { useData } from '../DataProvider';
 
 function Selection({
   imageURL,
@@ -9,6 +9,9 @@ function Selection({
   line2,
   line3,
 }) {
+
+  const { selection } = useData()
+  console.log({selection})
 
   const Layout = ({ children }) => {
     return (
