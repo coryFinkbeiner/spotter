@@ -11,7 +11,7 @@ function Selection({
 }) {
 
   const { selection } = useData()
-  console.log({selection})
+  // console.log({selection})
 
   const Layout = ({ children }) => {
     return (
