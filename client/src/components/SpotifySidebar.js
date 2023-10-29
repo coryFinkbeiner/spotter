@@ -2,12 +2,12 @@ import React from 'react'
 import RenderBox from "./RenderBox"
 import CollectionElement from "./CollectionElement"
 import { useData } from '../DataProvider';
+import useSpotifyAPI from '../useSpotifyAPI';
 
 function SpotifySidebar() {
+  const { myPlaylists, myAlbums, setSelection } = useData()
 
-  const { myPlaylists, myAlbums } = useData()
-
-  console.log({myPlaylists, myAlbums})
+  console.log({myPlaylists, myAlbums});
 
   const Layout = ({ children }) => {
 

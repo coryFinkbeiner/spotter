@@ -1,5 +1,5 @@
 // DataProvider.js
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import useSpotifyAPI from './useSpotifyAPI';
 import useSpotifyAuth from './useSpotifyAuth';
 
@@ -8,19 +8,18 @@ const DataContext = createContext();
 const DataProvider = ({ code, children }) => {
   const accessToken = useSpotifyAuth(code);
 
-  const myPlaylists = useSpotifyAPI({
-    accessToken,
-    endpoint: 'me/playlists',
-  })
+  const [ selection, setSelection ] = useState(null)
 
-  const myAlbums = useSpotifyAPI({
-    accessToken,
-    endpoint: 'me/albums',
-  })
+  const myPlaylists = useSpotifyAPI(accessToken, 'me/playlists');
+  const myAlbums = useSpotifyAPI(accessToken, 'me/albums');
+
 
   const value = {
     myPlaylists,
-    myAlbums
+    myAlbums,
+    selection,
+    setSelection,
+    accessToken,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

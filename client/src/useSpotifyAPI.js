@@ -1,39 +1,37 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import useSpotifyAuth from './useSpotifyAuth';
+import { useData } from './DataProvider';
 
-const useSpotifyAPI = ({
+const useSpotifyAPI = (
   accessToken,
   endpoint,
   method = 'GET',
-  data = null
-}) => {
+  params,
+) => {
   const [responseData, setResponseData] = useState(null);
 
   useEffect(() => {
     (async () => {
       try {
         const response = await axios({
-          method: method,
-          url: `https://api.spotify.com/v1/${endpoint}?limit=50`,
+          method,
+          url: `https://api.spotify.com/v1/${endpoint}`,
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
-          data: data,
+          params: {
+            limit: 50,
+            ...params,
+          },
         });
         setResponseData(response.data);
       } catch (error) {
         console.log('API error', error);
       }
     })();
-  }, [accessToken, endpoint, method, data])
+  }, [accessToken]);
+
   return responseData;
 };
 
 export default useSpotifyAPI;
-
-
-
-
-
-
