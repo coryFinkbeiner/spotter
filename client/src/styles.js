@@ -21,3 +21,4 @@ export const tracksBox = {
   ...renderBox,
   gridTemplateColumns: 'repeat(3, 1fr)',
 };
+

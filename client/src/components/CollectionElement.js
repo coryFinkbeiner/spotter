@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 function CollectionElement({
-  key,
-  collectionData
+  item,
+  key
 }) {
+
+  const [ imageUrl, setImageUrl ] = useState(null)
+  const [ lineA, setLineA ] = useState(null)
+  const [ lineB, setLineB ] = useState(null)
+
+  console.log({item})
+
+  useEffect(() => {
+    if (!item) return
+
+    if (item.album) {
+      setImageUrl(item.album.images[0].url)
+      setLineA(item.album.name)
+      setLineB(item.album.artists[0].name)
+    } else if (item.images){
+      setImageUrl(item.images[0].url)
+      setLineA(item.name)
+      setLineB(item.owner.display_name)
+    }
+
+  }, [item])
+
 
   return (
 
@@ -20,7 +42,7 @@ function CollectionElement({
 
       <div
         style={{
-          backgroundImage: "url('https://i.scdn.co/image/ab67616d0000b273ad27e16c5f844ea1ad6797cd')",
+          backgroundImage: `url(${imageUrl})`,
           backgroundSize: 'cover', // Options: 'auto', 'contain', 'cover', or specific values like '50% 50%'
           backgroundPosition: 'center',
 
@@ -44,3 +66,5 @@ function CollectionElement({
 }
 
 export default CollectionElement
+
+// Playlists and Albums
