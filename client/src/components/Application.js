@@ -5,7 +5,6 @@ import PlayerBar from './PlayerBar';
 import BeatBar from './BeatBar';
 import AppLayout from './AppLayout';
 
-
 function Application() {
   return (
 
