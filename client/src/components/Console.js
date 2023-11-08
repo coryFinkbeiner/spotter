@@ -1,5 +1,5 @@
 import React from 'react'
-import MySpotify from './MySpotify'
+// import MySpotify from './MySpotify'
 import SpotifySidebar from './SpotifySidebar'
 
 const Layout = ({children}) => {
@@ -35,7 +35,7 @@ function Console() {
   return (
     <Layout>
       <SpotifySidebar />
-      <MySpotify />
+      {/* <MySpotify /> */}
     </Layout>
   )
 }

@@ -2,7 +2,13 @@ import React from 'react'
 
 function Dash() {
   return (
-    <div>Dash</div>
+    <div
+      style={{
+        backgroundColor: 'lightBlue'
+      }}
+
+    >
+    </div>
   )
 }
 
