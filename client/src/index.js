@@ -8,6 +8,7 @@ import Dash from './components/Dash';
 import PlayerBar from './components/PlayerBar'
 import BeatBar from './components/BeatBar';
 import { DataProvider } from './DataProvider';
+import './index.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -43,7 +44,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-      <Application />
+    <Application />
 
   </React.StrictMode>
 );

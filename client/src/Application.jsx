@@ -6,6 +6,7 @@ import HistoryPage from './pages/HistoryPage';
 import ArtistPage from './pages/ArtistPage';
 import MySpotify from './pages/MySpotify';
 import SpotifyLayout from './components/SpotifyLayout';
+import './App.css';
 
 
 
