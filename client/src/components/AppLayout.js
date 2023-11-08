@@ -1,10 +1,9 @@
 
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 
 function AppLayout({ children }) {
-
-  const [ one, two, three, four ] = React.Children.toArray(children);
 
 
   return (
@@ -14,13 +13,10 @@ function AppLayout({ children }) {
         gridTemplateColumns: '1fr 2fr',
         gridTemplateRows: '7fr 1fr',
         height: '100vh',
-        backgroundColor: 'black',
+        // backgroundColor: 'black',
       }}
     >
-      <div>{one}</div>
-      <div>{two}</div>
-      <div>{three}</div>
-      <div>{four}</div>
+      <Outlet />
     </div>
   );
 }
