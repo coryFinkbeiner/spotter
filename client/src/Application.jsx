@@ -23,6 +23,7 @@ function Application() {
           <Route path="MySpotify" element={<SpotifyLayout />}>
             <Route index element={<MySpotify />} />
             <Route path="ArtistPage" element={<ArtistPage />} />
+
           </Route>
         </Route>
       </Routes>

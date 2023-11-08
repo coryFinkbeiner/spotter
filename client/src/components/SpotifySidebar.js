@@ -5,15 +5,10 @@ import { useData } from '../DataProvider';
 import useSpotifyAPI from '../useSpotifyAPI';
 import { collectionsBox } from '../styles'
 
-
-
-
-
 function SpotifySidebar() {
   const { myPlaylists, myAlbums, setSelection } = useData()
 
   const [ radio, setRadio ] = useState(myPlaylists);
-
 
   const Layout = ({ children }) => {
     return (
@@ -22,7 +17,7 @@ function SpotifySidebar() {
           height: '100%',
           display: 'grid',
           gridTemplateRows: '1fr 2.4fr',
-          minWidth: '159px'
+          minWidth: '159px',
         }}
       >
         <div
