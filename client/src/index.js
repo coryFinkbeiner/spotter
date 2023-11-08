@@ -10,41 +10,18 @@ import BeatBar from './components/BeatBar';
 import { DataProvider } from './DataProvider';
 import './index.css';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-
-
-
-
-
-
-
-// // Check for the presence of the authorization code
-// const code = new URLSearchParams(window.location.search).get('code');
-
-// root.render(
-//   <React.StrictMode>
-//     {code ? (
-//       <Application code={code}/>
-//     ) : (
-//       <SpotifyLogin />
-//     )}
-//   </React.StrictMode>
-// );
-
-
-
-
-
-
-
-
+const code = new URLSearchParams(window.location.search).get('code');
 
 root.render(
   <React.StrictMode>
-
-    <Application />
-
+    {code ? (
+      <DataProvider code={code}>
+        <Application />
+      </DataProvider>
+    ) : (
+      <SpotifyLogin />
+    )}
   </React.StrictMode>
 );

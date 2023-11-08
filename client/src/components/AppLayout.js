@@ -12,7 +12,7 @@ function AppLayout({ children }) {
         display: 'grid',
         gridTemplateColumns: '1fr 2fr',
         gridTemplateRows: '7fr 1fr',
-        height: '94vh',
+        height: '100%',
         backgroundColor: 'darkOrange',
       }}
     >

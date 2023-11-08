@@ -7,7 +7,7 @@ export default function SpotifyLayout() {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: '1fr 2.1fr'
+        gridTemplateColumns: '1fr 2.23fr'
       }}
     >
       <Sidebar />
