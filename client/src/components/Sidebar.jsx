@@ -4,8 +4,6 @@ import { collectionsBox } from '../styles';
 import Album from './Album';
 import Playlist from './Playlist';
 
-
-
 function Sidebar() {
   const { myPlaylists, myAlbums } = useData();
   const [ radio, setRadio ] = useState('albums');
