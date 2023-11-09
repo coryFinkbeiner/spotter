@@ -5,7 +5,7 @@ import SpotifyLogin from './components/SpotifyLogin';
 import AppLayout from './components/AppLayout';
 import Console from './components/Console';
 import Dash from './components/Dash';
-import PlayerBar from './components/PlayerBar'
+import PlayerBar from './components/PlayerBar';
 import BeatBar from './components/BeatBar';
 import { DataProvider } from './DataProvider';
 import './index.css';

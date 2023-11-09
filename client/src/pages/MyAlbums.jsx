@@ -7,10 +7,10 @@ function MyAlbums() {
 
   return (
     myAlbums?.items.map((item, index) => (
-      <Link
-        to={`/vans/${van.id}`}
-        key={van.id}
-      >
+      // <Link
+      //   to={`/vans/${van.id}`}
+      //   key={van.id}
+      // >
 
         <div
           style={{
@@ -45,7 +45,7 @@ function MyAlbums() {
 
         </div>
 
-      </Link>
+      // </Link>
     ))
   )
 }

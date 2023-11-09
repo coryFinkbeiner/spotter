@@ -10,7 +10,7 @@ function Dash() {
 
     >
       <NavLink to='/'>Home</NavLink>
-      <NavLink to='/spotify'>My Spotify</NavLink>
+      <NavLink to='spotify'>My Spotify</NavLink>
 
     </div>
   )
