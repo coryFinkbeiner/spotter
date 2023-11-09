@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Sidebar from './Sidebar';
+
 
 export default function SpotifyLayout() {
   return (
@@ -10,7 +10,6 @@ export default function SpotifyLayout() {
         gridTemplateColumns: '1fr 2.23fr'
       }}
     >
-      <Sidebar />
       <Outlet />
     </div>
   )
