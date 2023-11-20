@@ -14,8 +14,6 @@ const DataProvider = ({ code, children }) => {
   const value = {
     myPlaylists,
     myAlbums,
-    selection,
-    setSelection,
     t,
   };
 

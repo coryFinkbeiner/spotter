@@ -1,70 +1,15 @@
-// import { BrowserRouter, Routes, Route } from "react-router-dom"
-// import AppLayout from './components/AppLayout';
-// import Home from './pages/Home';
-// import SessionPage from './pages/SessionPage';
-// import HistoryPage from './pages/HistoryPage';
-// import ArtistPage from './pages/ArtistPage';
-// import SpotifyLayout from './components/SpotifyLayout';
-// import './App.css';
-// import AlbumView from './pages/AlbumView';
-// import Sidebar from './Sidebar';
-// import SpotifyConsoleLayout from './components/SpotifyConsoleLayout';
-// import PlaylistView from './pages/PlaylistView';
-// import MyPlaylists from  './pages/MyPlaylists';
-// import MyAlbums from './pages/myAlbums';
-// import SpotifyHome from '/pages/SpotifyHome';
-
-// function Application() {
-
-//   return (
-//     <BrowserRouter>
-//       <Routes>
-//         <Route path="/" element={<AppLayout />}>
-//           <Route index element={<Home />} />
-//           <Route path="session" element={<SessionPage />} />
-//           <Route path="history" element={<HistoryPage />} />
-//           <Route path="spotify" element={<SpotifyLayout />}>
-
-//             <Route path="sidebar" element={<Sidebar />} >
-//               <Route path="albums" element={<MyAlbums />} />
-//               <Route path="playlists" element={<MyPlaylists />} />
-//             </Route>
-
-//             <Route path="console" element={<SpotifyConsoleLayout />} >
-//               <Route index element={<SpotifyHome />} />
-//               <Route path="artist" element={<ArtistPage />} />
-//               <Route path="album" element={<AlbumView />} />
-//               <Route path="playlist" element={<PlaylistView />} />
-//             </Route>
-
-//           </Route>
-//         </Route>
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
-
-// export default Application;
-
-
-
-
-
-
-
 import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  Link
 } from "react-router-dom"
 import AppLayout from './components/AppLayout';
 import Home from './pages/Home';
 import SessionPage from './pages/SessionPage';
 import HistoryPage from './pages/HistoryPage';
 import ArtistPage from './pages/ArtistPage';
-import SpotifyLayout from './components/SpotifyLayout';
+import SpotifyApp from './components/SpotifyApp';
 import './App.css';
 import AlbumView from './pages/AlbumView';
 import Sidebar from './components/Sidebar';
@@ -74,31 +19,17 @@ import MyPlaylists from  './pages/MyPlaylists';
 import MyAlbums from './pages/MyAlbums';
 import SpotifyHome from './pages/SpotifyHome';
 
-
-
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<AppLayout />}>
     <Route index element={<Home />} />
-    <Route path="session" element={<SessionPage />} />
-    <Route path="history" element={<HistoryPage />} />
-    <Route path="spotify" element={<SpotifyLayout />}>
+    <Route path="spotify" element={<SpotifyApp />}>
+      <Route index element={<SpotifyHome />} />
 
-      <Route path="sidebar" element={<Sidebar />} >
-        <Route path="albums" element={<MyAlbums />} />
-        <Route path="playlists" element={<MyPlaylists />} />
-      </Route>
-
-      <Route path="console" element={<SpotifyConsoleLayout />} >
-        <Route index element={<SpotifyHome />} />
-        <Route path="artist" element={<ArtistPage />} />
-        <Route path="album" element={<AlbumView />} />
-        <Route path="playlist" element={<PlaylistView />} />
-      </Route>
+      <Route path="album" element={<AlbumView />} />
 
     </Route>
   </Route>
 ))
-
 
 function Application() {
   return (

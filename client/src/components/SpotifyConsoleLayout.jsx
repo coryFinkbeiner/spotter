@@ -1,8 +1,17 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom';
 
 function SpotifyConsoleLayout() {
   return (
-    <div>SpotifyConsoleLayout</div>
+    <div
+      style={{
+        backgroundColor: 'purple',
+        height: '100%',
+        color: 'black',
+      }}
+    >
+      {/* <Outlet /> */}hjgjhgjhg
+    </div>
   )
 }
 
