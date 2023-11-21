@@ -1,11 +1,21 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import {
+  Outlet,
+  useLoaderData,
+
+} from 'react-router-dom';
 import Sidebar from './Sidebar'
-import { useData } from '../DataProvider';
+import useSpotifyAPI from '../useSpotifyAPI';
+
+
+export function loader() {
+  return 'test'
+}
 
 
 export default function SpotifyApp() {
 
+  // Albums and Playlists
 
   return (
     <div
