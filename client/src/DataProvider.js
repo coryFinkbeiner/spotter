@@ -12,8 +12,11 @@ const DataProvider = ({ code, children }) => {
   const myAlbums = useSpotifyAPI(t, 'me/albums');
 
   const value = {
-    myPlaylists,
-    myAlbums,
+    myLibrary: {
+      myPlaylists,
+      myAlbums,
+    },
+
     t,
   };
 

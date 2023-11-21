@@ -9,28 +9,55 @@ import Home from './pages/Home';
 import SpotifyHome from './pages/SpotifyHome';
 import SpotifyApp, { loader as libraryLoader } from './components/SpotifyApp';
 
+import { useData } from './DataProvider';
 
 
 
-const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<AppLayout />}>
-    <Route index element={<Home />} />
-    <Route
-      path="spotify"
-      element={<SpotifyApp />}
-      loader={libraryLoader}
-    >
+// const router = createBrowserRouter(createRoutesFromElements(
+//   <Route path="/" element={<AppLayout />}>
+//     <Route index element={<Home />} />
+//     <Route
+//       path="spotify"
+//       element={<SpotifyApp />}
+//       loader={() => myLibrary}
+//     >
 
-      <Route index element={<SpotifyHome />} />
+//       <Route index element={<SpotifyHome />} />
 
-    </Route>
-  </Route>
-))
+//     </Route>
+//   </Route>
+// ))
 
-function Application({code}) {
+function Application() {
+
+  const { myLibrary } = useData();
 
   return (
-    <RouterProvider router={router} />
+    <RouterProvider
+
+      router={
+
+        createBrowserRouter(createRoutesFromElements(
+          <Route path="/" element={<AppLayout />}>
+            <Route index element={<Home />} />
+            <Route
+              path="spotify"
+              element={<SpotifyApp />}
+              loader={() => myLibrary}
+            >
+
+              <Route index element={<SpotifyHome />} />
+
+            </Route>
+          </Route>
+        ))
+
+
+
+
+      }
+
+    />
   );
 }
 
