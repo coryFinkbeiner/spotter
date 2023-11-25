@@ -5,14 +5,11 @@ import {
 } from 'react-router-dom';
 import Sidebar from './Sidebar'
 
-
 export default function SpotifyApp() {
 
   const myLibrary = useLoaderData();
 
   console.log({myLibrary})
-
-
 
   return (
     <div
