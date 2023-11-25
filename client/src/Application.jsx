@@ -9,10 +9,12 @@ import Home from './pages/Home';
 import SpotifyHome from './pages/SpotifyHome';
 import SpotifyApp, { loader as libraryLoader } from './components/SpotifyApp';
 
-import { useData } from './DataProvider';
+import useMyLibrary from './hooks/useMyLibrary';
+
 
 function Application() {
-  const { myLibrary } = useData();
+
+  const myLibrary = useMyLibrary()
 
 
   return (
